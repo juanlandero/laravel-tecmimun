@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/registro', 'RegistroController@registro')->name('Registrame');
+
+
+/**
+ * Rutas de Paises
+ */
+
+Route::get('/pais', 'PaisController@index')->name('IndexPais');
+Route::post('/pais', 'PaisController@guardar')->name('GuardarPais');
+
+
+/**
+* Rutas de comites
+*/
+
+Route::get('/comites', 'ComiteController@index')->name('comite');
+Route::post('/comites', 'ComiteController@guardar')->name('guardarcomites');

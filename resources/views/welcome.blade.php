@@ -15,8 +15,14 @@
 
     <div class="container">
         <div class="row">
-            <a href="#" >
+            <a href="{{ route('Registrame') }}" >
                 <button class="btn btn-primary">Registrarme</button>
+            </a>
+            <a href="{{ route('IndexPais') }}" >
+                <button class="btn btn-primary">Paises</button>
+            </a>
+            <a href="{{ route('comite') }}" >
+                <button class="btn btn-danger">Comites</button>
             </a>
         </div>
     </div>
