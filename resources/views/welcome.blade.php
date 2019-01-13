@@ -1,35 +1,153 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('plantilla.index')
 
-    <title>Laravel</title>
+@section('titulo', 'Inicio')
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-</head>
-<body>
+@section('body')
 
 
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 6000; pause-on-hover: false">
+
+    <ul class="uk-slideshow-items">
+        <li>
+            <img src="img/slider/slide1.jpg" alt="" uk-cover>
+            <div class="uk-position-center uk-position-small uk-text-center uk-light">
+                <h1 class="uk-margin-remove title is-1 ">TECMIMUN 2019</h1>
+                <h3 class="uk-margin-remove">Mayo 24 y 25, 2019</h3>
+            </div>
+        </li>
+        <li>
+            <img src="img/slider/slide2.jpg" alt="" uk-cover>
+            <div class="uk-position-center uk-position-small uk-text-center">
+                <h2 uk-slideshow-parallax="x: 100,-100">Heading</h2>
+                <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </li>
+        <li>
+            <img src="img/slider/slide3.jpg" alt="" uk-cover>
+            <div class="uk-position-center uk-position-small uk-text-center">
+                <h2 uk-slideshow-parallax="x: 100,-100">Heading</h2>
+                <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </li>
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+    <div class="uk-position-bottom-center uk-position-small">
+        <ul class="uk-dotnav uk-hidden-hover">
+            <li uk-slideshow-item="0"><a href="#">Item 1</a></li>
+            <li uk-slideshow-item="1"><a href="#">Item 2</a></li>
+            <li uk-slideshow-item="2"><a href="#">Item 3</a></li>
+        </ul>
+    </div>
+
+    <div class="uk-position-top">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="">
+                        <img src="img/logo.png" height="100%" >
+                    </a>
+              
+                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+              
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                       
+                    </div>
+              
+                    <div class="navbar-end">
+                        <a class="navbar-item">Inicio</a>
+                        <a class="navbar-item">Acerca de</a>
+                        <a class="navbar-item">Secretariado</a>
+                        <a class="navbar-item">Modelo</a>
+                        <a class="navbar-item">Protocolo</a>
+                        <a class="navbar-item">Contacto</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<section class="section">
+    <p>reloj</p>
+</section>
+
+
+<section class="section">
     <div class="container">
-        <div class="row">
-            <a href="{{ route('Registrame') }}" >
-                <button class="btn btn-primary">Registrarme</button>
-            </a>
-            <a href="{{ route('IndexPais') }}" >
-                <button class="btn btn-primary">Paises</button>
-            </a>
-            <a href="{{ route('comite') }}" >
-                <button class="btn btn-danger">Comites</button>
-            </a>
+        <div class="columns">
+            <div class="column is-4">
+                <div class="box">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut pariatur impedit 
+                    alias facere quas illum esse. Ab nisi doloremque quasi commodi ea reiciendis veritatis 
+                    consectetur atque alias eum? Quia, eaque.</p>
+                </div>
+            </div>
+            <div class="column is-8">
+                <article class="message is-success">
+                    
+                    <div class="message-body">
+                        <h1 class="title">Carta de bienvenida</h1>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                    </div>
+                </article>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-4">
+                <article class="message is-success">
+                    <div class="message-header">
+                        <p>Secretariado</p>
+                    </div>
+                    <img src="img/teamwork.jpg" alt="">
+                    <!--div class="message-body">
+                        
+                    </div-->
+                </article>
+            </div>
+            <div class="column is-4">
+                <article class="message is-success">
+                    <div class="message-header">
+                        <p>Comites</p>
+                    </div>
+                    <img src="img/teamwork.jpg" alt="">
+                    <!--div class="message-body">
+                        
+                    </div-->
+                </article>
+            </div>
+            <div class="column is-4">
+                <article class="message is-success">
+                    <div class="message-header">
+                        <p>Registro</p>
+                    </div>
+                    <img src="img/teamwork.jpg" alt="">
+                    <!--div class="message-body">
+                        
+                    </div-->
+                </article>
+            </div>
         </div>
     </div>
-    
+</section>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-</body>
-</html>
+
+<script src="js/slider-uikit/uikit.js"></script>
+
+
+@endsection
