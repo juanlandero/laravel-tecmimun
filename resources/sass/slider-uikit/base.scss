@@ -337,12 +337,18 @@ figure { margin: 0 0 $base-margin-vertical 0; }
 /* Headings
  ========================================================================== */
 
-h1, .uk-h1,
-h2, .uk-h2,
-h3, .uk-h3,
-h4, .uk-h4,
-h5, .uk-h5,
-h6, .uk-h6 {
+//h1, 
+.uk-h1,
+//h2, 
+.uk-h2,
+//h3, 
+.uk-h3,
+//h4, 
+.uk-h4,
+///h5, 
+.uk-h5,
+//h6, 
+.uk-h6 {
     margin: 0 0 $base-margin-vertical 0;
     font-family: $base-heading-font-family;
     font-weight: $base-heading-font-weight;
@@ -363,37 +369,43 @@ h6, .uk-h6 {
  * Sizes
  */
 
-h1, .uk-h1 {
+//h1,
+ .uk-h1 {
     font-size: $base-h1-font-size;
     line-height: $base-h1-line-height;
     @if(mixin-exists(hook-base-h1)) {@include hook-base-h1();}
 }
 
-h2, .uk-h2 {
+//h2,
+ .uk-h2 {
     font-size: $base-h2-font-size;
     line-height: $base-h2-line-height;
     @if(mixin-exists(hook-base-h2)) {@include hook-base-h2();}
 }
 
-h3, .uk-h3 {
+//h3,
+ .uk-h3 {
     font-size: $base-h3-font-size;
     line-height: $base-h3-line-height;
     @if(mixin-exists(hook-base-h3)) {@include hook-base-h3();}
 }
 
-h4, .uk-h4 {
+//h4,
+ .uk-h4 {
     font-size: $base-h4-font-size;
     line-height: $base-h4-line-height;
     @if(mixin-exists(hook-base-h4)) {@include hook-base-h4();}
 }
 
-h5, .uk-h5 {
+//h5,
+ .uk-h5 {
     font-size: $base-h5-font-size;
     line-height: $base-h5-line-height;
     @if(mixin-exists(hook-base-h5)) {@include hook-base-h5();}
 }
 
-h6, .uk-h6 {
+//h6,
+ .uk-h6 {
     font-size: $base-h6-font-size;
     line-height: $base-h6-line-height;
     @if(mixin-exists(hook-base-h6)) {@include hook-base-h6();}
@@ -402,8 +414,10 @@ h6, .uk-h6 {
 /* Tablet landscape and bigger */
 @media (min-width: $breakpoint-medium) {
 
-    h1, .uk-h1 { font-size: $base-h1-font-size-m; }
-    h2, .uk-h2 { font-size: $base-h2-font-size-m; }
+    //h1, 
+    .uk-h1 { font-size: $base-h1-font-size-m; }
+    //h2, 
+    .uk-h2 { font-size: $base-h2-font-size-m; }
 
 }
 
@@ -556,7 +570,7 @@ template { display: none; }
 
 /*
  * Breakpoints
- */
+ 
 
 .uk-breakpoint-s::before  { content: '#{$breakpoint-small}'; }
 .uk-breakpoint-m::before  { content: '#{$breakpoint-medium}'; }
@@ -568,7 +582,7 @@ template { display: none; }
     --uk-breakpoint-m: $breakpoint-medium;
     --uk-breakpoint-l: $breakpoint-large;
     --uk-breakpoint-xl: $breakpoint-xlarge;
-}
+}*/
 
 // Hooks
 // ========================================================================

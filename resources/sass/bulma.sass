@@ -1,13 +1,29 @@
 @charset "utf-8"
 /*! bulma.io v0.7.2 | MIT License | github.com/jgthms/bulma */
 
-// Colores aun no definidos
-$primary: #091951
-$link: #43a047
-$success: green
+//tema tecmimun
+
+$primario1: #1E1E5A //Azul fuerte
+$sub-primario1: #0000FF
+$primario2: #2EA440 //Verde fuerte
+$sub-primario2: #17CF33
+
+
+
+
+
+$primary: $primario1
+
+$link: $sub-primario2
+
+$title-color: $primario1
 
 $navbar-background-color: #fff9
-$navbar-item-color: black
+$navbar-item-color: $primario1
+$navbar-padding-horizontal: .5rem
+
+// footer
+$footer-padding: 3rem 1.5rem 2rem
 
 // Tamaños
 //$navbar-item-img-max-height: 4rem
@@ -26,8 +42,18 @@ $navbar-item-color: black
 //----------------- Sldier ---------------
 $global-color: white
 $slide-items-color: white
-$slide-hover-color: green
-$active-color:green
+$slide-hover-color: $primario2
+$active-color: $primario2
 //$global-emphasis-color: #607d8b
 
 @import "slider-uikit/import"
+
+
+.content
+    position: relative
+
+.hero
+    .title-hero 
+        width: 100%
+        position: absolute
+        top: 75%

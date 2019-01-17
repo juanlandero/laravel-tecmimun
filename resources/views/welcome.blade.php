@@ -63,21 +63,69 @@
                     </div>
               
                     <div class="navbar-end">
-                        <a class="navbar-item">Inicio</a>
-                        <a class="navbar-item">Acerca de</a>
-                        <a class="navbar-item">Secretariado</a>
-                        <a class="navbar-item">Modelo</a>
-                        <a class="navbar-item">Protocolo</a>
-                        <a class="navbar-item">Contacto</a>
+                        <a class="navbar-item" href="{{ Route('index') }}" >Inicio</a>
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">Acerca</a>
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item" href="{{ Route('Nosotros') }}">Modelo</a>
+                                <a class="navbar-item">Protocolo</a>
+                                <a class="navbar-item">Contacto</a>                          
+                            </div>
+                        </div> 
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">Registro</a>
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item" href="{{ Route('Registro') }}">Como registrarse</a>
+                                <a class="navbar-item">Fechas</a>
+                                <a class="navbar-item">Costos</a>                          
+                            </div>
+                        </div> 
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">Comites</a>
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item">Información de comités</a>
+                                <a class="navbar-item">Criterios de premiación</a>
+                                <a class="navbar-item">Antecedentes</a>
+                                <a class="navbar-item">Posiciones oficiales</a>                            
+                                <a class="navbar-item">Recursos de apoyo</a>                            
+                            </div>
+                        </div>                      
                     </div>
                 </div>
             </div>
         </nav>
     </div>
 </div>
+<section class="hero is-primary">
+    <div class="hero-body container">
 
-<section class="section">
-    <p>reloj</p>
+            <nav class="columns is-centered">
+                <div class="column is-2 has-text-centered">
+                    <div>
+                        <p class="heading">Días</p>
+                        <p class="title is-size-1" id="dia">dia</p>
+                    </div>
+                </div>
+                <div class="column is-2 has-text-centered">
+                    <div>
+                        <p class="heading">Horas</p>
+                        <p class="title is-size-1" id="hora">ma</p>
+                    </div>
+                </div>
+                <div class="column is-2 has-text-centered">
+                    <div>
+                        <p class="heading">Minutos</p>
+                        <p class="title is-size-1" id="minuto">m</p>
+                    </div>
+                </div>
+                <div class="column is-2 has-text-centered">
+                    <div>
+                        <p class="heading">Segundos</p>
+                        <p class="title is-size-1" id="segundo"></p>
+                    </div>
+                </div>
+            </nav>
+    </div>
 </section>
 
 
@@ -110,7 +158,7 @@
     <div class="container">
         <div class="columns">
             <div class="column is-4">
-                <article class="message is-success">
+                <article class="message is-primary">
                     <div class="message-header">
                         <p>Secretariado</p>
                     </div>
@@ -121,7 +169,7 @@
                 </article>
             </div>
             <div class="column is-4">
-                <article class="message is-success">
+                <article class="message is-primary">
                     <div class="message-header">
                         <p>Comites</p>
                     </div>
@@ -132,7 +180,7 @@
                 </article>
             </div>
             <div class="column is-4">
-                <article class="message is-success">
+                <article class="message is-primary">
                     <div class="message-header">
                         <p>Registro</p>
                     </div>
@@ -147,7 +195,37 @@
 </section>
 
 
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
+    </div>
+</footer>
+
+
+@include('registro.modalRegistro')
+
 <script src="js/slider-uikit/uikit.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/contador.js"></script>
+<script>
+$(document).ready(function(){
+    countdown();
+});
+
+function toggleModal(){
+    var modal = $('#modal')
+    if(modal.hasClass("is-active")){
+        modal.removeClass("is-active");
+    }else{
+        modal.addClass("is-active");
+    }
+}
+</script>
 
 
 @endsection
