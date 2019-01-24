@@ -1,41 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Paises</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+@extends('plantilla.index')
 
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <form action="{{ route('GuardarPais') }}" method="post">
-                @csrf
-                <div class="col-md-12 mb-3">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre del pais" required>
-                </div>
+@section('titulo', 'Paises')
 
-                <button type="submit" class="btn btn-success">Guardar</button>
-            </form>
+@section('body')
+<div class="container">
+    <form action="{{ route('GuardarPais') }}" method="post">
+        @csrf
+        <div class="column">
+            <label for="nombre" class="label">Nombre:</label>
+            <div class="control">
+                <input type="text" class="input" name="nombre" id="nombre" placeholder="Nombre del pais" required>
+            </div>
         </div>
-        <br>
-        <br>
-        <div class="row">
-            <table class="table">
-                <thead>
+        <div class="control">
+            <button type="submit" class="button is-success is-rounded">Guardar</button>
+        </div>
+    </form>
+    <br>
+    <br>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Creado</th>
+                    <th scope="col">Modificado</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($paises as $pais)
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Creado</th>
-                        <th scope="col">Modificado</th>
+                        <td>{{ $pais->id }}</td>
+                        <td>{{ $pais->nombre }}</td>
+                        <td>{{ $pais->created_at }}</td>
+                        <td>{{ $pais->updated_at }}</td>
                     </tr>
-                </thead>
-            </table>
-        </div>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-
-</body>
-</html>
+</div>
+@endsection

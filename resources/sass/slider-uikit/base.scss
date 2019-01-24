@@ -314,19 +314,19 @@ iframe { border: 0; }
  * Margins
  */
 
-p,
+/*p,
 ul,
-ol,
+ol,*/
 dl,
 pre,
 address,
 fieldset,
 figure { margin: 0 0 $base-margin-vertical 0; }
 
-/* Add margin if adjacent element */
+/* Add margin if adjacent element 
 * + p,
 * + ul,
-* + ol,
+* + ol,*/
 * + dl,
 * + pre,
 * + address,
@@ -358,12 +358,18 @@ figure { margin: 0 0 $base-margin-vertical 0; }
 }
 
 /* Add margin if adjacent element */
-* + h1, * + .uk-h1,
-* + h2, * + .uk-h2,
-* + h3, * + .uk-h3,
-* + h4, * + .uk-h4,
-* + h5, * + .uk-h5,
-* + h6, * + .uk-h6 { margin-top: $base-heading-margin-top; }
+//* + h1, * + 
+.uk-h1,
+//º* + h2, * + 
+.uk-h2,
+//* + h3, * + 
+.uk-h3,
+//* + h4, * + 
+.uk-h4,
+//* + h5, * + 
+.uk-h5,
+//* + h6, * + 
+.uk-h6 { margin-top: $base-heading-margin-top; }
 
 /*
  * Sizes

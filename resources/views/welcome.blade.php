@@ -11,7 +11,7 @@
         <li>
             <img src="img/slider/slide1.jpg" alt="" uk-cover>
             <div class="uk-position-center uk-position-small uk-text-center uk-light">
-                <h1 class="uk-margin-remove title is-1 ">TECMIMUN 2019</h1>
+                <h1 class="uk-margin-remove title is-size-1-desktop is-size-5-mobile">TECMIMUN 2019</h1>
                 <h3 class="uk-margin-remove">Mayo 24 y 25, 2019</h3>
             </div>
         </li>
@@ -43,91 +43,42 @@
     </div>
 
     <div class="uk-position-top">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="container">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="">
-                        <img src="img/logo.png" height="100%" >
-                    </a>
-              
-                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </a>
-                </div>
-              
-                <div id="navbarBasicExample" class="navbar-menu">
-                    <div class="navbar-start">
-                       
-                    </div>
-              
-                    <div class="navbar-end">
-                        <a class="navbar-item" href="{{ Route('index') }}" >Inicio</a>
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">Acerca</a>
-                            <div class="navbar-dropdown">
-                                <a class="navbar-item" href="{{ Route('Nosotros') }}">Modelo</a>
-                                <a class="navbar-item">Protocolo</a>
-                                <a class="navbar-item">Contacto</a>                          
-                            </div>
-                        </div> 
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">Registro</a>
-                            <div class="navbar-dropdown">
-                                <a class="navbar-item" href="{{ Route('Registro') }}">Como registrarse</a>
-                                <a class="navbar-item">Fechas</a>
-                                <a class="navbar-item">Costos</a>                          
-                            </div>
-                        </div> 
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">Comites</a>
-                            <div class="navbar-dropdown">
-                                <a class="navbar-item">Información de comités</a>
-                                <a class="navbar-item">Criterios de premiación</a>
-                                <a class="navbar-item">Antecedentes</a>
-                                <a class="navbar-item">Posiciones oficiales</a>                            
-                                <a class="navbar-item">Recursos de apoyo</a>                            
-                            </div>
-                        </div>                      
-                    </div>
-                </div>
-            </div>
-        </nav>
+        @include('plantilla.navbar')
     </div>
 </div>
-<section class="hero is-primary">
-    <div class="hero-body container">
 
-            <nav class="columns is-centered">
-                <div class="column is-2 has-text-centered">
-                    <div>
+<section class="hero is-success" uk-scrollspy="cls:uk-animation-fade">
+
+        <div class="hero-body container">
+            
+            <div uk-countdown="date: 2019-05-24T08:00:00" class="columns is-centered is-mobile">
+                    <div class="column is-2-desktop is-5-mobile has-text-centered">
                         <p class="heading">Días</p>
-                        <p class="title is-size-1" id="dia">dia</p>
+                        <span class="title is-size-1-desktop uk-countdown-number uk-countdown-days"></span>
                     </div>
-                </div>
-                <div class="column is-2 has-text-centered">
-                    <div>
+                    <div class="column is-2-desktop is-4-mobile has-text-centered">
                         <p class="heading">Horas</p>
-                        <p class="title is-size-1" id="hora">ma</p>
+                        <span class="title is-size-1-desktop uk-countdown-number uk-countdown-hours"></span>
                     </div>
-                </div>
-                <div class="column is-2 has-text-centered">
-                    <div>
+                    <!--span class="title is-size-1-desktop uk-countdown-separator">:</span-->
+                    <div class="column is-2-desktop is-4-mobile has-text-centered">
                         <p class="heading">Minutos</p>
-                        <p class="title is-size-1" id="minuto">m</p>
+                        <span class="title is-size-1-desktop uk-countdown-number uk-countdown-minutes"></span>
                     </div>
-                </div>
-                <div class="column is-2 has-text-centered">
-                    <div>
+                    <!--div class="column is-1-desktop is-4-mobile has-text-centered">
+                        <p class="heading"></p>
+                        <span class="title is-size-1-desktop uk-countdown-separator">:</span>
+                    </div-->
+                    <div class="column is-2-desktop is-3-mobile has-text-centered is-hidden-mobile">
                         <p class="heading">Segundos</p>
-                        <p class="title is-size-1" id="segundo"></p>
+                        <span class="title is-size-1-desktop uk-countdown-number uk-countdown-seconds"></span>
                     </div>
-                </div>
-            </nav>
-    </div>
-</section>
+            </div>
 
+
+        </div>
+
+    </section>
 
 <section class="section">
     <div class="container">
@@ -140,12 +91,12 @@
                 </div>
             </div>
             <div class="column is-8">
-                <article class="message is-success">
+                <article class="message is-primary">
                     
                     <div class="message-body">
-                        <h1 class="title">Carta de bienvenida</h1>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                        <h1 class="title">CARTA DE BIENVENIDA</h1>
                     </div>
+                    <p class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsam sequi inventore dolor beatae culpa, magni vel eaque perspiciatis! Ut reprehenderit repellat ipsa deleniti voluptatum velit doloremque molestiae ipsam explicabo.</p>
                 </article>
             </div>
         </div>
@@ -195,36 +146,12 @@
 </section>
 
 
-
-<footer class="footer">
-    <div class="content has-text-centered">
-        <p>
-        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-        </p>
-    </div>
-</footer>
-
-
-@include('registro.modalRegistro')
-
 <script src="js/slider-uikit/uikit.js"></script>
 <script src="js/jquery.min.js"></script>
-<script src="js/contador.js"></script>
 <script>
 $(document).ready(function(){
-    countdown();
-});
 
-function toggleModal(){
-    var modal = $('#modal')
-    if(modal.hasClass("is-active")){
-        modal.removeClass("is-active");
-    }else{
-        modal.addClass("is-active");
-    }
-}
+});
 </script>
 
 

@@ -17,6 +17,26 @@ class ComiteController extends Controller
         $comite = new Comite;
         $comite->nombre = $request->input('nombre');
         $comite->save();
-        return $pais;
+        return $comite;
+    }
+
+    public function indexComite(){
+        return view('comite.infoComite');
+    }
+
+    public function recursos(){
+        return view('comite.recursos');
+    }
+
+    public function criterios(){
+        return view('comite.criterios');
+    }
+
+    public function antecedentes(){
+        return view('comite.antecedentes');
+    }
+
+    public function posiciones(){
+        return view('comite.posicionesOficiales');
     }
 }

@@ -907,27 +907,27 @@ a.has-text-info:hover, a.has-text-info:focus {
 }
 
 .has-text-success {
-  color: #23d160 !important;
+  color: #78A42E !important;
 }
 
 a.has-text-success:hover, a.has-text-success:focus {
-  color: #1ca64c !important;
+  color: #5b7c23 !important;
 }
 
 .has-background-success {
-  background-color: #23d160 !important;
+  background-color: #78A42E !important;
 }
 
 .has-text-warning {
-  color: #ffdd57 !important;
+  color: #17CF33 !important;
 }
 
 a.has-text-warning:hover, a.has-text-warning:focus {
-  color: #ffd324 !important;
+  color: #12a128 !important;
 }
 
 .has-background-warning {
-  background-color: #ffdd57 !important;
+  background-color: #17CF33 !important;
 }
 
 .has-text-danger {
@@ -2023,12 +2023,12 @@ a.box:active {
   color: #fff;
 }
 .button.is-success {
-  background-color: #23d160;
+  background-color: #78A42E;
   border-color: transparent;
   color: #fff;
 }
 .button.is-success:hover, .button.is-success.is-hovered {
-  background-color: #22c65b;
+  background-color: #719a2b;
   border-color: transparent;
   color: #fff;
 }
@@ -2037,21 +2037,21 @@ a.box:active {
   color: #fff;
 }
 .button.is-success:focus:not(:active), .button.is-success.is-focused:not(:active) {
-  box-shadow: 0 0 0 0.125em rgba(35, 209, 96, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(120, 164, 46, 0.25);
 }
 .button.is-success:active, .button.is-success.is-active {
-  background-color: #20bc56;
+  background-color: #699028;
   border-color: transparent;
   color: #fff;
 }
 .button.is-success[disabled] {
-  background-color: #23d160;
+  background-color: #78A42E;
   border-color: transparent;
   box-shadow: none;
 }
 .button.is-success.is-inverted {
   background-color: #fff;
-  color: #23d160;
+  color: #78A42E;
 }
 .button.is-success.is-inverted:hover {
   background-color: #f2f2f2;
@@ -2060,29 +2060,29 @@ a.box:active {
   background-color: #fff;
   border-color: transparent;
   box-shadow: none;
-  color: #23d160;
+  color: #78A42E;
 }
 .button.is-success.is-loading::after {
   border-color: transparent transparent #fff #fff !important;
 }
 .button.is-success.is-outlined {
   background-color: transparent;
-  border-color: #23d160;
-  color: #23d160;
+  border-color: #78A42E;
+  color: #78A42E;
 }
 .button.is-success.is-outlined:hover, .button.is-success.is-outlined:focus {
-  background-color: #23d160;
-  border-color: #23d160;
+  background-color: #78A42E;
+  border-color: #78A42E;
   color: #fff;
 }
 .button.is-success.is-outlined.is-loading::after {
-  border-color: transparent transparent #23d160 #23d160 !important;
+  border-color: transparent transparent #78A42E #78A42E !important;
 }
 .button.is-success.is-outlined[disabled] {
   background-color: transparent;
-  border-color: #23d160;
+  border-color: #78A42E;
   box-shadow: none;
-  color: #23d160;
+  color: #78A42E;
 }
 .button.is-success.is-inverted.is-outlined {
   background-color: transparent;
@@ -2091,7 +2091,7 @@ a.box:active {
 }
 .button.is-success.is-inverted.is-outlined:hover, .button.is-success.is-inverted.is-outlined:focus {
   background-color: #fff;
-  color: #23d160;
+  color: #78A42E;
 }
 .button.is-success.is-inverted.is-outlined[disabled] {
   background-color: transparent;
@@ -2100,12 +2100,12 @@ a.box:active {
   color: #fff;
 }
 .button.is-warning {
-  background-color: #ffdd57;
+  background-color: #17CF33;
   border-color: transparent;
   color: rgba(0, 0, 0, 0.7);
 }
 .button.is-warning:hover, .button.is-warning.is-hovered {
-  background-color: #ffdb4a;
+  background-color: #16c430;
   border-color: transparent;
   color: rgba(0, 0, 0, 0.7);
 }
@@ -2114,21 +2114,21 @@ a.box:active {
   color: rgba(0, 0, 0, 0.7);
 }
 .button.is-warning:focus:not(:active), .button.is-warning.is-focused:not(:active) {
-  box-shadow: 0 0 0 0.125em rgba(255, 221, 87, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(23, 207, 51, 0.25);
 }
 .button.is-warning:active, .button.is-warning.is-active {
-  background-color: #ffd83d;
+  background-color: #14b82d;
   border-color: transparent;
   color: rgba(0, 0, 0, 0.7);
 }
 .button.is-warning[disabled] {
-  background-color: #ffdd57;
+  background-color: #17CF33;
   border-color: transparent;
   box-shadow: none;
 }
 .button.is-warning.is-inverted {
   background-color: rgba(0, 0, 0, 0.7);
-  color: #ffdd57;
+  color: #17CF33;
 }
 .button.is-warning.is-inverted:hover {
   background-color: rgba(0, 0, 0, 0.7);
@@ -2137,29 +2137,29 @@ a.box:active {
   background-color: rgba(0, 0, 0, 0.7);
   border-color: transparent;
   box-shadow: none;
-  color: #ffdd57;
+  color: #17CF33;
 }
 .button.is-warning.is-loading::after {
   border-color: transparent transparent rgba(0, 0, 0, 0.7) rgba(0, 0, 0, 0.7) !important;
 }
 .button.is-warning.is-outlined {
   background-color: transparent;
-  border-color: #ffdd57;
-  color: #ffdd57;
+  border-color: #17CF33;
+  color: #17CF33;
 }
 .button.is-warning.is-outlined:hover, .button.is-warning.is-outlined:focus {
-  background-color: #ffdd57;
-  border-color: #ffdd57;
+  background-color: #17CF33;
+  border-color: #17CF33;
   color: rgba(0, 0, 0, 0.7);
 }
 .button.is-warning.is-outlined.is-loading::after {
-  border-color: transparent transparent #ffdd57 #ffdd57 !important;
+  border-color: transparent transparent #17CF33 #17CF33 !important;
 }
 .button.is-warning.is-outlined[disabled] {
   background-color: transparent;
-  border-color: #ffdd57;
+  border-color: #17CF33;
   box-shadow: none;
-  color: #ffdd57;
+  color: #17CF33;
 }
 .button.is-warning.is-inverted.is-outlined {
   background-color: transparent;
@@ -2168,7 +2168,7 @@ a.box:active {
 }
 .button.is-warning.is-inverted.is-outlined:hover, .button.is-warning.is-inverted.is-outlined:focus {
   background-color: rgba(0, 0, 0, 0.7);
-  color: #ffdd57;
+  color: #17CF33;
 }
 .button.is-warning.is-inverted.is-outlined[disabled] {
   background-color: transparent;
@@ -2691,25 +2691,25 @@ a.box:active {
 }
 .input.is-success,
 .textarea.is-success {
-  border-color: #23d160;
+  border-color: #78A42E;
 }
 .input.is-success:focus, .input.is-success.is-focused, .input.is-success:active, .input.is-success.is-active,
 .textarea.is-success:focus,
 .textarea.is-success.is-focused,
 .textarea.is-success:active,
 .textarea.is-success.is-active {
-  box-shadow: 0 0 0 0.125em rgba(35, 209, 96, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(120, 164, 46, 0.25);
 }
 .input.is-warning,
 .textarea.is-warning {
-  border-color: #ffdd57;
+  border-color: #17CF33;
 }
 .input.is-warning:focus, .input.is-warning.is-focused, .input.is-warning:active, .input.is-warning.is-active,
 .textarea.is-warning:focus,
 .textarea.is-warning.is-focused,
 .textarea.is-warning:active,
 .textarea.is-warning.is-active {
-  box-shadow: 0 0 0 0.125em rgba(255, 221, 87, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(23, 207, 51, 0.25);
 }
 .input.is-danger,
 .textarea.is-danger {
@@ -2971,28 +2971,28 @@ a.box:active {
   box-shadow: 0 0 0 0.125em rgba(32, 156, 238, 0.25);
 }
 .select.is-success:not(:hover)::after {
-  border-color: #23d160;
+  border-color: #78A42E;
 }
 .select.is-success select {
-  border-color: #23d160;
+  border-color: #78A42E;
 }
 .select.is-success select:hover, .select.is-success select.is-hovered {
-  border-color: #20bc56;
+  border-color: #699028;
 }
 .select.is-success select:focus, .select.is-success select.is-focused, .select.is-success select:active, .select.is-success select.is-active {
-  box-shadow: 0 0 0 0.125em rgba(35, 209, 96, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(120, 164, 46, 0.25);
 }
 .select.is-warning:not(:hover)::after {
-  border-color: #ffdd57;
+  border-color: #17CF33;
 }
 .select.is-warning select {
-  border-color: #ffdd57;
+  border-color: #17CF33;
 }
 .select.is-warning select:hover, .select.is-warning select.is-hovered {
-  border-color: #ffd83d;
+  border-color: #14b82d;
 }
 .select.is-warning select:focus, .select.is-warning select.is-focused, .select.is-warning select:active, .select.is-warning select.is-active {
-  box-shadow: 0 0 0 0.125em rgba(255, 221, 87, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(23, 207, 51, 0.25);
 }
 .select.is-danger:not(:hover)::after {
   border-color: #ff3860;
@@ -3189,42 +3189,42 @@ a.box:active {
   color: #fff;
 }
 .file.is-success .file-cta {
-  background-color: #23d160;
+  background-color: #78A42E;
   border-color: transparent;
   color: #fff;
 }
 .file.is-success:hover .file-cta, .file.is-success.is-hovered .file-cta {
-  background-color: #22c65b;
+  background-color: #719a2b;
   border-color: transparent;
   color: #fff;
 }
 .file.is-success:focus .file-cta, .file.is-success.is-focused .file-cta {
   border-color: transparent;
-  box-shadow: 0 0 0.5em rgba(35, 209, 96, 0.25);
+  box-shadow: 0 0 0.5em rgba(120, 164, 46, 0.25);
   color: #fff;
 }
 .file.is-success:active .file-cta, .file.is-success.is-active .file-cta {
-  background-color: #20bc56;
+  background-color: #699028;
   border-color: transparent;
   color: #fff;
 }
 .file.is-warning .file-cta {
-  background-color: #ffdd57;
+  background-color: #17CF33;
   border-color: transparent;
   color: rgba(0, 0, 0, 0.7);
 }
 .file.is-warning:hover .file-cta, .file.is-warning.is-hovered .file-cta {
-  background-color: #ffdb4a;
+  background-color: #16c430;
   border-color: transparent;
   color: rgba(0, 0, 0, 0.7);
 }
 .file.is-warning:focus .file-cta, .file.is-warning.is-focused .file-cta {
   border-color: transparent;
-  box-shadow: 0 0 0.5em rgba(255, 221, 87, 0.25);
+  box-shadow: 0 0 0.5em rgba(23, 207, 51, 0.25);
   color: rgba(0, 0, 0, 0.7);
 }
 .file.is-warning:active .file-cta, .file.is-warning.is-active .file-cta {
-  background-color: #ffd83d;
+  background-color: #14b82d;
   border-color: transparent;
   color: rgba(0, 0, 0, 0.7);
 }
@@ -3450,10 +3450,10 @@ a.box:active {
   color: #209cee;
 }
 .help.is-success {
-  color: #23d160;
+  color: #78A42E;
 }
 .help.is-warning {
-  color: #ffdd57;
+  color: #17CF33;
 }
 .help.is-danger {
   color: #ff3860;
@@ -3891,11 +3891,11 @@ a.box:active {
   color: #fff;
 }
 .notification.is-success {
-  background-color: #23d160;
+  background-color: #78A42E;
   color: #fff;
 }
 .notification.is-warning {
-  background-color: #ffdd57;
+  background-color: #17CF33;
   color: rgba(0, 0, 0, 0.7);
 }
 .notification.is-danger {
@@ -3991,22 +3991,22 @@ a.box:active {
   background-color: #209cee;
 }
 .progress.is-success::-webkit-progress-value {
-  background-color: #23d160;
+  background-color: #78A42E;
 }
 .progress.is-success::-moz-progress-bar {
-  background-color: #23d160;
+  background-color: #78A42E;
 }
 .progress.is-success::-ms-fill {
-  background-color: #23d160;
+  background-color: #78A42E;
 }
 .progress.is-warning::-webkit-progress-value {
-  background-color: #ffdd57;
+  background-color: #17CF33;
 }
 .progress.is-warning::-moz-progress-bar {
-  background-color: #ffdd57;
+  background-color: #17CF33;
 }
 .progress.is-warning::-ms-fill {
-  background-color: #ffdd57;
+  background-color: #17CF33;
 }
 .progress.is-danger::-webkit-progress-value {
   background-color: #ff3860;
@@ -4082,14 +4082,14 @@ a.box:active {
 }
 .table td.is-success,
 .table th.is-success {
-  background-color: #23d160;
-  border-color: #23d160;
+  background-color: #78A42E;
+  border-color: #78A42E;
   color: #fff;
 }
 .table td.is-warning,
 .table th.is-warning {
-  background-color: #ffdd57;
-  border-color: #ffdd57;
+  background-color: #17CF33;
+  border-color: #17CF33;
   color: rgba(0, 0, 0, 0.7);
 }
 .table td.is-danger,
@@ -4273,11 +4273,11 @@ a.box:active {
   color: #fff;
 }
 .tag:not(body).is-success {
-  background-color: #23d160;
+  background-color: #78A42E;
   color: #fff;
 }
 .tag:not(body).is-warning {
-  background-color: #ffdd57;
+  background-color: #17CF33;
   color: rgba(0, 0, 0, 0.7);
 }
 .tag:not(body).is-danger {
@@ -5023,26 +5023,26 @@ a.list-item {
   color: #12537e;
 }
 .message.is-success {
-  background-color: #f6fef9;
+  background-color: #fbfdf7;
 }
 .message.is-success .message-header {
-  background-color: #23d160;
+  background-color: #78A42E;
   color: #fff;
 }
 .message.is-success .message-body {
-  border-color: #23d160;
-  color: #0e311a;
+  border-color: #78A42E;
+  color: #2c3915;
 }
 .message.is-warning {
-  background-color: #fffdf5;
+  background-color: #f6fef7;
 }
 .message.is-warning .message-header {
-  background-color: #ffdd57;
+  background-color: #17CF33;
   color: rgba(0, 0, 0, 0.7);
 }
 .message.is-warning .message-body {
-  border-color: #ffdd57;
-  color: #3c3108;
+  border-color: #17CF33;
+  color: #0a2d0f;
 }
 .message.is-danger {
   background-color: #fff5f7;
@@ -5553,7 +5553,7 @@ a.list-item {
   }
 }
 .navbar.is-success {
-  background-color: #23d160;
+  background-color: #78A42E;
   color: #fff;
 }
 .navbar.is-success .navbar-brand > .navbar-item,
@@ -5563,7 +5563,7 @@ a.list-item {
 .navbar.is-success .navbar-brand > a.navbar-item:hover, .navbar.is-success .navbar-brand > a.navbar-item.is-active,
 .navbar.is-success .navbar-brand .navbar-link:hover,
 .navbar.is-success .navbar-brand .navbar-link.is-active {
-  background-color: #20bc56;
+  background-color: #699028;
   color: #fff;
 }
 .navbar.is-success .navbar-brand .navbar-link::after {
@@ -5586,7 +5586,7 @@ a.list-item {
 .navbar.is-success .navbar-end > a.navbar-item.is-active,
 .navbar.is-success .navbar-end .navbar-link:hover,
 .navbar.is-success .navbar-end .navbar-link.is-active {
-    background-color: #20bc56;
+    background-color: #699028;
     color: #fff;
   }
   .navbar.is-success .navbar-start .navbar-link::after,
@@ -5595,16 +5595,16 @@ a.list-item {
   }
   .navbar.is-success .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-success .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: #20bc56;
+    background-color: #699028;
     color: #fff;
   }
   .navbar.is-success .navbar-dropdown a.navbar-item.is-active {
-    background-color: #23d160;
+    background-color: #78A42E;
     color: #fff;
   }
 }
 .navbar.is-warning {
-  background-color: #ffdd57;
+  background-color: #17CF33;
   color: rgba(0, 0, 0, 0.7);
 }
 .navbar.is-warning .navbar-brand > .navbar-item,
@@ -5614,7 +5614,7 @@ a.list-item {
 .navbar.is-warning .navbar-brand > a.navbar-item:hover, .navbar.is-warning .navbar-brand > a.navbar-item.is-active,
 .navbar.is-warning .navbar-brand .navbar-link:hover,
 .navbar.is-warning .navbar-brand .navbar-link.is-active {
-  background-color: #ffd83d;
+  background-color: #14b82d;
   color: rgba(0, 0, 0, 0.7);
 }
 .navbar.is-warning .navbar-brand .navbar-link::after {
@@ -5637,7 +5637,7 @@ a.list-item {
 .navbar.is-warning .navbar-end > a.navbar-item.is-active,
 .navbar.is-warning .navbar-end .navbar-link:hover,
 .navbar.is-warning .navbar-end .navbar-link.is-active {
-    background-color: #ffd83d;
+    background-color: #14b82d;
     color: rgba(0, 0, 0, 0.7);
   }
   .navbar.is-warning .navbar-start .navbar-link::after,
@@ -5646,11 +5646,11 @@ a.list-item {
   }
   .navbar.is-warning .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-warning .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: #ffd83d;
+    background-color: #14b82d;
     color: rgba(0, 0, 0, 0.7);
   }
   .navbar.is-warning .navbar-dropdown a.navbar-item.is-active {
-    background-color: #ffdd57;
+    background-color: #17CF33;
     color: rgba(0, 0, 0, 0.7);
   }
 }
@@ -8659,7 +8659,7 @@ label.panel-block:hover {
   }
 }
 .hero.is-success {
-  background-color: #23d160;
+  background-color: #78A42E;
   color: #fff;
 }
 .hero.is-success a:not(.button):not(.dropdown-item):not(.tag),
@@ -8678,7 +8678,7 @@ label.panel-block:hover {
 }
 @media screen and (max-width: 1087px) {
   .hero.is-success .navbar-menu {
-    background-color: #23d160;
+    background-color: #78A42E;
   }
 }
 .hero.is-success .navbar-item,
@@ -8688,7 +8688,7 @@ label.panel-block:hover {
 .hero.is-success a.navbar-item:hover, .hero.is-success a.navbar-item.is-active,
 .hero.is-success .navbar-link:hover,
 .hero.is-success .navbar-link.is-active {
-  background-color: #20bc56;
+  background-color: #699028;
   color: #fff;
 }
 .hero.is-success .tabs a {
@@ -8710,18 +8710,18 @@ label.panel-block:hover {
 .hero.is-success .tabs.is-boxed li.is-active a, .hero.is-success .tabs.is-boxed li.is-active a:hover, .hero.is-success .tabs.is-toggle li.is-active a, .hero.is-success .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
   border-color: #fff;
-  color: #23d160;
+  color: #78A42E;
 }
 .hero.is-success.is-bold {
-  background-image: linear-gradient(141deg, #12af2f 0%, #23d160 71%, #2ce28a 100%);
+  background-image: linear-gradient(141deg, #6e841b 0%, #78A42E 71%, #70be2e 100%);
 }
 @media screen and (max-width: 768px) {
   .hero.is-success.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, #12af2f 0%, #23d160 71%, #2ce28a 100%);
+    background-image: linear-gradient(141deg, #6e841b 0%, #78A42E 71%, #70be2e 100%);
   }
 }
 .hero.is-warning {
-  background-color: #ffdd57;
+  background-color: #17CF33;
   color: rgba(0, 0, 0, 0.7);
 }
 .hero.is-warning a:not(.button):not(.dropdown-item):not(.tag),
@@ -8740,7 +8740,7 @@ label.panel-block:hover {
 }
 @media screen and (max-width: 1087px) {
   .hero.is-warning .navbar-menu {
-    background-color: #ffdd57;
+    background-color: #17CF33;
   }
 }
 .hero.is-warning .navbar-item,
@@ -8750,7 +8750,7 @@ label.panel-block:hover {
 .hero.is-warning a.navbar-item:hover, .hero.is-warning a.navbar-item.is-active,
 .hero.is-warning .navbar-link:hover,
 .hero.is-warning .navbar-link.is-active {
-  background-color: #ffd83d;
+  background-color: #14b82d;
   color: rgba(0, 0, 0, 0.7);
 }
 .hero.is-warning .tabs a {
@@ -8772,14 +8772,14 @@ label.panel-block:hover {
 .hero.is-warning .tabs.is-boxed li.is-active a, .hero.is-warning .tabs.is-boxed li.is-active a:hover, .hero.is-warning .tabs.is-toggle li.is-active a, .hero.is-warning .tabs.is-toggle li.is-active a:hover {
   background-color: rgba(0, 0, 0, 0.7);
   border-color: rgba(0, 0, 0, 0.7);
-  color: #ffdd57;
+  color: #17CF33;
 }
 .hero.is-warning.is-bold {
-  background-image: linear-gradient(141deg, #ffaf24 0%, #ffdd57 71%, #fffa70 100%);
+  background-image: linear-gradient(141deg, #0baa09 0%, #17CF33 71%, #14ec59 100%);
 }
 @media screen and (max-width: 768px) {
   .hero.is-warning.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, #ffaf24 0%, #ffdd57 71%, #fffa70 100%);
+    background-image: linear-gradient(141deg, #0baa09 0%, #17CF33 71%, #14ec59 100%);
   }
 }
 .hero.is-danger {
@@ -8928,7 +8928,7 @@ label.panel-block:hover {
 .hero-body {
   flex-grow: 1;
   flex-shrink: 0;
-  padding: 3rem 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
 .section {
@@ -8944,1768 +8944,10 @@ label.panel-block:hover {
 }
 
 .footer {
-  background-color: #fafafa;
-  padding: 3rem 1.5rem 2rem;
+  background-color: #78A42E;
+  padding: 2rem 1.5rem 2rem;
 }
 
-/* ========================================================================
-   Component: Base
- ========================================================================== */
-/*
- * 1. Set `font-size` to support `rem` units
- *    Not using `font` property because a leading hyphen (e.g. -apple-system) causes the font to break in IE11 and Edge
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- * 3. Style
-
-
-html {
-    // 1
-    font-family: $base-body-font-family;
-    font-size: $base-body-font-size;
-    font-weight: $base-body-font-weight;
-    line-height: $base-body-line-height;
-    // 2 
-    -webkit-text-size-adjust: 100%;
-    // 3 
-    background: $base-body-background;
-    color: $base-body-color;
-    @if(mixin-exists(hook-base-body)) {@include hook-base-body();}
-}*/
-/*
- * Remove the margin in all browsers.
- */
-body {
-  margin: 0;
-}
-
-/* Links
- ========================================================================== */
-/*
- * Remove gaps in links underline in iOS 8+ and Safari 8+.
- */
-a {
-  -webkit-text-decoration-skip: objects;
-}
-
-/*
- * Remove the outline on focused links when they are also active or hovered
-
-
-a:active,
-a:hover { outline: none; }
-*/
-/*
- * Style
- */
-.uk-link {
-  color: #1e87f0;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.uk-link:hover {
-  color: #0f6ecd;
-  text-decoration: underline;
-}
-
-/* Text-level semantics
- ========================================================================== */
-/*
- * 1. Add an underline text decoration in Safari, Edge and IE.
- * 2. Add `dotted` style in Safari.
- * Note: The shorthand declaration `underline dotted` is not supported in Safari, Edge and IE.
- */
-abbr[title] {
-  /* 1 */
-  text-decoration: underline;
-  /* 2 */
-  -webkit-text-decoration-style: dotted;
-}
-
-/*
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-b,
-strong {
-  font-weight: bolder;
-}
-
-/*
- * 1. Consolas has a better baseline in running text compared to `Courier`
- * 2. Correct the odd `em` font sizing in all browsers.
- * 3. Style
- */
-:not(pre) > code,
-:not(pre) > kbd,
-:not(pre) > samp {
-  /* 1 */
-  font-family: Consolas, monaco, monospace;
-  /* 2 */
-  font-size: 0.875rem;
-  /* 3 */
-  color: #f0506e;
-  white-space: nowrap;
-}
-
-/*
- * Emphasize
- */
-em {
-  color: #f0506e;
-}
-
-/*
- * Insert
- */
-ins {
-  background: #ffd;
-  color: white;
-  text-decoration: none;
-}
-
-/*
- * Mark
- */
-mark {
-  background: #ffd;
-  color: white;
-}
-
-/*
- * Quote
- */
-q {
-  font-style: italic;
-}
-
-/*
- * Add the correct font size in all browsers.
- */
-small {
-  font-size: 80%;
-}
-
-/*
- * Prevents `sub` and `sup` affecting `line-height` in all browsers.
- */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-/* Embedded content
- ========================================================================== */
-/*
- * Remove the gap between embedded content and the bottom of their containers.
- */
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-/*
- * 1. Add responsiveness.
- * 2. Auto-scale the height. Only needed if `height` attribute is present.
- * 3. Corrects responsive `max-width` behavior if padding and border are used.
- * 4. Exclude SVGs for IE11 because they don't preserve their aspect ratio.
- */
-canvas,
-img,
-video {
-  /* 1 */
-  max-width: 100%;
-  /* 2 */
-  height: auto;
-  /* 3 */
-  box-sizing: border-box;
-}
-
-/* 4 */
-@supports (display: block) {
-  svg {
-    max-width: 100%;
-    height: auto;
-    box-sizing: border-box;
-  }
-}
-/*
- * Hide the overflow in IE.
- */
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/*
- * Hide `alt` text for lazy load images
- * Selector for background while loading img[data-src*='.jpg'][src*='data:image'] { background: grey; }
- */
-img:not([src]) {
-  visibility: hidden;
-}
-
-/*
- * Iframe
- * Remove border in all browsers
- */
-iframe {
-  border: 0;
-}
-
-/* Block elements
- ========================================================================== */
-/*
- * Margins
- */
-p,
-ul,
-ol,
-dl,
-pre,
-address,
-fieldset,
-figure {
-  margin: 0 0 20px 0;
-}
-
-/* Add margin if adjacent element */
-* + p,
-* + ul,
-* + ol,
-* + dl,
-* + pre,
-* + address,
-* + fieldset,
-* + figure {
-  margin-top: 20px;
-}
-
-/* Headings
- ========================================================================== */
-.uk-h1,
-.uk-h2,
-.uk-h3,
-.uk-h4,
-.uk-h5,
-.uk-h6 {
-  margin: 0 0 20px 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-weight: normal;
-  color: #333;
-  text-transform: none;
-}
-
-/* Add margin if adjacent element */
-* + h1, * + .uk-h1,
-* + h2, * + .uk-h2,
-* + h3, * + .uk-h3,
-* + h4, * + .uk-h4,
-* + h5, * + .uk-h5,
-* + h6, * + .uk-h6 {
-  margin-top: 40px;
-}
-
-/*
- * Sizes
- */
-.uk-h1 {
-  font-size: 2.23125rem;
-  line-height: 1.2;
-}
-
-.uk-h2 {
-  font-size: 1.7rem;
-  line-height: 1.3;
-}
-
-.uk-h3 {
-  font-size: 1.5rem;
-  line-height: 1.4;
-}
-
-.uk-h4 {
-  font-size: 1.25rem;
-  line-height: 1.4;
-}
-
-.uk-h5 {
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-.uk-h6 {
-  font-size: 0.875rem;
-  line-height: 1.4;
-}
-
-/* Tablet landscape and bigger */
-@media (min-width: 960px) {
-  .uk-h1 {
-    font-size: 2.625rem;
-  }
-
-  .uk-h2 {
-    font-size: 2rem;
-  }
-}
-/* Lists
- ========================================================================== */
-ul,
-ol {
-  padding-left: 30px;
-}
-
-/*
- * Reset margin for nested lists
- */
-ul > li > ul,
-ul > li > ol,
-ol > li > ol,
-ol > li > ul {
-  margin: 0;
-}
-
-/* Description lists
- ========================================================================== */
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-left: 0;
-}
-
-/* Horizontal rules
- ========================================================================== */
-/*
- * 1. Add the correct box sizing and height in Firefox.
- * 2. Show the overflow in Edge and IE.
- * 3. Add the correct text-align in Edge and IE.
- * 4. Style
- */
-hr, .uk-hr {
-  /* 1 */
-  box-sizing: content-box;
-  height: 0;
-  /* 2 */
-  overflow: visible;
-  /* 3 */
-  text-align: inherit;
-  /* 4 */
-  margin: 0 0 20px 0;
-  border: 0;
-  border-top: 1px solid #e5e5e5;
-}
-
-/* Add margin if adjacent element */
-* + hr,
-* + .uk-hr {
-  margin-top: 20px;
-}
-
-/* Address
- ========================================================================== */
-address {
-  font-style: normal;
-}
-
-/* Blockquotes
- ========================================================================== */
-blockquote {
-  margin: 0 0 20px 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  font-style: italic;
-}
-
-/* Add margin if adjacent element */
-* + blockquote {
-  margin-top: 20px;
-}
-
-/*
- * Content
- */
-blockquote p:last-of-type {
-  margin-bottom: 0;
-}
-
-blockquote footer {
-  margin-top: 10px;
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-/* Preformatted text
- ========================================================================== */
-/*
- * 1. Contain overflow in all browsers.
- */
-pre {
-  font: 0.875rem / 1.5 Consolas, monaco, monospace;
-  color: white;
-  -moz-tab-size: 4;
-  tab-size: 4;
-  /* 1 */
-  overflow: auto;
-}
-
-pre code {
-  font-family: Consolas, monaco, monospace;
-}
-
-/* Selection pseudo-element
- ========================================================================== */
-/*
-::selection {
-    background: $base-selection-background;
-    color: $base-selection-color;
-    text-shadow: none;
-}
-*/
-/* HTML5 elements
- ========================================================================== */
-/*
- * 1. Add the correct display in Edge, IE 10+, and Firefox.
- * 2. Add the correct display in IE.
- */
-details,
-main {
-  /* 2 */
-  display: block;
-}
-
-/*
- * Add the correct display in all browsers.
- */
-summary {
-  display: list-item;
-}
-
-/*
- * Add the correct display in IE.
- */
-template {
-  display: none;
-}
-
-/* Pass media breakpoints to JS
- ========================================================================== */
-/*
- * Breakpoints
-
-
-.uk-breakpoint-s::before  { content: '640px'; }
-.uk-breakpoint-m::before  { content: '960px'; }
-.uk-breakpoint-l::before  { content: '1200px'; }
-.uk-breakpoint-xl::before { content: '1600px'; }
-
-:root {
-    --uk-breakpoint-s: $breakpoint-small;
-    --uk-breakpoint-m: $breakpoint-medium;
-    --uk-breakpoint-l: $breakpoint-large;
-    --uk-breakpoint-xl: $breakpoint-xlarge;
-}*/
-/* ========================================================================
-   Component: Link
- ========================================================================== */
-/* Muted
- ========================================================================== */
-a.uk-link-muted,
-.uk-link-muted a {
-  color: #999;
-}
-
-a.uk-link-muted:hover,
-.uk-link-muted a:hover {
-  color: white;
-}
-
-/* Text
- ========================================================================== */
-a.uk-link-text:not(:hover),
-.uk-link-text a:not(:hover) {
-  color: inherit;
-}
-
-a.uk-link-text:hover,
-.uk-link-text a:hover {
-  color: #999;
-}
-
-/* Heading
- ========================================================================== */
-a.uk-link-heading:not(:hover),
-.uk-link-heading a:not(:hover) {
-  color: inherit;
-}
-
-a.uk-link-heading:hover,
-.uk-link-heading a:hover {
-  color: #1e87f0;
-  text-decoration: none;
-}
-
-/* Reset
- ========================================================================== */
-/*
- * `!important` needed to override inverse component
- */
-a.uk-link-reset,
-a.uk-link-reset:hover,
-.uk-link-reset a,
-.uk-link-reset a:hover {
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
-/*@import "heading.scss";
-@import "divider.scss";
-@import "list.scss";
-@import "description-list.scss";
-@import "table.scss";*/
-/* ========================================================================
-   Component: Icon
- ========================================================================== */
-/*
- * Note: 1. - 7. is required for `button` elements. Needed for Close and Form Icon component.
- * 1. Remove margins in Chrome, Safari and Opera.
- * 2. Remove borders for `button`.
- * 3. Remove border-radius in Chrome.
- * 4. Address `overflow` set to `hidden` in IE.
- * 5. Correct `font` properties and `color` not being inherited for `button`.
- * 6. Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 7. Remove default `button` padding and background color
- * 8. Style
- * 9. Fill all SVG elements with the current text color if no `fill` attribute is set
- * 10. Let the container fit the height of the icon
- */
-.uk-icon {
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  border: none;
-  /* 3 */
-  border-radius: 0;
-  /* 4 */
-  overflow: visible;
-  /* 5 */
-  font: inherit;
-  color: inherit;
-  /* 6 */
-  text-transform: none;
-  /* 7. */
-  padding: 0;
-  background-color: transparent;
-  /* 8 */
-  display: inline-block;
-  /* 9 */
-  fill: currentcolor;
-  /* 10 */
-  line-height: 0;
-}
-
-/* Required for `button`. */
-button.uk-icon:not(:disabled) {
-  cursor: pointer;
-}
-
-/*
- * Remove the inner border and padding in Firefox.
- */
-.uk-icon::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-/*
- * Set the fill and stroke color of all SVG elements to the current text color
- */
-.uk-icon:not(.uk-preserve) [fill*="#"]:not(.uk-preserve) {
-  fill: currentcolor;
-}
-
-.uk-icon:not(.uk-preserve) [stroke*="#"]:not(.uk-preserve) {
-  stroke: currentcolor;
-}
-
-/*
- * Fix Firefox blurry SVG rendering: https://bugzilla.mozilla.org/show_bug.cgi?id=1046835
- */
-.uk-icon > * {
-  transform: translate(0, 0);
-}
-
-/* Image modifier
- ========================================================================== */
-/*
- * Display images in icon dimensions
- */
-.uk-icon-image {
-  width: 20px;
-  height: 20px;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  vertical-align: middle;
-}
-
-/* Style modifiers
- ========================================================================== */
-/*
- * Link
- */
-.uk-icon-link {
-  color: #999;
-}
-
-.uk-icon-link:hover,
-.uk-icon-link:focus {
-  color: white;
-  outline: none;
-}
-
-/* OnClick + Active */
-.uk-icon-link:active,
-.uk-active > .uk-icon-link {
-  color: #f2f2f2;
-}
-
-/*
- * Button
- * 1. Center icon vertically and horizontally
- */
-.uk-icon-button {
-  box-sizing: border-box;
-  width: 36px;
-  height: 36px;
-  border-radius: 500px;
-  background: #f8f8f8;
-  color: #999;
-  vertical-align: middle;
-  /* 1 */
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Hover + Focus */
-.uk-icon-button:hover,
-.uk-icon-button:focus {
-  background-color: #ebebeb;
-  color: white;
-  outline: none;
-}
-
-/* OnClick + Active */
-.uk-icon-button:active,
-.uk-active > .uk-icon-button {
-  background-color: #dfdfdf;
-  color: white;
-}
-
-/*
-@import "form-range.scss";
-@import "form.scss"; // After: Icon, Form Range
-@import "button.scss";
-
-// Layout
-@import "section.scss";
-@import "container.scss";
-@import "grid.scss";
-@import "tile.scss";
-@import "card.scss";
-
-// Common
-@import "close.scss"; // After: Icon
-@import "spinner.scss"; // After: Icon
-@import "totop.scss"; // After: Icon
-@import "marker.scss"; // After: Icon
-@import "alert.scss"; // After: Close
-@import "badge.scss";
-@import "label.scss";
-@import "overlay.scss"; // After: Icon
-@import "article.scss"; // After: Subnav
-@import "comment.scss"; // After: Subnav
-@import "search.scss"; // After: Icon
-
-// Navs
-@import "nav.scss";
-@import "navbar.scss"; // After: Card, Grid, Nav, Icon, Search
-@import "subnav.scss";
-@import "breadcrumb.scss";
-@import "pagination.scss";
-@import "tab.scss";*/
-/* ========================================================================
-   Component: Slidenav
- ========================================================================== */
-/*
- * Adopts `uk-icon`
- */
-.uk-slidenav {
-  padding: 5px 10px;
-  color: white;
-}
-
-/* Hover + Focus */
-.uk-slidenav:hover,
-.uk-slidenav:focus {
-  color: #2EA440;
-  outline: none;
-}
-
-/* OnClick */
-.uk-slidenav:active {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-/* Icon modifier
- ========================================================================== */
-/*
- * Previous
- */
-/*
- * Next
- */
-/* Size modifier
- ========================================================================== */
-.uk-slidenav-large {
-  padding: 10px 10px;
-}
-
-/* Container
- ========================================================================== */
-.uk-slidenav-container {
-  display: flex;
-}
-
-/* ========================================================================
-   Component: Dotnav
- ========================================================================== */
-/*
- * 1. Allow items to wrap into the next line
- * 2. Reset list
- * 3. Gutter
- */
-.uk-dotnav {
-  display: flex;
-  /* 1 */
-  flex-wrap: wrap;
-  /* 2 */
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  /* 3 */
-  margin-left: -12px;
-}
-
-/*
- * 1. Space is allocated solely based on content dimensions: 0 0 auto
- * 2. Gutter
- */
-.uk-dotnav > * {
-  /* 1 */
-  flex: none;
-  /* 2 */
-  padding-left: 12px;
-}
-
-/* Items
- ========================================================================== */
-/*
- * Items
- * 1. Hide text if present
- */
-.uk-dotnav > * > * {
-  display: block;
-  box-sizing: border-box;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  /* 1 */
-  text-indent: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-/* Hover + Focus */
-.uk-dotnav > * > :hover,
-.uk-dotnav > * > :focus {
-  background-color: #2EA440;
-  outline: none;
-}
-
-/* OnClick */
-.uk-dotnav > * > :active {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Active */
-.uk-dotnav > .uk-active > * {
-  background-color: rgba(255, 255, 255, 0.6);
-}
-
-/* Modifier: 'uk-dotnav-vertical'
- ========================================================================== */
-/*
- * 1. Change direction
- * 2. Gutter
- */
-.uk-dotnav-vertical {
-  /* 1 */
-  flex-direction: column;
-  /* 2 */
-  margin-left: 0;
-  margin-top: -12px;
-}
-
-/* 2 */
-.uk-dotnav-vertical > * {
-  padding-left: 0;
-  padding-top: 12px;
-}
-
-/*
-@import "thumbnav.scss";
-
-// JavaScript
-@import "accordion.scss";
-@import "drop.scss"; // After: Card
-@import "dropdown.scss"; // After: Card
-@import "modal.scss"; // After: Close
-@import "lightbox.scss"; // After: Close*/
-/* ========================================================================
-   Component: Slideshow
- ========================================================================== */
-/*
- * 1. Prevent tab highlighting on iOS.
- */
-.uk-slideshow {
-  /* 1 */
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Items
- ========================================================================== */
-/*
- * 1. Create position and stacking context
- * 2. Reset list
- * 3. Clip child elements
- * 4. Prevent displaying the callout information on iOS.
- */
-.uk-slideshow-items {
-  /* 1 */
-  position: relative;
-  z-index: 0;
-  /* 2 */
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  /* 3 */
-  overflow: hidden;
-  /* 4 */
-  -webkit-touch-callout: none;
-}
-
-/* Item
- ========================================================================== */
-/*
- * 1. Position items above each other
- * 2. Take the full width
- * 3. Clip child elements, e.g. for `uk-cover`
- * 4. Optimize animation
- * 5. Disable horizontal panning gestures in IE11 and Edge
- */
-.uk-slideshow-items > * {
-  /* 1 */
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* 2 */
-  right: 0;
-  bottom: 0;
-  /* 3 */
-  overflow: hidden;
-  /* 4 */
-  will-change: transform, opacity;
-  /* 5 */
-  touch-action: pan-y;
-}
-
-/*
- * Hide not active items
- */
-.uk-slideshow-items > :not(.uk-active) {
-  display: none;
-}
-
-/* ========================================================================
-   Component: Slider
- ========================================================================== */
-/*
- * 1. Prevent tab highlighting on iOS.
- */
-.uk-slider {
-  /* 1 */
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Container
- ========================================================================== */
-/*
- * 1. Clip child elements
- */
-.uk-slider-container {
-  /* 1 */
-  overflow: hidden;
-}
-
-/* Items
- ========================================================================== */
-/*
- * 1. Optimize animation
- * 2. Create a containing block. In Safari it's neither created by `transform` nor `will-change`.
- */
-.uk-slider-items {
-  /* 1 */
-  will-change: transform;
-  /* 2 */
-  position: relative;
-}
-
-/*
- * 1. Reset list style without interfering with grid
- * 2. Prevent displaying the callout information on iOS.
- */
-.uk-slider-items:not(.uk-grid) {
-  display: flex;
-  /* 1 */
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  /* 2 */
-  -webkit-touch-callout: none;
-}
-
-.uk-slider-items.uk-grid {
-  flex-wrap: nowrap;
-}
-
-/* Item
- ========================================================================== */
-/*
- * 1. Let items take content dimensions (0 0 auto)
- * 2. Create position context
- * 3. Disable horizontal panning gestures in IE11 and Edge
- */
-.uk-slider-items > * {
-  /* 1 */
-  flex: none;
-  /* 2 */
-  position: relative;
-  /* 3 */
-  touch-action: pan-y;
-}
-
-/*
-@import "sticky.scss";
-@import "offcanvas.scss";
-@import "switcher.scss";*/
-/* ========================================================================
-   Component: Leader
- ========================================================================== */
-.uk-leader {
-  overflow: hidden;
-}
-
-/*
- * 1. Place element in text flow
- * 2. Never break into a new line
- * 3. Get a string back with as many repeating characters to fill the container
- * 4. Prevent wrapping. Overflowing characters will be clipped by the container
- */
-.uk-leader-fill::after {
-  /* 1 */
-  display: inline-block;
-  margin-left: 15px;
-  /* 2 */
-  width: 0;
-  /* 3 */
-  content: attr(data-fill);
-  /* 4 */
-  white-space: nowrap;
-}
-
-/*
- * Hide if media does not match
- */
-.uk-leader-fill.uk-leader-hide::after {
-  display: none;
-}
-
-/*
- * Pass fill character to JS
- */
-.uk-leader-fill-content::before {
-  content: ".";
-}
-
-:root {
-  --uk-leader-fill-content: $leader-fill-content;
-}
-
-/*
-@import "iconnav.scss";
-@import "notification.scss";
-@import "tooltip.scss";
-@import "placeholder.scss";
-@import "progress.scss";
-@import "sortable.scss";
-@import "countdown.scss";
-
-// Utilities
-@import "animation.scss";
-@import "width.scss";
-@import "height.scss";*/
-/* ========================================================================
-   Component: Text
- ========================================================================== */
-/* Style modifiers
- ========================================================================== */
-.uk-text-lead {
-  font-size: 1.5rem;
-  line-height: 1.5;
-  color: #333;
-}
-
-.uk-text-meta {
-  font-size: 0.875rem;
-  line-height: 1.4;
-  color: #999;
-}
-
-/* Size modifiers
- ========================================================================== */
-.uk-text-small {
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-.uk-text-large {
-  font-size: 1.5rem;
-  line-height: 1.5;
-}
-
-/* Weight modifier
- ========================================================================== */
-.uk-text-bold {
-  font-weight: bolder;
-}
-
-/* Transform modifier
- ========================================================================== */
-.uk-text-uppercase {
-  text-transform: uppercase !important;
-}
-
-.uk-text-capitalize {
-  text-transform: capitalize !important;
-}
-
-.uk-text-lowercase {
-  text-transform: lowercase !important;
-}
-
-/* Color modifiers
- ========================================================================== */
-.uk-text-muted {
-  color: #999 !important;
-}
-
-.uk-text-emphasis {
-  color: #333 !important;
-}
-
-.uk-text-primary {
-  color: #1e87f0 !important;
-}
-
-.uk-text-success {
-  color: #32d296 !important;
-}
-
-.uk-text-warning {
-  color: #faa05a !important;
-}
-
-.uk-text-danger {
-  color: #f0506e !important;
-}
-
-/* Background modifier
- ========================================================================== */
-/*
- * 1. The background clips to the foreground text. Works in Chrome, Firefox, Safari, Edge and Opera
- *    Default color is set to transparent
- * 2. Container fits the text
- * 3. Fallback color for IE11
- */
-.uk-text-background {
-  /* 1 */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* 2 */
-  display: inline-block;
-  /* 3 */
-  color: #1e87f0 !important;
-}
-
-@supports (-webkit-background-clip: text) {
-  .uk-text-background {
-    background-color: #1e87f0;
-  }
-}
-/* Alignment modifiers
- ========================================================================== */
-.uk-text-left {
-  text-align: left !important;
-}
-
-.uk-text-right {
-  text-align: right !important;
-}
-
-.uk-text-center {
-  text-align: center !important;
-}
-
-.uk-text-justify {
-  text-align: justify !important;
-}
-
-/* Phone landscape and bigger */
-@media (min-width: 640px) {
-  .uk-text-left\@s {
-    text-align: left !important;
-  }
-
-  .uk-text-right\@s {
-    text-align: right !important;
-  }
-
-  .uk-text-center\@s {
-    text-align: center !important;
-  }
-}
-/* Tablet landscape and bigger */
-@media (min-width: 960px) {
-  .uk-text-left\@m {
-    text-align: left !important;
-  }
-
-  .uk-text-right\@m {
-    text-align: right !important;
-  }
-
-  .uk-text-center\@m {
-    text-align: center !important;
-  }
-}
-/* Desktop and bigger */
-@media (min-width: 1200px) {
-  .uk-text-left\@l {
-    text-align: left !important;
-  }
-
-  .uk-text-right\@l {
-    text-align: right !important;
-  }
-
-  .uk-text-center\@l {
-    text-align: center !important;
-  }
-}
-/* Large screen and bigger */
-@media (min-width: 1600px) {
-  .uk-text-left\@xl {
-    text-align: left !important;
-  }
-
-  .uk-text-right\@xl {
-    text-align: right !important;
-  }
-
-  .uk-text-center\@xl {
-    text-align: center !important;
-  }
-}
-/*
- * Vertical
- */
-.uk-text-top {
-  vertical-align: top !important;
-}
-
-.uk-text-middle {
-  vertical-align: middle !important;
-}
-
-.uk-text-bottom {
-  vertical-align: bottom !important;
-}
-
-.uk-text-baseline {
-  vertical-align: baseline !important;
-}
-
-/* Wrap modifiers
- ========================================================================== */
-/*
- * Prevent text from wrapping onto multiple lines
- */
-.uk-text-nowrap {
-  white-space: nowrap;
-}
-
-/*
- * 1. Make sure a max-width is set after which truncation can occur
- * 2. Prevent text from wrapping onto multiple lines, and truncate with an ellipsis
- * 3. Fix for table cells
- */
-.uk-text-truncate {
-  /* 1 */
-  max-width: 100%;
-  /* 2 */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* 2 */
-th.uk-text-truncate,
-td.uk-text-truncate {
-  max-width: 0;
-}
-
-/*
- * 1. Wrap long words onto the next line and break them if they are too long to fit
- * 2. Legacy `word-wrap` as fallback for `overflow-wrap`
- * 3. Fix `overflow-wrap` which doesn't work with table cells in Chrome, Opera, IE11 and Edge
- *    Must use `break-all` to support IE11 and Edge
- * Note: Not using `hyphens: auto;` because it hyphenates text even if not needed
- */
-.uk-text-break {
-  /* 1 */
-  overflow-wrap: break-word;
-  /* 2 */
-  word-wrap: break-word;
-}
-
-/* 3 */
-th.uk-text-break,
-td.uk-text-break {
-  word-break: break-all;
-}
-
-/*
-@import "column.scss";
-@import "cover.scss";
-@import "background.scss";*/
-/* ========================================================================
-   Component: Align
- ========================================================================== */
-/*
- * Default
- */
-[class*=uk-align] {
-  display: block;
-  margin-bottom: 30px;
-}
-
-* + [class*=uk-align] {
-  margin-top: 30px;
-}
-
-/*
- * Center
- */
-.uk-align-center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/*
- * Left/Right
- */
-.uk-align-left {
-  margin-top: 0;
-  margin-right: 30px;
-  float: left;
-}
-
-.uk-align-right {
-  margin-top: 0;
-  margin-left: 30px;
-  float: right;
-}
-
-/* Phone landscape and bigger */
-@media (min-width: 640px) {
-  .uk-align-left\@s {
-    margin-top: 0;
-    margin-right: 30px;
-    float: left;
-  }
-
-  .uk-align-right\@s {
-    margin-top: 0;
-    margin-left: 30px;
-    float: right;
-  }
-}
-/* Tablet landscape and bigger */
-@media (min-width: 960px) {
-  .uk-align-left\@m {
-    margin-top: 0;
-    margin-right: 30px;
-    float: left;
-  }
-
-  .uk-align-right\@m {
-    margin-top: 0;
-    margin-left: 30px;
-    float: right;
-  }
-}
-/* Desktop and bigger */
-@media (min-width: 1200px) {
-  .uk-align-left\@l {
-    margin-top: 0;
-    float: left;
-  }
-
-  .uk-align-right\@l {
-    margin-top: 0;
-    float: right;
-  }
-
-  .uk-align-left,
-.uk-align-left\@s,
-.uk-align-left\@m,
-.uk-align-left\@l {
-    margin-right: 40px;
-  }
-
-  .uk-align-right,
-.uk-align-right\@s,
-.uk-align-right\@m,
-.uk-align-right\@l {
-    margin-left: 40px;
-  }
-}
-/* Large screen and bigger */
-@media (min-width: 1600px) {
-  .uk-align-left\@xl {
-    margin-top: 0;
-    margin-right: 40px;
-    float: left;
-  }
-
-  .uk-align-right\@xl {
-    margin-top: 0;
-    margin-left: 40px;
-    float: right;
-  }
-}
-/*
-@import "svg.scss";
-@import "utility.scss";
-@import "flex.scss"; // After: Utility
-@import "margin.scss";
-@import "padding.scss";*/
-/* ========================================================================
-   Component: Position
- ========================================================================== */
-/* Directions
- ========================================================================== */
-[class*=uk-position-top],
-[class*=uk-position-bottom],
-[class*=uk-position-left],
-[class*=uk-position-right],
-[class*=uk-position-center] {
-  position: absolute !important;
-}
-
-/* Edges
- ========================================================================== */
-/* Don't use `width: 100%` because it is wrong if the parent has padding. */
-.uk-position-top {
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.uk-position-bottom {
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.uk-position-left {
-  top: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.uk-position-right {
-  top: 0;
-  bottom: 0;
-  right: 0;
-}
-
-/* Corners
- ========================================================================== */
-.uk-position-top-left {
-  top: 0;
-  left: 0;
-}
-
-.uk-position-top-right {
-  top: 0;
-  right: 0;
-}
-
-.uk-position-bottom-left {
-  bottom: 0;
-  left: 0;
-}
-
-.uk-position-bottom-right {
-  bottom: 0;
-  right: 0;
-}
-
-/*
- * Center
- * 1. Fix text wrapping if content is larger than 50% of the container (Not working in Firefox)
- * 2. Fix text wrapping for Firefox
- */
-.uk-position-center {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* 1 */
-  display: table;
-  /* 2 */
-  width: -moz-max-content;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* Vertical */
-[class*=uk-position-center-left],
-[class*=uk-position-center-right] {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.uk-position-center-left {
-  left: 0;
-}
-
-.uk-position-center-right {
-  right: 0;
-}
-
-.uk-position-center-left-out {
-  right: 100%;
-  width: max-content;
-}
-
-.uk-position-center-right-out {
-  left: 100%;
-  width: max-content;
-}
-
-/* Horizontal */
-.uk-position-top-center,
-.uk-position-bottom-center {
-  left: 50%;
-  transform: translateX(-50%);
-  /* 1 */
-  display: table;
-  /* 2 */
-  width: -moz-max-content;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.uk-position-top-center {
-  top: 0;
-}
-
-.uk-position-bottom-center {
-  bottom: 0;
-}
-
-/* Cover
- ========================================================================== */
-.uk-position-cover {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-/* Utility
- ========================================================================== */
-.uk-position-relative {
-  position: relative !important;
-}
-
-.uk-position-absolute {
-  position: absolute !important;
-}
-
-.uk-position-fixed {
-  position: fixed !important;
-}
-
-.uk-position-z-index {
-  z-index: 1;
-}
-
-/* Margin modifier
- ========================================================================== */
-/*
- * Small
- */
-.uk-position-small {
-  margin: 15px;
-}
-
-.uk-position-small.uk-position-center {
-  transform: translate(-50%, -50%) translate(-15px, -15px);
-}
-
-.uk-position-small[class*=uk-position-center-left],
-.uk-position-small[class*=uk-position-center-right] {
-  transform: translateY(-50%) translateY(-15px);
-}
-
-.uk-position-small.uk-position-top-center,
-.uk-position-small.uk-position-bottom-center {
-  transform: translateX(-50%) translateX(-15px);
-}
-
-/*
- * Medium
- */
-.uk-position-medium {
-  margin: 30px;
-}
-
-.uk-position-medium.uk-position-center {
-  transform: translate(-50%, -50%) translate(-30px, -30px);
-}
-
-.uk-position-medium[class*=uk-position-center-left],
-.uk-position-medium[class*=uk-position-center-right] {
-  transform: translateY(-50%) translateY(-30px);
-}
-
-.uk-position-medium.uk-position-top-center,
-.uk-position-medium.uk-position-bottom-center {
-  transform: translateX(-50%) translateX(-30px);
-}
-
-/*
- * Large
- */
-.uk-position-large {
-  margin: 30px;
-}
-
-.uk-position-large.uk-position-center {
-  transform: translate(-50%, -50%) translate(-30px, -30px);
-}
-
-.uk-position-large[class*=uk-position-center-left],
-.uk-position-large[class*=uk-position-center-right] {
-  transform: translateY(-50%) translateY(-30px);
-}
-
-.uk-position-large.uk-position-top-center,
-.uk-position-large.uk-position-bottom-center {
-  transform: translateX(-50%) translateX(-30px);
-}
-
-/* Desktop and bigger */
-@media (min-width: 1200px) {
-  .uk-position-large {
-    margin: 50px;
-  }
-
-  .uk-position-large.uk-position-center {
-    transform: translate(-50%, -50%) translate(-50px, -50px);
-  }
-
-  .uk-position-large[class*=uk-position-center-left],
-.uk-position-large[class*=uk-position-center-right] {
-    transform: translateY(-50%) translateY(-50px);
-  }
-
-  .uk-position-large.uk-position-top-center,
-.uk-position-large.uk-position-bottom-center {
-    transform: translateX(-50%) translateX(-50px);
-  }
-}
-/*@import "transition.scss";*/
-/* ========================================================================
-   Component: Visibility
- ========================================================================== */
-/*
- * Hidden
- * `hidden` attribute also set here to make it stronger
- */
-[hidden],
-.uk-hidden {
-  display: none !important;
-}
-
-/* Phone landscape and bigger */
-@media (min-width: 640px) {
-  .uk-hidden\@s {
-    display: none !important;
-  }
-}
-/* Tablet landscape and bigger */
-@media (min-width: 960px) {
-  .uk-hidden\@m {
-    display: none !important;
-  }
-}
-/* Desktop and bigger */
-@media (min-width: 1200px) {
-  .uk-hidden\@l {
-    display: none !important;
-  }
-}
-/* Large screen and bigger */
-@media (min-width: 1600px) {
-  .uk-hidden\@xl {
-    display: none !important;
-  }
-}
-/*
- * Visible
- */
-/* Phone portrait and smaller */
-@media (max-width: 639px) {
-  .uk-visible\@s {
-    display: none !important;
-  }
-}
-/* Phone landscape and smaller */
-@media (max-width: 959px) {
-  .uk-visible\@m {
-    display: none !important;
-  }
-}
-/* Tablet landscape and smaller */
-@media (max-width: 1199px) {
-  .uk-visible\@l {
-    display: none !important;
-  }
-}
-/* Desktop and smaller */
-@media (max-width: 1599px) {
-  .uk-visible\@xl {
-    display: none !important;
-  }
-}
-/* Visibility
- ========================================================================== */
-.uk-invisible {
-  visibility: hidden !important;
-}
-
-/* Hover
- ========================================================================== */
-/*
- * Hidden
- * Can't use `display: none` because it's not accessible through keyboard.
- */
-.uk-visible-toggle:not(:hover):not(.uk-hover) .uk-hidden-hover:not(:focus) {
-  position: absolute !important;
-  width: 0 !important;
-  height: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  overflow: hidden !important;
-}
-
-/*
- * Invisible
- * Can't use `visibility: hidden` because it's not accessible through keyboard.
- */
-.uk-visible-toggle:not(:hover):not(.uk-hover) .uk-invisible-hover:not(:focus) {
-  opacity: 0 !important;
-}
-
-/* Touch
- ========================================================================== */
-/*
- * Hide if primary pointing device has limited accuracy, e.g. a touch screen.
- * Works on mobile browsers: Safari, Chrome and Android browser
- */
-@media (pointer: coarse) {
-  .uk-hidden-touch {
-    display: none !important;
-  }
-}
-/*
- * Hide if primary pointing device is accurate, e.g. mouse.
- * 1. Fallback for IE11 and Firefox, because `pointer` is not supported
- * 2. Reset if supported
- */
-/* 1 */
-.uk-hidden-notouch {
-  display: none !important;
-}
-
-@media (pointer: coarse) {
-  .uk-hidden-notouch {
-    display: block !important;
-  }
-}
-/* ========================================================================
-   Component: Inverse
- ========================================================================== */
-/*
- * Implemented class depends on the general theme color
- * `uk-light` is for light colors on dark backgrounds
- * `uk-dark` is or dark colors on light backgrounds
- */
-/*
-// Need to be loaded last
-@import "print.scss";*/
 .content {
   position: relative;
 }
