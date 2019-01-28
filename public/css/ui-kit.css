@@ -1029,251 +1029,377 @@ button.uk-icon:not(:disabled) {
 @import "sortable.scss";
 @import "countdown.scss";
 
-// Utilities
-@import "animation.scss";
-@import "width.scss";
-@import "height.scss";*/
+// Utilities*/
 /* ========================================================================
-   Component: Text
+   Component: Animation
  ========================================================================== */
-/* Style modifiers
+[class*=uk-animation-] {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+/* Direction modifier
  ========================================================================== */
-.uk-text-lead {
-  font-size: 1.5rem;
-  line-height: 1.5;
-  color: #333;
+.uk-animation-reverse {
+  animation-direction: reverse;
+  animation-timing-function: ease-in;
 }
 
-.uk-text-meta {
-  font-size: 0.875rem;
-  line-height: 1.4;
-  color: #999;
-}
-
-/* Size modifiers
- ========================================================================== */
-.uk-text-small {
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-.uk-text-large {
-  font-size: 1.5rem;
-  line-height: 1.5;
-}
-
-/* Weight modifier
- ========================================================================== */
-.uk-text-bold {
-  font-weight: bolder;
-}
-
-/* Transform modifier
- ========================================================================== */
-.uk-text-uppercase {
-  text-transform: uppercase !important;
-}
-
-.uk-text-capitalize {
-  text-transform: capitalize !important;
-}
-
-.uk-text-lowercase {
-  text-transform: lowercase !important;
-}
-
-/* Color modifiers
- ========================================================================== */
-.uk-text-muted {
-  color: #999 !important;
-}
-
-.uk-text-emphasis {
-  color: #333 !important;
-}
-
-.uk-text-primary {
-  color: #1e87f0 !important;
-}
-
-.uk-text-success {
-  color: #32d296 !important;
-}
-
-.uk-text-warning {
-  color: #faa05a !important;
-}
-
-.uk-text-danger {
-  color: #f0506e !important;
-}
-
-/* Background modifier
+/* Animations for scrollspy
  ========================================================================== */
 /*
- * 1. The background clips to the foreground text. Works in Chrome, Firefox, Safari, Edge and Opera
- *    Default color is set to transparent
- * 2. Container fits the text
- * 3. Fallback color for IE11
+ * Fade
  */
-.uk-text-background {
-  /* 1 */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* 2 */
-  display: inline-block;
-  /* 3 */
-  color: #1e87f0 !important;
+.uk-animation-fade {
+  animation-name: uk-fade;
+  animation-duration: 0.8s;
+  animation-timing-function: linear;
 }
 
-@supports (-webkit-background-clip: text) {
-  .uk-text-background {
-    background-color: #1e87f0;
-  }
-}
-/* Alignment modifiers
- ========================================================================== */
-.uk-text-left {
-  text-align: left !important;
-}
-
-.uk-text-right {
-  text-align: right !important;
-}
-
-.uk-text-center {
-  text-align: center !important;
-}
-
-.uk-text-justify {
-  text-align: justify !important;
-}
-
-/* Phone landscape and bigger */
-@media (min-width: 640px) {
-  .uk-text-left\@s {
-    text-align: left !important;
-  }
-
-  .uk-text-right\@s {
-    text-align: right !important;
-  }
-
-  .uk-text-center\@s {
-    text-align: center !important;
-  }
-}
-/* Tablet landscape and bigger */
-@media (min-width: 960px) {
-  .uk-text-left\@m {
-    text-align: left !important;
-  }
-
-  .uk-text-right\@m {
-    text-align: right !important;
-  }
-
-  .uk-text-center\@m {
-    text-align: center !important;
-  }
-}
-/* Desktop and bigger */
-@media (min-width: 1200px) {
-  .uk-text-left\@l {
-    text-align: left !important;
-  }
-
-  .uk-text-right\@l {
-    text-align: right !important;
-  }
-
-  .uk-text-center\@l {
-    text-align: center !important;
-  }
-}
-/* Large screen and bigger */
-@media (min-width: 1600px) {
-  .uk-text-left\@xl {
-    text-align: left !important;
-  }
-
-  .uk-text-right\@xl {
-    text-align: right !important;
-  }
-
-  .uk-text-center\@xl {
-    text-align: center !important;
-  }
-}
 /*
- * Vertical
+ * Scale
  */
-.uk-text-top {
-  vertical-align: top !important;
+.uk-animation-scale-up {
+  animation-name: uk-fade-scale-02;
 }
 
-.uk-text-middle {
-  vertical-align: middle !important;
+.uk-animation-scale-down {
+  animation-name: uk-fade-scale-18;
 }
 
-.uk-text-bottom {
-  vertical-align: bottom !important;
+/*
+ * Slide
+ */
+.uk-animation-slide-top {
+  animation-name: uk-fade-top;
 }
 
-.uk-text-baseline {
-  vertical-align: baseline !important;
+.uk-animation-slide-bottom {
+  animation-name: uk-fade-bottom;
 }
 
-/* Wrap modifiers
+.uk-animation-slide-left {
+  animation-name: uk-fade-left;
+}
+
+.uk-animation-slide-right {
+  animation-name: uk-fade-right;
+}
+
+/*
+ * Slide Small
+ */
+.uk-animation-slide-top-small {
+  animation-name: uk-fade-top-small;
+}
+
+.uk-animation-slide-bottom-small {
+  animation-name: uk-fade-bottom-small;
+}
+
+.uk-animation-slide-left-small {
+  animation-name: uk-fade-left-small;
+}
+
+.uk-animation-slide-right-small {
+  animation-name: uk-fade-right-small;
+}
+
+/*
+ * Slide Medium
+ */
+.uk-animation-slide-top-medium {
+  animation-name: uk-fade-top-medium;
+}
+
+.uk-animation-slide-bottom-medium {
+  animation-name: uk-fade-bottom-medium;
+}
+
+.uk-animation-slide-left-medium {
+  animation-name: uk-fade-left-medium;
+}
+
+.uk-animation-slide-right-medium {
+  animation-name: uk-fade-right-medium;
+}
+
+/*
+ * Kenburns
+ */
+.uk-animation-kenburns {
+  animation-name: uk-scale-kenburns;
+  animation-duration: 15s;
+}
+
+/*
+ * Shake
+ */
+.uk-animation-shake {
+  animation-name: uk-shake;
+}
+
+/* Duration modifier
+ ========================================================================== */
+.uk-animation-fast {
+  animation-duration: 0.1s;
+}
+
+/* Enable animation only on hover
+========================================================================== */
+/*
+ * Note: Firefox and IE needs this because animations are not triggered when switching between display `none` and `block`
+ */
+.uk-animation-toggle:not(:hover):not(.uk-hover) [class*=uk-animation-] {
+  animation-name: none;
+}
+
+/* Keyframes used by animation classes
  ========================================================================== */
 /*
- * Prevent text from wrapping onto multiple lines
+ * Fade
  */
-.uk-text-nowrap {
-  white-space: nowrap;
+@keyframes uk-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
 /*
- * 1. Make sure a max-width is set after which truncation can occur
- * 2. Prevent text from wrapping onto multiple lines, and truncate with an ellipsis
- * 3. Fix for table cells
+ * Slide Top
  */
-.uk-text-truncate {
-  /* 1 */
-  max-width: 100%;
-  /* 2 */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+@keyframes uk-fade-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-/* 2 */
-th.uk-text-truncate,
-td.uk-text-truncate {
-  max-width: 0;
-}
-
 /*
- * 1. Wrap long words onto the next line and break them if they are too long to fit
- * 2. Legacy `word-wrap` as fallback for `overflow-wrap`
- * 3. Fix `overflow-wrap` which doesn't work with table cells in Chrome, Opera, IE11 and Edge
- *    Must use `break-all` to support IE11 and Edge
- * Note: Not using `hyphens: auto;` because it hyphenates text even if not needed
+ * Slide Bottom
  */
-.uk-text-break {
-  /* 1 */
-  overflow-wrap: break-word;
-  /* 2 */
-  word-wrap: break-word;
+@keyframes uk-fade-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-/* 3 */
-th.uk-text-break,
-td.uk-text-break {
-  word-break: break-all;
-}
-
 /*
+ * Slide Left
+ */
+@keyframes uk-fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/*
+ * Slide Right
+ */
+@keyframes uk-fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/*
+ * Slide Top Small
+ */
+@keyframes uk-fade-top-small {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*
+ * Slide Bottom Small
+ */
+@keyframes uk-fade-bottom-small {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*
+ * Slide Left Small
+ */
+@keyframes uk-fade-left-small {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/*
+ * Slide Right Small
+ */
+@keyframes uk-fade-right-small {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/*
+ * Slide Top Medium
+ */
+@keyframes uk-fade-top-medium {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*
+ * Slide Bottom Medium
+ */
+@keyframes uk-fade-bottom-medium {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*
+ * Slide Left Medium
+ */
+@keyframes uk-fade-left-medium {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/*
+ * Slide Right Medium
+ */
+@keyframes uk-fade-right-medium {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/*
+ * Scale Up
+ */
+@keyframes uk-fade-scale-02 {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/*
+ * Scale Down
+ */
+@keyframes uk-fade-scale-18 {
+  0% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/*
+ * Kenburns
+ */
+@keyframes uk-scale-kenburns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+/*
+ * Shake
+ */
+@keyframes uk-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-9px);
+  }
+  20% {
+    transform: translateX(8px);
+  }
+  30% {
+    transform: translateX(-7px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  60% {
+    transform: translateX(4px);
+  }
+  70% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+  90% {
+    transform: translateX(-1px);
+  }
+}
+/*
+@import "width.scss";
+@import "height.scss";
+@import "text.scss";/*
 @import "column.scss";
 @import "cover.scss";
 @import "background.scss";*/

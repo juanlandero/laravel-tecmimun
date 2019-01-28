@@ -5,7 +5,7 @@
 @section('body')
 
 
-<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 6000; pause-on-hover: false">
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 2000; pause-on-hover: false">
 
     <ul class="uk-slideshow-items">
         <li>
@@ -42,12 +42,12 @@
         </ul>
     </div>
 
-    <div class="uk-position-top">
+    <div class="uk-position-top" uk-scrollspy="cls:uk-animation-fade; delay: 300">
         @include('plantilla.navbar')
     </div>
 </div>
 
-<section class="hero is-success" uk-scrollspy="cls:uk-animation-fade">
+<section class="hero is-success" uk-scrollspy="cls:uk-animation-fade; delay: 500">
 
         <div class="hero-body container">
             
@@ -60,15 +60,18 @@
                         <p class="heading">Horas</p>
                         <span class="title is-size-1-desktop uk-countdown-number uk-countdown-hours"></span>
                     </div>
-                    <!--span class="title is-size-1-desktop uk-countdown-separator">:</span-->
+                    <div class="column is-1-desktop is-4-mobile has-text-centered is-hidden-mobile">
+                            <p class="heading"></p>
+                            <span class="title is-size-1-desktop uk-countdown-separator">:</span>
+                        </div>
                     <div class="column is-2-desktop is-4-mobile has-text-centered">
                         <p class="heading">Minutos</p>
                         <span class="title is-size-1-desktop uk-countdown-number uk-countdown-minutes"></span>
                     </div>
-                    <!--div class="column is-1-desktop is-4-mobile has-text-centered">
+                    <div class="column is-1-desktop is-4-mobile has-text-centered is-hidden-mobile">
                         <p class="heading"></p>
                         <span class="title is-size-1-desktop uk-countdown-separator">:</span>
-                    </div-->
+                    </div>
                     <div class="column is-2-desktop is-3-mobile has-text-centered is-hidden-mobile">
                         <p class="heading">Segundos</p>
                         <span class="title is-size-1-desktop uk-countdown-number uk-countdown-seconds"></span>
@@ -83,14 +86,14 @@
 <section class="section">
     <div class="container">
         <div class="columns">
-            <div class="column is-4">
+            <div class="column is-4" uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 700">
                 <div class="box">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut pariatur impedit 
                     alias facere quas illum esse. Ab nisi doloremque quasi commodi ea reiciendis veritatis 
                     consectetur atque alias eum? Quia, eaque.</p>
                 </div>
             </div>
-            <div class="column is-8">
+            <div class="column is-8" uk-scrollspy="cls: uk-animation-slide-right; repeat: false; delay: 700">
                 <article class="message is-primary">
                     
                     <div class="message-body">
@@ -107,7 +110,7 @@
 
 <section class="section">
     <div class="container">
-        <div class="columns">
+        <div class="columns" uk-grid uk-scrollspy="cls: uk-animation-fade; target: > .column; delay: 700; repeat: false">
             <div class="column is-4">
                 <article class="message is-primary">
                     <div class="message-header">
@@ -119,7 +122,7 @@
                     </div-->
                 </article>
             </div>
-            <div class="column is-4">
+            <div class="column is-4" >
                 <article class="message is-primary">
                     <div class="message-header">
                         <p>Comites</p>
@@ -130,7 +133,7 @@
                     </div-->
                 </article>
             </div>
-            <div class="column is-4">
+            <div class="column is-4" >
                 <article class="message is-primary">
                     <div class="message-header">
                         <p>Registro</p>
@@ -150,7 +153,7 @@
 <script src="js/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-
+    UIkit.scrollspy();
 });
 </script>
 

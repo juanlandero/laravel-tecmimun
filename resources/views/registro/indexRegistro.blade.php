@@ -5,16 +5,6 @@
 @section('body')
 @include('plantilla.navbar')
 
-<section class="hero is-success">
-    <div class="hero-body">
-        <div class="container">
-            <p class="sub-title">
-                Rellena el formulario de la izquierda para realizar tu registro desde 0. Si ya han realizado un pre-registro de tus datos, 
-                da click en el boton <strong>Registrarme</strong> que se encuentra en el lado derecho e ingresa el código que te ha proporcionado
-            </p>
-        </div>
-    </div>
-</section>
 
 <section class="section" >
     <div class="container">
@@ -114,7 +104,7 @@
 @endsection 
 @include('registro.modalRegistro')
 
-<script src="js/jquery.min.js"></script>
+<script src="{{ asset('js/jquery.min.js')}}"></script>
 <script>
 $(document).ready(function(){
 

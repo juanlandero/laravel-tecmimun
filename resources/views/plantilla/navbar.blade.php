@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation" >
     <div class="container">
         <div class="navbar-brand">
                 <a class="navbar-item" href="{{ route('index') }}">
@@ -21,7 +21,7 @@
                 <a class="navbar-item" href="{{ route('index') }}" >Inicio</a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Acerca</a>
-                    <div class="navbar-dropdown">
+                    <div class="navbar-dropdown is-right">
                         <a class="navbar-item" href="{{ Route('Nosotros') }}">Modelo</a>
                         <a class="navbar-item" href="{{ Route('Protocolo') }}">Protocolo</a>
                         <a class="navbar-item" href="{{ Route('Contacto') }}">Contacto</a>                          
@@ -29,7 +29,7 @@
                 </div> 
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Registro</a>
-                    <div class="navbar-dropdown">
+                    <div class="navbar-dropdown is-right">
                         <a class="navbar-item" href="{{ route('ComoRegistrarse') }}">Como registrarse</a>
                         <a class="navbar-item" href="{{ route('Costos') }}">Fechas</a>
                         <a class="navbar-item">Costos</a>                          
@@ -37,7 +37,7 @@
                 </div> 
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Comites</a>
-                    <div class="navbar-dropdown">
+                    <div class="navbar-dropdown is-right">
                         <a class="navbar-item" href="{{ route('infoComites') }}">Información de comités</a>
                         <a class="navbar-item" href="{{ route('CriterioPremiacion') }}">Criterios de premiación</a>
                         <a class="navbar-item" href="{{ route('Antecedentes') }}">Antecedentes</a>

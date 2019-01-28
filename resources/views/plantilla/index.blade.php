@@ -15,7 +15,7 @@
 @section('body')
 @show
 
-<footer class="footer">
+<footer class="footer" uk-scrollspy="cls:uk-animation-fade; delay: 500">
     <div class="content has-text-centered">
         <p class="title is-size-5 has-text-white">TECMIMUN 2019</p>
     </div>

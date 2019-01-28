@@ -22,10 +22,9 @@ class CreatePaiscomitesTable extends Migration
             $table->unsignedInteger('pk_comite');
             $table->foreign('pk_comite')->references('id')->on('comites');
 
-            $table->unsignedInteger('pk_alumno');
-            $table->foreign('pk_alumno')->references('id')->on('alumnos');
+            
 
-            $table->boolean('activo')->default(true);
+            $table->boolean('disponible')->default(true);
 
             $table->timestamps();
         });
