@@ -87,6 +87,17 @@ class AdminController extends Controller
         }
     }
 
+    public function importPaises(){
+        Excel::import(new Pais, request()->file('archivo_xlsx'), \Maatwebsite\Excel\Excel::XLSX);
+        //(new UsersImport)->import('users.xlsx', null, \Maatwebsite\Excel\Excel::XLSX);
+
+        return redirect('Admin-Pais');
+        //Excel::import(new Pais, request()->file('archivo_xls'), Excel::XLSX);
+
+        //Excel::import(new PaisImport, 'Libro1.xlsx');
+       
+    }
+
     /**
      * Escuela
      */

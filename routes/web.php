@@ -32,13 +32,9 @@ Route::get('/pais', 'PaisController@index')->name('Pais');
 Route::post('/pais/create', 'PaisController@guardar')->name('GuardarPais');
 
 
-
 /**
 * Rutas de comites
 */
-
-//Route::get('/comites', 'ComiteController@index')->name('comite');
-//Route::post('/comites', 'ComiteController@guardar')->name('guardarcomites');
 Route::get('/Comites', 'ComiteController@indexComite')->name('infoComites');
 Route::get('/Comites/Recursos', 'ComiteController@recursos')->name('RecursosApoyo');
 Route::get('/Comites/Criterios', 'ComiteController@criterios')->name('CriterioPremiacion');
@@ -58,6 +54,8 @@ Route::get('/Admin-Comite/delete/{id}', 'AdminController@deletecomite')->name('d
 Route::get('/Admin-Pais', 'AdminController@pais')->name('admin.pais');
 Route::post('/Admin-Pais/new', 'AdminController@savepais')->name('save.pais');
 Route::get('/Admin-Pais/delete/{id}', 'AdminController@deletepais')->name('delete.pais');
+Route::post('/Admin-Pais/Import', 'AdminController@importPaises')->name('ImportarXlsx');
+
 
 Route::get('/Admin-Escuela', 'AdminController@escuela')->name('admin.escuela');
 Route::post('/Admin-Escuela/new', 'AdminController@saveescuela')->name('save.escuela');
