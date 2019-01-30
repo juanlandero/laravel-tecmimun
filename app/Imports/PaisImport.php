@@ -8,7 +8,6 @@ use Maatwebsite\Excel\Concerns\Importable;
 
 class PaisImport implements ToModel
 {
-
     use Importable;
     /**
     * @param array $row
@@ -18,7 +17,7 @@ class PaisImport implements ToModel
     public function model(array $row)
     {
         return new Pais([
-            'nombre'=>$row[0]
+            'nombre' => $row[0],
         ]);
     }
 }

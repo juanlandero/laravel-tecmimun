@@ -10,19 +10,54 @@ use App\Paiscomite;
 use App\Alumno;
 use DB;
 
+use App\Imports\PaisImport;
+use Maatwebsite\Excel\Facades\Excel;
+
+
 class AdminController extends Controller
 {
     public function index(){
-        $paiscomite = DB::table('paiscomites')
+      
+        $pre = DB::table('alumnos')
+            ->join('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+            ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
             ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
             ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-            ->select('paiscomites.*', 'pais.nombre as pais', 'comites.nombre as comite')
-            ->where('paiscomites.disponible', 1)
+            ->select(
+                    'alumnos.id as id',
+                    'alumnos.codigo',
+                    'escuelas.nombre as escuela',
+                    'comites.nombre as comite',
+                    'pais.nombre as pais'
+                    )
+            ->orderBy('alumnos.pk_escuelas', 'asc')
+            ->where('alumnos.nombre', '')
             ->get();
 
-        $comite = Comite::all();
+        $inscritos = DB::table('alumnos')
+            ->join('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+            ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+            ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+            ->select(
+                'alumnos.nombre',
+                'alumnos.ap_paterno',
+                'alumnos.ap_materno',
+                'alumnos.edad',
+                'alumnos.mail',
+                'alumnos.codigo',
+                'escuelas.nombre as escuela',
+                'comites.nombre as comite',
+                'pais.nombre as pais'
+                )
+            ->where('alumnos.nombre', '<>', '')
+            ->orderBy('alumnos.pk_escuelas', 'asc')
+            ->get();
+        
+        $num_inscritos = $inscritos->count();
+        $num_pre       = $pre->count();
 
-        return view('admin.index', ['pc'=>$paiscomite, 'comites'=>$comite]);
+        return view('admin.index', ['inscritos'=>$inscritos, 'pre'=>$pre, 'n_ins'=>$num_inscritos, 'n_pre'=>$num_pre]);
     }
 
 
@@ -87,15 +122,11 @@ class AdminController extends Controller
         }
     }
 
-    public function importPaises(){
-        Excel::import(new Pais, request()->file('archivo_xlsx'), \Maatwebsite\Excel\Excel::XLSX);
-        //(new UsersImport)->import('users.xlsx', null, \Maatwebsite\Excel\Excel::XLSX);
+    public function importPaises(Request $request){
+        
+        Excel::import(new PaisImport, request()->file('archivo_xlsx'), 'local', \Maatwebsite\Excel\Excel::XLSX);
 
-        return redirect('Admin-Pais');
-        //Excel::import(new Pais, request()->file('archivo_xls'), Excel::XLSX);
-
-        //Excel::import(new PaisImport, 'Libro1.xlsx');
-       
+        return redirect('Admin-Pais');     
     }
 
     /**

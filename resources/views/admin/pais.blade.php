@@ -5,7 +5,7 @@
 @section('seccion', 'País')
 
 <div class="columns is-centered">
-    <div class="column is-9">
+    <div class="column is-8">
 
         <nav class="panel">
             <p class="panel-heading">Países</p>
@@ -16,7 +16,6 @@
                             <th>ID</th>
                             <th>NOMBRE</th>
                             <th>CREADO</th>
-                            <th>EDITAR</th>
                             <th>ELIMINAR</th>
                         </tr>
                     </thead>
@@ -26,7 +25,6 @@
                                 <td>{{ $pais->id }}</td>
                                 <td>{{ $pais->nombre }}</td>
                                 <td>{{ $pais->created_at }}</td>
-                                <td><a href="{{ route('delete.pais', $pais->id) }}"><i class="fas fa-edit"></i></a></td>
                                 <td><a href="{{ route('delete.pais', ['id'=>$pais->id]) }}"><i class="fas fa-trash"></i></a></td>
                             </tr>
                     @endforeach
@@ -36,7 +34,7 @@
         </nav>
     </div>
 
-    <div class="column is-3">
+    <div class="column is-4 ">
         <nav class="panel">
             <p class="panel-heading">Crear País</p>
             <div class="panel-block">
@@ -54,27 +52,41 @@
         <nav class="panel">
                 <p class="panel-heading">Importar un xlsx</p>
                 <div class="panel-block">
-                    <form action="{{ route('ImportarXlsx') }}" method="post">
+                    <form action="{{ route('ImportarXlsx') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <!--div class="file">
+                      
+                        <div class="file has-name is-boxed">
                             <label class="file-label">
-                                <input class="file-input" type="file" name="archivo_xlsx">
+                                <input class="file-input" type="file" name="archivo_xlsx" id="file">
                                 <span class="file-cta">
                                 <span class="file-icon">
                                     <i class="fas fa-upload"></i>
                                 </span>
                                 <span class="file-label">
-                                    Choose a file…
+                                    Examinar
                                 </span>
+                                </span>
+                                <span class="file-name" id="filename">
                                 </span>
                             </label>
-                        </div-->
-
-                        <input type="file" name="archivo_xlsx">
-                        <button class="button is-danger" type="submit">Cargar</button>
+                        </div>
+                        <button class="button is-danger is-rounded" type="submit">Cargar</button>
                     </form>
                 </div>                  
             </nav>
     </div>
 </div>
+
+<script>
+var file = document.getElementById("file");
+file.onchange = function(){
+    if(file.files.length > 0)
+    {
+
+      document.getElementById('filename').innerHTML = 					file.files[0].name;
+
+    }
+};
+
+</script>
 @endsection

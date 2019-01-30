@@ -17,7 +17,6 @@
                     <th>NOMBRE</th>
                     <th>IDIOMA</th>
                     <th>CREADO</th>
-                    <th>EDITAR</th>
                     <th>ELIMINAR</th>
                 </tr>
             </thead>
@@ -28,7 +27,6 @@
                         <td>{{ $comite->nombre }}</td>
                         <td>{{ $comite->idioma }}</td>
                         <td>{{ $comite->created_at }}</td>
-                        <td><a href="{{ route('delete.comite', $comite->id) }}"><i class="fas fa-edit"></i></a></td>
                         <td><a href="{{ route('delete.comite', ['id'=>$comite->id]) }}"><i class="fas fa-trash"></i></a></td>
                     </tr>
                @endforeach
