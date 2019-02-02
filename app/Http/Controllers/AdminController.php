@@ -192,7 +192,7 @@ class AdminController extends Controller
             $alumno->edad = 0;
             $alumno->mail = "";
             $alumno->codigo = $codigo;
-            $alumno->preinscrito = 1;
+            $alumno->preinscrito = 0;
             $alumno->pk_escuelas = $escuela;
             $alumno->pk_inscripcion = $item;
             $alumno->save(); 

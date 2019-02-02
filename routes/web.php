@@ -20,8 +20,16 @@ Route::get('/AcercaDe/Contacto', 'NosotrosController@contacto')->name('Contacto'
  * Registro de alumnos
  */
 Route::get('/Registro', 'RegistroController@comoRegistrarme')->name('ComoRegistrarse');
-Route::get('/Registro/Nuevo', 'RegistroController@index')->name('Registro');
-Route::post('/Registro/Nuevo', 'RegistroController@codigo')->name('ConfirmarCodigo');
+Route::get('/Registro/Nuevo/', 'RegistroController@nuevoRegistro')->name('Registro');
+Route::get('/Registro/getPaises', 'RegistroController@getPaises');
+
+
+Route::get('/Registro/Codigo', 'RegistroController@registrarCodigo')->name('Codigo');
+Route::post('/Registro/Verificacion', 'RegistroController@verificarCodigo');
+Route::get('/Registro/Nuevo/{id}', 'RegistroController@confirmarRegistro');
+
+Route::post('/Registro/Confirmar', 'RegistroController@guardarAlumno')->name('Confirmacion');
+
 Route::get('/Registro/Costos', 'RegistroController@costos')->name('Costos');
 
 

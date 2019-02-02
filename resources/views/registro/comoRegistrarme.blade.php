@@ -6,6 +6,9 @@
 
 @include('plantilla.secondNavbar')
 
+<!--link rel="stylesheet" href="{{-- asset('css/ui-kit.css')--}}"-->
+
+
 <section class="hero is-primary">
     <div class="hero-body">
         <div class="hero-content">
@@ -56,20 +59,10 @@
             </div>
         </article>
         <div class="container">
-            <div class="tabs is-fullwidth">
-                <ul>
-                    <li >
-                        <a>
-                            <span class="icon"><i class="fas fa-address-card" aria-hidden="true"></i></span><span>Registro completo</span>
-                        </a>
-                    </li>
-                    <li class="is-active">
-                        <a>
-                            <span class="icon"><i class="fas fa-qrcode" aria-hidden="true"></i></span><span>Registro con código</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+
+
+
+            
         </div>
     </section>
 
@@ -94,5 +87,18 @@
     </div>
 </section>
 
+<section class="section">
+    <div class="columns has-text-centered">
+        <div class="column is-6">
+            <a href="{{ route('Registro') }}" class="button is-primary is-rounded">Inscribirme</a>
+        </div>
+        <div class="column is-6">
+            <a href="{{ route('Codigo') }}" class="button is-primary is-rounded">Ingresar un codigo</a>
+        </div>
+    </div>
+</section>
+
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/tabs.js') }}"></script>
 
 @endsection
