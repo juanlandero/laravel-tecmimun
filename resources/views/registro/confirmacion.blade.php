@@ -23,7 +23,7 @@
             <br><br>
             <p class="title is-1">Te has registrado con exito</p>
 
-        <p class="title is-2">{{ $alumno->nombre }} {{ $alumno->ap_paterno }} {{ $alumno->ap_materno }}</p>
+        <p class="title is-2">{{ $alumno->nombre }}</p>
         <p class="title is 3">Representarás al país: {{ $alumno->pais }}, en el comité: {{ $alumno->comite }}</p>
         <p><a href="{{ route('index') }}" class="button is-rounded is-primary">Ir al inicio</a></p>
         </div>

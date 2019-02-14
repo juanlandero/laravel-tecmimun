@@ -3,9 +3,10 @@
 @section('titulo', 'Contacto')
 
 @section('body')
+
 <section class="hero is-primary" style="position: relative">
     <div class="hero-body">
-      
+
         <div class="hero-container">
             <span class="title">Contacto</span>
             
@@ -17,35 +18,32 @@
 <section class="section">
     <div class="container">
         <div class="columns">
-            <div class="column is-5">
-                <div class="column has-text-centered">
-                    <span class="icon is-large has-text-primary">
-                        <i class="fas fa-3x fa-envelope"></i>
-                    </span>
-                    <h1 class="title is-size-3-desktop is-size-4-mobile">Email</h1>
-                    <p class="subtitle box is-size-6-mobile">produccion@prueba.com.mx</p>
-                </div>
-                <br>
-                <div class="column has-text-centered">
-                    <span class="icon is-large has-text-primary">
-                        <i class="fas fa-3x fa-map-marker-alt"></i>
-                    </span>
-                    <h1 class="title is-size-3-desktop is-size-4-mobile">Dirección</h1>
-                    <p class="subtitle box is-size-6-mobile">
-                        José Mariscal S/N, Jose Maria Pino Suarez, 86029 Villahermosa, Tabasco.
-                    </p>
-                </div>
+          <div class="column is-5">
+              <div class="column has-text-centered">
+                  <span class="icon is-large has-text-primary">
+                      <i class="fas fa-3x fa-envelope"></i>
+                  </span>
+                  <h1 class="title is-size-3-desktop is-size-4-mobile">Email</h1>
+                  <p class="subtitle box is-size-6-mobile">produccion@prueba.com.mx</p>
+              </div>
+              <br>
+              <div class="column has-text-centered">
+                  <span class="icon is-large has-text-primary">
+                      <i class="fas fa-3x fa-map-marker-alt"></i>
+                  </span>
+                  <h1 class="title is-size-3-desktop is-size-4-mobile">Dirección</h1>
+                  <p class="subtitle box is-size-6-mobile">
+                      José Mariscal S/N, Jose Maria Pino Suarez, 86029 Villahermosa, Tabasco.
+                  </p>
+              </div>
+          </div>
 
-            </div>
-
-            <div class="column is-7" id="map">
-                <iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=tecmilenio%20villahermosa&key=AIzaSyDDXCUmvba67XWVQFHb4U6ZIYfiZSw2O1k" allowfullscreen></iframe>
-            </div>
-
-           
+          <div class="column is-7" id="map">
+              <iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=tecmilenio%20villahermosa&key=AIzaSyDDXCUmvba67XWVQFHb4U6ZIYfiZSw2O1k" allowfullscreen></iframe>
+          </div>
         </div>
-        <a href="{{ Route('Registro') }}" class="button is-success">Registrarme</a>
     </div>
+
 
 
 <script>
@@ -373,9 +371,6 @@
 
 
     </script>
-    <!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDXCUmvba67XWVQFHb4U6ZIYfiZSw2O1k&callback=initMap"
-    async defer></script-->
-
 </section>
 
 

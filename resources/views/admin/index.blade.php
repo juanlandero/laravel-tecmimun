@@ -57,7 +57,7 @@
                     <tbody>
                         @foreach ($inscritos as $alumno)
                             <tr>
-                                <td>{{ $alumno->nombre }} {{ $alumno->ap_paterno }} {{ $alumno->ap_materno }}</td>
+                                <td>{{ $alumno->nombre }}</td>
                                 <td>{{ $alumno->edad }}</td>
                                 <td>{{ $alumno->mail }}</td>
                                 <td>{{ $alumno->codigo }}</td>

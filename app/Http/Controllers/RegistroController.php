@@ -22,7 +22,6 @@ class RegistroController extends Controller
     }  
     
     public function getPaises(Request $request){
-        $dato = '<select name="id_pais">';
         $comite = $request->input('comite');
         $paises = DB::table('paiscomites')
                 ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
@@ -112,8 +111,6 @@ class RegistroController extends Controller
 
             $nuevo = new Alumno;
             $nuevo->nombre = $request->input('nombre');
-            $nuevo->ap_paterno = $request->input('ap1');
-            $nuevo->ap_materno = $request->input('ap2');
             $nuevo->edad = $request->input('edad');
             $nuevo->mail = $request->input('email');
             $nuevo->codigo = "";
@@ -134,8 +131,6 @@ class RegistroController extends Controller
                 ->select(
                     'alumnos.id',
                     'alumnos.nombre',
-                    'alumnos.ap_paterno',
-                    'alumnos.ap_materno',
                     'alumnos.pk_escuelas',
                     'alumnos.codigo',
                     'escuelas.nombre as escuela',
@@ -156,8 +151,6 @@ class RegistroController extends Controller
                     ->update(
                         [
                             'nombre'        =>  $request->input('nombre'),
-                            'ap_paterno'    =>  $request->input('ap1'),
-                            'ap_materno'    =>  $request->input('ap2'),
                             'edad'          =>  $request->input('edad'),
                             'mail'          =>  $request->input('email'),
                             'preinscrito'   =>  1
@@ -172,8 +165,6 @@ class RegistroController extends Controller
                     ->select(
                         'alumnos.id',
                         'alumnos.nombre',
-                        'alumnos.ap_paterno',
-                        'alumnos.ap_materno',
                         'alumnos.pk_escuelas',
                         'alumnos.codigo',
                         'escuelas.nombre as escuela',

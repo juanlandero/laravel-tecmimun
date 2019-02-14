@@ -4,24 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comite;
+use DB;
 
 class ComiteController extends Controller
 {
-    //
-    public function index(){
-        return view('comite.indexComite');
-    }
-
-
-    public function guardar(Request $request){
-        $comite = new Comite;
-        $comite->nombre = $request->input('nombre');
-        $comite->save();
-        return $comite;
-    }
 
     public function indexComite(){
-        return view('comite.infoComite');
+        $comites = Comite::all();
+        return view('comite.infoComite', ['comites' => $comites]);
     }
 
     public function recursos(){

@@ -17,7 +17,8 @@ $(document).ready(function(){
                 $('#result').html(dato.texto);
                 window.location= dato.texto;
             }else{
-                $('#result').html(dato.texto);
+				$('#result').html(dato.texto);
+				$('#msn').css('display', 'block');
             }
 		})
 		.fail(function(dato){

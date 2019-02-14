@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tecmimun | Antecedentes</title>
     <link rel="stylesheet" href="{{ asset('css/bulma.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icon/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
     <style>
     body, html{
         margin: 0px;
@@ -16,13 +19,17 @@
 <body>
    
 <section class="" style="background-color: ; height: 100%">
+    
 
     <div class="columns is-vcentered has-text-centered" style="height: 100%">
+        
         <div class="column">
+                
             <p>
-                <h1 class="title is-size-3-desktop">
-                    Modelo de las Naciones Unidas
-                </h1>
+                <div style="position:absolute; right: 5%; top:25px" class="has-text-green">
+                    @include('plantilla.secondNavbar')
+                </div> 
+                <h1 class="title is-size-3-desktop">Modelo de las Naciones Unidas</h1>
                 <h1 class="title is-size-3-desktop">
                     Universidad Tecmilenio (Campus Villahermosa)
                 </h1>
@@ -38,17 +45,15 @@
                         </form>
                     </div>
                 </div>
-            </p>
-
-
-            
-                
+            </p>                
         </div>
-
     </div>
-   
-    
-
 </section>
+
+
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
 </body>
 </html>

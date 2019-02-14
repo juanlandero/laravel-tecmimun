@@ -3,7 +3,7 @@
 @section('titulo', 'Inicio')
 
 @section('body')
-
+@include('plantilla.navbar')
 
 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 2000; pause-on-hover: false">
 
@@ -42,47 +42,54 @@
         </ul>
     </div>
 
-    <div class="uk-position-top" uk-scrollspy="cls:uk-animation-fade; delay: 300">
-        @include('plantilla.navbar')
+    <div class="uk-position-top" uk-scrollspy="cls:uk-animation-fade; delay: 300" style="z-index: 1000">
+        
     </div>
 </div>
-
-<section class="hero is-success" uk-scrollspy="cls:uk-animation-fade; delay: 500">
-
-        <div class="hero-body container">
-            
-            <div uk-countdown="date: 2019-05-24T08:00:00" class="columns is-centered is-mobile">
-                    <div class="column is-2-desktop is-5-mobile has-text-centered">
-                        <p class="heading">Días</p>
-                        <span class="title is-size-1-desktop uk-countdown-number uk-countdown-days"></span>
-                    </div>
-                    <div class="column is-2-desktop is-4-mobile has-text-centered">
-                        <p class="heading">Horas</p>
-                        <span class="title is-size-1-desktop uk-countdown-number uk-countdown-hours"></span>
-                    </div>
-                    <div class="column is-1-desktop is-4-mobile has-text-centered is-hidden-mobile">
-                            <p class="heading"></p>
-                            <span class="title is-size-1-desktop uk-countdown-separator">:</span>
-                        </div>
-                    <div class="column is-2-desktop is-4-mobile has-text-centered">
-                        <p class="heading">Minutos</p>
-                        <span class="title is-size-1-desktop uk-countdown-number uk-countdown-minutes"></span>
-                    </div>
-                    <div class="column is-1-desktop is-4-mobile has-text-centered is-hidden-mobile">
-                        <p class="heading"></p>
-                        <span class="title is-size-1-desktop uk-countdown-separator">:</span>
-                    </div>
-                    <div class="column is-2-desktop is-3-mobile has-text-centered is-hidden-mobile">
-                        <p class="heading">Segundos</p>
-                        <span class="title is-size-1-desktop uk-countdown-number uk-countdown-seconds"></span>
-                    </div>
+<br><br>
+<section class="hero" uk-scrollspy="cls:uk-animation-fade; delay: 500">
+    <div class="hero-body">
+        
+        <div class="container">
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <p class="title is-size-3-desktop has-text-primary">24 de Mayo 2019</p>
+                </div>
             </div>
-
-
         </div>
-
-    </section>
-
+        <br><br><br><br><br>
+        <div class="container">
+            <div uk-countdown="date: 2019-05-24T08:00:00" class="columns is-centered is-mobile">
+                <div class="column is-2-desktop is-5-mobile has-text-centered">
+                    <p class="heading">Días</p>
+                    <span class="title is-size-1-desktop has-text-primary uk-countdown-number uk-countdown-days"></span>
+                </div>
+                <div class="column is-2-desktop is-4-mobile has-text-centered">
+                    <p class="heading">Horas</p>
+                    <span class="title is-size-1-desktop has-text-primary uk-countdown-number uk-countdown-hours"></span>
+                </div>
+                <div class="column is-1-desktop is-4-mobile has-text-centered is-hidden-mobile">
+                        <p class="heading"></p>
+                        <span class="title is-size-1-desktop has-text-primary uk-countdown-separator">:</span>
+                    </div>
+                <div class="column is-2-desktop is-4-mobile has-text-centered">
+                    <p class="heading">Minutos</p>
+                    <span class="title is-size-1-desktop has-text-primary uk-countdown-number uk-countdown-minutes"></span>
+                </div>
+                <div class="column is-1-desktop is-4-mobile has-text-centered is-hidden-mobile">
+                    <p class="heading"></p>
+                    <span class="title is-size-1-desktop has-text-primary uk-countdown-separator">:</span>
+                </div>
+                <div class="column is-2-desktop is-3-mobile has-text-centered is-hidden-mobile">
+                    <p class="heading">Segundos</p>
+                    <span class="title is-size-1-desktop has-text-primary uk-countdown-number uk-countdown-seconds"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+<br><br><br><br>
 <section class="section">
     <div class="container">
         <div class="columns">
@@ -94,13 +101,12 @@
                 </div>
             </div>
             <div class="column is-8" uk-scrollspy="cls: uk-animation-slide-right; repeat: false; delay: 700">
-                <article class="message is-primary">
-                    
-                    <div class="message-body">
-                        <h1 class="title">CARTA DE BIENVENIDA</h1>
-                    </div>
-                    <p class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsam sequi inventore dolor beatae culpa, magni vel eaque perspiciatis! Ut reprehenderit repellat ipsa deleniti voluptatum velit doloremque molestiae ipsam explicabo.</p>
-                </article>
+                
+                <h1 class="title is-size-2-desktop">Carta de Bienvenida</h1>
+                <br>
+                <p class="subtitle is-size-4-desktop">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsam sequi 
+                    inventore dolor beatae culpa, magni vel eaque perspiciatis! Ut reprehenderit
+                    repellat ipsa deleniti voluptatum velit doloremque molestiae ipsam explicabo.</p>
             </div>
         </div>
 

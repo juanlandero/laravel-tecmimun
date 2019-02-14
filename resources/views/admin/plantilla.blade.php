@@ -10,9 +10,13 @@
 </head>
 <body>
  
-<nav class="navbar is-transparent">
+<nav class="navbar is-bluegrey is-fixed-top">
     <div class="navbar-brand">
-        <a class="navbar-item" href="#">Administrador - @yield('seccion')</a>
+        <a class="navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">Logout - {{ Auth::user()->name }}</a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
         <span></span>
         <span></span>
@@ -25,10 +29,10 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-info is-outlined" href="{{ route('admin.pais') }}">País</a>
-                    <a class="button is-info is-outlined" href="{{ route('admin.comite') }}">Comité</a>
-                    <a class="button is-info is-outlined" href="{{ route('admin.escuela') }}">Escuela</a>
-                    <a class="button is-info is-outlined" href="{{ route('admin.paiscomite') }}">Config. Comité</a>        
+                    <a class="button is-danger is-outlined" href="{{ route('admin.index') }}">Inicio</a>
+                    <a class="button is-danger is-outlined" href="{{ route('admin.pais') }}">País</a>
+                    <a class="button is-danger is-outlined" href="{{ route('admin.comite') }}">Comité</a>
+                    <a class="button is-danger is-outlined" href="{{ route('admin.escuela') }}">Escuela</a>
                 </div>
             </div>       
         </div>
@@ -36,6 +40,7 @@
 </nav>
 
 <section class="section">
+    <br>
     <div class="container">
         @section('body')
         @show

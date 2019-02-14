@@ -11,11 +11,18 @@ use App\Alumno;
 use DB;
 
 use App\Imports\PaisImport;
+use App\Exports\PaiscomiteExport;
+use App\Exports\EscuelaExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
       
         $pre = DB::table('alumnos')
@@ -41,8 +48,6 @@ class AdminController extends Controller
             ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
             ->select(
                 'alumnos.nombre',
-                'alumnos.ap_paterno',
-                'alumnos.ap_materno',
                 'alumnos.edad',
                 'alumnos.mail',
                 'alumnos.codigo',
@@ -65,8 +70,62 @@ class AdminController extends Controller
      * Comité
      */
     public function comite(){
-        $comite = Comite::all();
-        return view('admin.comite', ['data'=>$comite]);
+
+        $comites = Comite::all();
+
+        $arrayComites = [];
+
+        foreach ($comites as $item) {
+            $paises = DB::table('paiscomites')
+                            ->where('paiscomites.pk_comite', $item->id)
+                            ->count();
+
+            $arrayComites[] = [
+                        'id' => $item->id,
+                        'nombre' => $item->nombre,
+                        'idioma' => $item->idioma,
+                        'paises' => $paises
+                            ];
+        }
+
+        return view('admin.comite', ['comites' => $arrayComites]);
+    }
+
+
+    public function getExcel(Request $request){
+        $id = $request->input('comite');
+
+        $archivo = DB::table('comites')->where('comites.id', $id)->first();
+
+        return (new PaiscomiteExport($id))->download($archivo->nombre.'.xlsx');
+    }
+
+    public function detailcomite(Request $request){
+        $id = $request->input('comite');
+
+        $paises = DB::table('paiscomites')
+                    ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+                    ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+                    ->leftJoin('alumnos', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+                    ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+                    ->select('paiscomites.id',
+                            'alumnos.nombre as alumno',
+                            'alumnos.codigo',
+                            'pais.nombre as pais',
+                            'escuelas.nombre as escuela',
+                            'comites.nombre as comite')
+                    ->where('paiscomites.pk_comite', $id)
+                    ->get();
+
+        if ($paises->count() != 0) {
+            return json_encode($paises);
+        }else{
+            return [
+                'resultado'=>true,
+                'texto'=>'No hay alumnos registrados aun'
+            ];
+        }
+        
     }
 
     public function savecomite(Request $request){
@@ -88,6 +147,57 @@ class AdminController extends Controller
             return redirect('Admin-Comite');
         }
     }
+
+    /**
+     * PaisComite
+     */
+    public function paiscomite(Request $request){
+        $comite = $request->input('comite');
+
+        $pais = Pais::all();
+
+        $paiscomite = DB::table('paiscomites')
+            ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+            ->select('paiscomites.id', 'pais.nombre as pais', 'paiscomites.pk_comite', 'paiscomites.disponible')
+            ->get();
+
+        return ['pais' => $pais, 'comite' => $comite];
+    }
+
+    public function savepaiscomite(Request $request){
+
+        $paises = $request->input('paises');
+
+        foreach ($paises as $item) {
+            $pc = new Paiscomite;
+            $pc->pk_pais = $item;
+            $pc->pk_comite = $request->comite;
+            $pc->disponible = true;
+            $pc->save(); 
+        }
+
+        return redirect('Admin-Comite');
+    }
+
+    public function deletepaiscomite(Request $request){
+        $id = $request->input('comite');
+        $query = DB::table('alumnos')
+                ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+                ->where([ [ 'paiscomites.pk_comite', $id] ])
+                ->count();
+
+        if ($query == 0) {
+            DB::table('paiscomites')
+            ->where('pk_comite', $id)
+            ->delete();
+            return redirect('Admin-Comite');
+        }else{
+            return 'No puede eliminar los paises porque ya existen '.$query.' alumnos registrados';
+        }
+        
+    }
+
 
     /**
      * Pais
@@ -155,40 +265,73 @@ class AdminController extends Controller
         return redirect('Admin-Escuela');
     }
 
-    public function preregistroescuela(Request $request){
+    public function registrosescuela(Request $request){
+        $id = $request->input('comite');
 
-        $comite = $request->input('id_comite');
-        $escuela = $request->input('id_escuela');
+        $paises = DB::table('alumnos')
+                    ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+                    ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+                    ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+                    ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+                    ->select('alumnos.id',
+                            'alumnos.nombre as alumno',
+                            'alumnos.codigo',
+                            'pais.nombre as pais',
+                            'escuelas.nombre as escuela',
+                            'comites.nombre as comite')
+                    ->where('alumnos.pk_escuelas', $id)
+                    ->get();
 
-        $dato_escuela = DB::table('escuelas')->where('id', $escuela)->first();
-        $dato_comite = DB::table('comites')->where('id', $comite)->first();
+        if ($paises->count() != 0) {
+            return json_encode($paises);
+        }else{
+            return [
+                'resultado'=>true,
+                'texto'=>'No hay alumnos registrados aun'
+            ];
+        }
+    }
+
+    public function getpaises(Request $request){
+
+        $id_comite = $request->input('comite');
 
         $paises = DB::table('paiscomites')
             ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-            ->select('paiscomites.id', 'pais.nombre as pais', 'paiscomites.pk_comite', 'paiscomites.disponible')
+            ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+            ->select(
+                    'paiscomites.id',
+                    'pais.nombre as pais',
+                    'comites.nombre as comite',
+                    'paiscomites.disponible'
+                )
             ->where([
-                ['paiscomites.pk_comite', $comite],
+                ['paiscomites.pk_comite', $id_comite],
                 ['paiscomites.disponible', 1]
-            ])
+                ])
             ->get();
 
-        return view('admin.preregistro', ['paises'=>$paises, 'escuela'=>$dato_escuela, 'comite'=>$dato_comite]);
+        if ($paises->count() == 0 ) {
+            $estado = false;
+        }else {
+            $estado = true;
+        }
+
+        return ['estado' => $estado,'pais' => $paises];
     }
 
     public function generarregistro(Request $request){
            
-        $escuela = $request->input('id_escuela');
-        $paises = $request->input('paises');
+        $escuela = $request->input('escuela');
+        $id_paiscomite = $request->input('paiscomite');
 
-        foreach ($paises as $item) {
+        foreach ($id_paiscomite as $item) {
             $codigo = str_random(5);
             while (DB::table('alumnos')->where('codigo', $codigo)->first()) {
                 $codigo = str_random(5);
             }
             $alumno = new Alumno;
             $alumno->nombre = "";
-            $alumno->ap_materno = "";
-            $alumno->ap_paterno = "";
             $alumno->edad = 0;
             $alumno->mail = "";
             $alumno->codigo = $codigo;
@@ -202,43 +345,11 @@ class AdminController extends Controller
         return redirect('Admin-Escuela');
     }
 
-    /**
-     * PaisComite
-     */
-    public function paiscomite(){
+    public function getExcelEscuelas(Request $request){
+        $id = $request->input('escuela');
 
-        $comite = Comite::all();
+        $archivo = DB::table('escuelas')->where('escuelas.id', $id)->first();
 
-        $pais = Pais::all();
-
-        $paiscomite = DB::table('paiscomites')
-            ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
-            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-            ->select('paiscomites.id', 'pais.nombre as pais', 'paiscomites.pk_comite', 'paiscomites.disponible')
-            ->get();
-
-        return view('admin.paiscomite', ['pc'=>$paiscomite, 'comites'=>$comite, 'paises'=>$pais]);
-    }
-
-    public function savepaiscomite(Request $request){
-
-        $paises = $request->input('paises');
-
-        foreach ($paises as $item) {
-            $pc = new Paiscomite;
-            $pc->pk_pais = $item;
-            $pc->pk_comite = $request->comite;
-            $pc->disponible = true;
-            $pc->save(); 
-        }
-
-        return redirect('Admin-PaisComite');
-    }
-
-    public function deletepaiscomite($id){
-        DB::table('paiscomites')
-                    ->where('pk_comite', $id)
-                    ->delete();
-        return redirect('Admin-PaisComite');
+        return (new EscuelaExport($id))->download($archivo->nombre.'.xlsx');
     }
 }

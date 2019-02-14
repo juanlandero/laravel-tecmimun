@@ -53,11 +53,18 @@ Route::get('/Comites/Posiciones', 'ComiteController@posiciones')->name('Posicion
 /**
  *  Rutas de administrador
  */
-Route::get('/Admin', 'AdminController@index')->name('admin.index');
+Route::get('/Admin', 'AdminController@index')->name('admin.index');//->middleware('auth');
 
 Route::get('/Admin-Comite', 'AdminController@comite')->name('admin.comite');
+Route::get('/Admin-Comite/details', 'AdminController@detailcomite');
+Route::get('/Admin-Comite/download', 'AdminController@getExcel')->name('excel');
 Route::post('/Admin-Comite/new', 'AdminController@savecomite')->name('save.comite');
 Route::get('/Admin-Comite/delete/{id}', 'AdminController@deletecomite')->name('delete.comite');
+
+Route::get('/Admin-PaisComite', 'AdminController@paiscomite')->name('admin.paiscomite');
+Route::post('/Admin-PaisComite/new', 'AdminController@savepaiscomite')->name('save.paiscomite');
+Route::get('/Admin-PaisComite/delete', 'AdminController@deletepaiscomite')->name('delete.paiscomite');
+
 
 Route::get('/Admin-Pais', 'AdminController@pais')->name('admin.pais');
 Route::post('/Admin-Pais/new', 'AdminController@savepais')->name('save.pais');
@@ -68,9 +75,12 @@ Route::post('/Admin-Pais/Import', 'AdminController@importPaises')->name('Importa
 Route::get('/Admin-Escuela', 'AdminController@escuela')->name('admin.escuela');
 Route::post('/Admin-Escuela/new', 'AdminController@saveescuela')->name('save.escuela');
 Route::get('/Admin-Escuela/delete/{id}', 'AdminController@deleteescuela')->name('delete.escuela');
-Route::post('/Admin-Escuela/Pre-registros/new', 'AdminController@preregistroescuela')->name('preregistro.escuela');
-Route::post('/Admin-Escuela/Generado', 'AdminController@generarregistro')->name('preregistro.generados');
+Route::get('/Admin-Escuela/details', 'AdminController@registrosescuela')->name('registros.escuela');
+Route::get('/Admin-Escuela/getPaises', 'AdminController@getpaises')->name('getpaises.escuela');
+Route::post('/Admin-Escuela/Generado', 'AdminController@generarregistro')->name('codigos.escuela');
+Route::get('/Admin-Escuela/download', 'AdminController@getExcelEscuelas')->name('excelAlumnos');
 
-Route::get('/Admin-PaisComite', 'AdminController@paiscomite')->name('admin.paiscomite');
-Route::post('/Admin-PaisComite/new', 'AdminController@savepaiscomite')->name('save.paiscomite');
-Route::get('/Admin-PaisComite/delete/{id}', 'AdminController@deletepaiscomite')->name('delete.paiscomite');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

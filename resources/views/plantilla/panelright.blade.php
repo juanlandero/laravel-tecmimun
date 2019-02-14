@@ -1,8 +1,37 @@
-<p class="title is-4">Comités</p>
-<ul>
-    <li><a href="#"><i class="fa fa-lightbulb"></i> Información de comités</a></li>
-    <li><a href="#"><i class="fa fa-lightbulb"></i> Criterios de premiación</a></li>
-    <li><a href="#"><i class="fa fa-lightbulb"></i> Antecedentes</a></li>
-    <li><a href="#"><i class="fa fa-lightbulb"></i> Posiciones oficiales</a></li>
-    <li><a href="#"><i class="fa fa-lightbulb"></i> Recursos de apoyo</a></li>
-</ul>  
+<nav class="panel">
+    <p class="panel-heading">
+        Comités
+    </p>
+    
+    <a class="panel-block">
+        <span class="panel-icon">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        </span>
+        Información de comités
+    </a>
+    <a class="panel-block">
+        <span class="panel-icon">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        </span>
+        Criterios de premiación
+    </a>
+    <a class="panel-block">
+        <span class="panel-icon">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        </span>
+        Antecedentes
+    </a>
+    <a class="panel-block">
+        <span class="panel-icon">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        </span>
+        Posiciones oficiales
+    </a>
+    <a class="panel-block">
+        <span class="panel-icon">
+        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        </span>
+        Recursos de apoyo
+    </a>
+    
+</nav>

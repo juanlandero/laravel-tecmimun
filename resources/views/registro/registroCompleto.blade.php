@@ -24,11 +24,11 @@
                     @endif
                     
                     <div class="field">
-                        <label class="label" for="alumno">Nombre(s):</label>
-                        <input class="input" type="text" name="nombre" id="nombre" autocomplete="off" required>
+                        <label class="label" for="alumno">Nombre completo:</label>
+                        <input class="input" type="text" name="nombre" maxlength="40" id="nombre" autocomplete="off" required>
                     </div>
 
-                    <div class="columns">
+                    <!--div class="columns">
                         <div class="column is-6">
                             <div class="field">
                                 <label class="label" for="ap1">Primer apellido:</label>
@@ -41,20 +41,20 @@
                                 <input class="input" type="text" class="form-control" name="ap2" id="ap2" autocomplete="off" required>
                             </div>
                         </div>
-                    </div>
+                    </div-->
 
-                    <div class="columns">
-                        <div class="column is-6">
+                    <div class="columns is-mobile">
+                        <div class="column is-3">
                             <div class="field">
                                 <label class="label" for="edad">Edad:</label>
-                                <input class="input" type="number" class="form-control" name="edad" id="edad" placeholder="Años" required>
+                                <input class="input form-control" type="number" name="edad" id="edad" max="30" min="10" placeholder="Años" required>
                             </div>
                         </div>
-                        <div class="column is-6">
+                        <div class="column is-9">
                             <div class="field">
                                 <label class="label">E-mail</label>
                                 <div class="control">
-                                    <input class="input" type="email" name="email" placeholder="Email">
+                                    <input class="input" type="email" name="email" autocomplete="off" placeholder="Email" required>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +175,7 @@ $(document).ready(function(){
 			data: 'comite='+data
 		})
 		.done(function(dato){
-            var option = "<option value='0'>Selecciona tu escuela</option>";
+            var option = "<option value='0'>Selecciona tu Pais</option>";
             var e = "";
             for (let index = 0; index < dato.length; index++) {
                 element = dato[index];
@@ -191,8 +191,4 @@ $(document).ready(function(){
 		});
 	});
 });
-
-function toggleModal(){
-    
-}
 </script>

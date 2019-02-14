@@ -5,15 +5,15 @@
 
 @section('body')
 <section class="hero content">
-    <img src="img/banner.jpg" alt="" >
+    <img src="{{ asset('img/banner.jpg') }}" alt="" >
 </section>
 
 <section class="section">
     <div class="container">
         <div class="columns">
             <div class="column is-8">
-                <h2 class="title is-size-1 has-text-centered">Recursos de apoyo</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                <h2 class="title is-size-2-desktop has-text-centered">Recursos de apoyo</h2>
+                <p class="subtitle is-size-4-desktop">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
                     Deleniti architecto libero corrupti, corporis molestias dolores harum nobis nihil, 
                     itaque, assumenda repellendus enim fuga. Doloribus tempore fuga 
                     dolorem sequi ducimus sint!</p>

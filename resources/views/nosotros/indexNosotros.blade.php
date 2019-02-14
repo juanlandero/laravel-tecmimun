@@ -5,19 +5,26 @@
 @section('body')
 
 <section class="hero content">
+
+    <div style="position:absolute; right: 5%; top:25px" class="has-text-green">
+        @include('plantilla.secondNavbar')
+    </div>
+    
     <div class="title-hero has-text-centered">
-        <h1 class="title">Slogan en la foto del secretariadsdo</h1>
+            
+        <h1 class="title is-size-5-mobile">Slogan en la foto del secretariado</h1>
     </div>
      
-    <img src="img/banner.jpg" alt="" class="" >
+    <img src="{{ asset('img/banner.jpg') }}" alt="Image de cabeza" >
+    
 </section>
 
 <section class="section">
     <div class="container">
         <div class="columns">
             <div class="column is-8">
-                <h2 class="title is-size-1 has-text-centered">¿Qué es Tecmimun?</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                <h2 class="title is-size-2-desktop has-text-centered">¿Qué es Tecmimun?</h2>
+                <p class="subtitle is-size-4-desktop">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
                     Deleniti architecto libero corrupti, corporis molestias dolores harum nobis nihil, 
                     itaque, assumenda repellendus enim fuga. Doloribus tempore fuga 
                     dolorem sequi ducimus sint!</p>
@@ -65,7 +72,7 @@
 
 <section class="hero content">
     <div class="title-hero has-text-centered">
-        <h1 class="title">Slogan en la foto del secretariadsdo</h1>
+        <h1 class="title is-size-5-mobile">Slogan en la foto del secretariado</h1>
     </div>
         
     <img src="img/banner.jpg" alt="" class="" >
