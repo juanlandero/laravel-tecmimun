@@ -3,27 +3,24 @@
 
 //tema tecmimun
 
-$primario1: #1E1E5A //Azul fuerte
-$sub-primario1: #0000FF
-$primario2: #78A42E //#2EA440 //Verde fuerte
-$sub-primario2: #17CF33
-
-$colorrr: #714414
-
+$primario1: #43a047 //Azul fuerte
+$sub-primario1: #01579b
+$primario2: #263238 //#2EA440 //Verde fuerte
+$sub-primario2: #0d47a1
 
 
 
 $primary: $primario1
 $success: $primario2
+
 $warning: $sub-primario2
 
-$link: $primario1
+$link: $sub-primario1
 
 $title-color: $primario1
 
-$navbar-background-color: #8bc34a
+$navbar-background-color: $primario1
 $navbar-item-color: #fff
-$navbar-padding-horizontal: .5rem
 
 
 
@@ -99,7 +96,7 @@ a.aside-item
 
 a.aside-item:hover
     background-color: #fafafa
-    color: #1E1E5A
+    color: $sub-primario1
 
 
 //Componentes del dashboard
@@ -111,7 +108,7 @@ a.aside-item:hover
     height: 100%
 
 .menu
-    background-color: cadetblue
+    background-color: $primario2
     height: 100%
 
 .container-dash
@@ -119,6 +116,3 @@ a.aside-item:hover
     top: 70px
     left: 75px
     right: 0px
-
-
-

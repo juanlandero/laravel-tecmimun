@@ -53,34 +53,48 @@ Route::get('/Comites/Posiciones', 'ComiteController@posiciones')->name('Posicion
 /**
  *  Rutas de administrador
  */
-Route::get('/Admin', 'AdminController@index')->name('admin.index');//->middleware('auth');
+Route::group(['middleware' => ['admin']], function () {
+   
+    Route::get('/Admin', 'AdminController@index')->name('admin.index');
 
-Route::get('/Admin-Comite', 'AdminController@comite')->name('admin.comite');
-Route::get('/Admin-Comite/details', 'AdminController@detailcomite');
-Route::get('/Admin-Comite/download', 'AdminController@getExcel')->name('excel');
-Route::post('/Admin-Comite/new', 'AdminController@savecomite')->name('save.comite');
-Route::get('/Admin-Comite/delete/{id}', 'AdminController@deletecomite')->name('delete.comite');
+    Route::get('/Admin-Comite', 'AdminController@comite')->name('admin.comite');
+    Route::get('/Admin-Comite/details', 'AdminController@detailcomite');
+    Route::get('/Admin-Comite/download', 'AdminController@getExcel')->name('excel');
+    Route::post('/Admin-Comite/new', 'AdminController@savecomite')->name('save.comite');
+    Route::get('/Admin-Comite/delete/{id}', 'AdminController@deletecomite')->name('delete.comite');
 
-Route::get('/Admin-PaisComite', 'AdminController@paiscomite')->name('admin.paiscomite');
-Route::post('/Admin-PaisComite/new', 'AdminController@savepaiscomite')->name('save.paiscomite');
-Route::get('/Admin-PaisComite/delete', 'AdminController@deletepaiscomite')->name('delete.paiscomite');
-
-
-Route::get('/Admin-Pais', 'AdminController@pais')->name('admin.pais');
-Route::post('/Admin-Pais/new', 'AdminController@savepais')->name('save.pais');
-Route::get('/Admin-Pais/delete/{id}', 'AdminController@deletepais')->name('delete.pais');
-Route::post('/Admin-Pais/Import', 'AdminController@importPaises')->name('ImportarXlsx');
+    Route::get('/Admin-PaisComite', 'AdminController@paiscomite')->name('admin.paiscomite');
+    Route::post('/Admin-PaisComite/new', 'AdminController@savepaiscomite')->name('save.paiscomite');
+    Route::get('/Admin-PaisComite/delete', 'AdminController@deletepaiscomite')->name('delete.paiscomite');
 
 
-Route::get('/Admin-Escuela', 'AdminController@escuela')->name('admin.escuela');
-Route::post('/Admin-Escuela/new', 'AdminController@saveescuela')->name('save.escuela');
-Route::get('/Admin-Escuela/delete/{id}', 'AdminController@deleteescuela')->name('delete.escuela');
-Route::get('/Admin-Escuela/details', 'AdminController@registrosescuela')->name('registros.escuela');
-Route::get('/Admin-Escuela/getPaises', 'AdminController@getpaises')->name('getpaises.escuela');
-Route::post('/Admin-Escuela/Generado', 'AdminController@generarregistro')->name('codigos.escuela');
-Route::get('/Admin-Escuela/download', 'AdminController@getExcelEscuelas')->name('excelAlumnos');
+    Route::get('/Admin-Pais', 'AdminController@pais')->name('admin.pais');
+    Route::post('/Admin-Pais/new', 'AdminController@savepais')->name('save.pais');
+    Route::get('/Admin-Pais/delete/{id}', 'AdminController@deletepais')->name('delete.pais');
+    Route::post('/Admin-Pais/Import', 'AdminController@importPaises')->name('ImportarXlsx');
 
+
+    Route::get('/Admin-Escuela', 'AdminController@escuela')->name('admin.escuela');
+    Route::post('/Admin-Escuela/new', 'AdminController@saveescuela')->name('save.escuela');
+    Route::get('/Admin-Escuela/delete/{id}', 'AdminController@deleteescuela')->name('delete.escuela');
+    Route::get('/Admin-Escuela/details', 'AdminController@registrosescuela')->name('registros.escuela');
+    Route::get('/Admin-Escuela/getPaises', 'AdminController@getpaises')->name('getpaises.escuela');
+    Route::post('/Admin-Escuela/Generado', 'AdminController@generarregistro')->name('codigos.escuela');
+    Route::get('/Admin-Escuela/download', 'AdminController@getExcelEscuelas')->name('excelAlumnos');
+    
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['comite']], function () {
+   
+//Route::domain('{delegate}.localhost')->group(function () {
+    Route::get('/delegate', 'DashboardController@index')->name('dashboard.index');
+    Route::get('/delegate/welcome', 'DashboardController@welcome')->name('dashboard.welcome');
+    Route::get('/getLista', 'DashboardController@getPaseLista');
+    Route::get('/getPuntos', 'DashboardController@getPuntos');
+//});
+
+});

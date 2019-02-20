@@ -17,6 +17,7 @@ class CreateComitesTable extends Migration
             $table->increments('id');
             $table->string('nombre', 30);
             $table->string('idioma', 30);
+            $table->string('codigo', 30);
             $table->timestamps();
         });
     }

@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use App\Comite;
 use App\Pais;
 use App\Escuela;
 use App\Paiscomite;
 use App\Alumno;
+use App\User;
 use DB;
 
 use App\Imports\PaisImport;
@@ -84,6 +87,7 @@ class AdminController extends Controller
                         'id' => $item->id,
                         'nombre' => $item->nombre,
                         'idioma' => $item->idioma,
+                        'mail' => $item->codigo,
                         'paises' => $paises
                             ];
         }
@@ -129,10 +133,19 @@ class AdminController extends Controller
     }
 
     public function savecomite(Request $request){
+        $user = str_random(4);
         $comite = new Comite;
         $comite->nombre = $request->input('nombre_comite');
         $comite->idioma = $request->input('idioma');
+        $comite->codigo = $user."@comite.mun";
         $comite->save();
+
+        $user_comite = new User;
+        $user_comite->name = $request->input('nombre_comite');
+        $user_comite->email = $user."@comite.mun";
+        $user_comite->password = Hash::make($user);
+        $user_comite->pk_permisos = 3;
+        $user_comite->save();
         
         return redirect('Admin-Comite');
     }

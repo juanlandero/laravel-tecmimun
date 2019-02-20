@@ -15,7 +15,7 @@
                         <p>Responsable: {{ $escuela->responsable }}</p>
                         <p>E-mail: {{ $escuela->email }}</p>
                         
-                        <div class="columns is-centered" style="position: absolute; bottom: 15px;">
+                        <div class="columns is-centered is-mobile" style="position: absolute; bottom: 15px;">
                             <div class="column">
                                 <a onclick="modalRegistros({{ $escuela->id }})" class="button is-danger is-medium">
                                     <span class="icon is-small">
@@ -148,7 +148,7 @@ $('#id_comite').change(function(){
             var check = ""
             
             dato.pais.forEach(element => {
-                check += '<div class="column"><label class="checkbox"><input type="checkbox" value="'+element.id+'" name="paiscomite[]">'+element.pais+'</label></div>';
+                check += '<div class="column is-4"><label class="checkbox"><input type="checkbox" value="'+element.id+'" name="paiscomite[]"> '+element.pais+'</label></div>';
             });
         
             $('#paises').html(check);

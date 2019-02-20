@@ -20,7 +20,7 @@
             <form action="{{ route('save.paiscomite') }}" method="post">
                 @csrf
                 <input type="hidden" name="comite" id="comite" value="" >
-                <div class="columns" id="paises">
+                <div class="columns is-multiline" id="paises">
 
                 </div>
                 <button type="submit" class="button is-rounded is-danger">Enviar</button>

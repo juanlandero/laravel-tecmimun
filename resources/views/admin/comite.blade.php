@@ -9,13 +9,14 @@
         <div class="columns is-multiline">
             @foreach ($comites as $comite)
                 <div class="column is-4">
-                    <div class="notification is-info"  style="height: 200px">
+                    <div class="notification is-info"  style="height: 210px">
                         <a href="{{ route('delete.comite', ['id' => $comite['id']]) }}" class="delete" aria-label="delete"></a>
                         <p style="margin-bottom: 10px"><strong>{{ $comite['nombre'] }}</strong></p>
                         <p>Idioma: {{$comite['idioma'] }}</p>
+                        <p>Usuario: {{$comite['mail'] }}</p>
                         <p>Países: {{ $comite['paises'] }}</p>
 
-                        <div class="columns has-text-centered" style="position: absolute; bottom: 25px;">
+                        <div class="columns has-text-centered is-mobile" style="position: absolute; bottom: 20px;">
                             <div class="column">
                                 <a onclick="modalRegistros({{ $comite['id'] }})" class="button is-danger is-medium">
                                     <span class="icon is-small">
@@ -137,7 +138,7 @@ function modalAddPaises(comite){
         var check = ""
 
         dato.pais.forEach(element => {
-             check += '<div class="column"><label class="checkbox"><input type="checkbox" value="'+element.id+'" name="paises[]">'+element.nombre+'</label></div>';
+             check += '<div class="column is-2"><label class="checkbox"><input type="checkbox" value="'+element.id+'" name="paises[]"> '+element.nombre+'</label></div>';
         });
         $('#comite').val(dato.comite)
         $('#delete_comite').val(dato.comite)
