@@ -34,13 +34,6 @@ Route::get('/Registro/Costos', 'RegistroController@costos')->name('Costos');
 
 
 /**
- * Rutas de Paises
- */
-Route::get('/pais', 'PaisController@index')->name('Pais');
-Route::post('/pais/create', 'PaisController@guardar')->name('GuardarPais');
-
-
-/**
 * Rutas de comites
 */
 Route::get('/Comites', 'ComiteController@indexComite')->name('infoComites');
@@ -90,11 +83,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['comite']], function () {
    
-//Route::domain('{delegate}.localhost')->group(function () {
     Route::get('/delegate', 'DashboardController@index')->name('dashboard.index');
     Route::get('/delegate/welcome', 'DashboardController@welcome')->name('dashboard.welcome');
+    Route::post('/delegate/Check', 'DashboardController@checkIn')->name('dashboard.checkin');
     Route::get('/getLista', 'DashboardController@getPaseLista');
     Route::get('/getPuntos', 'DashboardController@getPuntos');
-//});
+
+});
+
+
+
+
+Route::group(['middleware' => ['responsable']], function () {
+    Route::get('/ResponsableAdmin', 'ResponsableController@index')->name('responsable.view');
+    Route::get('/ResponsableAdmin/download', 'ResponsableController@getExcelEscuelas')->name('excelEscuelas');
 
 });

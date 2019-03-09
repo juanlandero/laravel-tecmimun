@@ -18,6 +18,7 @@ class CreateEscuelasTable extends Migration
             $table->string('nombre', 40);
             $table->string('responsable', 40);
             $table->string('email', 30);
+            $table->string('password', 30);
             $table->timestamps();
         });
     }

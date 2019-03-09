@@ -85,8 +85,7 @@ class RegistroController extends Controller
                         'pais.nombre as pais'
                         )
                     ->where([
-                        ['alumnos.codigo', $codigo],
-                        ['alumnos.preinscrito', 0]
+                        ['alumnos.codigo', $codigo]
                     ])
                     ->first();
         if ($alumnos) {
@@ -114,7 +113,7 @@ class RegistroController extends Controller
             $nuevo->edad = $request->input('edad');
             $nuevo->mail = $request->input('email');
             $nuevo->codigo = "";
-            $nuevo->preinscrito = 1;
+            $nuevo->recepcionado = false;
             $nuevo->pk_escuelas = $request->input('id_escuela');
             $nuevo->pk_inscripcion = $paiscomite->id;
             $nuevo->save();
@@ -152,8 +151,7 @@ class RegistroController extends Controller
                         [
                             'nombre'        =>  $request->input('nombre'),
                             'edad'          =>  $request->input('edad'),
-                            'mail'          =>  $request->input('email'),
-                            'preinscrito'   =>  1
+                            'mail'          =>  $request->input('email')
                         ]
                     );
             

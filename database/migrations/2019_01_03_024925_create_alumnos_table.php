@@ -19,7 +19,7 @@ class CreateAlumnosTable extends Migration
             $table->integer('edad');
             $table->string('mail');
             $table->string('codigo', 5);
-            $table->boolean('preinscrito')->default(false);
+            $table->boolean('recepcionado')->default(false);
 
             $table->unsignedInteger('pk_escuelas');
             $table->foreign('pk_escuelas')->references('id')->on('escuelas');

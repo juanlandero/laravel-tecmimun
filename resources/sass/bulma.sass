@@ -2,39 +2,30 @@
 /*! bulma.io v0.7.2 | MIT License | github.com/jgthms/bulma */
 
 //tema tecmimun
-
-$primario1: #1E1E5A //Azul fuerte
-$sub-primario1: #0000FF
+$primario1: #04305c //#1E1E5A //Azul fuerte
+$sub-primario1: #596383
 $primario2: #78A42E //#2EA440 //Verde fuerte
 $sub-primario2: #17CF33
-
-$colorrr: #714414
-
-
-
 
 $primary: $primario1
 $success: $primario2
 $warning: $sub-primario2
 
-$link: $primario1
+$link: #17CF33
 
 $title-color: $primario1
 
-$navbar-background-color: #8bc34a
-$navbar-item-color: #fff
-$navbar-padding-horizontal: .5rem
-
-
+$navbar-background-color: #fff9
+$navbar-item-color: #04305c //#29346E
 
 $hero-padding: 2rem 1.5rem
 
 // footer
-$footer-padding: 2rem 1.5rem 2rem
-$footer-background-color: $primario2
+$footer-padding: 1.5rem 1.5rem 1.5rem
+$footer-background-color: $sub-primario1
 
 // Tamaños
-$navbar-item-img-max-height: 4rem
+$navbar-item-img-max-height: 2.6rem
 $modal-content-width: 900px
 
         
@@ -64,11 +55,11 @@ $modal-content-width: 900px
     background-color: #607d8b
 
 .is-gradient-blue
-    background-image: linear-gradient(150deg, #05327e, #4c9eaf)
-    //background-image: linear-gradient(#448aff, #4caf50)
+    background-image:  linear-gradient(150deg, #05327e, #4c9eaf)
+    //background-image:  linear-gradient(#448aff, #4caf50)
 
 .is-gradient-green
-    background-image: linear-gradient(150deg, #46768d, #1aa0bc)
+    background-image:  linear-gradient(150deg, #46768d, #1aa0bc)
 
 .is-ll
     background-color: #eceff1
@@ -121,4 +112,25 @@ a.aside-item:hover
     right: 0px
 
 
+.shadow
+    box-shadow: 0 5px 5px 0 rgba(233,240,243,0.5),0 0 0 1px #E6ECF8
 
+
+
+@font-face
+    font-family: "Europa"
+    src: url("/css/europa.ttf") format("truetype")
+    font-weight: 700 
+
+
+.fondo
+    background-color: #EC1A52
+    width: 100%
+    height: 200px
+    position: relative
+    top: -150px
+    z-index: -10
+
+.box-clock
+    background-color: #4a4a4a
+    color: white

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use App\Mail\Responsable;
 use App\Comite;
 use App\Pais;
 use App\Escuela;
@@ -12,6 +14,7 @@ use App\Paiscomite;
 use App\Alumno;
 use App\User;
 use DB;
+
 
 use App\Imports\PaisImport;
 use App\Exports\PaiscomiteExport;
@@ -262,12 +265,29 @@ class AdminController extends Controller
     }
 
     public function saveescuela(Request $request){
+
+        $password = str_random(5);
+
         $escuela = new Escuela;
         $escuela->nombre = $request->input('nombre_escuela');
         $escuela->responsable = $request->input('nombre_responsable');
         $escuela->email = $request->input('mail');
+        $escuela->password = $password;
         $escuela->save();
+
+
+        $responsable = new User;
+        $responsable->name = $request->input('nombre_responsable');
+        $responsable->email =$request->input('mail');
+        $responsable->password = Hash::make($password);
+        $responsable->pk_permisos = 2;
+        $responsable->save();
         
+
+        //Mail::to('jc_l23@hotmail.com')
+          //  ->send(new Responsable());
+
+        //return $request->user();
         return redirect('Admin-Escuela');
     }
 
@@ -348,7 +368,7 @@ class AdminController extends Controller
             $alumno->edad = 0;
             $alumno->mail = "";
             $alumno->codigo = $codigo;
-            $alumno->preinscrito = 0;
+            $alumno->recepcionado = false;
             $alumno->pk_escuelas = $escuela;
             $alumno->pk_inscripcion = $item;
             $alumno->save(); 

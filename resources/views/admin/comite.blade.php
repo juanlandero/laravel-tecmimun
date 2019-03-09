@@ -9,7 +9,7 @@
         <div class="columns is-multiline">
             @foreach ($comites as $comite)
                 <div class="column is-4">
-                    <div class="notification is-info"  style="height: 210px">
+                    <div class="notification is-info"  style="height: 240px">
                         <a href="{{ route('delete.comite', ['id' => $comite['id']]) }}" class="delete" aria-label="delete"></a>
                         <p style="margin-bottom: 10px"><strong>{{ $comite['nombre'] }}</strong></p>
                         <p>Idioma: {{$comite['idioma'] }}</p>

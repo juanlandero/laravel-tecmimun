@@ -36,7 +36,7 @@ class LoginController extends Controller
                 break;
 
             case 2:
-                return '/Comites';
+                return '/ResponsableAdmin';
                 break;
 
             case 3:

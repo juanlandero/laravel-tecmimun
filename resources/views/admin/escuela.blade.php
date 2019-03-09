@@ -9,11 +9,12 @@
         <div class="columns is-multiline">
             @foreach ($data as $escuela)
                 <div class="column is-6">
-                    <div class="notification is-info"  style="height: 200px">
+                    <div class="notification is-info"  style="height: 240px">
                         <a href="{{ route('delete.escuela', ['id'=>$escuela->id]) }}" class="delete" aria-label="delete"></a>
-                        <p style="margin-bottom: 10px"><strong>{{ $escuela->nombre }}</strong></p>
+                        <p style="margin-bottom: 10px">{{ $escuela->nombre }}</p>
                         <p>Responsable: {{ $escuela->responsable }}</p>
                         <p>E-mail: {{ $escuela->email }}</p>
+                        <p>Contraseña: {{ $escuela->password }}</p>
                         
                         <div class="columns is-centered is-mobile" style="position: absolute; bottom: 15px;">
                             <div class="column">

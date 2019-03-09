@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tecmimun | Antecedentes</title>
+    <title>Tecmimun | Registro</title>
     <link rel="stylesheet" href="{{ asset('css/bulma.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icon/all.css') }}">
     <style>

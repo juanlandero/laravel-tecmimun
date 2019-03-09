@@ -1,4 +1,4 @@
-<nav class="panel">
+<!--nav class="panel">
     <p class="panel-heading">
         Comités
     </p>
@@ -34,4 +34,11 @@
         Recursos de apoyo
     </a>
     
-</nav>
+</nav-->
+
+
+<div class="content">
+    <ol type="1">
+        <li><a href="">Coffee</a></li>
+    </ol>
+</div> 
