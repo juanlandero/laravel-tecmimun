@@ -16,11 +16,13 @@ class CreatePasesTable extends Migration
         Schema::create('pases', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('pk_alumno');
-            $table->foreign('pk_alumno')->references('id')->on('alumnos');
+            $table->unsignedInteger('pk_paiscomite');
+            $table->foreign('pk_paiscomite')->references('id')->on('paiscomites');
 
             $table->unsignedInteger('pk_lista');
             $table->foreign('pk_lista')->references('id')->on('listas');
+
+            $table->string('asistencia')->nullable($value = true);
 
             $table->timestamps();
         });

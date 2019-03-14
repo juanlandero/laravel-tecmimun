@@ -295,7 +295,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Europa";
+  font-family: "GothamBook";
 }
 
 code,
@@ -4364,6 +4364,7 @@ a.tag:hover {
 }
 
 .title {
+  font-family: "Gotham-Medium" !important;
   color: #04305c;
   font-size: 2rem;
   font-weight: 600;
@@ -9031,9 +9032,20 @@ a.aside-item:hover {
 }
 
 @font-face {
-  font-family: "Europa";
-  src: url("/css/europa.ttf") format("truetype");
-  font-weight: 700;
+  font-family: "GothamBook";
+  src: url("/css/GothamBook/a9db6cd9116ff56da3875b35444f0c45.eot");
+  src: url("/css/GothamBook/a9db6cd9116ff56da3875b35444f0c45.eot?#iefix") format("embedded-opentype");
+  src: url("/css/GothamBook/a9db6cd9116ff56da3875b35444f0c45.woff2") format("woff2");
+  src: url("/css/GothamBook/a9db6cd9116ff56da3875b35444f0c45.woff") format("woff");
+  src: url("/css/GothamBook/a9db6cd9116ff56da3875b35444f0c45.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Gotham-Medium";
+  src: url("/css/Gotham-Medium/3a47f5f06b5484abfeee9eac90348a9c.eot");
+  src: url("/css/Gotham-Medium/3a47f5f06b5484abfeee9eac90348a9c.eot?#iefix") format("embedded-opentype");
+  src: url("/css/Gotham-Medium/3a47f5f06b5484abfeee9eac90348a9c.woff2") format("woff2");
+  src: url("/css/Gotham-Medium/3a47f5f06b5484abfeee9eac90348a9c.woff") format("woff");
+  src: url("/css/Gotham-Medium/3a47f5f06b5484abfeee9eac90348a9c.ttf") format("truetype");
 }
 .fondo {
   background-color: #EC1A52;

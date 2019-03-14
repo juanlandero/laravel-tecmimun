@@ -22,6 +22,7 @@
                 <p class="title is-size-1-desktop has-text-primary">Ingreza tu <span class="has-text-success">código</span></p><br>
                 <form id="checkin" method="POST" class="columns is-centered">
                     @csrf
+                    <input type="hidden" name="comite" value="{{ Auth::user()->email }}">
                     <div class="column is-8">
                         <input class="input is-large is-primary is-rounded" name="codigo" id="codigo" type="text" maxlength="8" required autocomplete="off">
                     </div>

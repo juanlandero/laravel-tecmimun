@@ -6,11 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
 
-
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/ui-kit.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icon/all.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/dynatable.css') }}">
 </head>
 <body>
 
@@ -38,19 +35,29 @@
 
     <div class="container-side">
         <aside class="menu">
-            <a class="aside-item" onclick="listaPaises()">
+            <a class="aside-item" href="{{ route('dashboard.welcome') }}">
+                <span class="icon is-large">
+                    <i class="fas fa-lg fa-fingerprint"></i>
+                </span>                
+            </a>
+            <a class="aside-item" onclick="paseLista();">
                 <span class="icon is-large">
                     <i class="fas fa-lg fa-clipboard-list"></i>
                 </span>
             </a>
-            <a class="aside-item" onclick="panelPuntaje()">
+            <a class="aside-item" onclick="controlPuntos();">
                 <span class="icon is-large">
                     <i class="fas fa-lg fa-thumbs-up"></i>
                 </span>                
             </a>
-            <a class="aside-item" href="{{ route('dashboard.welcome') }}">
+            <a class="aside-item" onclick="infoComites();">
                 <span class="icon is-large">
-                    <i class="fas fa-lg fa-fingerprint"></i>
+                    <i class="fas fa-lg fa-award"></i>
+                </span>                
+            </a>
+            <a class="aside-item" onclick="infoComites();">
+                <span class="icon is-large">
+                    <i class="fas fa-lg fa-info"></i>
                 </span>                
             </a>
         </aside>
@@ -69,49 +76,7 @@
 
     </div>
 
-
-
-
 <script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/dynatable.js') }}"></script>
-<script>
-
-function listaPaises(){
-    $('#contenido').load('getLista');
-    $('#titulo').html('Pase de lista');
-}
-
-function panelPuntaje(){
-    $('#contenido').load('getPuntos')
-    $('#titulo').html('Panel de puntos');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-
-// Get all "navbar-burger" elements
-const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-// Check if there are any navbar burgers
-if ($navbarBurgers.length > 0) {
-
-  // Add a click event on each of them
-  $navbarBurgers.forEach( el => {
-    el.addEventListener('click', () => {
-
-      // Get the target from the "data-target" attribute
-      const target = el.dataset.target;
-      const $target = document.getElementById(target);
-
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      el.classList.toggle('is-active');
-      $target.classList.toggle('is-active');
-
-    });
-  });
-}
-
-});
-
-</script>
+<script src="{{ asset('js/dashboard.js') }}"></script>
 </body>
 </html>

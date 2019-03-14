@@ -122,6 +122,7 @@ class AdminController extends Controller
                             'escuelas.nombre as escuela',
                             'comites.nombre as comite')
                     ->where('paiscomites.pk_comite', $id)
+                    ->orderBy('pais.nombre', 'asc')
                     ->get();
 
         if ($paises->count() != 0) {
@@ -170,14 +171,15 @@ class AdminController extends Controller
     public function paiscomite(Request $request){
         $comite = $request->input('comite');
 
-        $pais = Pais::all();
+        $pais = Pais::orderBy('nombre', 'asc')->get();
 
-        $paiscomite = DB::table('paiscomites')
+        /*$paiscomite = DB::table('paiscomites')
             ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
             ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
             ->select('paiscomites.id', 'pais.nombre as pais', 'paiscomites.pk_comite', 'paiscomites.disponible')
+            ->orderBy('pais.nombre', 'asc')
             ->get();
-
+*/
         return ['pais' => $pais, 'comite' => $comite];
     }
 
@@ -219,7 +221,7 @@ class AdminController extends Controller
      * Pais
      */
     public function pais(){
-        $pais = Pais::all();
+        $pais = Pais::orderBy('pais.nombre', 'asc')->get();
         return view('admin.pais', ['data'=>$pais]);
     }
 
@@ -313,6 +315,7 @@ class AdminController extends Controller
                             'escuelas.nombre as escuela',
                             'comites.nombre as comite')
                     ->where('alumnos.pk_escuelas', $id)
+                    ->orderBy('pais.nombre', 'asc')
                     ->get();
 
         if ($paises->count() != 0) {
@@ -342,6 +345,7 @@ class AdminController extends Controller
                 ['paiscomites.pk_comite', $id_comite],
                 ['paiscomites.disponible', 1]
                 ])
+            ->orderBy('pais.nombre', 'asc')
             ->get();
 
         if ($paises->count() == 0 ) {

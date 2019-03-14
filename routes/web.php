@@ -87,11 +87,14 @@ Route::group(['middleware' => ['comite']], function () {
     Route::get('/delegate/welcome', 'DashboardController@welcome')->name('dashboard.welcome');
     Route::post('/delegate/Check', 'DashboardController@checkIn')->name('dashboard.checkin');
     Route::get('/getLista', 'DashboardController@getPaseLista');
+    Route::post('/getLista/new', 'DashboardController@newLista')->name('newLista');
+    Route::get('/getLista/modal', 'DashboardController@getModalLista')->name('modalLista');
+    Route::get('/getLista/checkAlumno', 'DashboardController@estadoEnLista')->name('checkAlumno');
     Route::get('/getPuntos', 'DashboardController@getPuntos');
+    Route::get('/getPuntos/setPunto', 'DashboardController@setPuntos');
+    Route::get('/getInfo', 'DashboardController@getInfo');
 
 });
-
-
 
 
 Route::group(['middleware' => ['responsable']], function () {

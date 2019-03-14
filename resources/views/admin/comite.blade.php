@@ -61,7 +61,7 @@
                             <select multiple size="3" name="idioma" required>
                                 <option value="Español">Español</option>
                                 <option value="Inglés">Inglés</option>
-                                <option value="Frances">Francés</option>
+                                <option value="Francés">Francés</option>
                             </select>
                         </div>
                     </div>

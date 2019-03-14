@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class PermisosSeeder extends Seeder
+class PermisoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +11,6 @@ class PermisosSeeder extends Seeder
      */
     public function run()
     {
-
         $niveles = array('Admin', 'Responsable', 'Comite');
 
 
@@ -21,6 +18,6 @@ class PermisosSeeder extends Seeder
             DB::table('permisos')->insert([
                 'nivel' => $value,
             ]);
-        }    
+        }  
     }
 }

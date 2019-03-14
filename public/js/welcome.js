@@ -20,7 +20,7 @@ $(document).ready(function(){
 
                 setTimeout(() => {
                     toggleModal('modal_bienvenido');
-                }, 6000);
+                }, 5000);
 
                 $('#codigo').val('');
 
@@ -34,7 +34,6 @@ $(document).ready(function(){
             }
         })
         .fail(function(dato){
-            //console.log(dato);
             alert('Error en el sistema.');
         });
     });
