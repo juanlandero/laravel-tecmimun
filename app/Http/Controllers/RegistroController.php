@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Alumno;
 use App\Comite;
 use App\Escuela;
+use App\Mail\Alumnos;
 use DB;
 
 class RegistroController extends Controller
@@ -99,20 +101,28 @@ class RegistroController extends Controller
 
 
     public function guardarAlumno(Request $request){
-        if (!$request->input('codigo')) {
+        $codigo = $request->input('codigo');
+
+        if (!$codigo) {
+
             $paiscomite = DB::table('paiscomites')
-                        ->where([
-                            ['pk_comite', $request->input('id_comite')],
-                            ['pk_pais', $request->input('id_pais')]
-                        ])
-                        ->select('paiscomites.id')
-                        ->first();
+                ->where([
+                    ['pk_comite', $request->input('id_comite')],
+                    ['pk_pais', $request->input('id_pais')]
+                ])
+                ->select('paiscomites.id')
+                ->first();
+
+            $codigo = str_random(5);
+            while (DB::table('alumnos')->where('codigo', $codigo)->first()) {
+                $codigo = str_random(5);
+            }
 
             $nuevo = new Alumno;
             $nuevo->nombre = $request->input('nombre');
             $nuevo->edad = $request->input('edad');
             $nuevo->mail = $request->input('email');
-            $nuevo->codigo = "";
+            $nuevo->codigo = $codigo;
             $nuevo->recepcionado = false;
             $nuevo->pk_escuelas = $request->input('id_escuela');
             $nuevo->pk_inscripcion = $paiscomite->id;
@@ -121,58 +131,44 @@ class RegistroController extends Controller
             DB::table('paiscomites')
                 ->where('id', $paiscomite->id)
                 ->update(['disponible' => 0]);
-
-            $alumno = DB::table('alumnos')
-                ->join('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
-                ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
-                ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
-                ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-                ->select(
-                    'alumnos.id',
-                    'alumnos.nombre',
-                    'alumnos.pk_escuelas',
-                    'alumnos.codigo',
-                    'escuelas.nombre as escuela',
-                    'comites.nombre as comite',
-                    'pais.nombre as pais'
-                    )
-                ->where('alumnos.mail', $request->input('email'))
-                ->first();
-        return view('registro.confirmacion', ['alumno'=>$alumno]);
         }else{
-            $codigo = $request->input('codigo');
-            $id = $request->input('id');
-            DB::table('alumnos')
-                    ->where([
-                        ['codigo', $codigo],
-                        ['id', $id]
-                    ])
-                    ->update(
-                        [
-                            'nombre'        =>  $request->input('nombre'),
-                            'edad'          =>  $request->input('edad'),
-                            'mail'          =>  $request->input('email')
-                        ]
-                    );
             
-            $alumno = DB::table('alumnos')
-                    ->join('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
-                    ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
-                    ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
-                    ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-                    ->select(
-                        'alumnos.id',
-                        'alumnos.nombre',
-                        'alumnos.pk_escuelas',
-                        'alumnos.codigo',
-                        'escuelas.nombre as escuela',
-                        'comites.nombre as comite',
-                        'pais.nombre as pais'
-                        )
-                    ->where('alumnos.codigo', $codigo)
-                    ->first();
-            return view('registro.confirmacion', ['alumno'=>$alumno]);
+            $id = $request->input('id');
+
+            DB::table('alumnos')
+                ->where([
+                    ['codigo', $codigo],
+                    ['id', $id]
+                ])
+                ->update(
+                    [
+                        'nombre'        =>  $request->input('nombre'),
+                        'edad'          =>  $request->input('edad'),
+                        'mail'          =>  $request->input('email')
+                    ]
+                );
         }
+
+        $alumno = DB::table('alumnos')
+            ->join('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+            ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+            ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+            ->select(
+                'alumnos.id',
+                'alumnos.nombre',
+                'alumnos.pk_escuelas',
+                'alumnos.codigo',
+                'escuelas.nombre as escuela',
+                'comites.nombre as comite',
+                'pais.nombre as pais'
+                )
+            ->where('alumnos.codigo', $codigo)
+            ->first();
+
+        Mail::to($request->input('email'))->send(new Alumnos($alumno));
+
+        return view('registro.confirmacion', ['alumno'=>$alumno]);
     }
 
     public function costos(){

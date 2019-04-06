@@ -32,7 +32,7 @@ class LoginController extends Controller
         $permiso = Auth::user()->pk_permisos;
         switch ($permiso) {
             case 1:
-                return '/Admin';
+                return '/admin';
                 break;
 
             case 2:

@@ -11,14 +11,17 @@
     <br><br><br>
     <div class="container">
         <div class="columns is-vcentered">
+            <div class="column is-6 has-text-centered is-hidden-desktop" uk-scrollspy="cls: uk-animation-scale-up; delay:250; repeat: false">
+                <img width="75%" src="{{ asset('img/logo-blanco.png') }}" alt="Logo Tec2019">
+            </div>
             <div class="column is-5 has-text-centered" uk-scrollspy="cls: uk-animation-scale-up; delay: 250; repeat: false">
                 <h1 class="title is-size-1-desktop has-text-white">Bienvenidos</h1>
                 <p class="subtitle is-size-3-desktop has-text-white">Estamos contentos de contar con tu participación en este Modelo de las Naciones Unidas</p>
             </div>
-            <div class="c.olumn is-1">
+            <div class="column is-1">
 
             </div>
-            <div class="column is-6 has-text-centered" uk-scrollspy="cls: uk-animation-scale-up; delay:250; repeat: false">
+            <div class="column is-6 has-text-centered is-hidden-mobile" uk-scrollspy="cls: uk-animation-scale-up; delay:250; repeat: false">
                 <img width="75%" src="{{ asset('img/logo-blanco.png') }}" alt="Logo Tec2019">
             </div>
         </div>

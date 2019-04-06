@@ -29,7 +29,7 @@ $(document).ready(function(){
                     message: '<i class="fas fa-sad-cry"></i> El código no existe.',
                     status: 'danger',
                     pos: 'top-center',
-                    timeout: 5000
+                    timeout: 4000
                 });
             }
         })

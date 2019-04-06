@@ -9,7 +9,6 @@
 
     <link rel="stylesheet" href="{{ asset('css/bulma.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icon/all.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ui-kit.css') }}">
 </head>
 <body>

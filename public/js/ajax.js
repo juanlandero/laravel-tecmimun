@@ -14,11 +14,14 @@ $(document).ready(function(){
 		})
 		.done(function(dato){
             if (dato.resultado) {
-                $('#result').html(dato.texto);
                 window.location= dato.texto;
             }else{
-				$('#result').html(dato.texto);
-				$('#msn').css('display', 'block');
+				UIkit.notification({
+                    message: '    Verifica tu código',
+                    status: 'danger',
+                    pos: 'top-center',
+                    timeout: 3000
+                });
             }
 		})
 		.fail(function(dato){

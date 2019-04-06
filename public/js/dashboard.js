@@ -1,3 +1,5 @@
+
+
 function paseLista(){
     $('#contenido').load('getLista');
     $('#titulo').html('Pase de lista');
@@ -9,7 +11,7 @@ function controlPuntos(){
 }
 
 function infoComites(){
-    $('#contenido').load('getInfo')
+    $('#contenido').load('getInfo');
     $('#titulo').html('Información del comité');
 }
 

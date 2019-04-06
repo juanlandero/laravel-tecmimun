@@ -3,6 +3,25 @@
 @section('titulo', 'Inicio')
 
 @section('body')
+<style>
+.div-loader{
+    position: fixed;
+    z-index: 10000;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    color: #0FC939;
+}
+
+#logo{
+    position: fixed;
+    top: 49%;
+    left: 45%;
+    width: 10%; !important
+}
+</style>
 
 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 6000; pause-on-hover: false">
 
@@ -92,23 +111,51 @@
 
 </section>
 
+<div class="div-loader" id="div-loader">
+    <div class="columns is-centered is-vcentered has-text-centered is-mobile" style="margin-top: 15%;">
+        <div class="column is-3-desktop is-8-mobile is-centered">
+            <!--span class="uk-margin-small-right" uk-spinner="ratio: 8"></span-->
+            <img id="lo" src="{{ asset('img/logo-blanco.png') }}" alt="">
+        </div>
+        <!--div class="column is-3-desktop">
+                <img id="lo" src="{{ asset('svg-loaders/ball-triangle.svg') }}" alt="">
+        </div-->
+    </div>
+    <div class="columns is-centered is-mobile">
+        <h1 class="title">Cargando...</h1>
+    </div>
+</div>
 
 <br><br>
  
-<section class="section " style="background-color: #04305c">
+<section class="hero is-light is-bold">
+    <div class="hero-body ">
+      <div class="container has-text-centered">
+        <h1 class="title has-text-primary">Carta de Bienvenida</h1>
+      </div>
+    </div>
+</section>
+
+<section class="section">
     <div class="container">
         <div class="columns is-vcentered">
-            <div class="column is-5" uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 700">
-                <img src="{{ asset('img/img1.jpg') }}" alt="" style="border-radius: 60px;" width="350px">
-            </div>
-            <div class="column is-7 has-text-centered" uk-scrollspy="cls: uk-animation-slide-right; repeat: false; delay: 700">
+           
+            <div class="column is-12" uk-scrollspy="cls: uk-animation-slide-right; repeat: false; delay: 700">
                 
-                <h1 class="title is-size-2-desktop has-text-white">Carta de Bienvenida</h1>
-                <br>
-                <p class="subtitle is-size-4-desktop has-text-success">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsam sequi 
-                    inventore dolor beatae culpa, magni vel eaque perspiciatis! Ut reprehenderit
-                    repellat ipsa deleniti voluptatum velit doloremque molestiae ipsam explicabo.
+                <p class="subtitle is-size-4-desktop has-text-black">
+                    Queridos delegados, organizadores y advisors asistentes a TECMIMUN 2019 – Campus Villahermosa.
+                </p>
+                <p class="subtitle is-size-4-desktop has-text-black">
+                    Es todo un honor para mí dirigirme a ustedes como la primera Secretaria General del Modelo de las Naciones Unidas de la Universidad Tecmilenio. Mi nombre es Mónica Danaé Juárez López y me siento entusiasmada de ser parte del Comité Organizador de la Primera Edición de TECMIMUN, el cuál se llevará acabo los días 17 y 18 de mayo, 2019.
+                </p>
+                <p class="subtitle is-size-4-desktop has-text-black">
+                    Todo comenzó como iniciativa de cinco alumnos con el sueño de formar parte de la red de Modelos de Naciones Unidas en el estado de Tabasco y ser parte del desarrollo de habilidades de los jóvenes de hoy. Buscamos el apoyo de nuestro Campus y de tal manera, formar el comité organizador. Dicho comité se caracteriza por el entusiasmo, creatividad, compromiso, responsabilidad, el ser proactivos y sobre todo la pasión que cada uno de nosotros tiene por este proyecto que hoy es una realidad.
+                </p>
+                <p class="subtitle is-size-4-desktop has-text-black">
+                    Con este modelo desarrollarás diversas habilidades entre las cuales destaca el poder solucionar problemáticas que observamos día a día, administración del tiempo y planeación, dominio de la situación, mejorar nuestras relaciones al interactuar con jóvenes con quienes no convivimos regularmente y conocer cada vez más acerca de lo que sucede a nuestro alrededor y como estas acciones repercuten en nosotros.
+                </p>
+                <p class="subtitle is-size-4-desktop has-text-black">
+                    Para finalizar, me gustaría reiterar la alegría que me genera el que ustedes formen parte de esta historia que apenas comienza, y recuerden; “Sólo existen dos días en el año en que no se puede hacer nada. Uno se llama ayer y otro mañana. Por lo tanto, hoy es el día ideal para amar, crecer, hacer y principalmente vivir”. (Dalai Lama).
                 </p>
             </div>
         </div>
@@ -150,13 +197,17 @@
         </div>
     </div>
 </section-->
-
+<section class="hero is-light is-bold">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title has-text-primary">Secretariado</h1>
+      </div>
+    </div>
+</section>
 <section class="section">
     <div class="container">
         <div class="columns is-centered is-multiline">
-            <div class="columns">
-                <p class="title is-size-1-desktop">Registro</p>
-            </div>
+        
             <div class="columns is-vcentered">
                 <div class="column is-4">
                     <img src="{{ asset('img/logo.png') }}" alt="" style="border-radius: 50%">
@@ -169,12 +220,16 @@
     </div>
 </section>
 
+<section class="hero is-light is-bold">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title has-text-primary">Comités</h1>
+      </div>
+    </div>
+</section>
 <section class="section">
     <div class="container">
         <div class="columns is-centered is-multiline">
-            <div class="columns">
-                <p class="title is-size-1-desktop">Registro</p>
-            </div>
             <div class="columns is-vcentered">
                 <div class="column is-4">
                     <img src="{{ asset('img/slider/slide1.jpg') }}" alt="" style="border-radius: 50%">
@@ -187,12 +242,16 @@
     </div>
 </section>
 
+<section class="hero is-light is-bold">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title has-text-primary">Registro</h1>
+      </div>
+    </div>
+</section>
 <section class="section">
     <div class="container">
         <div class="columns is-centered is-multiline">
-            <div class="columns">
-                <p class="title is-size-1-desktop">Registro</p>
-            </div>
             <div class="columns is-vcentered">
                 <div class="column is-4">
                     <img src="{{ asset('img/logo.png') }}" alt="" style="border-radius: 50%">
@@ -207,10 +266,15 @@
 <script src="js/slider-uikit/uikit.js"></script>
 <script src="js/jquery.min.js"></script>
 <script>
+
 $(document).ready(function(){
+
+    if (document.readyState == "complete") {
+        $("#div-loader").delay(200).fadeOut("slow");
+    }
+
     UIkit.scrollspy();
+
 });
 </script>
-
-
 @endsection

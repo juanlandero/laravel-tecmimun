@@ -45,36 +45,39 @@ Route::get('/Comites/Posiciones', 'ComiteController@posiciones')->name('Posicion
 
 /**
  *  Rutas de administrador
- */
-Route::group(['middleware' => ['admin']], function () {
+ **/
+
+
+Route::group(['middleware' => ['admin'],
+                'prefix' => 'admin'], function () {
    
-    Route::get('/Admin', 'AdminController@index')->name('admin.index');
+    Route::get('/', 'AdminController@index')->name('admin.index');
 
-    Route::get('/Admin-Comite', 'AdminController@comite')->name('admin.comite');
-    Route::get('/Admin-Comite/details', 'AdminController@detailcomite');
-    Route::get('/Admin-Comite/download', 'AdminController@getExcel')->name('excel');
-    Route::post('/Admin-Comite/new', 'AdminController@savecomite')->name('save.comite');
-    Route::get('/Admin-Comite/delete/{id}', 'AdminController@deletecomite')->name('delete.comite');
+    Route::get('/pais', 'AdminController@pais')->name('admin.pais');
+    Route::post('/pais/new', 'AdminController@newPais');
+    Route::get('/pais/delete', 'AdminController@deletePais')->name('delete.pais');
+    Route::post('/pais/import', 'AdminController@importPaises')->name('ImportarXlsx');
+    Route::get('pais/get', 'AdminController@getPais');
 
-    Route::get('/Admin-PaisComite', 'AdminController@paiscomite')->name('admin.paiscomite');
-    Route::post('/Admin-PaisComite/new', 'AdminController@savepaiscomite')->name('save.paiscomite');
-    Route::get('/Admin-PaisComite/delete', 'AdminController@deletepaiscomite')->name('delete.paiscomite');
-
-
-    Route::get('/Admin-Pais', 'AdminController@pais')->name('admin.pais');
-    Route::post('/Admin-Pais/new', 'AdminController@savepais')->name('save.pais');
-    Route::get('/Admin-Pais/delete/{id}', 'AdminController@deletepais')->name('delete.pais');
-    Route::post('/Admin-Pais/Import', 'AdminController@importPaises')->name('ImportarXlsx');
+    Route::get('/comite', 'AdminController@comite')->name('admin.comite');
+    Route::get('/comite/details', 'AdminController@detailcomite');
+    Route::get('/comite/download', 'AdminController@getExcel')->name('excel');
+    Route::post('/comite/new', 'AdminController@savecomite')->name('save.comite');
+    Route::get('/comite/delete', 'AdminController@deletecomite')->name('delete.comite');
 
 
-    Route::get('/Admin-Escuela', 'AdminController@escuela')->name('admin.escuela');
-    Route::post('/Admin-Escuela/new', 'AdminController@saveescuela')->name('save.escuela');
-    Route::get('/Admin-Escuela/delete/{id}', 'AdminController@deleteescuela')->name('delete.escuela');
-    Route::get('/Admin-Escuela/details', 'AdminController@registrosescuela')->name('registros.escuela');
-    Route::get('/Admin-Escuela/getPaises', 'AdminController@getpaises')->name('getpaises.escuela');
-    Route::post('/Admin-Escuela/Generado', 'AdminController@generarregistro')->name('codigos.escuela');
+    Route::get('/escuela', 'AdminController@escuela')->name('admin.escuela');
+    Route::post('/escuela/new', 'AdminController@saveescuela')->name('save.escuela');
+    Route::get('/escuela/delete', 'AdminController@deleteescuela');
+    Route::get('/escuela/details', 'AdminController@registrosescuela');
+    Route::get('/escuela/getPaises', 'AdminController@getpaises')->name('getpaises.escuela');
+    Route::post('/escuela/Generado', 'AdminController@generarregistro')->name('codigos.escuela');
     Route::get('/Admin-Escuela/download', 'AdminController@getExcelEscuelas')->name('excelAlumnos');
-    
+
+
+    Route::get('/paisComite', 'AdminController@paiscomite');
+    Route::post('/paisComite/new', 'AdminController@savepaiscomite')->name('save.paiscomite');
+    Route::get('/paisComite/delete', 'AdminController@deletepaiscomite');
 });
 
 Auth::routes();
@@ -101,4 +104,8 @@ Route::group(['middleware' => ['responsable']], function () {
     Route::get('/ResponsableAdmin', 'ResponsableController@index')->name('responsable.view');
     Route::get('/ResponsableAdmin/download', 'ResponsableController@getExcelEscuelas')->name('excelEscuelas');
 
+});
+
+Route::get('mail', function () {
+    return new App\Mail\Responsable();
 });

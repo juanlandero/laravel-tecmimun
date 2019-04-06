@@ -26,7 +26,7 @@
 
 // Common
 @import "close.scss"; // After: Icon
-@import "spinner.scss"; // After: Icon
+*/@import "spinner.scss";/* // After: Icon
 @import "totop.scss"; // After: Icon
 @import "marker.scss"; // After: Icon
 @import "alert.scss"; // After: Close

@@ -68,15 +68,70 @@ class AdminController extends Controller
         $num_inscritos = $inscritos->count();
         $num_pre       = $pre->count();
 
-        return view('admin.index', ['inscritos'=>$inscritos, 'pre'=>$pre, 'n_ins'=>$num_inscritos, 'n_pre'=>$num_pre]);
+        return view('dashboard.administrador.dashboard', ['inscritos'=>$inscritos, 'pre'=>$pre, 'n_ins'=>$num_inscritos, 'n_pre'=>$num_pre]);
     }
 
+    /**
+     * Pais
+     */
+    public function pais(){
+        $pais = Pais::orderBy('pais.nombre', 'asc')->get();
+        return view('dashboard.administrador.dash-pais', ['data'=>$pais]);
+    }
+
+    public function newPais(Request $request){
+        $pais = new Pais;
+        $pais->nombre = $request->input('nombre_pais');
+
+        if (!(DB::table('pais')->where('nombre', $pais->nombre)->first())) {
+            $pais->save();
+
+            return ['return' => 'Guardado correctamente.'];
+        }else{
+            return ['return' => 'Ya existe el pais: '.$pais->nombre];
+        }
+    }
+
+    public function deletePais(Request $r){
+        $id = $r->input('id_pais');
+
+        if (DB::table('paiscomites')->where('pk_pais', $id)->first()) {
+            return ['return' => false, 'text' => 'No puede eliminar este país, ya que esta registrado en un comité.'];
+        }else{
+            DB::table('pais')
+                    ->where('id', $id)
+                    ->delete();
+            return ['return' => true, 'text' => 'Eliminado correctamente'];
+        }
+    }
+
+    public function importPaises(Request $request){
+        
+        Excel::import(new PaisImport, request()->file('archivo_xlsx'), 'local', \Maatwebsite\Excel\Excel::XLSX);
+
+        return redirect('pais');     
+    }
+
+    public function getPais(){
+        $paises = Pais::orderBy('pais.nombre', 'asc')->get();
+
+        $arrayPaises = [];
+
+        foreach ($paises as $value) {
+            $arrayPaises [] = [
+                'id' => $value->id,
+                'nombre' => $value->nombre,
+                'eliminar' => '<a onclick="deletePais('.$value->id.')"><span class="color-dng"><i class="fas fa-times-circle"></span></a>'
+            ];
+        }
+
+        return $arrayPaises;
+    }
 
     /**
      * Comité
      */
     public function comite(){
-
         $comites = Comite::all();
 
         $arrayComites = [];
@@ -94,22 +149,12 @@ class AdminController extends Controller
                         'paises' => $paises
                             ];
         }
-
-        return view('admin.comite', ['comites' => $arrayComites]);
+        return view('dashboard.administrador.dash-comite', ['comites' => $arrayComites]);
     }
-
-
-    public function getExcel(Request $request){
-        $id = $request->input('comite');
-
-        $archivo = DB::table('comites')->where('comites.id', $id)->first();
-
-        return (new PaiscomiteExport($id))->download($archivo->nombre.'.xlsx');
-    }
-
+    
     public function detailcomite(Request $request){
-        $id = $request->input('comite');
-
+        $id_comite = $request->input('comite');
+        
         $paises = DB::table('paiscomites')
                     ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
                     ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
@@ -121,7 +166,7 @@ class AdminController extends Controller
                             'pais.nombre as pais',
                             'escuelas.nombre as escuela',
                             'comites.nombre as comite')
-                    ->where('paiscomites.pk_comite', $id)
+                    ->where('paiscomites.pk_comite', $id_comite)
                     ->orderBy('pais.nombre', 'asc')
                     ->get();
 
@@ -129,7 +174,7 @@ class AdminController extends Controller
             return json_encode($paises);
         }else{
             return [
-                'resultado'=>true,
+                'resultado'=>false,
                 'texto'=>'No hay alumnos registrados aun'
             ];
         }
@@ -151,110 +196,27 @@ class AdminController extends Controller
         $user_comite->pk_permisos = 3;
         $user_comite->save();
         
-        return redirect('Admin-Comite');
+        return redirect('admin/comite');
     }
 
-    public function deletecomite($id){
+    public function deletecomite(Request $r){
+        $id = $r->input('comite');
         if (DB::table('paiscomites')->where('pk_comite', $id)->first()) {
-            return '<h1>No puede elimnar este comité, ya que conteine paises agregados.</h1>';
+            return ['return' => false, 'text' => 'No se puede eliminar, hay países agregados'];
         }else{
             DB::table('comites')
                         ->where('id', $id)
                         ->delete();
-            return redirect('Admin-Comite');
+            return ['return' => true, 'text' => 'Eliminado'];
         }
     }
 
-    /**
-     * PaisComite
-     */
-    public function paiscomite(Request $request){
-        $comite = $request->input('comite');
-
-        $pais = Pais::orderBy('nombre', 'asc')->get();
-
-        /*$paiscomite = DB::table('paiscomites')
-            ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
-            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-            ->select('paiscomites.id', 'pais.nombre as pais', 'paiscomites.pk_comite', 'paiscomites.disponible')
-            ->orderBy('pais.nombre', 'asc')
-            ->get();
-*/
-        return ['pais' => $pais, 'comite' => $comite];
-    }
-
-    public function savepaiscomite(Request $request){
-
-        $paises = $request->input('paises');
-
-        foreach ($paises as $item) {
-            $pc = new Paiscomite;
-            $pc->pk_pais = $item;
-            $pc->pk_comite = $request->comite;
-            $pc->disponible = true;
-            $pc->save(); 
-        }
-
-        return redirect('Admin-Comite');
-    }
-
-    public function deletepaiscomite(Request $request){
+    public function getExcel(Request $request){
         $id = $request->input('comite');
-        $query = DB::table('alumnos')
-                ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
-                ->where([ [ 'paiscomites.pk_comite', $id] ])
-                ->count();
 
-        if ($query == 0) {
-            DB::table('paiscomites')
-            ->where('pk_comite', $id)
-            ->delete();
-            return redirect('Admin-Comite');
-        }else{
-            return 'No puede eliminar los paises porque ya existen '.$query.' alumnos registrados';
-        }
-        
-    }
+        $archivo = DB::table('comites')->where('comites.id', $id)->first();
 
-
-    /**
-     * Pais
-     */
-    public function pais(){
-        $pais = Pais::orderBy('pais.nombre', 'asc')->get();
-        return view('admin.pais', ['data'=>$pais]);
-    }
-
-    public function savepais(Request $request){
-
-        $pais = new Pais;
-        $pais->nombre = $request->input('nombre_pais');
-
-        if (!(DB::table('pais')->where('nombre', $pais->nombre)->first())) {
-            $pais->save();
-            return redirect('Admin-Pais');
-        }else{
-            return 'Ya existe el pais: '.$pais->nombre;
-        }
-    }
-
-    public function deletepais($id){
-
-        if (DB::table('paiscomites')->where('pk_pais', $id)->first()) {
-            return 'No puede eliminar este país, ya que esta registrado en un comité.';
-        }else{
-            DB::table('pais')
-                    ->where('id', $id)
-                    ->delete();
-            return redirect('Admin-Pais');
-        }
-    }
-
-    public function importPaises(Request $request){
-        
-        Excel::import(new PaisImport, request()->file('archivo_xlsx'), 'local', \Maatwebsite\Excel\Excel::XLSX);
-
-        return redirect('Admin-Pais');     
+        return (new PaiscomiteExport($id))->download($archivo->nombre.'.xlsx');
     }
 
     /**
@@ -263,7 +225,7 @@ class AdminController extends Controller
     public function escuela(){
         $escuelas = Escuela::all();
         $comites = Comite::all();
-        return view('admin.escuela', ['data'=>$escuelas, 'comite'=>$comites]);
+        return view('dashboard.administrador.dash-escuela', ['data'=>$escuelas, 'comite'=>$comites]);
     }
 
     public function saveescuela(Request $request){
@@ -284,20 +246,26 @@ class AdminController extends Controller
         $responsable->password = Hash::make($password);
         $responsable->pk_permisos = 2;
         $responsable->save();
-        
 
-        //Mail::to('jc_l23@hotmail.com')
-          //  ->send(new Responsable());
 
-        //return $request->user();
-        return redirect('Admin-Escuela');
+        $data = DB::table('escuelas')->where('email', $request->input('mail'))->first();
+
+        Mail::to($request->input('mail'))->send(new Responsable($data));
+       
+        return redirect('admin/escuela');
     }
 
-    public function deleteescuela($id){
-        DB::table('escuelas')
+    public function deleteescuela(Request $r){
+        $id = $r->input('escuela');
+
+        if (DB::table('alumnos')->where('pk_escuelas', $id)->first()) {
+            return ['return' => false, 'text' => 'No se puede eliminar, hay alumnos registrados con esta escuela.'];
+        }else{
+            DB::table('escuelas')
                     ->where('id', $id)
                     ->delete();
-        return redirect('Admin-Escuela');
+            return ['return' => true, 'text' => 'Eliminado'];
+        }
     }
 
     public function registrosescuela(Request $request){
@@ -322,8 +290,8 @@ class AdminController extends Controller
             return json_encode($paises);
         }else{
             return [
-                'resultado'=>true,
-                'texto'=>'No hay alumnos registrados aun'
+                'resultado'=>false,
+                'texto'=>'No hay alumnos registrados aun.'
             ];
         }
     }
@@ -379,7 +347,7 @@ class AdminController extends Controller
             DB::table('paiscomites')->where('id', $item)->update(['disponible' => 0]);
         }
 
-        return redirect('Admin-Escuela');
+        return redirect('admin/escuela');
     }
 
     public function getExcelEscuelas(Request $request){
@@ -389,4 +357,73 @@ class AdminController extends Controller
 
         return (new EscuelaExport($id))->download($archivo->nombre.'.xlsx');
     }
+
+
+    /**
+     * PaisComite
+     */ 
+    public function paiscomite(Request $request){
+        $comite = $request->input('comite');
+
+        $sub_query = DB::table('paiscomites')
+            ->select('pk_pais')
+            ->where('pk_comite', $comite)
+            ->get();
+
+        if ($sub_query->count() > 0) {
+
+            $array_id = [];
+            foreach ($sub_query as $idpais) {
+                $array_id [] = [
+                    $idpais->pk_pais
+                ];
+            }
+
+            $pais = DB::table('pais')
+                ->select('id', 'nombre')
+                ->whereNotIn('pais.id', $array_id)
+                ->orderBy('pais.id', 'asc')
+                ->get();
+            if ($pais->count() == 0) {
+                $pais = null;
+            }
+
+        }else {
+            $pais = Pais::orderBy('nombre', 'asc')->get();
+        }
+
+        return ['pais' => $pais, 'comite' => $comite];
+    }
+
+    public function savepaiscomite(Request $request){
+
+        $paises = $request->input('paises');
+
+        foreach ($paises as $item) {
+            $pc = new Paiscomite;
+            $pc->pk_pais = $item;
+            $pc->pk_comite = $request->comite;
+            $pc->disponible = true;
+            $pc->save(); 
+        }
+
+        return redirect('admin/comite/');
+    }
+
+    public function deletepaiscomite(Request $request){
+        $id = $request->input('comite');
+        $query = DB::table('alumnos')
+                ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+                ->where([ [ 'paiscomites.pk_comite', $id] ])
+                ->count();
+        if ($query == 0) {
+            DB::table('paiscomites')
+            ->where('pk_comite', $id)
+            ->delete();
+            return ['return' => true, 'text' => 'Eliminado...'];
+        }else{
+            return ['return' => false, 'text' => 'No puede eliminar los paises porque ya existen '.$query.' alumnos registrados'];
+        }
+    }
+
 }

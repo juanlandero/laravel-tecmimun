@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    'host' => env('MAIL_HOST', 'p3plcpnl0521.prod.phx3.secureserver.net'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'jcarlos210193@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'JC'),
+        'address' => env('MAIL_FROM_ADDRESS', 'system.tecmimun@cmir.com.mx'),
+        'name' => env('MAIL_FROM_NAME', 'Sistemas Tecmimun 2019'),
     ],
 
     /*
@@ -84,7 +84,7 @@ return [
     |
     */
 
-    'username' => env('jcarlos210193@gmail.com'),
+    'username' => env('system.tecmimun@cmir.com.mx'),
 
     'password' => env('gtrealmadrid21'),
     

@@ -17,7 +17,7 @@
 <section class="section">
     <div class="container">
         <div class="columns is-mobile is-centered is-vcentered" style="height: 500px">
-            <div class="column is-6 has-text-centered">
+            <div class="column is-6-desktop is-10-mobile has-text-centered">
     
                 <p class="title is-size-1-desktop has-text-primary">Ingreza tu <span class="has-text-success">código</span></p><br>
                 <form id="checkin" method="POST" class="columns is-centered">
@@ -27,7 +27,7 @@
                         <input class="input is-large is-primary is-rounded" name="codigo" id="codigo" type="text" maxlength="8" required autocomplete="off">
                     </div>
                     <div class="column is-4">
-                        <button type="submit" class="button is-primary is-rounded is-large is-outlined">ENTRAR</button>
+                        <button type="submit" class="button is-primary is-rounded is-large is-outlined">Continuar</button>
                     </div>
                 </form>
 
