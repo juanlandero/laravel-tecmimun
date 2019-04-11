@@ -1,4 +1,9 @@
-<link rel="stylesheet" href="{{ asset('css/ui-kit.css') }}">
+@extends('dashboard.plantilla.main-comite')
+
+@section('titulo', 'Puntos')
+
+@section('contenido')
+
 <div class="columns  is-multiline">
 
     @foreach ($user as $item)
@@ -13,6 +18,14 @@
             </div>
         </div>
     @endforeach
+
 </div>
-<script src="{{ asset('js/puntos.js') }}"></script>
-<script src="{{ asset('js/slider-uikit/uikit.js') }}"></script>
+
+@endsection
+@section('scripts')
+    <script src="{{ asset('js/slider-uikit/uikit.js') }}"></script>
+    <script src="{{ asset('js/dashboard/dash-puntos.js') }}"></script>
+@endsection
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/ui-kit.css') }}">
+@endsection

@@ -143,7 +143,7 @@
   -webkit-appearance: none;
   align-items: center;
   border: 1px solid transparent;
-  border-radius: 15px;
+  border-radius: 4px;
   box-shadow: none;
   display: inline-flex;
   font-size: 1rem;
@@ -3272,7 +3272,7 @@ a.box:active {
   border-top-left-radius: 0;
 }
 .file.has-name.is-empty .file-cta {
-  border-radius: 15px;
+  border-radius: 4px;
 }
 .file.has-name.is-empty .file-name {
   display: none;
@@ -3305,10 +3305,10 @@ a.box:active {
   font-size: 35px;
 }
 .file.is-boxed.has-name .file-cta {
-  border-radius: 15px 15px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .file.is-boxed.has-name .file-name {
-  border-radius: 0 0 15px 15px;
+  border-radius: 0 0 4px 4px;
   border-width: 0 1px 1px;
 }
 .file.is-centered {
@@ -3325,10 +3325,10 @@ a.box:active {
   justify-content: flex-end;
 }
 .file.is-right .file-cta {
-  border-radius: 0 15px 15px 0;
+  border-radius: 0 4px 4px 0;
 }
 .file.is-right .file-name {
-  border-radius: 15px 0 0 15px;
+  border-radius: 4px 0 0 4px;
   border-width: 1px 0 1px 1px;
   order: -1;
 }
@@ -3369,7 +3369,7 @@ a.box:active {
 .file-cta,
 .file-name {
   border-color: #dbdbdb;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 1em;
   padding-left: 1em;
   padding-right: 1em;
@@ -3834,7 +3834,7 @@ a.box:active {
 
 .notification {
   background-color: whitesmoke;
-  border-radius: 15px;
+  border-radius: 4px;
   padding: 1.25rem 2.5rem 1.25rem 1.5rem;
   position: relative;
 }
@@ -4229,7 +4229,7 @@ a.box:active {
 .tag:not(body) {
   align-items: center;
   background-color: whitesmoke;
-  border-radius: 15px;
+  border-radius: 4px;
   color: #4a4a4a;
   display: inline-flex;
   font-size: 0.75rem;
@@ -4644,7 +4644,7 @@ a.tag:hover {
 
 .dropdown-content {
   background-color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
@@ -4690,7 +4690,7 @@ button.dropdown-item.is-active {
   justify-content: space-between;
 }
 .level code {
-  border-radius: 15px;
+  border-radius: 4px;
 }
 .level img {
   display: inline-block;
@@ -4784,7 +4784,7 @@ button.dropdown-item.is-active {
 
 .list {
   background-color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
 }
 
@@ -4796,12 +4796,12 @@ button.dropdown-item.is-active {
   color: #4a4a4a;
 }
 .list-item:first-child {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .list-item:last-child {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .list-item:not(:last-child) {
   border-bottom: 1px solid #dbdbdb;
@@ -4927,7 +4927,7 @@ a.list-item {
 
 .message {
   background-color: whitesmoke;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 1rem;
 }
 .message strong {
@@ -5060,7 +5060,7 @@ a.list-item {
 .message-header {
   align-items: center;
   background-color: #4a4a4a;
-  border-radius: 15px 15px 0 0;
+  border-radius: 4px 4px 0 0;
   color: #fff;
   display: flex;
   font-weight: 700;
@@ -5082,7 +5082,7 @@ a.list-item {
 
 .message-body {
   border-color: #dbdbdb;
-  border-radius: 15px;
+  border-radius: 4px;
   border-style: solid;
   border-width: 0 0 0 4px;
   color: #4a4a4a;
@@ -5971,7 +5971,7 @@ body.has-navbar-fixed-bottom-touch {
   }
   .navbar.is-spaced a.navbar-item,
 .navbar.is-spaced .navbar-link {
-    border-radius: 15px;
+    border-radius: 4px;
   }
   .navbar.is-transparent a.navbar-item:hover, .navbar.is-transparent a.navbar-item.is-active,
 .navbar.is-transparent .navbar-link:hover,
@@ -6322,7 +6322,7 @@ body.has-spaced-navbar-fixed-bottom {
 
 .panel-heading {
   background-color: whitesmoke;
-  border-radius: 15px 15px 0 0;
+  border-radius: 4px 4px 0 0;
   color: #363636;
   font-size: 1.25em;
   font-weight: 300;
@@ -6474,7 +6474,7 @@ label.panel-block:hover {
 }
 .tabs.is-boxed a {
   border: 1px solid transparent;
-  border-radius: 15px 15px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .tabs.is-boxed a:hover {
   background-color: whitesmoke;
@@ -6505,10 +6505,10 @@ label.panel-block:hover {
   margin-left: -1px;
 }
 .tabs.is-toggle li:first-child a {
-  border-radius: 15px 0 0 15px;
+  border-radius: 4px 0 0 4px;
 }
 .tabs.is-toggle li:last-child a {
-  border-radius: 0 15px 15px 0;
+  border-radius: 0 4px 4px 0;
 }
 .tabs.is-toggle li.is-active a {
   background-color: #17CF33;

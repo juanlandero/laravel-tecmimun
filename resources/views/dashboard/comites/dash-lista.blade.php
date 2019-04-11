@@ -1,11 +1,16 @@
-<br>
+@extends('dashboard.plantilla.main-comite')
+
+@section('titulo', 'Lista')
+
+@section('contenido')
+
 <div class="columns">
     <div class="column is-12">
         <form id="nuevaLista" method="post" class="columns is-mobile is-centered">
             @csrf
             <input type="hidden" name="comite" value="{{ Auth::user()->email }}">
             <div class="column is-8-mobile is-5-desktop">
-                <input class="input is-primary is-rounded" placeholder="Nuevo pase de lista" name="nombre" id="codigo" type="text" maxlength="20" required autocomplete="off">
+                <input class="input is-rounded" placeholder="Nuevo pase de lista" name="nombre" id="codigo" type="text" maxlength="20" required autocomplete="off">
             </div>
             <div class="column is-4-mobile is-3-desktop">
                 <button id="idbutton" class="button is-success is-rounded is-outlined" type="submit">Crear</button>
@@ -14,6 +19,7 @@
     </div>
 </div>
 <br><br>
+
 <div class="columns is-multiline">
     
     @foreach ($listas as $lista)
@@ -40,5 +46,10 @@
     @endforeach
 </div>
 
-@include('dashboard.modal_lista')
-<script src="{{ asset('js/lista.js') }}"></script>
+
+@include('dashboard.comites.modal.lista')
+
+@endsection
+@section('scripts')
+    <script src="{{ asset('js/dashboard/dash-lista.js') }}"></script>
+@endsection

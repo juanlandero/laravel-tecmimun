@@ -32,15 +32,15 @@ class LoginController extends Controller
         $permiso = Auth::user()->pk_permisos;
         switch ($permiso) {
             case 1:
-                return '/admin';
+                return route('admin.index');
                 break;
 
             case 2:
-                return '/ResponsableAdmin';
+                return route('responsable.view');
                 break;
 
             case 3:
-                return '/delegate';
+                return route('comites.index');
                 break;
             
             default:

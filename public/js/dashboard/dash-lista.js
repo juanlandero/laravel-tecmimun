@@ -4,14 +4,14 @@ $('form#nuevaLista').submit(function(e){
     var datos = $(this).serializeArray();
 
     $.ajax({
-        url: '/getLista/new',
+        url: 'lista/new',
         type: 'POST',
         dataType: 'json',
         data: datos
     })
     .done(function(dato){
         console.log(dato);
-        paseLista();
+        window.location.reload();
     })
     .fail(function(dato){
         alert('Error en el sistemas, comuniquese con el administrador.');
@@ -25,13 +25,12 @@ function dismissModal(id_modal){
     
 function modalLista(id){
     $.ajax({
-      url: '/getLista/modal',
+      url: 'lista/modal',
       type: 'GET',
       dataType: 'json',
       data: 'lista='+id
   })
   .done(function(dato){
-      //console.log(dato);
       if (dato.resultado) {
           alert(dato.texto);
       }else{
@@ -45,6 +44,7 @@ function modalLista(id){
   });
 }
   
+
 function estadoAlumno(id, estado, lista){
   
     var datos = {
@@ -52,19 +52,29 @@ function estadoAlumno(id, estado, lista){
         lista: lista,
         estado: estado
     };
-  
+
     $.ajax({
-        url: '/getLista/checkAlumno',
+        url: 'lista/asistencia',
         type: 'GET',
         dataType: 'json',
         data: datos
     })
     .done(function(dato){
         console.log(dato.asistencia);
-        if (dato.asistencia == "Presente") {
-            $('#'+dato.delegacion).addClass('presente');
+        
+        var delegacion = $('#'+dato.delegacion);
+
+        if(delegacion.hasClass('presente')){
+            delegacion.removeClass('presente');
+        }
+        if(delegacion.hasClass('ausente')){
+            delegacion.removeClass('ausente');
+        }
+
+        if (dato.asistencia) {
+            delegacion.addClass('presente');
         }else{
-            $('#'+dato.delegacion).addClass('ausente');
+            delegacion.addClass('ausente');
         }
     })
     .fail(function(dato){

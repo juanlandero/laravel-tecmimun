@@ -11,7 +11,7 @@
                 <p>DELEGACIONES</p>
             </div>
             <div class="message-body">
-                <table data-toggle="table" class="table is-fullwidth" id="tabla-paises" style="background-color: transparent;">
+                <table class="table is-fullwidth" id="tabla-paises" style="background-color: transparent;">
                 
                 </table>
             </div>

@@ -1,20 +1,3 @@
-
-
-function paseLista(){
-    $('#contenido').load('getLista');
-    $('#titulo').html('Pase de lista');
-}
-
-function controlPuntos(){
-    $('#contenido').load('getPuntos')
-    $('#titulo').html('Panel de puntos');
-}
-
-function infoComites(){
-    $('#contenido').load('getInfo');
-    $('#titulo').html('Información del comité');
-}
-
 document.addEventListener('DOMContentLoaded', () => {
 
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);

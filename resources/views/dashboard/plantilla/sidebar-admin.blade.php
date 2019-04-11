@@ -1,6 +1,6 @@
 <div class="container-side">
     <aside class="menu">
-        <a class="aside-item" href="{{ route('dashboard.welcome') }}">
+        <a class="aside-item" href="{{ route('comites.bienvenida') }}">
             <span class="icon is-large">
                 <i class="fas fa-lg fa-search"></i>
             </span>                

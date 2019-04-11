@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icon/all.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/table/bootstrap-table.css') }}">
     @section('css')
     @show
 </head>
@@ -16,7 +15,7 @@
 
 @include('dashboard.plantilla.navbar')
 
-@include('dashboard.plantilla.sidebar-admin')
+@include('dashboard.plantilla.sidebar-comite')
 
 
 <div class="container-dash">
@@ -34,7 +33,6 @@
 
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/dashboard/menu.js') }}"></script>
-<script src="{{ asset('js/table/bootstrap-table.js') }}"></script>
 @section('scripts')
 @show
 </body>

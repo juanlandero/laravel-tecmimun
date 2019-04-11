@@ -9,7 +9,7 @@ $(document).ready(function(){
         var data = $(this).serializeArray();
 
         $.ajax({
-            url: '/delegate/Check',
+            url: 'bienvenida/Check',
             type: 'POST',
             dataType: 'json',
             data: data

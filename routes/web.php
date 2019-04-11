@@ -46,8 +46,6 @@ Route::get('/Comites/Posiciones', 'ComiteController@posiciones')->name('Posicion
 /**
  *  Rutas de administrador
  **/
-
-
 Route::group(['middleware' => ['admin'],
                 'prefix' => 'admin'], function () {
    
@@ -72,7 +70,7 @@ Route::group(['middleware' => ['admin'],
     Route::get('/escuela/details', 'AdminController@registrosescuela');
     Route::get('/escuela/getPaises', 'AdminController@getpaises')->name('getpaises.escuela');
     Route::post('/escuela/Generado', 'AdminController@generarregistro')->name('codigos.escuela');
-    Route::get('/Admin-Escuela/download', 'AdminController@getExcelEscuelas')->name('excelAlumnos');
+    Route::get('/escuela/download', 'AdminController@getExcelEscuelas')->name('excelAlumnos');
 
 
     Route::get('/paisComite', 'AdminController@paiscomite');
@@ -80,23 +78,22 @@ Route::group(['middleware' => ['admin'],
     Route::get('/paisComite/delete', 'AdminController@deletepaiscomite');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::group(['middleware' => ['comite']], function () {
+Route::group([  'middleware' => ['comite'],
+                'prefix' => 'comite'], function () {
    
-    Route::get('/delegate', 'DashboardController@index')->name('dashboard.index');
-    Route::get('/delegate/welcome', 'DashboardController@welcome')->name('dashboard.welcome');
-    Route::post('/delegate/Check', 'DashboardController@checkIn')->name('dashboard.checkin');
-    Route::get('/getLista', 'DashboardController@getPaseLista');
-    Route::post('/getLista/new', 'DashboardController@newLista')->name('newLista');
-    Route::get('/getLista/modal', 'DashboardController@getModalLista')->name('modalLista');
-    Route::get('/getLista/checkAlumno', 'DashboardController@estadoEnLista')->name('checkAlumno');
-    Route::get('/getPuntos', 'DashboardController@getPuntos');
-    Route::get('/getPuntos/setPunto', 'DashboardController@setPuntos');
-    Route::get('/getInfo', 'DashboardController@getInfo');
+    Route::get('/', 'DashboardController@index')->name('comites.index');
 
+    Route::get('/bienvenida', 'DashboardController@welcome')->name('comites.bienvenida');
+    Route::post('/bienvenida/Check', 'DashboardController@checkIn')->name('dashboard.checkin');   
+    Route::get('/lista', 'DashboardController@lista')->name('comites.lista');
+    Route::post('/lista/new', 'DashboardController@newLista');
+    Route::get('/lista/modal', 'DashboardController@getModalLista');
+    Route::get('/lista/asistencia', 'DashboardController@estadoEnLista');
+    Route::get('/puntos', 'DashboardController@puntos')->name('comites.puntos');
+    Route::get('/puntos/setPunto', 'DashboardController@setPuntos');
+    Route::get('/detalle', 'DashboardController@detalle')->name('comites.detalle');
+    Route::get('/getInfo', 'DashboardController@getInfo');
 });
 
 
@@ -106,6 +103,22 @@ Route::group(['middleware' => ['responsable']], function () {
 
 });
 
+//Ruta temporal
 Route::get('mail', function () {
     return new App\Mail\Responsable();
 });
+
+
+Route::group(['domain' => '{admin}.cmir.com.mx'], function(){
+    Route::get('else', function(){});
+});
+
+Route::domain('{account}.myapp.com')->group(function () {
+    Route::get('user/{id}', function ($account, $id) {
+        //
+    });
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

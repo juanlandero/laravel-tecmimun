@@ -36,14 +36,14 @@
     </div>
 </section>
 
-@include('dashboard.modal_welcome')
-@include('dashboard.modal_espera')
+@include('dashboard.comites.modal.bienvenida-true')
+@include('dashboard.comites.modal.bienvenida-wait')
 
 <script src="{{ asset('js/slider-uikit/uikit.js') }}"></script>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/split.js') }}"></script>
 <script src="{{ asset('js/tw.js') }}"></script>
-<script src="{{ asset('js/welcome.js') }}"></script>
+<script src="{{ asset('js/dashboard/dash-bienvenida.js') }}"></script>
 
 </body>
 </html>

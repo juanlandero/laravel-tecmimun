@@ -20,7 +20,50 @@ class DashboardController extends Controller
     }
 
     public function index(){
-        return view('dashboard.app');
+        return view('dashboard.comites.dashboard');
+    }
+
+    public function checkIn(Request $r){
+        $codigo = $r->input('codigo');
+        $comite = $r->input('comite');
+
+        $verificacion = DB::table('alumnos')
+                        ->select('alumnos.id as alumno')
+                        ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+                        ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+                        ->where([
+                            ['alumnos.codigo', $codigo],
+                            ['alumnos.recepcionado', 0],
+                            ['comites.codigo', $comite]
+                        ])
+                        ->first();
+
+        if ($verificacion != null) {
+
+            DB::table('alumnos')
+                ->where('id', $verificacion->alumno)
+                ->update(['recepcionado' => 1]);
+            
+            return ['estado' => true, 'Text' => 'Si se encontro a la persona'];
+        }else{
+            return ['estado' => false, 'Text' => 'No existe el codigo'];
+        }
+    }
+
+    public function welcome(){
+        return view('dashboard.comites.dash-bienvenida');
+    }
+
+    public function lista(){
+        $user = Auth::user()->email;
+
+        $listas = DB::table('listas')
+            ->select('listas.id', 'listas.nombre as lista', 'listas.created_at')
+            ->join('comites', 'listas.pk_comite', '=', 'comites.id')
+            ->where('comites.codigo', $user)
+            ->get();
+
+        return view('dashboard.comites.dash-lista', ['listas'=>$listas]);
     }
 
     public function newLista(Request $r){
@@ -40,17 +83,6 @@ class DashboardController extends Controller
         return ['estado'=>'true'];
     }
 
-    public function getPaseLista(){
-        $user = Auth::user()->email;
-
-        $listas = DB::table('listas')
-            ->select('listas.id', 'listas.nombre as lista', 'listas.created_at')
-            ->join('comites', 'listas.pk_comite', '=', 'comites.id')
-            ->where('comites.codigo', $user)
-            ->get();
-
-        return view('dashboard.lista', ['listas'=>$listas]);
-    }
 
     public function getModalLista(Request $r){
         
@@ -90,8 +122,7 @@ class DashboardController extends Controller
                             "</div></div></div>";
                     }
                 }
-            return ['paises'=>$items];
-            //return json_encode($paises);
+            return ['paises' => $items];
         }else{
             $paises = DB::table('alumnos')
                 ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
@@ -106,7 +137,6 @@ class DashboardController extends Controller
                 ->get();
 
             if ($paises->count() != 0) {
-                //$arrayPaises = [];
                 foreach ($paises as $pais) {
 
                     $nuevo = new Pase;
@@ -114,12 +144,6 @@ class DashboardController extends Controller
                     $nuevo->pk_lista = $id_lista;
                     $nuevo->asistencia = null;
                     $nuevo->save();
-
-                    /*$arrayPaises[] = [
-                        'delegacion' => $pais->delegacion,
-                        'pais' => $pais->pais,
-                        'lista' => $id_lista
-                    ];*/
 
                     $items .= "<div class='box' id='".$pais->delegacion."'><div class='columns is-mobile is-vcentered'>".
                     "<div class='column is-4-mobile is-8-desktop'>".$pais->pais."</div>".
@@ -130,7 +154,6 @@ class DashboardController extends Controller
                         "</div></div></div>";
                 }
                 return ['paises'=>$items];
-                //return json_encode($arrayPaises);
             }else{
                 return [
                     'resultado'=>true,
@@ -144,35 +167,22 @@ class DashboardController extends Controller
         $delegacion = $r->input('delegacion');
         $lista = $r->input('lista');
         $estado = $r->input('estado');
-
-        $verificacion = DB::table('pases')
+    
+        DB::table('pases')
             ->where([
                 ['pk_paiscomite', $delegacion],
                 ['pk_lista', $lista]
             ])
-            ->first();
-
-        if ($verificacion->asistencia == 1 || $verificacion->asistencia == 1) {
-            return ['asistencia' => 'No se puede modificar'];
+            ->update(['asistencia' => $estado]);
+    
+        if ($estado == 1) {
+            return ['asistencia' => true, 'delegacion'=>$delegacion];
         }else{
-
-            DB::table('pases')
-                ->where([
-                    ['pk_paiscomite', $delegacion],
-                    ['pk_lista', $lista]
-                ])
-                ->update(['asistencia' => $estado]);
-            
-            if ($estado == 1) {
-                return ['asistencia' => 'Presente', 'delegacion'=>$delegacion];
-            }else{
-                return ['asistencia' => 'Ausente', 'delegacion'=>$delegacion];
-            }
+            return ['asistencia' => false, 'delegacion'=>$delegacion];
         }
-
     }
 
-    public function getPuntos(){
+    public function puntos(){
         $user = Auth::user()->email;
 
         $paises = DB::table('alumnos')
@@ -187,7 +197,7 @@ class DashboardController extends Controller
             ->orderBy('pais.nombre', 'asc')
             ->get();
                     
-        return view('dashboard.puntaje', ['user'=>$paises]);
+        return view('dashboard.comites.dash-puntos', ['user'=>$paises]);
     }
 
     public function setPuntos(Request $r){
@@ -200,48 +210,19 @@ class DashboardController extends Controller
         $punto->punto = 1;
         $punto->save();
 
-        
-
         return ['resultado' => 'true', 'pais'=>$pais];
-
     }
 
-    public function welcome(){
-        return view('dashboard.welcome');
-    }
+    public function detalle(){
+        $user = Auth::user()->email;        
+        $comite = DB::table('comites')->where('codigo', $user)->first();
 
-    public function checkIn(Request $r){
-        $codigo = $r->input('codigo');
-        $comite = $r->input('comite');
-
-        $verificacion = DB::table('alumnos')
-                        ->select('alumnos.id as alumno')
-                        ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
-                        ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
-                        ->where([
-                            ['alumnos.codigo', $codigo],
-                            ['alumnos.recepcionado', 0],
-                            ['comites.codigo', $comite]
-                        ])
-                        ->first();
-
-        if ($verificacion != null) {
-
-            DB::table('alumnos')
-                ->where('id', $verificacion->alumno)
-                ->update(['recepcionado' => 1]);
-            
-            return ['estado' => true, 'Text' => 'Si se encontro a la persona'];
-        }else{
-            return ['estado' => false, 'Text' => 'No existe el codigo'];
-        }
+        return view('dashboard.comites.dash-detalle', ['comite' => $comite]);
     }
 
     public function getInfo(){
         
         $user = Auth::user()->email;        
-
-        $comite = DB::table('comites')->where('codigo', $user)->first();
 
         $paises = DB::table('alumnos')
             ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
@@ -253,6 +234,26 @@ class DashboardController extends Controller
             ->orderBy('pais.nombre', 'asc')
             ->get();
 
-        return view('dashboard.info', ['comite' => $comite, 'delegados' => $paises]);
+        $array_detalle = [];
+
+        foreach ($paises as $value) {
+            $recepcionado = "";
+            if ($value->recepcionado == 1) {
+                $recepcionado = '<span style="color: #46a14a"><i class="fas fa-check-circle"></i></span>';
+            }else{
+                $recepcionado = '<span style="color: #ff3860"><i class="fas fa-times-circle"></i></span>';
+            }
+            
+            $array_detalle [] = [
+                'id' => $value->id,
+                'pais' => $value->pais,
+                'mail' => $value->mail,
+                'codigo' => $value->codigo,
+                'recepcionado' => $recepcionado,
+                'escuela' => $value->escuela,
+            ];
+        }
+
+        return json_encode($array_detalle);
     }
 }

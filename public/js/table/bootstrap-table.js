@@ -176,7 +176,7 @@
           buttonsDropdown: 'btn-group',
           pull: 'float',
           inputGroup: '',
-          input: 'form-control',
+          input: 'input column is-3',
           paginationDropdown: 'btn-group dropdown',
           dropup: 'dropup',
           dropdownActive: 'active',
