@@ -33,7 +33,7 @@
 		e.preventDefault();
 		var data = $(this).serializeArray();
 		$.ajax({
-			url: '/admin/pais/new',
+			url: 'pais/new',
 			type: 'POST',
 			dataType: 'json',
 			data: data
@@ -56,7 +56,7 @@
 
 function deletePais(id){
     $.ajax({
-        url: '/admin/pais/delete',
+        url: 'pais/delete',
         type: 'GET',
         dataType: 'json',
         data: 'id_pais='+id

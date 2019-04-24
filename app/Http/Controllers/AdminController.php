@@ -37,11 +37,11 @@ class AdminController extends Controller
             ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
             ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
             ->select(
-                    'alumnos.id as id',
+                    'alumnos.id AS id',
                     'alumnos.codigo',
-                    'escuelas.nombre as escuela',
-                    'comites.nombre as comite',
-                    'pais.nombre as pais'
+                    'escuelas.nombre AS escuela',
+                    'comites.nombre AS comite',
+                    'pais.nombre AS pais'
                     )
             ->orderBy('alumnos.pk_escuelas', 'asc')
             ->where('alumnos.nombre', '')
@@ -57,9 +57,9 @@ class AdminController extends Controller
                 'alumnos.edad',
                 'alumnos.mail',
                 'alumnos.codigo',
-                'escuelas.nombre as escuela',
-                'comites.nombre as comite',
-                'pais.nombre as pais'
+                'escuelas.nombre AS escuela',
+                'comites.nombre AS comite',
+                'pais.nombre AS pais'
                 )
             ->where('alumnos.nombre', '<>', '')
             ->orderBy('alumnos.pk_escuelas', 'asc')
@@ -68,7 +68,156 @@ class AdminController extends Controller
         $num_inscritos = $inscritos->count();
         $num_pre       = $pre->count();
 
-        return view('dashboard.administrador.dashboard', ['inscritos'=>$inscritos, 'pre'=>$pre, 'n_ins'=>$num_inscritos, 'n_pre'=>$num_pre]);
+        return view('dashboard.administrador.dash-index', ['inscritos'=>$inscritos, 'pre'=>$pre, 'n_ins'=>$num_inscritos, 'n_pre'=>$num_pre]);
+    }
+
+    public function busqueda(Request $r){
+        $dato = strtolower($r->input('busqueda'));
+        $query = "";
+        $clave = "";
+        $dato_string = "";
+        $columna = "";
+        $return = true;
+
+        if (strlen($dato) >= 2 and $dato[1] == ".") {
+            $clave = substr($dato, 0, 2);
+            $dato = substr($dato, 2);
+            $dato_string = "%".$dato."%";
+            
+            switch ($clave) {
+                case 'a.':
+                    $query = DB::select('SELECT 
+                                alumnos.id,
+                                alumnos.nombre AS alumno,
+                                alumnos.mail,
+                                alumnos.codigo,
+                                escuelas.nombre AS escuela
+                        FROM paiscomites
+                        LEFT JOIN pais ON paiscomites.pk_pais = pais.id
+                        LEFT JOIN comites ON paiscomites.pk_comite = comites.id
+                        LEFT JOIN alumnos ON paiscomites.id = alumnos.pk_inscripcion
+                        LEFT JOIN escuelas ON alumnos.pk_escuelas = escuelas.id
+                        WHERE alumnos.nombre LIKE ?', [$dato_string]);
+                    $columna = [
+                        array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
+                        array( 'field' => 'alumno','title' => 'ALUMNO' ),
+                        array( 'field' => 'mail','title' => 'E-MAIL' ),
+                        array( 'field' => 'codigo','title' => 'CÓDIGO','align' => 'center' ),
+                        array( 'field' => 'escuela','title' => 'ESCUELA' )
+                    ];
+                    break;
+                
+                case 'e.':
+                    $query = DB::select('SELECT 
+                                escuelas.id,
+                                escuelas.nombre,
+                                escuelas.responsable,
+                                escuelas.email,
+                                escuelas.password,
+                                COUNT(alumnos.nombre) AS total
+                        FROM alumnos
+                        JOIN escuelas ON alumnos.pk_escuelas = escuelas.id
+                        WHERE escuelas.nombre LIKE ? OR escuelas.responsable LIKE ?
+                        GROUP BY escuelas.id', [$dato_string, $dato_string]);   
+                    $columna = [
+                        array( 'field' => 'id','title' => 'ID', 'align' => 'center' ),
+                        array( 'field' => 'nombre','title' => 'ESCUELA' ),
+                        array( 'field' => 'responsable','title' => 'TUTOR' ),
+                        array( 'field' => 'email','title' => 'E-MAIL' ),
+                        array( 'field' => 'password','title' => 'PWD' ),
+                        array( 'field' => 'total','title' => '# ALUMNOS', 'align' => 'center' )
+                    ];
+                    break;
+
+                case 'p.':
+                    $query = DB::select('SELECT 
+                            paiscomites.id,
+                            pais.nombre AS pais,
+                            comites.nombre AS comite,
+                            comites.idioma
+                        FROM paiscomites
+                        JOIN pais ON paiscomites.pk_pais = pais.id
+                        JOIN comites ON paiscomites.pk_comite = comites.id
+                        WHERE pais.nombre LIKE ?', [$dato_string]); 
+                        
+                    $columna = [
+                        array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
+                        array( 'field' => 'pais','title' => 'PAÍS' ),
+                        array( 'field' => 'comite','title' => 'COMITÉ' ),
+                        array( 'field' => 'idioma','title' => 'IDIOMA' )
+                    ];
+                    break;
+
+                case 'c.':
+                    $query = DB::select('SELECT 
+                            comites.id,
+                            comites.nombre AS comite,
+                            comites.idioma,
+                            comites.codigo,
+                            COUNT(paiscomites.id) AS total
+                        FROM paiscomites
+                        JOIN comites ON paiscomites.pk_comite = comites.id
+                        WHERE comites.nombre LIKE ?
+                        GROUP BY comites.id', [ $dato_string ]);  
+                    $columna = [
+                        array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
+                        array( 'field' => 'comite','title' => 'NOMBRE' ),
+                        array( 'field' => 'idioma','title' => 'IDIOMA' ),
+                        array( 'field' => 'codigo','title' => 'USUARIO' ),
+                        array( 'field' => 'total','title' => '# PAÍSES','align' => 'center' )
+                    ];
+                    break;
+                default:
+                    $return = false;
+                    $query = "";
+                    break;
+            }
+        }else{
+            if ($dato != "") {
+                $dato_string = "%".$dato."%";
+                $query = DB::select('SELECT 
+                                alumnos.id,
+                                alumnos.nombre AS alumno,
+                                alumnos.mail,
+                                pais.nombre AS pais,
+                                alumnos.codigo,
+                                comites.nombre AS comite,
+                                escuelas.nombre AS escuelas,
+                                paiscomites.disponible
+                        FROM paiscomites
+                        LEFT JOIN pais ON paiscomites.pk_pais = pais.id
+                        LEFT JOIN comites ON paiscomites.pk_comite = comites.id
+                        LEFT JOIN alumnos ON paiscomites.id = alumnos.pk_inscripcion
+                        LEFT JOIN escuelas ON alumnos.pk_escuelas = escuelas.id
+                        WHERE alumnos.nombre LIKE ? 
+                        OR  alumnos.codigo LIKE ?
+                        OR  escuelas.nombre LIKE ?
+                        OR  pais.nombre LIKE ?
+                        OR comites.nombre LIKE ?', [$dato_string, $dato_string, $dato_string, $dato_string, $dato_string]);
+                        
+                $columna = [
+                    array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
+                    array( 'field' => 'alumno','title' => 'ALUMNO' ),
+                    array( 'field' => 'mail','title' => 'E-MAIL' ),
+                    array( 'field' => 'pais','title' => 'PAÍS' ),
+                    array( 'field' => 'codigo','title' => 'CÓDIGO','align' => 'center' ),
+                    array( 'field' => 'comite','title' => 'COMITÉ','align' => 'center' ),
+                    array( 'field' => 'escuelas','title' => 'ESCUELA','align' => 'center' ),
+                    array( 'field' => 'disponible','title' => 'ESTADO','align' => 'center' )
+                ];
+            }else{
+                $return = false;
+
+            }
+        }
+
+        return [    
+            'return' => $return,
+            'dato' => $query, 
+            'columna' => $columna,
+            'pre' => $clave, 
+            'busqueda' => $dato_string
+        ];
     }
 
     /**
@@ -85,7 +234,6 @@ class AdminController extends Controller
 
         if (!(DB::table('pais')->where('nombre', $pais->nombre)->first())) {
             $pais->save();
-
             return ['return' => 'Guardado correctamente.'];
         }else{
             return ['return' => 'Ya existe el pais: '.$pais->nombre];
@@ -146,6 +294,7 @@ class AdminController extends Controller
                         'nombre' => $item->nombre,
                         'idioma' => $item->idioma,
                         'mail' => $item->codigo,
+                        'password' => $item->user_codigo,
                         'paises' => $paises
                             ];
         }
@@ -161,11 +310,11 @@ class AdminController extends Controller
                     ->leftJoin('alumnos', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
                     ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
                     ->select('paiscomites.id',
-                            'alumnos.nombre as alumno',
+                            'alumnos.nombre AS alumno',
                             'alumnos.codigo',
-                            'pais.nombre as pais',
-                            'escuelas.nombre as escuela',
-                            'comites.nombre as comite')
+                            'pais.nombre AS pais',
+                            'escuelas.nombre AS escuela',
+                            'comites.nombre AS comite')
                     ->where('paiscomites.pk_comite', $id_comite)
                     ->orderBy('pais.nombre', 'asc')
                     ->get();
@@ -182,17 +331,32 @@ class AdminController extends Controller
     }
 
     public function savecomite(Request $request){
-        $user = str_random(4);
+        $password = str_random(4);
+        $usuario = "";
+        $nombre = $request->input('nombre_comite');
+        $iniciales = substr($nombre, 0, 1);
+
+        $n = 0;
+        for ($i=0; $i < strlen($nombre) ; $i++) { 
+            $n = $i+1;
+            if ($nombre[$i] == " ") {
+                $iniciales .=$nombre[$n];
+            }
+        }
+
+        $usuario = $iniciales."@comite.mun";
+
         $comite = new Comite;
-        $comite->nombre = $request->input('nombre_comite');
+        $comite->nombre = $nombre;
         $comite->idioma = $request->input('idioma');
-        $comite->codigo = $user."@comite.mun";
+        $comite->codigo = $usuario;
+        $comite->user_codigo = $password;
         $comite->save();
 
         $user_comite = new User;
-        $user_comite->name = $request->input('nombre_comite');
-        $user_comite->email = $user."@comite.mun";
-        $user_comite->password = Hash::make($user);
+        $user_comite->name = $nombre;
+        $user_comite->email = $usuario;
+        $user_comite->password = Hash::make($password);
         $user_comite->pk_permisos = 3;
         $user_comite->save();
         
@@ -230,7 +394,7 @@ class AdminController extends Controller
 
     public function saveescuela(Request $request){
 
-        $password = str_random(5);
+        $password = str_random(6);
 
         $escuela = new Escuela;
         $escuela->nombre = $request->input('nombre_escuela');
@@ -247,12 +411,15 @@ class AdminController extends Controller
         $responsable->pk_permisos = 2;
         $responsable->save();
 
+        return redirect('admin/escuela');
+    }
 
+    public function sendEmail(Request $request){
         $data = DB::table('escuelas')->where('email', $request->input('mail'))->first();
 
         Mail::to($request->input('mail'))->send(new Responsable($data));
-       
-        return redirect('admin/escuela');
+
+        return ['return' => true];
     }
 
     public function deleteescuela(Request $r){
@@ -277,11 +444,11 @@ class AdminController extends Controller
                     ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
                     ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
                     ->select('alumnos.id',
-                            'alumnos.nombre as alumno',
+                            'alumnos.nombre AS alumno',
                             'alumnos.codigo',
-                            'pais.nombre as pais',
-                            'escuelas.nombre as escuela',
-                            'comites.nombre as comite')
+                            'pais.nombre AS pais',
+                            'escuelas.nombre AS escuela',
+                            'comites.nombre AS comite')
                     ->where('alumnos.pk_escuelas', $id)
                     ->orderBy('pais.nombre', 'asc')
                     ->get();
@@ -305,8 +472,8 @@ class AdminController extends Controller
             ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
             ->select(
                     'paiscomites.id',
-                    'pais.nombre as pais',
-                    'comites.nombre as comite',
+                    'pais.nombre AS pais',
+                    'comites.nombre AS comite',
                     'paiscomites.disponible'
                 )
             ->where([
@@ -426,4 +593,16 @@ class AdminController extends Controller
         }
     }
 
+
+    /**
+     * ------------  Acceso a comités -----------
+     */
+
+    public function setSession(Request $r){
+        $id_comite = $r->input('comite');
+        
+        session(['key_comite' => $id_comite]);
+
+        return ['return' => true, 'text' => 'Cambio exitoso'];
+    }
 }

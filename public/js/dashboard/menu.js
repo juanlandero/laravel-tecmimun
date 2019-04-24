@@ -16,3 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+$('#comite_admin').change(function(){
+    
+    var dato = $('#comite_admin').val();
+
+    $.ajax({
+        url: '../admin/setComite',
+        type: 'get',
+        dataType: 'json',
+        data: 'comite='+dato
+    })
+    .done(function(d){
+        console.log(d);
+    })
+    .fail(function(){
+        alert("Fallos en el sistema");
+    });
+});

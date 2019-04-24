@@ -33,6 +33,7 @@ class PaisSeeder extends Seeder
         foreach ($paises as $value) {
             DB::table('pais')->insert([
                 'nombre' => $value,
+                'created_at' => date("Y-m-d H:i:s"),
             ]);
         }
     }

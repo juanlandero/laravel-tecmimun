@@ -4,7 +4,7 @@
 
 function dismissModal(id_modal){
     $(id_modal).removeClass('is-active');   
-    $('#modal-datail').bootstrapTable('destroy');
+    $('#comite-detail').bootstrapTable('destroy');
     $('#delete_comite').val(0);
 };
 
@@ -22,7 +22,7 @@ function modalRegistros(comite){
             $('#bodyt').html('<td colspan="6" class="has-text-centered subtitle is-5">'+dato.texto+'</td>');
             $('#alumnos').addClass('is-active'); 
         }else{
-            $('#modal-datail').bootstrapTable({
+            $('#comite-detail').bootstrapTable({
                 data: dato,
                 pagination: true,
                 search: true,

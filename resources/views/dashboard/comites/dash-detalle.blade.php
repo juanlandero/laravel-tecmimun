@@ -7,6 +7,7 @@
 <div class="column">
     <div class="box">
         <nav class="level">
+            @if (session()->has('key_comite'))
             <p class="level-item has-text-centered">
                 ID:
                 <a class="is-info"> {{ $comite->id }}</a>
@@ -23,6 +24,7 @@
                 USUARIO:
                 <a class="link is-info"> {{ $comite->codigo }}</a>
             </p>
+            @endif
         </nav>
     </div>
 

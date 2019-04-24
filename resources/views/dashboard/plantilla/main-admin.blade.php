@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
+
     <title>Dashboard | @yield('titulo')</title>
 
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
@@ -16,8 +18,12 @@
 
 @include('dashboard.plantilla.navbar')
 
-@include('dashboard.plantilla.sidebar-admin')
-
+<div class="container-side">
+    <aside class="menu" style="overflow: scroll;">
+        @include('dashboard.plantilla.sidebar-admin')
+        @include('dashboard.plantilla.sidebar-comite')
+    </aside>
+</div>
 
 <div class="container-dash">
     

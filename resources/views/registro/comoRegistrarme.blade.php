@@ -12,7 +12,7 @@
     <div class="container">
         <div class="columns is-vcentered">
             <div class="column is-6 has-text-centered is-hidden-desktop" uk-scrollspy="cls: uk-animation-scale-up; delay:250; repeat: false">
-                <img width="75%" src="{{ asset('img/logo-blanco.png') }}" alt="Logo Tec2019">
+                <img width="75%" src="{{ asset('img/logo/logo-blanco.png') }}" alt="Logo Tec2019">
             </div>
             <div class="column is-5 has-text-centered" uk-scrollspy="cls: uk-animation-scale-up; delay: 250; repeat: false">
                 <h1 class="title is-size-1-desktop has-text-white">Bienvenidos</h1>
@@ -22,7 +22,7 @@
 
             </div>
             <div class="column is-6 has-text-centered is-hidden-mobile" uk-scrollspy="cls: uk-animation-scale-up; delay:250; repeat: false">
-                <img width="75%" src="{{ asset('img/logo-blanco.png') }}" alt="Logo Tec2019">
+                <img width="75%" src="{{ asset('img/logo/logo-blanco.png') }}" alt="Logo Tec2019">
             </div>
         </div>
     </div>

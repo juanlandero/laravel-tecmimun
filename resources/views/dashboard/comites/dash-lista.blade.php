@@ -8,7 +8,6 @@
     <div class="column is-12">
         <form id="nuevaLista" method="post" class="columns is-mobile is-centered">
             @csrf
-            <input type="hidden" name="comite" value="{{ Auth::user()->email }}">
             <div class="column is-8-mobile is-5-desktop">
                 <input class="input is-rounded" placeholder="Nuevo pase de lista" name="nombre" id="codigo" type="text" maxlength="20" required autocomplete="off">
             </div>

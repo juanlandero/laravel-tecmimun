@@ -12,4 +12,6 @@ class Pais extends Model
      * @var array
      */
     protected $fillable = ['nombre'];
+    public $timestamps = false;
+
 }

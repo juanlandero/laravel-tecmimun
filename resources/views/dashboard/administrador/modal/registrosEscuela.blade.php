@@ -3,19 +3,7 @@
     <div class="modal-content">
         <div class="box">
             <table class="table is-fullwidth" id="escuela-detail">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>CÓDIGO</th>
-                        <th>PAÍS</th>
-                        <th>COMITÉ</th>
-                        <th>ESCUELA</th>
-                    </tr>
-                </thead>
-                <tbody id="bodyt">
-    
-                </tbody>
+               
             </table>
         </div>
     </div>

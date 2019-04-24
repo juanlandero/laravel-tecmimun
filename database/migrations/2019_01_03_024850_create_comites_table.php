@@ -15,10 +15,10 @@ class CreateComitesTable extends Migration
     {
         Schema::create('comites', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 30);
+            $table->string('nombre', 40);
             $table->string('idioma', 30);
             $table->string('codigo', 30);
-            $table->timestamps();
+            $table->string('user_codigo', 30);
         });
     }
 

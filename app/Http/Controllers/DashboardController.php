@@ -10,6 +10,7 @@ use App\Alumno;
 use App\Lista;
 use App\Pase;
 use App\Punto;
+use App\Amonestacion;
 use DB;
 
 class DashboardController extends Controller
@@ -20,21 +21,24 @@ class DashboardController extends Controller
     }
 
     public function index(){
-        return view('dashboard.comites.dashboard');
+        return view('dashboard.comites.dashboard', ['nombre' => Auth::user()->name]);
+    }
+
+    public function welcome(){
+        return view('dashboard.comites.dash-bienvenida');
     }
 
     public function checkIn(Request $r){
         $codigo = $r->input('codigo');
-        $comite = $r->input('comite');
+        $comite = session('key_comite');
 
         $verificacion = DB::table('alumnos')
                         ->select('alumnos.id as alumno')
                         ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
-                        ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
                         ->where([
                             ['alumnos.codigo', $codigo],
                             ['alumnos.recepcionado', 0],
-                            ['comites.codigo', $comite]
+                            ['paiscomites.pk_comite', $comite]
                         ])
                         ->first();
 
@@ -50,34 +54,25 @@ class DashboardController extends Controller
         }
     }
 
-    public function welcome(){
-        return view('dashboard.comites.dash-bienvenida');
-    }
 
     public function lista(){
-        $user = Auth::user()->email;
+        $comite = session('key_comite');
 
         $listas = DB::table('listas')
             ->select('listas.id', 'listas.nombre as lista', 'listas.created_at')
-            ->join('comites', 'listas.pk_comite', '=', 'comites.id')
-            ->where('comites.codigo', $user)
+            ->where('listas.pk_comite', $comite)
             ->get();
 
         return view('dashboard.comites.dash-lista', ['listas'=>$listas]);
     }
 
     public function newLista(Request $r){
-
         $lista = $r->input('nombre');
-        $email = $r->input('comite');
-
-        $comite = DB::table('comites')
-            ->where('codigo', $email)
-            ->first();
+        $comite = session('key_comite');
 
         $nuevaLista = new Lista;
         $nuevaLista->nombre = $lista;
-        $nuevaLista->pk_comite = $comite->id;
+        $nuevaLista->pk_comite = $comite;
         $nuevaLista->save();
 
         return ['estado'=>'true'];
@@ -86,7 +81,7 @@ class DashboardController extends Controller
 
     public function getModalLista(Request $r){
         
-        $user = Auth::user()->email;
+        $comite = session('key_comite');
         $id_lista = $r->input('lista');
         $items = "";
 
@@ -95,7 +90,6 @@ class DashboardController extends Controller
             ->get();
 
         if ($pase->count() > 0) {
-
             $paises = DB::table('pases')
                 ->join('paiscomites', 'pases.pk_paiscomite', '=', 'paiscomites.id')
                 ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
@@ -103,6 +97,7 @@ class DashboardController extends Controller
                 ->where('pases.pk_lista', $id_lista)
                 ->orderBy('pais.nombre', 'asc')
                 ->get();
+
                 foreach ($paises as $pais) {
                     if ($pais->asistencia == 1) {
                         $items .= "<div class='box presente'><div class='columns is-vcentered'>".
@@ -127,10 +122,9 @@ class DashboardController extends Controller
             $paises = DB::table('alumnos')
                 ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
                 ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-                ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
                 ->select('paiscomites.id as delegacion', 'pais.nombre as pais')
                 ->where([
-                    ['comites.codigo', $user],
+                    ['paiscomites.pk_comite', $comite],
                     ['alumnos.recepcionado', 1]
                 ])
                 ->orderBy('pais.nombre', 'asc')
@@ -183,15 +177,14 @@ class DashboardController extends Controller
     }
 
     public function puntos(){
-        $user = Auth::user()->email;
+        $comite = session('key_comite');
 
         $paises = DB::table('alumnos')
             ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
             ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-            ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
             ->select('alumnos.id as delegacion', 'pais.nombre as pais')
             ->where([
-                ['comites.codigo', $user],
+                ['paiscomites.pk_comite', $comite],
                 ['alumnos.recepcionado', 1]
             ])
             ->orderBy('pais.nombre', 'asc')
@@ -201,36 +194,158 @@ class DashboardController extends Controller
     }
 
     public function setPuntos(Request $r){
-
         $alumno = $r->input('id_alumno');
         $pais = $r->input('pais_name');
+        $accion = $r->input('accion');
+        $mensaje = "";
+        $status = "";
 
-        $punto = new Punto;
-        $punto->pk_alumno = $alumno;
-        $punto->punto = 1;
-        $punto->save();
+        switch ($accion) {
+            case 1:
+                $punto = new Punto;
+                $punto->pk_alumno = $alumno;
+                $punto->pk_comite = session('key_comite');
+                $punto->punto = 1;
+                $punto->save();
+                $mensaje = "<i class='fas fa-plus-circle'></i> ".$pais; 
+                $status = "success";
+                break;
+            case 2:
+                $punto = new Punto;
+                $punto->pk_alumno = $alumno;
+                $punto->pk_comite = session('key_comite');
+                $punto->punto = -1;
+                $punto->save();
+                $mensaje = "<i class='fas fa-minus-circle'></i> ".$pais; 
+                $status = "danger";
+                break;
+            case 3:
+                $verbal = new Amonestacion;
+                $verbal->pk_alumno = $alumno;
+                $verbal->pk_comite = session('key_comite');
+                $verbal->amonestacion = 1;
+                $verbal->save();
+                $mensaje = "<i class='fas fa-bookmark'></i> +1 ".$pais; 
+                $status = "warning";
+                break;
+            case 4:
+                $verbal = new Amonestacion;
+                $verbal->pk_alumno = $alumno;
+                $verbal->pk_comite = session('key_comite');
+                $verbal->amonestacion = -1;
+                $verbal->save();
+                $mensaje = "<i class='fas fa-bookmark'></i> -1 ".$pais; 
+                $status = "success";
+                break;
+            
+            default:
+                break;
+        }
+        return ['resultado' => 'true', 'mensaje'=>$mensaje, 'status' => $status];
+    }
 
-        return ['resultado' => 'true', 'pais'=>$pais];
+    public function amonestaciones(){
+        $comite = session('key_comite');
+        $array_amonestaciones = [];
+        $array_verbal = "";
+
+        $paises = DB::table('amonestacion')
+            ->join('alumnos', 'amonestacion.pk_alumno', '=', 'alumnos.id')
+            ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+            ->select('pais.nombre AS pais', DB::raw('SUM(amonestacion.amonestacion) AS total'))
+            ->where('paiscomites.pk_comite', $comite)
+            ->groupBy('pais.id')
+            ->orderBy('pais.nombre', 'ASC')
+            ->get();
+
+        foreach ($paises as $pais) {
+            $i = 0;
+            $a_escritas = 0;
+            $array_verbal = "";
+            $array_escrita = "";
+
+            for ($i; $i < $pais->total ; $i++) { 
+                $array_verbal .= '<i class="fas fa-bookmark" style="color: #ffbb33"></i> ';
+            }
+            if($pais->total >= 3){
+                $a_escritas = floor($pais->total/3);
+
+                for ($j=0; $j < $a_escritas; $j++) { 
+                    $array_escrita .= '<i class="fas fa-certificate" style="color: #CC0000"></i> ';
+                }
+            }
+
+            $array_amonestaciones [] = [
+                'pais' => $pais->pais,
+                'total' => $pais->total,
+                'verbal' => $array_verbal,
+                'escritas' => $array_escrita,
+            ];
+        }
+        
+
+        return json_encode($array_amonestaciones);
+    }
+
+    public function posiciones(){
+        return view('dashboard.comites.dash-posiciones');
+    }
+
+    public function posicionesTabla(){
+        $comite = session('key_comite');
+
+        $tabla = DB::table('alumnos')
+            ->join('puntos', 'alumnos.id', '=', 'puntos.pk_alumno')
+            ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+            ->where('puntos.pk_comite', $comite)
+            ->select(
+                'alumnos.id',
+                'alumnos.nombre AS alumno',
+                'pais.nombre AS delegacion',
+                DB::raw('SUM(puntos.punto) AS total')
+            )
+            ->groupBy('puntos.pk_alumno')
+            ->orderBy('total', 'DESC')
+            ->get();
+        
+
+        $total_puntos = DB::table('puntos')
+            ->join('alumnos', 'alumnos.id', '=', 'puntos.pk_alumno')
+            ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+            ->where('paiscomites.pk_comite', $comite)
+            ->sum('puntos.punto');
+
+        $array_posiciones = [];
+        
+        foreach ($tabla as $value) {
+            $array_posiciones[]=[
+                'id' => $value->id,
+                'alumno' => $value->alumno,
+                'delegacion' => $value->delegacion,
+                'total' => '<progress class="progress is-primary"  value="'.$value->total.'" title="'.$value->total.' de '.$total_puntos.' puntos" max="'.$total_puntos.'"></progress>'
+            ];
+        }
+
+        return json_encode($array_posiciones);
     }
 
     public function detalle(){
-        $user = Auth::user()->email;        
-        $comite = DB::table('comites')->where('codigo', $user)->first();
-
+        $comite = DB::table('comites')->where('id', session('key_comite'))->first();
+       
         return view('dashboard.comites.dash-detalle', ['comite' => $comite]);
     }
 
     public function getInfo(){
-        
-        $user = Auth::user()->email;        
+        $comite = session('key_comite');       
 
         $paises = DB::table('alumnos')
             ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
             ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-            ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
             ->join('escuelas', 'alumnos.pk_escuelas', '=', 'escuelas.id')
             ->select('alumnos.id', 'pais.nombre as pais', 'alumnos.mail', 'alumnos.codigo', 'alumnos.recepcionado', 'escuelas.nombre as escuela')
-            ->where('comites.codigo', $user)
+            ->where('paiscomites.pk_comite', $comite)
             ->orderBy('pais.nombre', 'asc')
             ->get();
 

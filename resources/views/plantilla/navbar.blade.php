@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-brand">
                 <a class="navbar-item" href="{{ route('index') }}">
-                <img src="img/logo.png" height="100%" >
+                <img src="img/logo/logo.png" height="100%" >
             </a>
         
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

@@ -106,3 +106,30 @@ function deleteEscuela(id){
         console.log("Fallo en el sistem.");
     });
 }
+
+function sendEmail(mail, id){
+
+    var btn_id = $('#'+id);
+
+    btn_id.addClass('is-loading');
+
+    $.ajax({
+        url: 'escuela/sendMail',
+        type: 'GET',
+        dataType: 'json',
+        data: 'mail='+mail
+    })
+    .done(function(dato){
+        btn_id.removeClass('is-loading');
+
+        if (dato.return) {
+            $('#'+id).remove();
+        }else{
+            alert(dato.text);
+        }
+    })
+    .fail(function(){
+        btn_id.removeClass('is-loading');
+        console.log("Fallo en el sistem.");
+    });
+}

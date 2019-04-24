@@ -2,20 +2,8 @@
     <div class="modal-background" onclick="dismissModal('#alumnos')"></div>
     <div class="modal-content">
         <div class="box">
-            <table class="table is-fullwidth" id="modal-datail">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>CÓDIGO</th>
-                        <th>PAÍS</th>
-                        <th>ESCUELA</th>
-                        <th>COMITÉ</th>
-                    </tr>
-                </thead>
-                <tbody id="bodyt">
-    
-                </tbody>
+            <table class="table is-fullwidth" id="comite-detail">
+                
             </table>
         </div>
     </div>

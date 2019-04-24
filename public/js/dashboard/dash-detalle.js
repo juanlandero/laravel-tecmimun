@@ -15,10 +15,11 @@ $(document).ready(function(){
             align: 'center'
           },  {
             field: 'codigo',
-            title: 'CÓDIGO'
+            title: 'CÓDIGO',
+            align: 'center'
           }, {
             field: 'recepcionado',
-            title: 'ESTADO',
+            title: 'RECEPCIÓN',
             align: 'center'
           }, {
             field: 'escuela',

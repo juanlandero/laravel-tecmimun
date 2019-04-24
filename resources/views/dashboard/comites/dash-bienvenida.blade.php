@@ -17,16 +17,15 @@
 <section class="section">
     <div class="container">
         <div class="columns is-mobile is-centered is-vcentered" style="height: 500px">
-            <div class="column is-6-desktop is-10-mobile has-text-centered">
+            <div class="column is-6-desktop is-8-tablet is-10-mobile has-text-centered">
     
-                <p class="title is-size-1-desktop has-text-primary">Ingreza tu <span class="has-text-success">código</span></p><br>
+                <p class="title is-size-1-desktop has-text-primary">Ingresa tu <span class="has-text-success">código</span></p><br>
                 <form id="checkin" method="POST" class="columns is-centered">
                     @csrf
-                    <input type="hidden" name="comite" value="{{ Auth::user()->email }}">
-                    <div class="column is-8">
+                    <div class="column is-8-desktop is-8-tablet is-12-mobile">
                         <input class="input is-large is-primary is-rounded" name="codigo" id="codigo" type="text" maxlength="8" required autocomplete="off">
                     </div>
-                    <div class="column is-4">
+                    <div class="column is-4-desktop is-3-tablet is-12-mobile">
                         <button type="submit" class="button is-primary is-rounded is-large is-outlined">Continuar</button>
                     </div>
                 </form>

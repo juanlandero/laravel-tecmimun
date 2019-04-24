@@ -1,6 +1,6 @@
 @extends('dashboard.plantilla.main-admin')
 
-@section('titulo', 'Pais')
+@section('titulo', 'Comité')
 
 @section('contenido')
 
@@ -9,14 +9,15 @@
         <div class="columns is-multiline">
             @foreach ($comites as $comite)
                 <div class="column is-6" id="{{ $comite['id'] }}">
-                    <div class="notification is-light"  style="height: 240px">
+                    <div class="notification is-light">
                         <a onclick="deleteComite({{ $comite['id'] }})" class="delete" aria-label="delete"></a>
                         <p style="margin-bottom: 10px"><strong>{{ $comite['nombre'] }}</strong></p><br>
                         <p>Idioma: {{$comite['idioma'] }}</p>
                         <p>Usuario: {{$comite['mail'] }}</p>
+                        <p>Contraseña: {{$comite['password'] }}</p>
                         <p>Países: {{ $comite['paises'] }}</p>
-
-                        <div class="columns has-text-centered is-mobile" style="position: absolute; bottom: 20px;">
+                        <br>
+                        <div class="columns has-text-centered is-mobile" >
                             <div class="column">
                                 <a onclick="modalRegistros({{ $comite['id'] }})" class="button is-primary is-outlined is-medium">
                                     <span class="icon is-small">

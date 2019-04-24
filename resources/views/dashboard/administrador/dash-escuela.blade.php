@@ -10,15 +10,15 @@
         <div class="columns is-multiline">
             @foreach ($data as $escuela)
                 <div class="column is-6" id="{{ $escuela->id }}">
-                    <div class="notification is-light"  style="height: 240px">
+                    <div class="notification is-light">
                         <a onclick="deleteEscuela({{ $escuela->id }})"  class="delete" aria-label="delete"></a>
                         <p style="margin-bottom: 10px">{{ $escuela->nombre }}</p>
                         <br>
                         <p>Responsable: {{ $escuela->responsable }}</p>
                         <p>E-mail: {{ $escuela->email }}</p>
                         <p>Contraseña: {{ $escuela->password }}</p>
-                        
-                        <div class="columns is-centered is-mobile" style="position: absolute; bottom: 15px;">
+                        <br>
+                        <div class="columns has-text-centered is-mobile">
                             <div class="column">
                                 <a onclick="modalRegistros({{ $escuela->id }})" class="button is-primary is-outlined is-medium">
                                     <span class="icon is-small">
@@ -37,6 +37,13 @@
                                 <a href="{{ route('excelAlumnos', ['escuela' => $escuela->id]) }}" class="button is-primary is-outlined is-medium">
                                     <span class="icon is-small">
                                         <i class="fas fa-file-excel"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="column">
+                                <a onclick="sendEmail('{{ $escuela->email }}', '{{ $escuela->password}}')" id="{{ $escuela->password}}" class="button is-primary is-outlined is-medium">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-envelope"></i>
                                     </span>
                                 </a>
                             </div>

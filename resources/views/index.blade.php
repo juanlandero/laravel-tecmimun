@@ -11,40 +11,41 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: #f0f0f0;
+    background-color: white;
     color: #0FC939;
 }
-
-#logo{
-    position: fixed;
-    top: 49%;
-    left: 45%;
-    width: 10%; !important
+#div-loader .position{
+    width:100%;
+    margin:0 auto;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 </style>
-
+@if (session()->has('prueba'))
+    {{ session('prueba') }}
+    {{ session()->flush() }}
+@endif
 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 6000; pause-on-hover: false">
 
     <ul class="uk-slideshow-items">
         <li>
             <img src="img/slider/slide1.jpg" alt="" uk-cover style="opacity: 0.9">
             <div class="uk-position-center uk-position-small uk-text-center uk-light">
-                <h1 class="uk-margin-remove title is-size-1-desktop is-size-5-mobile">TECMIMUN 2019</h1>
-                <h3 class="uk-margin-remove">Mayo 24 y 25, 2019</h3>
             </div>
         </li>
         <li>
             <img src="img/slider/slide2.jpg" alt="" uk-cover style="opacity: 0.9">
             <div class="uk-position-center uk-position-small uk-text-center">
-                <!--h2 uk-slideshow-parallax="x: 100,-100">Heading</h2>
-                <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p-->
             </div>
         </li>
         <li>
             <img src="img/slider/slide3.jpg" alt="" uk-cover style="opacity: 0.9">
             <div class="uk-position-center uk-position-small uk-text-center">
-                <!--h2 uk-slideshow-parallax="x: 100,-100">Heading</h2>
-                <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p-->
             </div>
         </li>
     </ul>
@@ -61,24 +62,26 @@
     </div>
 
     <div class="uk-position-top" uk-scrollspy="cls:uk-animation-fade; delay: 300" style="z-index: 1000">
-            @include('plantilla.navbar')
+        @include('plantilla.navbar')
     </div>
 </div>
-<!--br><br-->
-
-<section class="hero is-gradient-grween" uk-scrollspy="cls:uk-animation-fade; delay: 500">
-    <div class="hero-body">
-        
+    
+<section class="hero" uk-scrollspy="cls:uk-animation-fade; delay: 500">
+    <svg height="100mm" width="100%" style="position: absolute;" viewBox="0 0 100 40">
+        <polygon style="fill:#04305c;" points="0,30 0,0 30, 0"></polygon>
+        <polygon style="fill:#118b42;" points="0,5 0,0 5, 0"></polygon>
+    </svg>
+    <div class="hero-body" >
+        <br><br>
         <div class="container">
             <div class="columns has-text-centered">
                 <div class="column">
-                    <p class="title is-size-3-desktop has-text-success">24 de Mayo 2019</p>
+                    <h1 class="title is-size-1-desktop  has-text-primary">Tecmimun 2019</h1>
+                    <p class="sub-title is-size-3-desktop has-text-success">24 de Mayo 2019</p>
                 </div>
             </div>
         </div>
-
         <br><br>
-
         <div class="container">
             <div uk-countdown="date: 2019-05-24T08:00:00" class="columns is-centered is-mobile">
                 <div class="column is-2-desktop is-4-mobile has-text-centered">
@@ -89,18 +92,10 @@
                     <span class="box box-clock title is-size-1-desktop uk-countdown-number uk-countdown-hours"></span>
                     <p class="heading has-text-success">Horas</p>
                 </div>
-                <!--div class="column is-1-desktop is-4-mobile has-text-centered is-hidden-mobile">
-                    <p class="heading"></p>
-                    <span class="title is-size-1-desktop has-text-primary uk-countdown-separator">:</span>
-                </div-->
                 <div class="column is-2-desktop is-4-mobile has-text-centered">
                     <span class="box box-clock title is-size-1-desktop uk-countdown-number uk-countdown-minutes"></span>
                     <p class="heading has-text-success">Minutos</p>
                 </div>
-                <!--div class="column is-1-desktop is-4-mobile has-text-centered is-hidden-mobile">
-                    <p class="heading"></p>
-                    <span class="title is-size-1-desktop has-text-primary uk-countdown-separator">:</span>
-                </div-->
                 <div class="column is-2-desktop is-3-mobile has-text-centered is-hidden-mobile">
                     <span class="box box-clock title is-size-1-desktop has-text-success uk-countdown-number uk-countdown-seconds"></span>
                     <p class="heading has-text-success">Segundos</p>
@@ -108,25 +103,29 @@
             </div>
         </div>
     </div>
-
+    <svg height="10mm" width="100%" style="position: relative; bottom: 49px;" viewBox="0 0 100 15"> 
+        <polygon style="fill:#118b42;" points="100 15,100 0,85 15"></polygon>
+    </svg>
 </section>
-
+<!-- loader -->
 <div class="div-loader" id="div-loader">
-    <div class="columns is-centered is-vcentered has-text-centered is-mobile" style="margin-top: 15%;">
-        <div class="column is-3-desktop is-8-mobile is-centered">
-            <!--span class="uk-margin-small-right" uk-spinner="ratio: 8"></span-->
-            <img id="lo" src="{{ asset('img/logo-blanco.png') }}" alt="">
+    <div class="position">
+        <div class="columns is-centered is-mobile" >
+            <div class="column is-4-desktop is-8-tablet is-8-mobile">
+                <img src="{{ asset('img/logo/logo.png') }}">
+            </div>
         </div>
-        <!--div class="column is-3-desktop">
-                <img id="lo" src="{{ asset('svg-loaders/ball-triangle.svg') }}" alt="">
-        </div-->
-    </div>
-    <div class="columns is-centered is-mobile">
-        <h1 class="title">Cargando...</h1>
+        <br>
+        <div class="columns is-centered is-mobile">
+            <div class="column is-10">
+                <progress class="progress is-small is-success" max="100"></progress>
+            </div>
+        </div>
     </div>
 </div>
 
-<br><br>
+
+<!-- carta de bienvenida -->
  
 <section class="hero is-light is-bold">
     <div class="hero-body ">
@@ -146,7 +145,7 @@
                     Queridos delegados, organizadores y advisors asistentes a TECMIMUN 2019 – Campus Villahermosa.
                 </p>
                 <p class="subtitle is-size-4-desktop has-text-black">
-                    Es todo un honor para mí dirigirme a ustedes como la primera Secretaria General del Modelo de las Naciones Unidas de la Universidad Tecmilenio. Mi nombre es Mónica Danaé Juárez López y me siento entusiasmada de ser parte del Comité Organizador de la Primera Edición de TECMIMUN, el cuál se llevará acabo los días 17 y 18 de mayo, 2019.
+                    Es todo un honor para mí dirigirme a ustedes como la primera Secretaria General del Modelo de las Naciones Unidas de la Universidad Tecmilenio. Mi nombre es Mónica Danaé Juárez López y me siento entusiasmada de ser parte del Comité Organizador de la Primera Edición de TECMIMUN, el cuál se llevará acabo los días 24 y 25 de mayo, 2019.
                 </p>
                 <p class="subtitle is-size-4-desktop has-text-black">
                     Todo comenzó como iniciativa de cinco alumnos con el sueño de formar parte de la red de Modelos de Naciones Unidas en el estado de Tabasco y ser parte del desarrollo de habilidades de los jóvenes de hoy. Buscamos el apoyo de nuestro Campus y de tal manera, formar el comité organizador. Dicho comité se caracteriza por el entusiasmo, creatividad, compromiso, responsabilidad, el ser proactivos y sobre todo la pasión que cada uno de nosotros tiene por este proyecto que hoy es una realidad.
@@ -162,119 +161,76 @@
 
     </div>
 </section>
+<!-- otras secciones -->
 
-
-<!--section class="section">
-    <div class="container">
-        <div class="columns" uk-grid uk-scrollspy="cls: uk-animation-fade; target: > .column; delay: 700; repeat: false">
-            <div class="column is-4">
-                <article class="message is-primary">
-                    <div class="message-header">
-                        <p>Secretariado</p>
-                    </div>
-                    <img src="img/teamwork.jpg" alt="">
-                   
-                </article>
-            </div>
-            <div class="column is-4" >
-                <article class="message is-primary">
-                    <div class="message-header">
-                        <p>Comites</p>
-                    </div>
-                    <img src="img/teamwork.jpg" alt="">
-                    
-                </article>
-            </div>
-            <div class="column is-4" >
-                <article class="message is-primary">
-                    <div class="message-header">
-                        <p>Registro</p>
-                    </div>
-                    <img src="img/teamwork.jpg" alt="">
-                    
-                </article>
-            </div>
-        </div>
-    </div>
-</section-->
-<section class="hero is-light is-bold">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h1 class="title has-text-primary">Secretariado</h1>
-      </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-        <div class="columns is-centered is-multiline">
-        
-            <div class="columns is-vcentered">
-                <div class="column is-4">
-                    <img src="{{ asset('img/logo.png') }}" alt="" style="border-radius: 50%">
+<div style="background-image:linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%) ">
+<section class="hero">
+    <div class="columns is-vcentered" style="height: 500px; background-color:">
+        <div class="column">
+            <div class="columns is-centered">
+                <div class="column is-7">
+                    <img src="{{ asset('img/slider/slide1.jpg') }}" style="border-radius: 10px;">
                 </div>
-                <div class="column is-8 subtitle is-size-3-desktop">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae
-                        iure atque iste assumenda optio, ratione eius quo? Cum, ipsa soluta accusamus debitis 
-                        eveniet sit culpa autem sed ducimus adipisci quae?</div>
+            </div>
+        </div>
+        <div class="column">
+            <h1 class="title is-size-2-desktop has-text-primary">Secretariado</h1>
+            <p class="subtitle">Estamos listos para recibirte en este tecmimun</p>
+            <hr><br>
+            <button class="button is-primary is-outlined">Conocenos</button>
+        </div>
+    </div>
+</section>
+
+<section class="hero">
+    <div class="columns is-vcentered has-text-right" style="height: 500px; background-color: ">
+        <div class="column">
+            <h1 class="title is-size-2-desktop has-text-primary">Comites</h1>
+            <p class="subtitle">Estamos listos para recibirte en este tecmimun</p>
+            <hr><br>
+            <button class="button is-primary is-outlined">Conocenos</button>
+        </div>
+        <div class="column">
+            <div class="columns is-centered">
+                <div class="column is-7">
+                    <img src="{{ asset('img/slider/slide1.jpg') }}" style="border-radius: 10px;">
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="hero is-light is-bold">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h1 class="title has-text-primary">Comités</h1>
-      </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-        <div class="columns is-centered is-multiline">
-            <div class="columns is-vcentered">
-                <div class="column is-4">
-                    <img src="{{ asset('img/slider/slide1.jpg') }}" alt="" style="border-radius: 50%">
+<section class="hero">
+    <div class="columns is-vcentered" style="height: 500px; background-color:">
+        <div class="column">
+            <div class="columns is-centered">
+                <div class="column is-7">
+                    <img src="{{ asset('img/slider/slide1.jpg') }}" style="border-radius: 30px;">
                 </div>
-                <div class="column is-8 subtitle is-size-3-desktop">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae
-                        iure atque iste assumenda optio, ratione eius quo? Cum, ipsa soluta accusamus debitis 
-                        eveniet sit culpa autem sed ducimus adipisci quae?</div>
             </div>
+        </div>
+        <div class="column">
+            <h1 class="title is-size-2-desktop has-text-primary">Registro</h1>
+            <p class="subtitle">Estamos listos para recibirte en este tecmimun</p>
+            <hr><br>
+            <button class="button is-rounded is-success is-outlined">Registrate</button>
         </div>
     </div>
 </section>
+</div>
 
-<section class="hero is-light is-bold">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h1 class="title has-text-primary">Registro</h1>
-      </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-        <div class="columns is-centered is-multiline">
-            <div class="columns is-vcentered">
-                <div class="column is-4">
-                    <img src="{{ asset('img/logo.png') }}" alt="" style="border-radius: 50%">
-                </div>
-                <div class="column is-8 subtitle is-size-3-desktop">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae
-                        iure atque iste assumenda optio, ratione eius quo? Cum, ipsa soluta accusamus debitis 
-                        eveniet sit culpa autem sed ducimus adipisci quae?</div>
-            </div>
-        </div>
-    </div>
-</section>
+
+@include('index.modal.login')
+
 <script src="js/slider-uikit/uikit.js"></script>
 <script src="js/jquery.min.js"></script>
 <script>
-
 $(document).ready(function(){
-
-    if (document.readyState == "complete") {
-        $("#div-loader").delay(200).fadeOut("slow");
-    }
-
     UIkit.scrollspy();
-
 });
+window.onload = function() {
+    $("#div-loader").delay(200).fadeOut("slow");
+    
+}
 </script>
 @endsection

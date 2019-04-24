@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'p3plcpnl0521.prod.phx3.secureserver.net'),
+    'host' => env('MAIL_HOST', 'p3plcpnl0571.prod.phx3.secureserver.net'),
 
     /*
     |--------------------------------------------------------------------------
