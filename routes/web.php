@@ -1,10 +1,7 @@
 <?php
-
-
 Route::get('/', function () {
     return view('index');
 })->name('index');
-
 
 
 /**
@@ -13,7 +10,6 @@ Route::get('/', function () {
 Route::get('/AcercaDe', 'NosotrosController@index')->name('Nosotros');
 Route::get('/AcercaDe/Protocolo', 'ComiteController@recursos')->name('Protocolo');
 Route::get('/AcercaDe/Contacto', 'NosotrosController@contacto')->name('Contacto');
-
 
 
 /**
@@ -106,30 +102,16 @@ Route::group([  'middleware' => ['comite'],
 
 Route::group([ 'middleware' => ['responsable']], function () {
     
-    Route::get('/ResponsableAdmin', 'ResponsableController@index')->name('responsable.view');
-    Route::get('/ResponsableAdmin/download', 'ResponsableController@getExcelEscuelas')->name('excelEscuelas');
+    Route::get('/tutorAdmin', 'ResponsableController@index')->name('responsable.view');
+    Route::get('/tutor/download', 'ResponsableController@getExcelEscuelas')->name('excelEscuelas');
 
 });
+
+
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 //Ruta temporal
 Route::get('mail', function () {
     return new App\Mail\Responsable();
 });
-
-/**
-Route::group(['domain' => '{admin}.cmir.com.mx'], function(){
-    Route::get('else', function(){});
-});
-
-Route::domain('{account}.myapp.com')->group(function () {
-    Route::get('user/{id}', function ($account, $id) {
-        //
-    });
-});*/
-
-Auth::routes(
-    ['register' => false],
-    ['password' => false]
-);
-
-//Route::get('/home', 'HomeController@index')->name('home');
