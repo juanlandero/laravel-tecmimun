@@ -231,6 +231,8 @@ class AdminController extends Controller
     public function newPais(Request $request){
         $pais = new Pais;
         $pais->nombre = $request->input('nombre_pais');
+        $pais->pk_idioma = $request->input('idioma');
+        $pais->created_at = date('Y-m-d H:i:s');
 
         if (!(DB::table('pais')->where('nombre', $pais->nombre)->first())) {
             $pais->save();
@@ -257,11 +259,19 @@ class AdminController extends Controller
         
         Excel::import(new PaisImport, request()->file('archivo_xlsx'), 'local', \Maatwebsite\Excel\Excel::XLSX);
 
-        return redirect('pais');     
+        return redirect()->route('admin.pais');     
     }
 
     public function getPais(){
-        $paises = Pais::orderBy('pais.nombre', 'asc')->get();
+        $paises = DB::table('pais')
+            ->join('idiomas', 'pais.pk_idioma', '=', 'idiomas.id')
+            ->select(
+                'pais.id',
+                'pais.nombre',
+                'idiomas.nombre AS idioma'
+            )
+            ->orderBy('pais.nombre', 'asc')
+            ->get();
 
         $arrayPaises = [];
 
@@ -269,6 +279,7 @@ class AdminController extends Controller
             $arrayPaises [] = [
                 'id' => $value->id,
                 'nombre' => $value->nombre,
+                'idioma' => $value->idioma,
                 'eliminar' => '<a onclick="deletePais('.$value->id.')"><span class="color-dng"><i class="fas fa-times-circle"></span></a>'
             ];
         }
@@ -280,19 +291,30 @@ class AdminController extends Controller
      * Comité
      */
     public function comite(){
-        $comites = Comite::all();
+        $comites = DB::table('comites')
+            ->join('idiomas', 'comites.pk_idioma', '=', 'idiomas.id')
+            ->select(
+                'comites.id',
+                'comites.nombre',
+                'idiomas.nombre AS idioma',
+                'idiomas.id AS pk_idioma',
+                'comites.codigo',
+                'comites.user_codigo'
+            )
+            ->get();
 
         $arrayComites = [];
 
         foreach ($comites as $item) {
             $paises = DB::table('paiscomites')
-                            ->where('paiscomites.pk_comite', $item->id)
-                            ->count();
+                ->where('paiscomites.pk_comite', $item->id)
+                ->count();
 
             $arrayComites[] = [
                         'id' => $item->id,
                         'nombre' => $item->nombre,
                         'idioma' => $item->idioma,
+                        'pk_idioma' => $item->pk_idioma,
                         'mail' => $item->codigo,
                         'password' => $item->user_codigo,
                         'paises' => $paises
@@ -348,7 +370,7 @@ class AdminController extends Controller
 
         $comite = new Comite;
         $comite->nombre = $nombre;
-        $comite->idioma = $request->input('idioma');
+        $comite->pk_idioma = $request->input('idioma');
         $comite->codigo = $usuario;
         $comite->user_codigo = $password;
         $comite->save();
@@ -531,6 +553,7 @@ class AdminController extends Controller
      */ 
     public function paiscomite(Request $request){
         $comite = $request->input('comite');
+        $pk_idioma = $request->input('idioma');
 
         $sub_query = DB::table('paiscomites')
             ->select('pk_pais')
@@ -548,6 +571,7 @@ class AdminController extends Controller
 
             $pais = DB::table('pais')
                 ->select('id', 'nombre')
+                ->where('pais.pk_idioma', $pk_idioma)
                 ->whereNotIn('pais.id', $array_id)
                 ->orderBy('pais.id', 'asc')
                 ->get();
@@ -556,7 +580,7 @@ class AdminController extends Controller
             }
 
         }else {
-            $pais = Pais::orderBy('nombre', 'asc')->get();
+            $pais = Pais::orderBy('nombre', 'asc')->where('pais.pk_idioma', $pk_idioma)->get();
         }
 
         return ['pais' => $pais, 'comite' => $comite];

@@ -37,8 +37,8 @@
     
 
     @foreach ($user as $item)
-        <div class="column is-4">
-            <button class="button is-fullwidth is-medium is-success is-outlined" onclick="setAccion({{ $item->delegacion }}, '{{ $item->pais }}')">
+        <div class="column is-6">
+            <button class="button is-fullwidth is-medium is-rounded is-success is-outlined" onclick="setAccion({{ $item->delegacion }}, '{{ $item->pais }}')">
                 {{ $item->pais }}
             </button>
         </div>

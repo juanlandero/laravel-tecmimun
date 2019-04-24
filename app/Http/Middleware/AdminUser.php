@@ -19,7 +19,19 @@ class AdminUser
         if ($request->user()->pk_permisos == 1) {
             return $next($request);
         }else{
-            return redirect('/');
+            switch ($request->user()->pk_permisos) {
+                case 3:
+                    return redirect()->route('mesa.index');
+                    break;
+
+                case 2:
+                    return redirect()->route('responsable.view');
+                    break;
+                
+                default:
+                    return redirect('/');
+                    break;
+            }
         }
 
     }

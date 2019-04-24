@@ -332,7 +332,16 @@ class DashboardController extends Controller
     }
 
     public function detalle(){
-        $comite = DB::table('comites')->where('id', session('key_comite'))->first();
+        $comite = DB::table('comites')
+            ->select(
+                'comites.id',
+                'comites.nombre',
+                'idiomas.nombre AS idioma',
+                'comites.codigo'
+            )
+            ->join('idiomas', 'comites.pk_idioma', '=', 'idiomas.id')
+            ->where('comites.id', session('key_comite'))
+            ->first();
        
         return view('dashboard.comites.dash-detalle', ['comite' => $comite]);
     }

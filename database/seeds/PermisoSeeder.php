@@ -13,10 +13,9 @@ class PermisoSeeder extends Seeder
     {
         $niveles = array('Admin', 'Responsable', 'Comite');
 
-
-        foreach ($niveles as $value) {
+        foreach ($niveles as $permiso) {
             DB::table('permisos')->insert([
-                'nivel' => $value,
+                'nivel' => $permiso,
             ]);
         }  
     }

@@ -26,7 +26,7 @@
                                 </a>
                             </div>
                             <div class="column">
-                                <a onclick="modalAddPaises({{ $comite['id'] }})" class="button is-primary is-outlined is-medium">
+                                <a onclick="modalAddPaises({{ $comite['id'] }}, {{ $comite['pk_idioma'] }})" class="button is-primary is-outlined is-medium">
                                     <span class="icon is-small">
                                         <i class="fas fa-flag"></i>
                                     </span>
@@ -63,9 +63,9 @@
                     <div class="field">
                         <div class="select is-multiple is-fullwidth">
                             <select multiple size="3" name="idioma" required>
-                                <option value="Español">Español</option>
-                                <option value="Inglés">Inglés</option>
-                                <option value="Francés">Francés</option>
+                                <option value="1">Español</option>
+                                <option value="2">Inglés</option>
+                                <option value="3">Francés</option>
                             </select>
                         </div>
                     </div>

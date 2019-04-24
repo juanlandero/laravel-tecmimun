@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class LoginController extends Controller
 {
@@ -32,6 +33,8 @@ class LoginController extends Controller
         $permiso = Auth::user()->pk_permisos;
         switch ($permiso) {
             case 1:
+                $comites = DB::table('comites')->get();
+                session(['comites' => $comites]);
                 return route('admin.index');
                 break;
 
@@ -40,7 +43,10 @@ class LoginController extends Controller
                 break;
 
             case 3:
-                return route('comites.index');
+                $comite = DB::table('comites')->select('id')->where('codigo', Auth::user()->email)->first();
+                session(['key_comite' => $comite->id]);
+
+                return route('mesa.index');
                 break;
             
             default:

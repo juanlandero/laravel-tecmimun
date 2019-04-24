@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bienvenido</title>
 
-    <link rel="stylesheet" href="{{ asset('css/bulma.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ui-kit.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icon/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">

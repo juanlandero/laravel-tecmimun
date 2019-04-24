@@ -15,6 +15,9 @@
             field: 'nombre',
             title: 'NOMBRE'
           }, {
+            field: 'idioma',
+            title: 'IDIOMA'
+          }, {
             field: 'eliminar',
             title: 'ELIMINAR',
             align: 'center'

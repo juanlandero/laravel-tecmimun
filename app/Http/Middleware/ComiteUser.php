@@ -15,7 +15,7 @@ class ComiteUser
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()->pk_permisos == 3) {
+        if ($request->user()->pk_permisos == 3 || $request->user()->pk_permisos == 1) {
             return $next($request);
         }else{
             return redirect('/');

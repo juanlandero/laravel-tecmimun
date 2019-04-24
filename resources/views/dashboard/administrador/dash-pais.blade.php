@@ -32,6 +32,14 @@
                             <input class="input is-rounded" name="nombre_pais" id="pais" type="text" placeholder="País" required autocomplete="off">
                         </div>
                     </div>
+                    <div class="field">
+                        <div class="select is-multiple is-fullwidth">
+                            <select multiple size="3" name="idioma" required>
+                                <option value="1">Español</option>
+                                <option value="2">Inglés</option>
+                            </select>
+                        </div>
+                    </div>
                     <button type="submit" class="button is-success is-rounded is-outlined">Crear</button>
                 </form>
             </div>

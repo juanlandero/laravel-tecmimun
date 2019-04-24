@@ -57,12 +57,16 @@ function modalRegistros(comite){
     });
 }
 
-function modalAddPaises(comite){
+function modalAddPaises(id_comite, pk_idioma){
+    var data = {
+        comite: id_comite,
+        idioma: pk_idioma
+    }
     $.ajax({
         url: '/admin/paisComite',
         type: 'GET',
         dataType: 'json',
-        data: 'comite='+comite
+        data: data
     })
     .done(function(dato){
         console.log("success");
