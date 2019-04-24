@@ -15,7 +15,7 @@ class CreatePaisTable extends Migration
     {
         Schema::create('pais', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 40);
+            $table->string('nombre', 50);
 
             $table->unsignedInteger('pk_idioma');
             $table->foreign('pk_idioma')->references('id')->on('idiomas');

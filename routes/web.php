@@ -116,7 +116,7 @@ Route::get('mail', function () {
     return new App\Mail\Responsable();
 });
 
-
+/**
 Route::group(['domain' => '{admin}.cmir.com.mx'], function(){
     Route::get('else', function(){});
 });
@@ -125,8 +125,11 @@ Route::domain('{account}.myapp.com')->group(function () {
     Route::get('user/{id}', function ($account, $id) {
         //
     });
-});
+});*/
 
-Auth::routes();
+Auth::routes(
+    ['register' => false],
+    ['password' => false]
+);
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

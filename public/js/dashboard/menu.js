@@ -28,6 +28,7 @@ $('#comite_admin').change(function(){
         data: 'comite='+dato
     })
     .done(function(d){
+        alert('Se cambio de comité. Recargue la página');
         console.log(d);
     })
     .fail(function(){

@@ -19,12 +19,15 @@ $('form#buscar').submit(function(e){
         data: busqueda
     })
     .done(function(dato){
-        if (dato.return != false) {
-            $('#alumnos').bootstrapTable({
-                columns: dato.columna,
-                data: dato.dato
-            });
-        }
+
+        $('#alumnos').bootstrapTable({
+            undefinedText: 'N/A',
+            columns: dato.columna,
+            data: dato.dato
+        });
+       
+
+        console.log(dato);
         div_instru.remove();
         div_buscar.removeClass('is-loading');
     })

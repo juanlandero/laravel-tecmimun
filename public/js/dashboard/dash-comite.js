@@ -76,7 +76,7 @@ function modalAddPaises(id_comite, pk_idioma){
             var check = "";
 
             dato.pais.forEach(element => {
-                check += '<div class="column is-2"><label class="checkbox"><input type="checkbox" value="'+element.id+'" name="paises[]"> '+element.nombre+'</label></div>';
+                check += '<div class="column is-3"><label class="checkbox"><input type="checkbox" value="'+element.id+'" name="paises[]"> '+element.nombre+'</label></div>';
             });
             $('#comite').val(dato.comite);
             $('#paises').html(check);
@@ -134,3 +134,11 @@ $('form#delete_paises').submit(function(e){
         alert('Error en el sistemas, comuniquese con el administrador.');
     });
 });
+
+function toggle(source) {
+    checkboxes = document.getElementsByName('paises[]');
+  
+    for(var i=0, n=checkboxes.length;i<n;i++) {
+      checkboxes[i].checked = source.checked;
+    }
+}

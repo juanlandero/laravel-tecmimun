@@ -87,46 +87,64 @@ class AdminController extends Controller
             switch ($clave) {
                 case 'a.':
                     $query = DB::select('SELECT 
-                                alumnos.id,
-                                alumnos.nombre AS alumno,
-                                alumnos.mail,
-                                alumnos.codigo,
-                                escuelas.nombre AS escuela
-                        FROM paiscomites
-                        LEFT JOIN pais ON paiscomites.pk_pais = pais.id
-                        LEFT JOIN comites ON paiscomites.pk_comite = comites.id
-                        LEFT JOIN alumnos ON paiscomites.id = alumnos.pk_inscripcion
-                        LEFT JOIN escuelas ON alumnos.pk_escuelas = escuelas.id
-                        WHERE alumnos.nombre LIKE ?', [$dato_string]);
-                    $columna = [
-                        array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
-                        array( 'field' => 'alumno','title' => 'ALUMNO' ),
-                        array( 'field' => 'mail','title' => 'E-MAIL' ),
-                        array( 'field' => 'codigo','title' => 'CÓDIGO','align' => 'center' ),
-                        array( 'field' => 'escuela','title' => 'ESCUELA' )
-                    ];
+                                    alumnos.id,
+                                    alumnos.nombre AS alumno,
+                                    alumnos.mail,
+                                    alumnos.codigo,
+                                    escuelas.nombre AS escuela
+                    FROM alumnos
+                    LEFT JOIN paiscomites ON alumnos.pk_inscripcion = paiscomites.id
+                    LEFT JOIN pais ON paiscomites.pk_pais = pais.id
+                    LEFT JOIN comites ON paiscomites.pk_comite = comites.id
+                    LEFT JOIN escuelas ON alumnos.pk_escuelas = escuelas.id
+                    WHERE alumnos.nombre LIKE ?', [$dato_string]);
+
+                    if ($query == []) {
+                        $return = false;
+                        $query = [ array( 'texto' => 'No existen alumnos registrados con el nombre: '.$dato ) ];
+                        $columna = [
+                            array( 'field' => 'texto', 'title' => 'RESULTADO','align' => 'center' )
+                        ];
+                    }else{
+                        $columna = [
+                            array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
+                            array( 'field' => 'alumno','title' => 'ALUMNO' ),
+                            array( 'field' => 'mail','title' => 'E-MAIL' ),
+                            array( 'field' => 'codigo','title' => 'CÓDIGO','align' => 'center' ),
+                            array( 'field' => 'escuela','title' => 'ESCUELA' )
+                        ];
+                    }
                     break;
                 
                 case 'e.':
                     $query = DB::select('SELECT 
-                                escuelas.id,
-                                escuelas.nombre,
-                                escuelas.responsable,
-                                escuelas.email,
-                                escuelas.password,
-                                COUNT(alumnos.nombre) AS total
-                        FROM alumnos
-                        JOIN escuelas ON alumnos.pk_escuelas = escuelas.id
+                                        escuelas.id,
+                                        escuelas.nombre,
+                                        escuelas.responsable,
+                                        escuelas.email,
+                                        escuelas.password,
+                                        COUNT(alumnos.nombre) AS total
+                        FROM escuelas
+                        LEFT JOIN alumnos ON escuelas.id = alumnos.pk_escuelas
                         WHERE escuelas.nombre LIKE ? OR escuelas.responsable LIKE ?
-                        GROUP BY escuelas.id', [$dato_string, $dato_string]);   
-                    $columna = [
-                        array( 'field' => 'id','title' => 'ID', 'align' => 'center' ),
-                        array( 'field' => 'nombre','title' => 'ESCUELA' ),
-                        array( 'field' => 'responsable','title' => 'TUTOR' ),
-                        array( 'field' => 'email','title' => 'E-MAIL' ),
-                        array( 'field' => 'password','title' => 'PWD' ),
-                        array( 'field' => 'total','title' => '# ALUMNOS', 'align' => 'center' )
-                    ];
+                        GROUP BY escuelas.id', [$dato_string, $dato_string]); 
+                        
+                    if ($query == []) {
+                        $return = false;
+                        $query = [ array( 'texto' => 'No hay escuelas registradas con el nombre: '.$dato ) ];
+                        $columna = [
+                            array( 'field' => 'texto', 'title' => 'RESULTADO','align' => 'center' )
+                        ];
+                    }else{
+                        $columna = [
+                            array( 'field' => 'id','title' => 'ID', 'align' => 'center' ),
+                            array( 'field' => 'nombre','title' => 'ESCUELA' ),
+                            array( 'field' => 'responsable','title' => 'TUTOR' ),
+                            array( 'field' => 'email','title' => 'E-MAIL' ),
+                            array( 'field' => 'password','title' => 'PWD' ),
+                            array( 'field' => 'total','title' => '# ALUMNOS', 'align' => 'center' )
+                        ];
+                    }
                     break;
 
                 case 'p.':
@@ -134,42 +152,65 @@ class AdminController extends Controller
                             paiscomites.id,
                             pais.nombre AS pais,
                             comites.nombre AS comite,
-                            comites.idioma
-                        FROM paiscomites
-                        JOIN pais ON paiscomites.pk_pais = pais.id
-                        JOIN comites ON paiscomites.pk_comite = comites.id
-                        WHERE pais.nombre LIKE ?', [$dato_string]); 
+                            idiomas.nombre AS idioma
+                    FROM pais
+                    LEFT JOIN paiscomites ON paiscomites.pk_pais = pais.id
+                    LEFT JOIN comites ON paiscomites.pk_comite = comites.id
+                    LEFT JOIN idiomas ON pais.pk_idioma = idiomas.id
+                    WHERE pais.nombre LIKE ?', [$dato_string]); 
                         
-                    $columna = [
-                        array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
-                        array( 'field' => 'pais','title' => 'PAÍS' ),
-                        array( 'field' => 'comite','title' => 'COMITÉ' ),
-                        array( 'field' => 'idioma','title' => 'IDIOMA' )
-                    ];
+                    if ($query == []) {
+                        $return = false;
+                        $query = [ array( 'texto' => 'No exite registro de país: '.$dato ) ];
+                        $columna = [
+                            array( 'field' => 'texto', 'title' => 'RESULTADO','align' => 'center' )
+                        ];
+                    }else{
+                        $columna = [
+                            array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
+                            array( 'field' => 'pais','title' => 'PAÍS' ),
+                            array( 'field' => 'comite','title' => 'COMITÉ' ),
+                            array( 'field' => 'idioma','title' => 'IDIOMA' )
+                        ];
+                    }
                     break;
 
                 case 'c.':
                     $query = DB::select('SELECT 
                             comites.id,
                             comites.nombre AS comite,
-                            comites.idioma,
                             comites.codigo,
+                            idiomas.nombre AS idioma,
                             COUNT(paiscomites.id) AS total
-                        FROM paiscomites
-                        JOIN comites ON paiscomites.pk_comite = comites.id
+                        FROM comites
+                        LEFT JOIN paiscomites ON comites.id = paiscomites.pk_comite
+                        JOIN idiomas ON comites.pk_idioma = idiomas.id
                         WHERE comites.nombre LIKE ?
-                        GROUP BY comites.id', [ $dato_string ]);  
-                    $columna = [
-                        array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
-                        array( 'field' => 'comite','title' => 'NOMBRE' ),
-                        array( 'field' => 'idioma','title' => 'IDIOMA' ),
-                        array( 'field' => 'codigo','title' => 'USUARIO' ),
-                        array( 'field' => 'total','title' => '# PAÍSES','align' => 'center' )
-                    ];
+                        GROUP BY comites.id', [ $dato_string ]);
+
+                    if ($query == []) {
+                        $return = false;
+                        $query = [ array( 'texto' => 'No exite el comité: '.$dato ) ];
+                        $columna = [
+                            array( 'field' => 'texto', 'title' => 'RESULTADO','align' => 'center' )
+                        ];
+                    }else{
+                        $columna = [
+                            array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
+                            array( 'field' => 'comite','title' => 'NOMBRE' ),
+                            array( 'field' => 'idioma','title' => 'IDIOMA' ),
+                            array( 'field' => 'codigo','title' => 'USUARIO' ),
+                            array( 'field' => 'total','title' => '# PAÍSES','align' => 'center' )
+                        ];
+                    }
                     break;
                 default:
                     $return = false;
-                    $query = "";
+                    $query = [ array( 'texto' => 'El criterio de búsqueda: '.$clave.' no es valido. ' ) ];
+                    $columna = [
+                        array( 'field' => 'texto', 'title' => 'RESULTADO','align' => 'center' )
+                    ];
+                    
                     break;
             }
         }else{
@@ -194,20 +235,30 @@ class AdminController extends Controller
                         OR  escuelas.nombre LIKE ?
                         OR  pais.nombre LIKE ?
                         OR comites.nombre LIKE ?', [$dato_string, $dato_string, $dato_string, $dato_string, $dato_string]);
-                        
-                $columna = [
-                    array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
-                    array( 'field' => 'alumno','title' => 'ALUMNO' ),
-                    array( 'field' => 'mail','title' => 'E-MAIL' ),
-                    array( 'field' => 'pais','title' => 'PAÍS' ),
-                    array( 'field' => 'codigo','title' => 'CÓDIGO','align' => 'center' ),
-                    array( 'field' => 'comite','title' => 'COMITÉ','align' => 'center' ),
-                    array( 'field' => 'escuelas','title' => 'ESCUELA','align' => 'center' ),
-                    array( 'field' => 'disponible','title' => 'ESTADO','align' => 'center' )
-                ];
+                 if ($query == []) {
+                    $return = false;
+                    $query = [ array( 'texto' => 'No se han encontrado registros de: '.$dato ) ];
+                    $columna = [
+                        array( 'field' => 'texto', 'title' => 'RESULTADO','align' => 'center' )
+                    ];
+                }else{
+                    $columna = [
+                        array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
+                        array( 'field' => 'alumno','title' => 'ALUMNO' ),
+                        array( 'field' => 'mail','title' => 'E-MAIL' ),
+                        array( 'field' => 'pais','title' => 'PAÍS' ),
+                        array( 'field' => 'codigo','title' => 'CÓDIGO','align' => 'center' ),
+                        array( 'field' => 'comite','title' => 'COMITÉ','align' => 'center' ),
+                        array( 'field' => 'escuelas','title' => 'ESCUELA','align' => 'center' ),
+                        array( 'field' => 'disponible','title' => 'ESTADO','align' => 'center' )
+                    ];
+                }
             }else{
                 $return = false;
-
+                $query = [ array( 'texto' => 'Debe ingresar un dato de búsqueda' ) ];
+                $columna = [
+                    array( 'field' => 'texto', 'title' => 'RESULTADO','align' => 'center' )
+                ];
             }
         }
 
