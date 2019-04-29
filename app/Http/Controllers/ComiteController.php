@@ -9,24 +9,25 @@ use DB;
 class ComiteController extends Controller
 {
 
-    public function indexComite(){
+    public function index(){
         $comites = Comite::all();
-        return view('comite.infoComite', ['comites' => $comites]);
+        return view('modulos.comite.index-comite', ['comites' => $comites]);
+    }
+    
+    public function premiacion(){
+        return view('modulos.comite.criterios');
+    }
+
+    
+    public function antecedentes(){
+        return view('modulos.comite.antecedentes');
+    }
+     
+    public function posiciones(){
+        return view('modulos.comite.posiciones-oficiales');
     }
 
     public function recursos(){
-        return view('comite.recursos');
-    }
-
-    public function criterios(){
-        return view('comite.criterios');
-    }
-
-    public function antecedentes(){
-        return view('comite.antecedentes');
-    }
-
-    public function posiciones(){
-        return view('comite.posicionesOficiales');
+        return view('modulos.comite.recursos');
     }
 }

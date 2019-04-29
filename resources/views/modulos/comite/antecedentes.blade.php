@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tecmimun | Antecedentes</title>
+    <title>Antecedentes</title>
     <link rel="stylesheet" href="{{ asset('css/bulma.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icon/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
@@ -18,13 +18,9 @@
 </head>
 <body>
    
-<section class="" style="background-color: ; height: 100%">
-    
-
+<section style="height: 100%">
     <div class="columns is-vcentered has-text-centered" style="height: 100%">
-        
         <div class="column">
-                
             <p>
                 <div style="position:absolute; right: 5%; top:25px" class="has-text-green">
                     @include('plantilla.secondNavbar')

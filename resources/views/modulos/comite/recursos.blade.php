@@ -1,33 +1,31 @@
-@extends('plantilla.second')
+@extends('modulos.plantilla.main-index')
 
 @section('titulo', 'Recursos de apoyo')
 
 
 @section('body')
-<section class="hero content">
-    <img src="{{ asset('img/banner.jpg') }}" alt="" >
-</section>
+
+    @section('contenido-navbar')
+        <img src="{{ asset('/img/banner.jpg') }}" >
+    @endsection
 
 <section class="section">
     <div class="container">
         <div class="columns">
             <div class="column is-8">
-                <h2 class="title is-size-2-desktop has-text-centered">Recursos de apoyo</h2>
-                <p class="subtitle is-size-4-desktop">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    Deleniti architecto libero corrupti, corporis molestias dolores harum nobis nihil, 
-                    itaque, assumenda repellendus enim fuga. Doloribus tempore fuga 
-                    dolorem sequi ducimus sint!</p>
+                <h2 class="title is-size-3-desktop">Recursos de apoyo</h2>
+                <p class="subtitle">
+                    Recursos útiles para la preparación y el correcto desarrollo del delegado 
+                    para el buen funcionamiento del debate.
+                </p>
             </div>
     
-    
             <div class="column is-4">
-                @include('plantilla.panelright')                  
+                @include('modulos.plantilla.menu-derecho')                  
             </div>     
         </div>
     </div>
 </section>
-
-
 
 <section class="section">
     <div class="container">

@@ -6,13 +6,11 @@ use Illuminate\Http\Request;
 
 class NosotrosController extends Controller
 {
-    public function index(){
-        return view('nosotros.indexNosotros');
+    public function nosotros(){
+        return view('modulos.nosotros.nosotros');
     }
 
     public function contacto(){
-        return view('nosotros.indexContacto');
+        return view('modulos.nosotros.contacto');
     }
-
-   
 }

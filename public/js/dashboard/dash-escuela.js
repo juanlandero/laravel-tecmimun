@@ -1,5 +1,7 @@
 function dismissModal(id_modal){
-    $(id_modal).removeClass('is-active');   
+    $(id_modal).removeClass('is-active'); 
+    $('#escuela-detail').bootstrapTable('destroy');
+  
 };
 
 function launchModal(id_modal, id_escuela){

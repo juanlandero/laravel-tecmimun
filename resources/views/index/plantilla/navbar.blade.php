@@ -14,35 +14,36 @@
         
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                
+    
             </div>
         
             <div class="navbar-end">
-                <a class="navbar-item" href="{{ route('index') }}" >Inicio</a>
+                <!--a class="navbar-item" href="{{-- route('index') --}}" >Inicio</a-->
+                <a class="navbar-item" onclick="toggleModal('#modal_login')" >Login</a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Acerca</a>
                     <div class="navbar-dropdown is-right">
-                        <a class="navbar-item" href="{{ Route('Nosotros') }}">Modelo</a>
-                        <a class="navbar-item" href="{{ Route('Protocolo') }}">Protocolo</a>
-                        <a class="navbar-item" href="{{ Route('Contacto') }}">Contacto</a>                          
+                        <a class="navbar-item" href="{{ Route('modulo.nosotros') }}">Modelo</a>
+                        <a class="navbar-item" href="{{ Route('modulo.protocolo') }}">Protocolo</a>
+                        <a class="navbar-item" href="{{ Route('modulo.contacto') }}">Contacto</a>                          
                     </div>
                 </div> 
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Registro</a>
                     <div class="navbar-dropdown is-right">
-                        <a class="navbar-item" href="{{ route('ComoRegistrarse') }}">Como registrarse</a>
-                        <a class="navbar-item" href="{{ route('Costos') }}">Fechas</a>
-                        <a class="navbar-item">Costos</a>                          
+                        <a class="navbar-item" href="{{ route('modulo.registro') }}">Como registrarse</a>
+                        <a class="navbar-item" href="{{ route('modulo.costos') }}">Fechas</a>
+                        <a class="navbar-item" href="{{ route('modulo.costos') }}">Costos</a>                          
                     </div>
                 </div> 
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Comites</a>
                     <div class="navbar-dropdown is-right">
-                        <a class="navbar-item" href="{{ route('infoComites') }}">Información de comités</a>
-                        <a class="navbar-item" href="{{ route('CriterioPremiacion') }}">Criterios de premiación</a>
-                        <a class="navbar-item" href="{{ route('Antecedentes') }}">Antecedentes</a>
-                        <a class="navbar-item" href="{{ route('Posiciones') }}">Posiciones oficiales</a>                            
-                        <a class="navbar-item" href="{{ route('RecursosApoyo') }}">Recursos de apoyo</a>                            
+                        <a class="navbar-item" href="{{ route('index.comites') }}">Información de comités</a>
+                        <a class="navbar-item" href="{{ route('modulo.premiacion') }}">Criterios de premiación</a>
+                        <a class="navbar-item" href="{{ route('modulo.antecedentes') }}">Antecedentes</a>
+                        <a class="navbar-item" href="{{ route('modulo.posiciones-oficiales') }}">Posiciones oficiales</a>                            
+                        <a class="navbar-item" href="{{ route('modulo.recursos-apoyo') }}">Recursos de apoyo</a>                            
                     </div>
                 </div>                      
             </div>

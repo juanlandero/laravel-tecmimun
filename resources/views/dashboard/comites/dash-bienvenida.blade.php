@@ -28,10 +28,19 @@
                         <button type="submit" class="button is-primary is-rounded is-large is-outlined">Continuar</button>
                     </div>
                 </form>
-
+               <!--pendeiente borrar este boton y el script que lo alimenta-->
+                <button class="button is-success is-outlined" id="numero"></button>
             </div>    
         </div>
     </div>
+
+    <svg height="10mm" width="100%" style="position: fixed;bottom: 0px;left: 0px;right: 0px;" viewBox="0 0 100 10">
+        <polygon style="fill:#118b42;" points="0 2, 30 10, 0 10"></polygon>
+        <polygon style="fill:#075d2a;" points="20.5 7.5, 30 10, 0 10"></polygon>
+
+        <polygon style="fill:#04305c;" points="100 0, 100 10, 10 10"></polygon>
+    </svg>
+
 </section>
 
 @include('dashboard.comites.modal.bienvenida-true')

@@ -71,7 +71,7 @@
 .js body.render {
 	opacity: 1;
 }
-
+/*
 a {
 	text-decoration: none;
 	color: #5d93d8;
@@ -85,6 +85,7 @@ a:focus {
 	color: var(--color-link-hover);
 	outline: none;
 }
+*/
 
 .hidden {
 	position: absolute;

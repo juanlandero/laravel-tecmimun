@@ -30,7 +30,7 @@
 
             <div class="column is-6-desktop is-10-mobile has-text-centered">
                 
-                <img src="{{ asset('img/logo.png') }}" width="40%">
+                <img src="{{ asset('img/logo/logo.png') }}" width="40%">
                 <p class="title is-size-1-desktop has-text-success">Bienvenido</p>
   
                 <form method="post" id="codigo" class="columns is-centered">

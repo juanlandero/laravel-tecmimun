@@ -1,15 +1,9 @@
-@extends('plantilla.second')
+@extends('modulos.plantilla.main-index')
 
 @section('titulo', 'Registro')
 
 @section('body')
-<section class="hero is-primary" style="position: relative">
-        <div class="hero-body">
-            <div class="hero-container">                
-                @include('plantilla.secondNavbar')
-            </div>
-        </div>
-    </section>
+
 <section class="section" >
     <div class="container">
 
@@ -27,21 +21,6 @@
                         <label class="label" for="alumno">Nombre completo:</label>
                         <input class="input" type="text" name="nombre" maxlength="40" id="nombre" autocomplete="off" required>
                     </div>
-
-                    <!--div class="columns">
-                        <div class="column is-6">
-                            <div class="field">
-                                <label class="label" for="ap1">Primer apellido:</label>
-                                <input class="input" type="text" class="form-control" name="ap1" id="ap1" autocomplete="off" required>
-                            </div>
-                        </div>
-                        <div class="column is-6">
-                            <div class="field">
-                                <label class="label" for="ap2">Segundo apellido:</label>
-                                <input class="input" type="text" class="form-control" name="ap2" id="ap2" autocomplete="off" required>
-                            </div>
-                        </div>
-                    </div-->
 
                     <div class="columns is-mobile">
                         <div class="column is-3">
@@ -131,7 +110,7 @@
                                             </select>
                                         @else
                                             <select name="id_pais" id="pais">
-                                                <option value="0"  selected> Selecciona tu pais </option> 
+                                                <option value="0"  selected> Selecciona tu Paí∫s </option> 
                                             </select>
                                         @endif                                
                                         
@@ -169,7 +148,7 @@ $(document).ready(function(){
     $('select#comite').change(function(){
         var data = $('#comite').val();
 		$.ajax({
-			url: '/Registro/getPaises',
+			url: '/registro/getPaises',
 			type: 'GET',
 			dataType: 'json',
 			data: 'comite='+data

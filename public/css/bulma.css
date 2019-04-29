@@ -321,7 +321,7 @@ a strong {
   color: currentColor;
 }
 a:hover {
-  color: #363636;
+  color: #04305c;
 }
 
 code {
@@ -1451,7 +1451,7 @@ a.box:active {
 }
 .button:hover, .button.is-hovered {
   border-color: #b5b5b5;
-  color: #363636;
+  color: #04305c;
 }
 .button:focus, .button.is-focused {
   border-color: #3273dc;
@@ -4538,7 +4538,7 @@ a.tag:hover {
   padding: 0 0.75em;
 }
 .breadcrumb a:hover {
-  color: #363636;
+  color: #04305c;
 }
 .breadcrumb li {
   align-items: center;
@@ -6255,7 +6255,7 @@ body.has-spaced-navbar-fixed-bottom {
 .pagination-next:hover,
 .pagination-link:hover {
   border-color: #b5b5b5;
-  color: #363636;
+  color: #04305c;
 }
 .pagination-previous:focus,
 .pagination-next:focus,

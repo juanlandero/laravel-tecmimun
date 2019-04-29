@@ -4,46 +4,40 @@ Route::get('/', function () {
 })->name('index');
 
 
-/**
- * Acerca de nosotros
- */
-Route::get('/AcercaDe', 'NosotrosController@index')->name('Nosotros');
-Route::get('/AcercaDe/Protocolo', 'ComiteController@recursos')->name('Protocolo');
-Route::get('/AcercaDe/Contacto', 'NosotrosController@contacto')->name('Contacto');
+Route::group([ 'prefix' => 'acerca-de' ], function () {
+    Route::get('/', 'NosotrosController@nosotros')->name('modulo.nosotros');
+    Route::get('/protocolo', 'ComiteController@recursos')->name('modulo.protocolo');
+    Route::get('/contacto', 'NosotrosController@contacto')->name('modulo.contacto');
+});
+
+Route::group([ 'prefix' => 'registro' ], function () {
+
+    Route::get('/', 'RegistroController@registro')->name('modulo.registro');
+    Route::get('/completo', 'RegistroController@completo')->name('modulo.completo');
+    Route::get('/getPaises', 'RegistroController@getPaises');
+    
+    
+    Route::get('/codigo', 'RegistroController@registrarCodigo')->name('modulo.codigo');
+    Route::post('/verificacion', 'RegistroController@verificarCodigo');
+    Route::get('/nuevo/{id}', 'RegistroController@confirmarRegistro');
+
+    Route::post('/confirmar', 'RegistroController@guardarAlumno')->name('Confirmacion');
+    
+    Route::get('/costos', 'RegistroController@costos')->name('modulo.costos');
+});
 
 
-/**
- * Registro de alumnos
- */
-Route::get('/Registro', 'RegistroController@comoRegistrarme')->name('ComoRegistrarse');
-Route::get('/Registro/Nuevo/', 'RegistroController@nuevoRegistro')->name('Registro');
-Route::get('/Registro/getPaises', 'RegistroController@getPaises');
+Route::group([ 'prefix' => 'comites' ], function () {
+    
+    Route::get('/', 'ComiteController@index')->name('index.comites');
+    Route::get('/criterios', 'ComiteController@premiacion')->name('modulo.premiacion');
+    Route::get('/antecedentes', 'ComiteController@antecedentes')->name('modulo.antecedentes');
+    Route::get('/posiciones-oficiales', 'ComiteController@posiciones')->name('modulo.posiciones-oficiales');
+    Route::get('/recursos', 'ComiteController@recursos')->name('modulo.recursos-apoyo');
+});
 
-
-Route::get('/Registro/Codigo', 'RegistroController@registrarCodigo')->name('Codigo');
-Route::post('/Registro/Verificacion', 'RegistroController@verificarCodigo');
-Route::get('/Registro/Nuevo/{id}', 'RegistroController@confirmarRegistro');
-
-Route::post('/Registro/Confirmar', 'RegistroController@guardarAlumno')->name('Confirmacion');
-
-Route::get('/Registro/Costos', 'RegistroController@costos')->name('Costos');
-
-
-/**
-* Rutas de comites
-*/
-Route::get('/Comites', 'ComiteController@indexComite')->name('infoComites');
-Route::get('/Comites/Recursos', 'ComiteController@recursos')->name('RecursosApoyo');
-Route::get('/Comites/Criterios', 'ComiteController@criterios')->name('CriterioPremiacion');
-Route::get('/Comites/Antecedentes', 'ComiteController@antecedentes')->name('Antecedentes');
-Route::get('/Comites/Posiciones', 'ComiteController@posiciones')->name('Posiciones');
-
-
-/**
- *  Rutas de administrador
- **/
 Route::group([  'middleware' => ['admin'],
-                'prefix' => 'admin'], function () {
+                'prefix' => 'admin' ], function () {
    
     Route::get('/', 'AdminController@index')->name('admin.index');
     Route::post('/busqueda', 'AdminController@busqueda');
@@ -78,9 +72,8 @@ Route::group([  'middleware' => ['admin'],
     Route::get('/setComite', 'AdminController@setSession');
 });
 
-
 Route::group([  'middleware' => ['comite'],
-                'prefix' => 'mesa'], function () {
+                'prefix' => 'mesa' ], function () {
    
     Route::get('/', 'DashboardController@index')->name('mesa.index');
 
@@ -99,8 +92,7 @@ Route::group([  'middleware' => ['comite'],
     Route::get('/getInfo', 'DashboardController@getInfo');
 });
 
-
-Route::group([ 'middleware' => ['responsable']], function () {
+Route::group([  'middleware' => ['responsable'] ], function () {
     
     Route::get('/tutorAdmin', 'ResponsableController@index')->name('responsable.view');
     Route::get('/tutor/download', 'ResponsableController@getExcelEscuelas')->name('excelEscuelas');
@@ -114,4 +106,8 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 //Ruta temporal
 Route::get('mail', function () {
     return new App\Mail\Responsable();
+});
+
+Route::get('/prueba', function(){
+    return view('prueba');
 });

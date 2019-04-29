@@ -7,7 +7,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		var data = $(this).serializeArray();
 		$.ajax({
-			url: '/Registro/Verificacion',
+			url: '/registro/verificacion',
 			type: 'POST',
 			dataType: 'json',
 			data: data

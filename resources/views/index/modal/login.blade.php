@@ -1,11 +1,11 @@
-<div class="modal is-active" style="z-index: 1001">
-    <div class="modal-background"></div>
+<div class="modal" id="modal_login" style="z-index: 1001">
+    <div id="back" class="modal-background uk-card uk-card-default uk-card-body uk-animation-fade" onclick="toggleModal('#modal_login')"></div>
     <div class="modal-content">
 
-        <article class="message is-primary">
-            <div class="message-header">
+        <article class="message is-primary uk-card uk-card-default uk-card-body uk-animation-slide-top" style="border-radius: 10px;">
+            <div class="message-header" >
                 <p>Bienvenido</p>
-                <button class="delete" aria-label="delete"></button>
+                <button class="delete" aria-label="delete" onclick="toggleModal('#modal_login')"></button>
             </div>
 
             <div class="message-body">

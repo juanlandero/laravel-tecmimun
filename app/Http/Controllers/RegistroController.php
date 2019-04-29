@@ -13,14 +13,14 @@ use DB;
 class RegistroController extends Controller
 {
     
-    public function comoRegistrarme(){
-        return view('registro.comoRegistrarme');
+    public function registro(){
+        return view('modulos.registro.registro');
     }
 
-    public function nuevoRegistro(){
+    public function completo(){
         $comites = Comite::all();
         $escuelas = Escuela::all();
-        return view("registro.registroCompleto", ['comites'=>$comites, 'escuelas'=>$escuelas]);
+        return view("modulos.registro.registro-completo", ['comites'=>$comites, 'escuelas'=>$escuelas]);
     }  
     
     public function getPaises(Request $request){
@@ -40,7 +40,7 @@ class RegistroController extends Controller
 
 
     public function registrarCodigo(){
-        return view('registro.registroCodigo');
+        return view('modulos.registro.registro-codigo');
     }
 
     public function verificarCodigo(Request $request){
@@ -53,7 +53,7 @@ class RegistroController extends Controller
             if ($alumno_datos != null) {
                 return [
                     'resultado' => true,
-                    'texto' => 'Nuevo/'.$alumno_datos->codigo,
+                    'texto' => 'nuevo/'.$alumno_datos->codigo,
                     'alumno'=> $alumno_datos
                 ];
             }else{
@@ -91,7 +91,7 @@ class RegistroController extends Controller
                     ])
                     ->first();
         if ($alumnos) {
-            return view("registro.registroCompleto", ['d'=>$alumnos]);
+            return view("modulos.registro.registro-completo", ['d'=>$alumnos]);
         }else{
             return 'Verifica tu código';
         }
@@ -166,13 +166,13 @@ class RegistroController extends Controller
             ->where('alumnos.codigo', $codigo)
             ->first();
 
-        Mail::to($request->input('email'))->send(new Alumnos($alumno));
+        //Mail::to($request->input('email'))->send(new Alumnos($alumno));
 
-        return view('registro.confirmacion', ['alumno'=>$alumno]);
+        return view('modulos.registro.confirmacion', ['alumno'=>$alumno]);
     }
 
     public function costos(){
-        return view('registro.fechasCostos');
+        return view('modulos.registro.costos');
     }
 
 }

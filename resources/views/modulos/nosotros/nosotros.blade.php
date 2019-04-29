@@ -1,33 +1,35 @@
-@extends('plantilla.second')
+@extends('modulos.plantilla.main-index')
 
 @section('titulo', 'Acerca de nosotros')
 
 @section('body')
 
-<section class="hero content">
-
-    <div style="position:absolute; right: 5%; top:25px" class="has-text-green">
-        @include('plantilla.secondNavbar')
-    </div>
-    
-    <div class="title-hero has-text-centered">
-            
-        <h1 class="title is-size-5-mobile">Slogan en la foto del secretariado</h1>
-    </div>
-     
-    <img src="{{ asset('img/banner.jpg') }}" alt="Image de cabeza" >
-    
-</section>
+    @section('contenido-navbar')
+        <div class="title-hero has-text-centered">
+            <h1 class="title is-size-5-mobile">Slogan en la foto del secretariado</h1>
+        </div>
+        
+        <img src="{{ asset('img/banner.jpg') }}" >
+    @endsection
 
 <section class="section">
     <div class="container">
         <div class="columns">
             <div class="column is-8">
-                <h2 class="title is-size-2-desktop has-text-centered">¿Qué es Tecmimun?</h2>
-                <p class="subtitle is-size-4-desktop">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    Deleniti architecto libero corrupti, corporis molestias dolores harum nobis nihil, 
-                    itaque, assumenda repellendus enim fuga. Doloribus tempore fuga 
-                    dolorem sequi ducimus sint!</p>
+                <h2 class="title is-size-3-desktop">¿Qué es Tecmimun?</h2>
+                <p class="subtitle">
+                    TECMIMUN son dos días de simulación continua de las Naciones Unidas donde 
+                    alumnos de todos los niveles educativos interactúan entre sí mediante el debate 
+                    y la diplomacia para resolver problemas de importancia global al tomar parte 
+                    de los roles de representantes de las delegaciones de las Naciones Unidas.
+                </p>
+                <p class="subtitle">
+                    Los alumnos aprenden acerca del funcionamiento y manejo de la política global 
+                    además de la resolución de problemas, gracias al que estar conscientes de los 
+                    problemas que afectan a nuestra sociedad hoy en día se muestra una nueva 
+                    perspectiva y desarrollo sobre soluciones integrales a los temas de importancia 
+                    global
+                </p>
             </div>
     
     

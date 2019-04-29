@@ -1,14 +1,10 @@
-@extends('plantilla.second')
+    @extends('plantilla.second')
 
 @section('titulo', 'Como registrarme?')
 
 @section('body')
 
 <section class="section is-gradient-blue">
-
-
-    @include('plantilla.secondNavbar')
-    <br><br><br>
     <div class="container">
         <div class="columns is-vcentered">
             <div class="column is-6 has-text-centered is-hidden-desktop" uk-scrollspy="cls: uk-animation-scale-up; delay:250; repeat: false">
@@ -190,10 +186,10 @@
     <br><br>
     <div class="columns has-text-centered is-centered">
         <div class="column is-3">
-            <a href="{{ route('Registro') }}" class="button is-info is-rounded is-large">Inscribirme</a>
+            <a href="{{ route('modulo.completo') }}" class="button is-info is-rounded is-large">Inscribirme</a>
         </div>
         <div class="column is-3">
-            <a href="{{ route('Codigo') }}" class="button is-info is-rounded is-large">Ingresar un codigo</a>
+            <a href="{{ route('modulo.codigo') }}" class="button is-info is-rounded is-large">Ingresar un codigo</a>
         </div>
     </div>
 </section>

@@ -38,12 +38,27 @@ $(document).ready(function(){
         });
     });
 
-   
-    document.onmousemove = function(){
-        //alert('sad');
-    }
+    var tiempo;
+    
+    var n = 0;
+    var l = document.getElementById("numero");
+    tiempo= window.setInterval(function(){
+        l.innerHTML = n;
+        n++;
+        document.onclick = function(){
+            n =0;
+        }
+        $('#dissmiss').onclick = function(){
+            n =0;
+        }
+        if (n == 120) {
+            $('#modal-wait').addClass('is-active');
+        }
+    },1000);
 
-});
+        
+
+    });
 
 
 function toggleModal(id_modal){
