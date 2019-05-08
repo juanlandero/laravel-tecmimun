@@ -438,11 +438,18 @@ class AdminController extends Controller
 
     public function deletecomite(Request $r){
         $id = $r->input('comite');
+
+        $user_comite = Comite::where('id', $id)->first();
+
         if (DB::table('paiscomites')->where('pk_comite', $id)->first()) {
             return ['return' => false, 'text' => 'No se puede eliminar, hay países agregados'];
         }else{
             DB::table('comites')
                         ->where('id', $id)
+                        ->delete();
+
+            DB::table('users')
+                        ->where('email', $user_comite->codigo)
                         ->delete();
             return ['return' => true, 'text' => 'Eliminado'];
         }
@@ -498,11 +505,17 @@ class AdminController extends Controller
     public function deleteescuela(Request $r){
         $id = $r->input('escuela');
 
+        $user_escuela = Escuela::where('id', $id)->first();
+
         if (DB::table('alumnos')->where('pk_escuelas', $id)->first()) {
             return ['return' => false, 'text' => 'No se puede eliminar, hay alumnos registrados con esta escuela.'];
         }else{
             DB::table('escuelas')
                     ->where('id', $id)
+                    ->delete();
+
+            DB::table('users')
+                    ->where('email', $user_escuela->email)
                     ->delete();
             return ['return' => true, 'text' => 'Eliminado'];
         }

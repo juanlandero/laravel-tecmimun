@@ -13,12 +13,14 @@
     @endif
 
 <!-- carta de bienvenida -->
-<section class="hero is-light is-bold">
-    <div class="hero-body ">
-        <div class="container has-text-centered">
-            <h1 class="title has-text-primary">Carta de Bienvenida</h1>
+<section class="section">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <span class="title is-size-1-desktop has-text-primary">CARTA DE </span>
+            <span class="title is-size-1-desktop has-text-success"> BIENVENIDA</span>
         </div>
     </div>
+    <hr>
 </section>
 
 <section class="section">
@@ -45,13 +47,84 @@
             </div>
         </div>
 
+        <div class="columns is-vcentered">
+            <div class="column has-text-centered has-text-primary">
+                <p class="subtitle is-size-4-desktop has-text-primary">Atentamente</p>
+                <p class="subtitle is-size-4-desktop">Mónica Danaé Juárez López</p>
+                <p class="subtitle is-size-4-desktop">Secretaria General</p>
+                <p class="subtitle is-size-4-desktop">TECMIMUN 2019</p>
+            </div>
+            <div class="column">
+                <div class="columns is-centeredr">
+                    <div class="column is-6">
+                        <img src="{{ asset('img/carta.jpg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
+<section class="section">
+    <div class="is-hidden-mobile"><br><br><br></div>
+    <br><br><br>
+    <div class="container">
+        <div class="columns has-text-centered">
+            <div class="column">
+                <span class="title is-size-1-desktop has-text-primary">INICIAR </span>
+                <span class="title is-size-1-desktop has-text-success"> SESIÓN</span>
+            </div>
+        </div>
+        <hr>
+        <div class="columns has-text-centered">
+            <div class="column">
+                <span class="subtitle">
+                    Sólo si te han propocionado el usuraio para que inicies sesión
+                </span>
+            </div>
+        </div>
+        <div class="columns has-text-centered">
+            <div class="column">
+                <button class="button is-primary is-rounded is-outlined" onclick="toggleModal('#modal_login')">Iniciar sesión</button>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <br><br>          
+</section>
+
 <!-- otras secciones -->
-<div style="">
-    <section class="hero">
-        <div class="columns is-vcentered" style="height: 500px; background-color:">
+<section class="section">
+    <div class="container">
+        <div class="is-hidden-mobile"><br><br></div>
+        <div class="columns is-vcentered" style="background-color:">
+            <div class="column">
+                <div class="columns is-centered is-mobile">
+                    <div class="column is-7">
+                        <img src="{{ asset('img/slider/slide1.jpg') }}" style="border-radius: 10px;">
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <h1 class="title is-size-2-desktop has-text-primary">SECRETARIADO</h1>
+                <hr><br>
+                <button class="button  is-rounded is-success is-outlined">Conocenos</button>
+            </div>
+        </div>
+        <div class="is-hidden-mobile"><br><br></div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="is-hidden-mobile"><br><br></div>
+        <div class="columns is-vcentered has-text-right" style="background-color:">
+            <div class="column">
+                <h1 class="title is-size-2-desktop has-text-primary">COMITÉS</h1>
+                <hr><br>
+                <button class="button  is-rounded is-success is-outlined">Conocenos</button>
+            </div>
             <div class="column">
                 <div class="columns is-centered">
                     <div class="column is-7">
@@ -59,35 +132,15 @@
                     </div>
                 </div>
             </div>
-            <div class="column">
-                <h1 class="title is-size-2-desktop has-text-primary">Secretariado</h1>
-                <p class="subtitle">Estamos listos para recibirte en este tecmimun</p>
-                <hr><br>
-                <button class="button is-primary is-outlined">Conocenos</button>
-            </div>
         </div>
-    </section>
+        <div class="is-hidden-mobile"><br><br></div>
+    </div>
+</section>
 
-    <section class="hero">
-        <div class="columns is-vcentered has-text-right" style="height: 500px; background-color: ">
-            <div class="column">
-                <h1 class="title is-size-2-desktop has-text-primary">Comites</h1>
-                <p class="subtitle">Estamos listos para recibirte en este tecmimun</p>
-                <hr><br>
-                <button class="button is-primary is-outlined">Conocenos</button>
-            </div>
-            <div class="column">
-                <div class="columns is-centered">
-                    <div class="column is-7">
-                        <img src="{{ asset('img/slider/slide1.jpg') }}" style="border-radius: 10px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="hero">
-        <div class="columns is-vcentered" style="height: 500px; background-color:">
+<section class="section">
+    <div class="container">
+        <div class="is-hidden-mobile"><br><br></div>
+        <div class="columns is-vcentered" style="background-color:">
             <div class="column">
                 <div class="columns is-centered">
                     <div class="column is-7">
@@ -96,18 +149,17 @@
                 </div>
             </div>
             <div class="column">
-                <h1 class="title is-size-2-desktop has-text-primary">Registro</h1>
-                <p class="subtitle">Estamos listos para recibirte en este tecmimun</p>
+                <h1 class="title is-size-2-desktop has-text-primary">REGISTRO</h1>
                 <hr><br>
                 <button class="button is-rounded is-success is-outlined">Registrate</button>
             </div>
         </div>
-    </section>
-</div>
+        <div class="is-hidden-mobile"><br><br></div>
+    </div>
+</section>
 
 
     @include('index.modal.login')
-
 @endsection
 
 @section('scripts')

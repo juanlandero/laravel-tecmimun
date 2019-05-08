@@ -4,19 +4,18 @@
 
         <article class="message is-primary uk-card uk-card-default uk-card-body uk-animation-slide-top" style="border-radius: 10px;">
             <div class="message-header" >
-                <p>Bienvenido</p>
+                <div>
+                    <span>Bienvenido</span>
+                    <div style="width: 10%; margin: auto; margin-top: -22px">
+                        <img src="{{ asset('img/logo/logo-blanco.png') }}">
+                    </div>
+                </div>
                 <button class="delete" aria-label="delete" onclick="toggleModal('#modal_login')"></button>
             </div>
 
             <div class="message-body">
                 <form method="POST" action="{{ url('/login') }}">
                     @csrf
-
-                    <div class="columns is-centered is-mobile">
-                        <div class="column is-4-desktop is-4-mobile is-3-tablet">
-                            <img src="{{ asset('img/logo/logo.png') }}" alt="">
-                        </div>
-                    </div>
                     <div class="columns">
                         <div class="column">
 
@@ -39,7 +38,6 @@
 
                     <div class="columns">
                         <div class="column">
-
                             <label for="password" class="label">{{ __('Contraseña') }}</label>
                             <p class="control has-icons-left">
                                 <input id="password" type="password" class="input is-black {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -53,7 +51,6 @@
                                     </span>
                                 @endif
                             </p>
-
                         </div>
                     </div>
 

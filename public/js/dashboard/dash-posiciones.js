@@ -14,6 +14,7 @@ $(document).ready(function(){
           }, {
             field: 'total',
             title: 'PUNTOS',
+            align: 'center'
           }
         ]
     });

@@ -2,12 +2,12 @@
 
     <ul class="uk-slideshow-items">
         <li>
-            <img src="img/slider/slide1.jpg" alt="" uk-cover style="opacity: 0.9">
+            <img src="img/slider/slide1.png" alt="" uk-cover style="opacity: 0.9">
             <div class="uk-position-center uk-position-small uk-text-center uk-light">
             </div>
         </li>
         <li>
-            <img src="img/slider/slide2.jpg" alt="" uk-cover style="opacity: 0.9">
+            <img src="img/slider/slide2.jpeg" alt="" uk-cover style="opacity: 0.9">
             <div class="uk-position-center uk-position-small uk-text-center">
             </div>
         </li>

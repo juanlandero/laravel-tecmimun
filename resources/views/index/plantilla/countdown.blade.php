@@ -8,8 +8,8 @@
         <div class="container">
             <div class="columns has-text-centered">
                 <div class="column">
-                    <h1 class="title is-size-1-desktop  has-text-primary">Tecmimun 2019</h1>
-                    <p class="sub-title is-size-3-desktop has-text-success">24 de Mayo 2019</p>
+                    <h1 class="title is-size-1-desktop  has-text-primary">TECMIMUN 2019</h1>
+                    <p class="sub-title is-size-3-desktop has-text-success">24 DE MAYO 2019</p>
                 </div>
             </div>
         </div>

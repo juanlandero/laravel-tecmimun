@@ -79,6 +79,7 @@ Route::group([  'middleware' => ['comite'],
 
     Route::get('/bienvenida', 'DashboardController@welcome')->name('mesa.bienvenida');
     Route::post('/bienvenida/Check', 'DashboardController@checkIn');   
+    Route::get('/recepcionados', 'DashboardController@recepcionados')->name('mesa.recepcionados');
     Route::get('/lista', 'DashboardController@lista')->name('mesa.lista');
     Route::post('/lista/new', 'DashboardController@newLista');
     Route::get('/lista/modal', 'DashboardController@getModalLista');

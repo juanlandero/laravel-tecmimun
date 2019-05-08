@@ -7,7 +7,6 @@
   @section('contenido-navbar')
     <section class="hero is-primary">
         <div class="hero-body">
-      
             <div class="hero-container">
                 <span class="title">Contacto</span>
                 
@@ -24,8 +23,8 @@
                   <span class="icon is-large has-text-primary">
                       <i class="fas fa-2x fa-envelope"></i>
                   </span>
-                  <h1 class="title is-size-3-desktop is-size-4-mobile">Email</h1>
-                  <p class="subtitle box is-size-6-mobile">produccion@prueba.com.mx</p>
+                  <h1 class="title is-size-3-desktop is-size-4-mobile">E-mail</h1>
+                  <p class="subtitle box is-size-6-mobile">tecmimunvhsa@gmail.com</p>
               </div>
               <br>
               <div class="column has-text-centered">

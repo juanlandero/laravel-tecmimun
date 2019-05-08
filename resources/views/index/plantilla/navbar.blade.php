@@ -19,7 +19,7 @@
         
             <div class="navbar-end">
                 <!--a class="navbar-item" href="{{-- route('index') --}}" >Inicio</a-->
-                <a class="navbar-item" onclick="toggleModal('#modal_login')" >Login</a>
+                <a class="navbar-item" onclick="toggleModal('#modal_login')">Iniciar sesión</a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Acerca</a>
                     <div class="navbar-dropdown is-right">
@@ -45,7 +45,8 @@
                         <a class="navbar-item" href="{{ route('modulo.posiciones-oficiales') }}">Posiciones oficiales</a>                            
                         <a class="navbar-item" href="{{ route('modulo.recursos-apoyo') }}">Recursos de apoyo</a>                            
                     </div>
-                </div>                      
+                </div>     
+                <a class="navbar-item" >Patrocinadores</a>                 
             </div>
         </div>
     </div>

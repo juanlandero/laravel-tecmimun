@@ -7,9 +7,6 @@
             <a class="menu__item" href="{{ route('index.comites') }}">
                 <span class="menu__item-label">Comités</span>
             </a>
-            <a class="menu__item" href="{{ route('index.comites') }}">
-                <span class="menu__item-label">Información de comités</span>
-            </a>
             <a class="menu__item" href="{{ route('modulo.premiacion') }}">
                 <span class="menu__item-label">Criterios de premiación</span>
             </a>

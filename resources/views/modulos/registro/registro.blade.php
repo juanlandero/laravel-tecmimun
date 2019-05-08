@@ -1,12 +1,12 @@
 @extends('modulos.plantilla.main-full')
 
-@section('titulo', 'Como registrarme?')
+@section('titulo', '¿Cómo registrarme?')
 
 @section('body')
 
-        <div style="position:absolute; right: 5%; top:25px; z-index: 10; color: white" class="has-text-green">
-            @include('modulos.plantilla.navbar')
-        </div>
+    <div style="position:absolute; right: 5%; top:25px; z-index: 10; color: white" class="has-text-green">
+        @include('modulos.plantilla.navbar')
+    </div>
 
     <div uk-slider="center: true; finite:true" style="height: 100%;" class="is-gradient-blue">
         <div class="uk-slider-container" style="height: 100%">
@@ -16,10 +16,10 @@
                 
                 <li style="width: 100%">
                     <div class="columns is-vcentered is-centered" style="height: 100%; overflow-y: scroll; overflow-x: hidden">
-                        <div class="is-hidden-desktop"><br><br><br><br><br></div>
+                        <div class="is-hidden-desktop"><br><br><br><br></div>
 
                         <div class="columns is-hidden-tablet is-hidden-desktop is-centered is-mobile">
-                            <div class="column is-10-mobile is-1-tablet">
+                            <div class="column is-10-mobile is-1-tablet has-text-white uk-animation-fade">
                                 <img src="{{ asset('img/logo/logo-blanco.png') }}">
                             </div>
                         </div>
@@ -27,13 +27,13 @@
                         <div class="is-hidden-desktop"><br></div>
 
                         <div class="column is-5 has-text-centered">
-                            <h1 class="title is-size-1-desktop has-text-white">Bienvenido</h1>
-                            <p class="subtitle is-size-3-desktop has-text-white">Estamos contentos de contar con tu participación en este Modelo de las Naciones Unidas</p>
+                            <h1 class="title is-size-1-desktop has-text-white uk-animation-fade">Bienvenido</h1>
+                            <p class="subtitle is-size-3-desktop has-text-white uk-animation-fade">Estamos contentos de contar con tu participación en este Modelo de las Naciones Unidas</p>
                         </div>
                         
                         <div class="column is-5-tablet is-5-desktop has-text-centered is-hidden-mobile">
                             <div class="columns is-centered">
-                                <div class="column is-10-desktop">
+                                <div class="column is-10-desktop has-text-white uk-animation-fade">
                                     <img src="{{ asset('img/logo/logo-blanco.png') }}">
                                 </div>
                             </div>
@@ -267,7 +267,7 @@
 
                 <li style="width: 100%">
                         <div class="columns is-vcentered is-centered" style="height: 100%;">
-                            <div class="is-hidden-desktop"><br><br><br><br><br><br></div>
+                            <div class="is-hidden-desktop"><br><br><br><br><br></div>
                             <div class="column has-text-centered" >
                                 <p class="title is-size-1-desktop has-text-success">¿List@ para registrarte?</p>
                                 <br><br>
@@ -303,5 +303,4 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ asset('js/slider-uikit/uikit.js') }}"></script> 
-    <script type="text/javascript" src="{{ asset('js/modulos/menu.js') }}"></script>
 @endsection

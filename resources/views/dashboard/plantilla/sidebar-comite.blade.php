@@ -4,6 +4,12 @@
     </span>                
 </a>
 
+<a class="aside-item" title="Delegados recepcionados" href="{{ route('mesa.recepcionados') }}">
+    <span class="icon is-large">
+        <i class="fas fa-lg fa-desktop"></i>
+    </span>                
+</a>
+
 <a class="aside-item" title="Pase de lista" href="{{ route('mesa.lista') }}">
     <span class="icon is-large">
         <i class="fas fa-lg fa-tasks"></i>
@@ -15,11 +21,13 @@
         <i class="fas fa-lg fa-thumbs-up"></i>
     </span>                
 </a>
+
 <a class="aside-item" title="Tabla de posiciones" href="{{ route('mesa.posiciones') }}">
     <span class="icon is-large">
         <i class="fas fa-lg fa-award"></i>
     </span>                
 </a>
+
 <a class="aside-item" title="Detalles del comité" href="{{ route('mesa.detalle') }}">
     <span class="icon is-large">
         <i class="fas fa-lg fa-info-circle"></i>

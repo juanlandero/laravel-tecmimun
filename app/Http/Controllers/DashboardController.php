@@ -44,9 +44,13 @@ class DashboardController extends Controller
 
         if ($verificacion != null) {
 
-            DB::table('alumnos')
-                ->where('id', $verificacion->alumno)
-                ->update(['recepcionado' => 1]);
+            $d= date("Y-m-d H:i:s");
+            $d = str_replace('("Y-m-d H:i:s")', " ", $d);
+
+            $a = Alumno::where('id', $verificacion->alumno)->first();
+
+            $a->recepcionado = 1;
+            $a->save();
             
             return ['estado' => true, 'Text' => 'Si se encontro a la persona'];
         }else{
@@ -54,6 +58,23 @@ class DashboardController extends Controller
         }
     }
 
+    public function recepcionados(){
+        $comite = session('key_comite');
+
+        $delegados_tabla = DB::table('alumnos')
+            ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+            ->join('escuelas', 'alumnos.pk_escuelas', '=', 'escuelas.id')
+            ->select('alumnos.nombre as alumno', 'pais.nombre as pais', 'alumnos.codigo', 'escuelas.nombre as escuela', 'alumnos.updated_at as fecha')
+            ->where([
+                ['paiscomites.pk_comite', $comite],
+                ['alumnos.recepcionado', 1]
+            ])
+            ->orderBy('alumnos.updated_at', 'asc')
+            ->get();        
+
+        return view('dashboard.comites.dash-recepcionados', ['delegados' => $delegados_tabla]);
+    }
 
     public function lista(){
         $comite = session('key_comite');
@@ -324,7 +345,8 @@ class DashboardController extends Controller
                 'id' => $value->id,
                 'alumno' => $value->alumno,
                 'delegacion' => $value->delegacion,
-                'total' => '<progress class="progress is-primary"  value="'.$value->total.'" title="'.$value->total.' de '.$total_puntos.' puntos" max="'.$total_puntos.'"></progress>'
+                'total' => $value->total
+                //'total' => '<progress class="progress is-primary"  value="'.$value->total.'" title="'.$value->total.' de '.$total_puntos.' puntos" max="'.$total_puntos.'"></progress>'
             ];
         }
 
@@ -349,10 +371,10 @@ class DashboardController extends Controller
     public function getInfo(){
         $comite = session('key_comite');       
 
-        $paises = DB::table('alumnos')
-            ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
-            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-            ->join('escuelas', 'alumnos.pk_escuelas', '=', 'escuelas.id')
+        $paises = DB::table('paiscomites')
+            ->leftjoin('alumnos', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+            ->leftjoin('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+            ->leftjoin('escuelas', 'alumnos.pk_escuelas', '=', 'escuelas.id')
             ->select('alumnos.id', 'pais.nombre as pais', 'alumnos.mail', 'alumnos.codigo', 'alumnos.recepcionado', 'escuelas.nombre as escuela')
             ->where('paiscomites.pk_comite', $comite)
             ->orderBy('pais.nombre', 'asc')

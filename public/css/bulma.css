@@ -9001,7 +9001,7 @@ label.panel-block:hover {
 
 .footer {
   background-color: #118b42;
-  padding: 0rem 0rem 1.5rem;
+  padding: 1rem 0rem 1rem;
 }
 
 .content {
@@ -9112,7 +9112,7 @@ a.aside-item:hover {
 }
 
 .footer-primary {
-  background-color: black;
+  background-color: #04305c;
   color: white;
 }
 
