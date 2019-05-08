@@ -95,10 +95,14 @@ Route::group([  'middleware' => ['comite'],
 
 Route::group([  'middleware' => ['responsable'] ], function () {
     
-    Route::get('/tutorAdmin', 'ResponsableController@index')->name('responsable.view');
-    Route::get('/tutor/download', 'ResponsableController@getExcelEscuelas')->name('excelEscuelas');
+    Route::get('/advisor', 'ResponsableController@index')->name('responsable.view');
+    Route::get('/advisor/download', 'ResponsableController@getExcelEscuelas')->name('excelEscuelas');
 
 });
+
+Route::get('/patrocinadores', function(){
+    return view('modulos.patrocinadores.patrocinadores');
+})->name('modulo.patrocinadores');
 
 
 Route::post('/login', 'Auth\LoginController@login')->name('login');

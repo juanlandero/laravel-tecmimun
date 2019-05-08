@@ -1,6 +1,6 @@
 <div class="columns is-vcentered footer-primary is-centered has-text-centered is-marginless" uk-scrollspy="cls:uk-animation-fade; delay: 500">
     <div class="column">
-        <p>¿Tienes alguna duda? Escribenos a <a href="">tecmimunvhsa@gmail.com</a></p>
+        <p>¿Tienes alguna duda? Escríbenos a <a href="">tecmimunvhsa@gmail.com</a></p>
     </div>
     <div class="column">
         <div class="columns">

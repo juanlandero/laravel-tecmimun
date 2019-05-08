@@ -32,8 +32,7 @@
                     <a class="navbar-link">Registro</a>
                     <div class="navbar-dropdown is-right">
                         <a class="navbar-item" href="{{ route('modulo.registro') }}">Como registrarse</a>
-                        <a class="navbar-item" href="{{ route('modulo.costos') }}">Fechas</a>
-                        <a class="navbar-item" href="{{ route('modulo.costos') }}">Costos</a>                          
+                        <a class="navbar-item" href="{{ route('modulo.costos') }}">Fechas y Costos</a>
                     </div>
                 </div> 
                 <div class="navbar-item has-dropdown is-hoverable">
@@ -46,7 +45,7 @@
                         <a class="navbar-item" href="{{ route('modulo.recursos-apoyo') }}">Recursos de apoyo</a>                            
                     </div>
                 </div>     
-                <a class="navbar-item" >Patrocinadores</a>                 
+                <a class="navbar-item" href="{{ route('modulo.patrocinadores') }}">Patrocinadores</a>                 
             </div>
         </div>
     </div>

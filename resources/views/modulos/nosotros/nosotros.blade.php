@@ -4,13 +4,9 @@
 
 @section('body')
 
-    @section('contenido-navbar')
-        <div class="title-hero has-text-centered">
-            <h1 class="title is-size-5-mobile">Slogan en la foto del secretariado</h1>
-        </div>
-        
-        <img src="{{ asset('img/banner.jpg') }}" >
-    @endsection
+@section('contenido-navbar')
+    <img src="{{ asset('img/portadas/modelo.jpg') }}" >
+@endsection
 
 <section class="section">
     <div class="container">
@@ -38,21 +34,21 @@
                 <div class="columns has-text-centered">
                     <div class="column">
                         <p><i class="fas fa-users fa-3x"></i></p>
-                        <p style="margin-top: 10px"><button class="button is-white">Secretariado</button></p>
+                        <p style="margin-top: 10px"><a href="{{ route('modulo.nosotros') }}" class="button is-white">Secretariado</a></p>
                     </div>
                 </div>
 
                 <div class="columns has-text-centered">
                     <div class="column">
                         <p><i class="fas fa-atlas fa-3x"></i></p>
-                        <p style="margin-top: 10px"><button class="button is-white">Comités</button></p>
+                        <p style="margin-top: 10px"><a href="{{ route('modulo.registro') }}" class="button is-white">Comités</a></p>
                     </div>
                 </div>
 
                 <div class="columns has-text-centered">
                     <div class="column">
                         <p><i class="fas fa-clipboard-check fa-3x"></i></p>
-                        <p style="margin-top: 10px"><button class="button is-white">Registro</button></p>
+                        <p style="margin-top: 10px"><a href="{{ route('modulo.registro') }}" class="button is-white">Registro</a></p>
                     </div>
                 </div>
                 <br>

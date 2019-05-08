@@ -27,7 +27,7 @@
     <div class="container">
         <div class="columns is-vcentered">
            
-            <div class="column is-12" uk-scrollspy="cls: uk-animation-slide-right; repeat: false; delay: 700">
+            <div class="column is-8-desktop" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
                 
                 <p class="subtitle is-size-4-desktop has-text-black">
                     Queridos delegados, organizadores y advisors asistentes a TECMIMUN 2019 – Campus Villahermosa.
@@ -38,6 +38,15 @@
                 <p class="subtitle is-size-4-desktop has-text-black">
                     Todo comenzó como iniciativa de cinco alumnos con el sueño de formar parte de la red de Modelos de Naciones Unidas en el estado de Tabasco y ser parte del desarrollo de habilidades de los jóvenes de hoy. Buscamos el apoyo de nuestro Campus y de tal manera, formar el comité organizador. Dicho comité se caracteriza por el entusiasmo, creatividad, compromiso, responsabilidad, el ser proactivos y sobre todo la pasión que cada uno de nosotros tiene por este proyecto que hoy es una realidad.
                 </p>
+                
+            </div>
+            <div class="column is-4-desktop is-hidden-mobile" uk-scrollspy="cls: uk-animation-slide-right; repeat: false; delay: 700">
+                <img src="{{ asset('img/carta.jpg') }}">
+            </div>
+
+        </div>
+        <div class="columns" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
+            <div class="column">
                 <p class="subtitle is-size-4-desktop has-text-black">
                     Con este modelo desarrollarás diversas habilidades entre las cuales destaca el poder solucionar problemáticas que observamos día a día, administración del tiempo y planeación, dominio de la situación, mejorar nuestras relaciones al interactuar con jóvenes con quienes no convivimos regularmente y conocer cada vez más acerca de lo que sucede a nuestro alrededor y como estas acciones repercuten en nosotros.
                 </p>
@@ -47,17 +56,17 @@
             </div>
         </div>
 
-        <div class="columns is-vcentered">
+        <div class="columns is-vcentered" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
             <div class="column has-text-centered has-text-primary">
                 <p class="subtitle is-size-4-desktop has-text-primary">Atentamente</p>
-                <p class="subtitle is-size-4-desktop">Mónica Danaé Juárez López</p>
-                <p class="subtitle is-size-4-desktop">Secretaria General</p>
-                <p class="subtitle is-size-4-desktop">TECMIMUN 2019</p>
+                <p class="subtitle is-size-4-desktop is-marginless has-text-primary">Mónica Danaé Juárez López</p>
+                <p class="subtitle is-size-4-desktop is-marginless has-text-primary">Secretaria General</p>
+                <p class="subtitle is-size-4-desktop has-text-primary">TECMIMUN 2019</p>
             </div>
-            <div class="column">
-                <div class="columns is-centeredr">
+            <div class="column is-hidden-tablet is-hidden-desktop">
+                <div class="columns is-centered">
                     <div class="column is-6">
-                        <img src="{{ asset('img/carta.jpg') }}" alt="">
+                        <img src="{{ asset('img/carta.jpg') }}" >
                     </div>
                 </div>
             </div>
@@ -66,7 +75,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
     <div class="is-hidden-mobile"><br><br><br></div>
     <br><br><br>
     <div class="container">
@@ -94,29 +103,27 @@
     <br><br>          
 </section>
 
-<!-- otras secciones -->
-<section class="section">
+<!-- otras secciones>
+<section class="section" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
     <div class="container">
         <div class="is-hidden-mobile"><br><br></div>
-        <div class="columns is-vcentered" style="background-color:">
-            <div class="column">
-                <div class="columns is-centered is-mobile">
-                    <div class="column is-7">
-                        <img src="{{ asset('img/slider/slide1.jpg') }}" style="border-radius: 10px;">
-                    </div>
-                </div>
+        <div class="columns is-vcentered">
+            <div class="column" style="background-color: darekblue">
+                <span class="image is-96x96 box has-text-primary" style="border: solid; border-radius: 50%; margin:auto">
+                    <i class="fas fa-users fa-3x"></i>
+                </span>
             </div>
             <div class="column">
                 <h1 class="title is-size-2-desktop has-text-primary">SECRETARIADO</h1>
                 <hr><br>
-                <button class="button  is-rounded is-success is-outlined">Conocenos</button>
+                <button class="button is-rounded is-success is-outlined">Conocenos</button>
             </div>
         </div>
         <div class="is-hidden-mobile"><br><br></div>
     </div>
 </section>
 
-<section class="section">
+<section class="section" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
     <div class="container">
         <div class="is-hidden-mobile"><br><br></div>
         <div class="columns is-vcentered has-text-right" style="background-color:">
@@ -125,28 +132,24 @@
                 <hr><br>
                 <button class="button  is-rounded is-success is-outlined">Conocenos</button>
             </div>
-            <div class="column">
-                <div class="columns is-centered">
-                    <div class="column is-7">
-                        <img src="{{ asset('img/slider/slide1.jpg') }}" style="border-radius: 10px;">
-                    </div>
-                </div>
+            <div class="column has-text-centered">
+                <span class="image is-96x96 box has-text-primary" style="border: solid; border-radius: 50%; margin:auto">
+                    <i class="fas fa-atlas fa-3x"></i>
+                </span>
             </div>
         </div>
         <div class="is-hidden-mobile"><br><br></div>
     </div>
 </section>
 
-<section class="section">
+<section class="section" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
     <div class="container">
         <div class="is-hidden-mobile"><br><br></div>
-        <div class="columns is-vcentered" style="background-color:">
-            <div class="column">
-                <div class="columns is-centered">
-                    <div class="column is-7">
-                        <img src="{{ asset('img/slider/slide1.jpg') }}" style="border-radius: 30px;">
-                    </div>
-                </div>
+        <div class="columns is-vcentered">
+            <div class="column has-text-centered">
+                <span class="image is-96x96 box has-text-primary" style="border:solid; border-radius: 50%; margin:auto">
+                    <i class="fas fa-clipboard-check fa-3x"></i>
+                </span>
             </div>
             <div class="column">
                 <h1 class="title is-size-2-desktop has-text-primary">REGISTRO</h1>
@@ -156,8 +159,34 @@
         </div>
         <div class="is-hidden-mobile"><br><br></div>
     </div>
-</section>
+</section-->
 
+
+<section class="section" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <i class="fas fa-users fa-3x has-text-success" style="margin-bottom: 15px"></i>
+            <h1 class="title is-size-3-desktop has-text-primary">SECRETARIADO</h1>
+            <hr>
+            <a href="{{ route('modulo.nosotros') }}" class="button is-rounded is-success is-outlined">Conocenos</a>
+        </div>
+        <br><br><br>
+        <div class="column">
+            <i class="fas fa-atlas fa-3x has-text-success" style="margin-bottom: 15px"></i>
+            <h1 class="title is-size-3-desktop has-text-primary">COMITÉS</h1>
+            <hr>
+            <a href="{{ route('index.comites') }}" class="button is-rounded is-success is-outlined">Ver</a>
+        </div>
+        <br><br><br>
+        <div class="column">
+            <i class="fas fa-clipboard-check fa-3x has-text-success" style="margin-bottom: 15px"></i>
+            <h1 class="title is-size-3-desktop has-text-primary">REGISTRO</h1>
+            <hr>
+            <a href="{{ route('modulo.registro') }}" class="button is-rounded is-success is-outlined">Registrate</a>
+        </div>
+    </div>
+</section>
+<br><br><br>
 
     @include('index.modal.login')
 @endsection

@@ -5,7 +5,7 @@
 @section('body')
     
     @section('contenido-navbar')
-        <img src="{{ asset('/img/banner.jpg') }}" alt="" class="" >
+        <img src="{{ asset('img/portadas/posiciones_oficiales.jpg') }}" alt="" class="" >
     @endsection
 
 <section class="section">
@@ -13,7 +13,7 @@
         <div class="columns">
             <div class="column is-8">
                 <h1 class="title is-size-3-desktop">
-                    Posiciones Oficiales
+                    POSICIONES OFICIALES
                 </h1>
                 <p class="subtitle">
                     Las posiciones oficiales son el documento oficial por delegado 

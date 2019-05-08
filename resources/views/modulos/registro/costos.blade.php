@@ -3,38 +3,61 @@
 @section('titulo', 'Fechas y Costos')
 
 @section('body')
-<section class="section">
-    <div class="container">
 
-        <div class="columns">
-            <div class="column">
-                <h1 class="title">Información de registro</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum maxime perspiciatis ipsa ex non. Pariatur aliquam fugiat laborum rerum, veniam officia id fugit tempora soluta sequi minus recusandae natus perspiciatis?</p>
+@section('contenido-navbar')
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="hero-container">
+                <span class="title">FORMATO DE INSCRIPCIÓN</span>
             </div>
         </div>
+    </section>
+@endsection
+
+    <div class="section" style="margin-bottom: 2%">
         <div class="columns">
+
             <div class="column">
-                <h1 class="title">Formato de inscripción</h1>
-                <p class="subtitle">
-                    El modelo de las Naciones Unidas de la Universidad Tecmilenio Campus 
-                    Villahermosa, TECMIMUN2019, será llevado a cabo los días viernes 24 y 
-                    sábado 25 del presente año.
-                </p>
-                <p class="subtitle">
-                
-                    Costos
+                <div class="columns is-centered">
+                    <div class="column is-10 box has-text-centered">
+                        <br><br>
+                        <p class="has-text-success"><i class="fas fa-calendar-day fa-3x"></i></p>
+                        <strong class="has-text-success">Fechas</strong>
+                        <br><br><br><br>
+                        <p class="subtitle has-text-primary">
+                            El modelo de las Naciones Unidas de la Universidad Tecmilenio Campus 
+                            Villahermosa, TECMIMUN2019, será llevado a cabo los días <span class="tag is-primary">viernes 24</span> y 
+                            <span class="tag is-primary">sábado 25</span> de mayo del presente año.
+                        </p>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="is-hidden-desktop">
+                <div class="column">
                     
-                    TECMIMUN2019 contará con un costo de remuneración de $350.oo (trescientos 
-                    cincuenta pesos 00/100 M.N.) por delegado, que incluirá el paquete de delegado 
-                    y los alimentos en el horario indicado.
-                </p>
+                </div>
             </div>
+
+            <div class="column">
+                <div class="columns is-centered">
+                    <div class="column is-10 box has-text-centered">
+                        <br><br>
+                        <p class="has-text-success"><i class="fas fa-money-check-alt fa-3x"></i></p>
+                        <strong class="has-text-success">Costos</strong>
+                        <br><br><br><br>
+                        <p class="subtitle has-text-primary">
+                            TECMIMUN2019 contará con un costo de remuneración de <span class="tag is-primary">$350.00</span> (trescientos 
+                            cincuenta pesos 00/100 M.N.) por delegado, que incluirá el paquete de delegado 
+                            y los alimentos en el horario indicado.
+                        </p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
     </div>
-
-    <a class="button is-large is-success" href="{{ Route('modulo.registro') }}">Registro</a>
-
-</section>
 
 @endsection

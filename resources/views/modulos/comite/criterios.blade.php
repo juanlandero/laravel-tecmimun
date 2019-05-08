@@ -5,14 +5,14 @@
 @section('body')
 
     @section('contenido-navbar')
-        <img src="{{ asset('/img/banner.jpg') }}" >
+        <img src="{{ asset('img/portadas/premiacion.jpg') }}" >
     @endsection
 
     <section class="section">
         <div class="container">
             <div class="columns">
                 <div class="column is-8">
-                    <h2 class="title is-size-3-desktop">Criterios de premiación</h2>
+                    <h2 class="title is-size-3-desktop">CRITERIOS DE PREMIACIÓN</h2>
                     <p class="subtitle">
                         Para el mejor funcionamiento y manejo del modelo las mesas de cada 
                         comité de TECMIMUN 2019 evaluaran la participación y desempeño de cada 
@@ -28,10 +28,29 @@
         </div>
     </section>
 
-    <section class="hero content">
-        <div class="title-hero has-text-centered">
-            <h1 class="title is-size-5-mobile">Imagen criterio de premiacion</h1>
-        </div>
-        <img src="{{ asset('/img/banner.jpg') }}" >
-    </section>
+    <section class="section">
+            <div class="container">
+        
+                <div class="columns is-centered">
+                    <div class="column is-4" >
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-128x128">
+                                    <img src="{{ asset('archivos/premiacion.png') }}">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <p>
+                                    <strong>Criterios de premiación</strong> 
+                                    <br>
+                                    <br>
+                                    <a href="{{ url('archivos/Criterios_de_premiacion.pdf') }}" target="_blank" class="button is-success is-rounded is-outlined">Ver</a>
+                                    <a href="{{ url('archivos/Criterios_de_premiacion.pdf') }}" download="" class="button is-success is-rounded is-outlined">Descargar</a>
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section> 
 @endsection

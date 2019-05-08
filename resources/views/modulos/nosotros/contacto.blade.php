@@ -4,16 +4,16 @@
 
 @section('body')
 
-  @section('contenido-navbar')
+@section('contenido-navbar')
     <section class="hero is-primary">
         <div class="hero-body">
             <div class="hero-container">
-                <span class="title">Contacto</span>
+                <span class="title">CONTACTO</span>
                 
             </div>
         </div>
     </section>
-  @endsection
+@endsection
 
 <section class="section">
     <div class="container">
@@ -44,7 +44,7 @@
         </div>
     </div>
 
-  </section>
+</section>
 @endsection
 
 @section('scripts')

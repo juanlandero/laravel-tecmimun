@@ -15,7 +15,7 @@
     @show
 </head>
 <body>
-    <section class="hero content">
+    <section class="hero ">
         <div style="position:absolute; right: 5%; top:25px; color: brown" class="has-text-green">
             @include('modulos.plantilla.navbar')
         </div>

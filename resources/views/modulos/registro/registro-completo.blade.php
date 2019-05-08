@@ -17,7 +17,7 @@
         <div class="column is-12">
             <div class="columns has-text-centered">
                 <div class="column">
-                    <h1 class="title is-size-2-desktop">Ingresa tus datos</h1>
+                    <h1 class="title is-size-2-desktop">Ingresa tus <span class="has-text-success">datos</span></h1>
                 </div>
             </div>
 
@@ -139,16 +139,16 @@
                     
                             </ul>
                 
-                            <!--a style="position: absolute;top: 70%; margin-left: 23%" href="#" class="button is-success is-outlined" uk-slider-item="previous">
-                                <i class="fas fa-chevron-left"></i>
-                            </a-->
                             <div class="columns is-mobile" style="padding-top: 30px;">
-                                    <div class="column has-text-centered">
-                                        <a style="" href="#" class="button is-primary is-outlined" uk-slider-item="next">
-                                            <i class="fas fa-check"></i>
-                                        </a>
-                                    </div>
+                                <div class="column has-text-centered">
+                                    <a href="#" class="button is-success is-outlined" uk-slider-item="previous">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </a>
+                                    <a style="" href="#" class="button is-success is-outlined" uk-slider-item="next">
+                                        <i class="fas fa-check"></i>
+                                    </a>
                                 </div>
+                            </div>
                 
                         </div>
                     </div> 

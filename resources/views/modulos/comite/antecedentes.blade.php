@@ -22,9 +22,7 @@
     <div class="columns is-vcentered has-text-centered" style="height: 100%">
         <div class="column">
             <p>
-                <div style="position:absolute; right: 5%; top:25px" class="has-text-green">
-                    @include('plantilla.secondNavbar')
-                </div> 
+                
                 <h1 class="title is-size-3-desktop">Modelo de las Naciones Unidas</h1>
                 <h1 class="title is-size-3-desktop">
                     Universidad Tecmilenio (Campus Villahermosa)

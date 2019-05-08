@@ -28,9 +28,9 @@ class ResponsableController extends Controller
                     ->get();
 
         if ($alumnos->count() != 0) {
-            return view('responsable.index', ['resultado' => true, 'texto' => $alumnos]);
+            return view('modulos.advisor.index', ['resultado' => true, 'texto' => $alumnos]);
         }else{
-            return view('responsable.index', ['resultado' => false, 'texto' => 'No hay alumnos registrados aun...']);
+            return view('modulos.advisor.index', ['resultado' => false, 'texto' => 'No hay alumnos registrados aun...']);
         }
 
         //return $r;
