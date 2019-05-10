@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="column is-1-desktop">
-                <a class="button is-white is-outlined">
+                <a class="button is-white is-outlined" href="mailto:tecmimunvhsa@gmail.com?subject=IndexMail">
                     <span class="icon is-medium">
                         <i class="fas fa-envelope fa-lg"></i>
                     </span>

@@ -44,56 +44,59 @@ class RegistroController extends Controller
     }
 
     public function verificarCodigo(Request $request){
-
-        $hasCodigo = $request->input('codigo');
+        $hasCodigo = "";
+        $hasCodigo .= $request->input('codigo');
 
         if ($hasCodigo != null) {
             $alumno_datos = DB::table('alumnos')->where('codigo', $hasCodigo)->first();
             
-            if ($alumno_datos != null) {
+            if ($alumno_datos != null && $alumno_datos->nombre == "") {
+                session()->flash('hasCodigo', $hasCodigo);
                 return [
                     'resultado' => true,
-                    'texto' => 'nuevo/'.$alumno_datos->codigo,
+                    'texto' => 'finalizar/'.$hasCodigo,
                     'alumno'=> $alumno_datos
                 ];
             }else{
                 return [
                     'resultado' => false,
-                    'texto' => 'El código no es valido'
+                    'texto' => 'El código no es válido'
                 ];
             }
         }else{
             return [
                 'resultado' => false,
-                'texto'=>'Debe introducir un código.'
+                'texto'=>'Debes introducir un código.'
             ];
         }
     }
 
-    public function confirmarRegistro($codigo){
-        $alumnos = DB::table('alumnos')
-                    ->join('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
-                    ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
-                    ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
-                    ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-                    ->select(
-                        'alumnos.id',
-                        'alumnos.pk_escuelas',
-                        'alumnos.codigo',
-                        'escuelas.nombre as escuela',
-                        'paiscomites.pk_comite',
-                        'comites.nombre as comite',
-                        'paiscomites.pk_pais',
-                        'pais.nombre as pais'
-                        )
-                    ->where([
-                        ['alumnos.codigo', $codigo]
-                    ])
-                    ->first();
-        if ($alumnos) {
+    public function finalizarRegistro($codigo){
+
+        if (session('hasCodigo') == $codigo) {
+            $alumnos = DB::table('alumnos')
+                ->join('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+                ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+                ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+                ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+                ->select(
+                    'alumnos.id',
+                    'alumnos.pk_escuelas',
+                    'alumnos.codigo',
+                    'escuelas.nombre as escuela',
+                    'paiscomites.pk_comite',
+                    'comites.nombre as comite',
+                    'paiscomites.pk_pais',
+                    'pais.nombre as pais'
+                    )
+                ->where([
+                    ['alumnos.codigo', $codigo]
+                ])
+                ->first();
+
             return view("modulos.registro.registro-completo", ['d'=>$alumnos]);
         }else{
-            return 'Verifica tu código';
+            return redirect()->route('modulo.codigo');
         }
         
     }
@@ -157,6 +160,7 @@ class RegistroController extends Controller
             ->select(
                 'alumnos.id',
                 'alumnos.nombre',
+                'alumnos.mail as email',
                 'alumnos.pk_escuelas',
                 'alumnos.codigo',
                 'escuelas.nombre as escuela',
@@ -166,9 +170,34 @@ class RegistroController extends Controller
             ->where('alumnos.codigo', $codigo)
             ->first();
 
-        //Mail::to($request->input('email'))->send(new Alumnos($alumno));
 
         return view('modulos.registro.confirmacion', ['alumno'=>$alumno]);
+    }
+
+    public function sendMail(Request $r){
+        $codigo = $r->input('codigo');
+        $alumno = DB::table('alumnos')
+            ->join('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+            ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+            ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+            ->select(
+                'alumnos.id',
+                'alumnos.nombre',
+                'alumnos.mail as email',
+                'alumnos.pk_escuelas',
+                'alumnos.codigo',
+                'escuelas.nombre as escuela',
+                'comites.nombre as comite',
+                'pais.nombre as pais'
+                )
+            ->where('alumnos.codigo', $codigo)
+            ->first();
+
+
+       Mail::to($r->input('email'))->send(new Alumnos($alumno));
+                
+        return redirect()->route('index');
     }
 
     public function costos(){

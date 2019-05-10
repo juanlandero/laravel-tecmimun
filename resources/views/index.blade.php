@@ -29,14 +29,23 @@
            
             <div class="column is-8-desktop" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
                 
-                <p class="subtitle is-size-4-desktop has-text-black">
-                    Queridos delegados, organizadores y advisors asistentes a TECMIMUN 2019 – Campus Villahermosa.
+                <p class="subtitle is-size-4-desktop has-text-justified has-text-black">
+                    Queridos delegados, organizadores y faculties asistentes a TECMIMUN 2019 – 
+                    Campus Villahermosa.
                 </p>
-                <p class="subtitle is-size-4-desktop has-text-black">
-                    Es todo un honor para mí dirigirme a ustedes como la primera Secretaria General del Modelo de las Naciones Unidas de la Universidad Tecmilenio. Mi nombre es Mónica Danaé Juárez López y me siento entusiasmada de ser parte del Comité Organizador de la Primera Edición de TECMIMUN, el cuál se llevará acabo los días 24 y 25 de mayo, 2019.
+                <p class="subtitle is-size-4-desktop has-text-justified has-text-black">
+                    Es todo un honor para mí dirigirme a ustedes como la primera Secretaria General 
+                    del Modelo de las Naciones Unidas de la Universidad Tecmilenio. Me siento entusiasmada 
+                    de ser parte del Comité Organizador de la Primera Edición de TECMIMUN, el cuál se llevará 
+                    acabo los días 24 y 25 de mayo, 2019.
                 </p>
-                <p class="subtitle is-size-4-desktop has-text-black">
-                    Todo comenzó como iniciativa de cinco alumnos con el sueño de formar parte de la red de Modelos de Naciones Unidas en el estado de Tabasco y ser parte del desarrollo de habilidades de los jóvenes de hoy. Buscamos el apoyo de nuestro Campus y de tal manera, formar el comité organizador. Dicho comité se caracteriza por el entusiasmo, creatividad, compromiso, responsabilidad, el ser proactivos y sobre todo la pasión que cada uno de nosotros tiene por este proyecto que hoy es una realidad.
+                <p class="subtitle is-size-4-desktop has-text-justified has-text-black">
+                    Todo comenzó como iniciativa de cinco alumnos con el sueño de formar parte de la red
+                     de Modelos de Naciones Unidas en el estado de Tabasco y ser parte del desarrollo de
+                      habilidades de los jóvenes de hoy. Buscamos el apoyo de nuestro Campus y de tal manera,
+                       formar el comité organizador. Dicho comité se caracteriza por el entusiasmo, 
+                       creatividad, compromiso, responsabilidad, el ser proactivos y sobre todo la pasión
+                        que cada uno de nosotros tiene por este proyecto que hoy es una realidad.
                 </p>
                 
             </div>
@@ -47,11 +56,21 @@
         </div>
         <div class="columns" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
             <div class="column">
-                <p class="subtitle is-size-4-desktop has-text-black">
-                    Con este modelo desarrollarás diversas habilidades entre las cuales destaca el poder solucionar problemáticas que observamos día a día, administración del tiempo y planeación, dominio de la situación, mejorar nuestras relaciones al interactuar con jóvenes con quienes no convivimos regularmente y conocer cada vez más acerca de lo que sucede a nuestro alrededor y como estas acciones repercuten en nosotros.
+                <p class="subtitle is-size-4-desktop has-text-justified has-text-black">
+                    Con este modelo desarrollarás diversas habilidades entre las cuales destaca 
+                    el poder solucionar problemáticas que observamos día a día, administración del 
+                    tiempo y planeación, dominio de la situación, mejorar nuestras relaciones al 
+                    interactuar con jóvenes con quienes no convivimos regularmente y conocer cada 
+                    vez más acerca de lo que sucede a nuestro alrededor y como estas acciones repercuten en nosotros.
+
                 </p>
-                <p class="subtitle is-size-4-desktop has-text-black">
-                    Para finalizar, me gustaría reiterar la alegría que me genera el que ustedes formen parte de esta historia que apenas comienza, y recuerden; “Sólo existen dos días en el año en que no se puede hacer nada. Uno se llama ayer y otro mañana. Por lo tanto, hoy es el día ideal para amar, crecer, hacer y principalmente vivir”. (Dalai Lama).
+                <p class="subtitle is-size-4-desktop has-text-justified has-text-black">
+                    Para finalizar, me gustaría reiterar la alegría que me genera el que ustedes formen
+                     parte de esta historia que apenas comienza, y recuerden; “Sólo existen dos días en 
+                     el año en que no se puede hacer nada. Uno se llama ayer y otro mañana. Por lo tanto,
+                      hoy es el día ideal para amar, crecer, hacer y principalmente vivir”. (Dalai Lama) 
+                      Por lo tanto, hoy es el día ideal para formar parte de TECMIMUN 2019.
+
                 </p>
             </div>
         </div>
@@ -89,7 +108,7 @@
         <div class="columns has-text-centered">
             <div class="column">
                 <span class="subtitle">
-                    Sólo si te han propocionado el usuraio para que inicies sesión
+                    Sólo si te han propocionado el usuario para que accedas a tu sesión.
                 </span>
             </div>
         </div>
@@ -102,64 +121,6 @@
     <br><br><br>
     <br><br>          
 </section>
-
-<!-- otras secciones>
-<section class="section" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
-    <div class="container">
-        <div class="is-hidden-mobile"><br><br></div>
-        <div class="columns is-vcentered">
-            <div class="column" style="background-color: darekblue">
-                <span class="image is-96x96 box has-text-primary" style="border: solid; border-radius: 50%; margin:auto">
-                    <i class="fas fa-users fa-3x"></i>
-                </span>
-            </div>
-            <div class="column">
-                <h1 class="title is-size-2-desktop has-text-primary">SECRETARIADO</h1>
-                <hr><br>
-                <button class="button is-rounded is-success is-outlined">Conocenos</button>
-            </div>
-        </div>
-        <div class="is-hidden-mobile"><br><br></div>
-    </div>
-</section>
-
-<section class="section" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
-    <div class="container">
-        <div class="is-hidden-mobile"><br><br></div>
-        <div class="columns is-vcentered has-text-right" style="background-color:">
-            <div class="column">
-                <h1 class="title is-size-2-desktop has-text-primary">COMITÉS</h1>
-                <hr><br>
-                <button class="button  is-rounded is-success is-outlined">Conocenos</button>
-            </div>
-            <div class="column has-text-centered">
-                <span class="image is-96x96 box has-text-primary" style="border: solid; border-radius: 50%; margin:auto">
-                    <i class="fas fa-atlas fa-3x"></i>
-                </span>
-            </div>
-        </div>
-        <div class="is-hidden-mobile"><br><br></div>
-    </div>
-</section>
-
-<section class="section" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
-    <div class="container">
-        <div class="is-hidden-mobile"><br><br></div>
-        <div class="columns is-vcentered">
-            <div class="column has-text-centered">
-                <span class="image is-96x96 box has-text-primary" style="border:solid; border-radius: 50%; margin:auto">
-                    <i class="fas fa-clipboard-check fa-3x"></i>
-                </span>
-            </div>
-            <div class="column">
-                <h1 class="title is-size-2-desktop has-text-primary">REGISTRO</h1>
-                <hr><br>
-                <button class="button is-rounded is-success is-outlined">Registrate</button>
-            </div>
-        </div>
-        <div class="is-hidden-mobile"><br><br></div>
-    </div>
-</section-->
 
 
 <section class="section" uk-scrollspy="cls: uk-animation-fade; repeat: false; delay: 700">
@@ -182,7 +143,7 @@
             <i class="fas fa-clipboard-check fa-3x has-text-success" style="margin-bottom: 15px"></i>
             <h1 class="title is-size-3-desktop has-text-primary">REGISTRO</h1>
             <hr>
-            <a href="{{ route('modulo.registro') }}" class="button is-rounded is-success is-outlined">Registrate</a>
+            <a href="{{ route('modulo.codigo') }}" class="button is-rounded is-success is-outlined">Registrate</a>
         </div>
     </div>
 </section>

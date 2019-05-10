@@ -13,9 +13,9 @@
             <div class="columns">
                 <div class="column is-8">
                     <h2 class="title is-size-3-desktop">CRITERIOS DE PREMIACIÓN</h2>
-                    <p class="subtitle">
-                        Para el mejor funcionamiento y manejo del modelo las mesas de cada 
-                        comité de TECMIMUN 2019 evaluaran la participación y desempeño de cada 
+                    <p class="subtitle has-text-justified">
+                        Para el mejor funcionamiento y manejo del modelo, las mesas de cada 
+                        comité de TECMIMUN 2019 evaluarán la participación y desempeño de cada 
                         delegación basados en los siguientes criterios:
                     </p>
                 </div>

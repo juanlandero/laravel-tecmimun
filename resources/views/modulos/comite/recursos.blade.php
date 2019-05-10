@@ -14,7 +14,7 @@
         <div class="columns">
             <div class="column is-8">
                 <h2 class="title is-size-3-desktop">RECURSOS DE APOYO</h2>
-                <p class="subtitle">
+                <p class="subtitle has-text-justified">
                     Recursos útiles para la preparación y el correcto desarrollo del delegado 
                     para el buen funcionamiento del debate.
                 </p>

@@ -18,7 +18,6 @@
             </div>
         
             <div class="navbar-end">
-                <!--a class="navbar-item" href="{{-- route('index') --}}" >Inicio</a-->
                 <a class="navbar-item" onclick="toggleModal('#modal_login')">Iniciar sesión</a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Acerca</a>
@@ -32,13 +31,13 @@
                     <a class="navbar-link">Registro</a>
                     <div class="navbar-dropdown is-right">
                         <a class="navbar-item" href="{{ route('modulo.registro') }}">Como registrarse</a>
+                        <a class="navbar-item" href="{{ route('modulo.codigo') }}">Registrarme</a>
                         <a class="navbar-item" href="{{ route('modulo.costos') }}">Fechas y Costos</a>
                     </div>
                 </div> 
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Comites</a>
                     <div class="navbar-dropdown is-right">
-                        <a class="navbar-item" href="{{ route('index.comites') }}">Información de comités</a>
                         <a class="navbar-item" href="{{ route('modulo.premiacion') }}">Criterios de premiación</a>
                         <a class="navbar-item" href="{{ route('modulo.antecedentes') }}">Antecedentes</a>
                         <a class="navbar-item" href="{{ route('modulo.posiciones-oficiales') }}">Posiciones oficiales</a>                            

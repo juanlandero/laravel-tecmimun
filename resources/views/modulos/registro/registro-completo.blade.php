@@ -6,8 +6,7 @@
 <div style="position:absolute; right: 5%; top:25px; z-index: 10; color: white" class="has-text-green">
     @include('modulos.plantilla.navbar')
 </div>
-
-    <form action="{{ route('Confirmacion') }}" method="post" class="columns is-mobile is-multiline is-vcentered is-centered" style="height: 100%">
+    <form action="{{ route('Confirmacion') }}" method="post" class="columns is-mobile is-multiline is-vcentered is-centered" style="height: calc(100% - 54.5px)">
         @csrf
         @if (isset($d))
             <input type="hidden" name="codigo" value="{{ $d->codigo }}"> 
@@ -28,40 +27,42 @@
                   
                     <div uk-slider="center: true; finite:true; draggable: false" style="height: 100%">
                         <div class="uk-slider-container" style="height: 100%">
-                
-                                
+                       
                             <ul class="uk-slider-items" style="height: 100%;">
                                 
                                 <li style="width: 100%">
                                     <div class="columns is-centered is-mobile" style="padding-top: 20px;">
-                                        <div class="column is-9-desktop is-10-mobile">
-                                            <input class="input is-rounded is-primary campos" type="text" name="nombre" placeholder="Nombre completo" maxlength="40" id="nombre" autocomplete="off" required>
-                                        </div>
-                                    </div>
-                                </li>
-
-
-                                <li style="width: 100%">
-                                    <div class="columns is-centered is-mobile" style="padding-top: 20px;">
-                                        <div class="column is-5-desktop is-9-mobile">
-                                            <input class="input is-rounded is-primary campos" type="number" name="edad" id="edad" max="30" min="10" placeholder="Edad" required>
+                                        <div class="column is-9-desktop is-10-tablet is-10-mobile has-text-centered">
+                                            <label for="nombre">NOMBRE COMPLETO</label>
+                                            <input class="input is-primary is-rounded is-medium campos" id="nombre" type="text" name="nombre" maxlength="45" id="nombre" autocomplete="off" required>
                                         </div>
                                     </div>
                                 </li>
 
                                 <li style="width: 100%">
                                     <div class="columns is-centered is-mobile" style="padding-top: 20px;">
-                                        <div class="column is-9-desktop is-10-mobile">
-                                            <input class="input is-rounded is-primary campos" type="email" name="email" autocomplete="off" placeholder="E-mail" required>
+                                        <div class="column is-5-desktop is-9-mobile is-9-tablet has-text-centered">
+                                            <label for="edad">EDAD</label>
+                                            <input class="input is-primary is-rounded is-medium campos" type="number" name="edad" id="edad" max="30" min="10" required>
                                         </div>
                                     </div>
                                 </li>
 
                                 <li style="width: 100%">
                                     <div class="columns is-centered is-mobile" style="padding-top: 20px;">
-                                        <div class="column is-9-desktop is-10-mobile">
+                                        <div class="column is-9-desktop is-10-tablet is-10-mobile has-text-centered">
+                                            <label for="email">CORREO ELECTRÓNICO</label>
+                                            <input class="input is-primary is-rounded is-medium campos" type="email" name="email" id="email" autocomplete="off" required>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li style="width: 100%">
+                                    <div class="columns is-centered is-mobile" style="padding-top: 20px;">
+                                        <div class="column is-9-desktop is-10-tablet is-10-mobile has-text-centered">
+                                            <label for="escuela">ESCUELA</label>
                                             <div class="control has-icons-left is-expanded">
-                                                <div id="escuela" class="select is-rounded is-fullwidth">
+                                                <div id="escuela" class="select is-medium is-primary is-rounded is-fullwidth">
                                                     
                                                     <select name="id_escuela">
                                                         @if (isset($d))
@@ -85,9 +86,11 @@
 
                                 <li style="width: 100%">
                                     <div class="columns is-centered is-mobile" style="padding-top: 20px;">
-                                        <div class="column is-9-desktop is-10-mobile">
+                                        <div class="column is-9-desktop is-10-tablet is-10-mobile has-text-centered">
+                                            <label for="comite">COMITÉ</label>
                                             <div class="control has-icons-left is-expanded">
-                                                <div class="select is-rounded is-fullwidth">
+                                                <div class="select is-medium is-primary is-rounded is-fullwidth">
+
                                                     <select id="comite" name="id_comite">
                                                         @if (isset($d))
                                                             <option value="{{ $d->pk_comite }}" disable>{{ $d->comite }}</option>
@@ -110,18 +113,19 @@
                                 </li>
                                 <li style="width: 100%">
                                     <div class="columns is-centered is-mobile" style="padding-top: 20px;">
-                                        <div class="column is-9-desktop is-10-mobile">
+                                        <div class="column is-9-desktop is-10-tablet is-10-mobile has-text-centered">
+                                            <label for="pais">PAÍS</label>
                                             <div class="control has-icons-left is-expanded">
-                                                <div class="select is-rounded is-fullwidth">
+                                                <div class="select is-medium is-primary is-rounded is-fullwidth">
                                     
                                                     <select name="id_pais" id="pais">
                                                         @if (isset($d))
                                                             <option value="{{ $d->pk_pais }}">{{ $d->pais }}</option> 
                                                         @else
                                                             <option value="0"  selected> Selecciona tu País </option> 
-                                                        @endif                                
-                                                                
+                                                        @endif                                    
                                                     </select>
+
                                                 </div>
                                                 <div class="icon is-small is-left">
                                                     <i class="fas fa-flag"></i>
@@ -132,10 +136,10 @@
                                 </li>
 
                                 <li style="width: 100%">
-                                        <div class="columns is-centered is-mobile" style="padding-top: 20px;">
-                                            <button type="submit" class="button is-success is-outlined is-rounded">Enviar</button>
-                                        </div>
-                                    </li>
+                                    <div class="columns is-centered is-mobile" style="padding-top: 20px;">
+                                        <button type="submit" class="button is-primary is-outlined is-rounded">GUARDAR DATOS</button>
+                                    </div>
+                                </li>
                     
                             </ul>
                 
@@ -160,10 +164,10 @@
 
         </div>
 
-
     </form>
 
-<!--/div-->
+    @include('modulos.plantilla.footer')
+
 @endsection 
 
 @section('css')

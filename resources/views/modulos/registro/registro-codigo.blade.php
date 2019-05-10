@@ -1,62 +1,58 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tecmimun | Registro</title>
-    <link rel="stylesheet" href="{{ asset('css/bulma.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/icon/all.css') }}">
+@extends('modulos.plantilla.main-full')
+
+@section('titulo', 'Registro')
+
+@section('body')
+
+<section class="section" style="height: 100%">
+        <div class="container" style="height: 100%" >
+    
+            <div class="columns is-mobile is-multiline is-centered is-vcentered" style="height: 100%">
+    
+                <div class="column is-12-mobile has-text-centered is-marginless">
+                    <div class="columns is-centered is-mobile">
+                        <div class="column is-6">
+                            <img src="{{ asset('img/logo/logo.png') }}">
+                        </div>
+                    </div>
+                    <p class="title is-size-1-desktop has-text-success">Bienvenido</p>
+                </div>
+                
+                <div class="column is-12-mobile has-text-centered">
+                    <p class="subtitle has-text-primary">Ingresa tu código para registrarte</p>
+                    <form method="post" id="codigo" class="columns is-centered">
+                        @csrf
+
+                        <div class="columns">
+                            <div class="column is-12-mobile is-10-tablet is-10-desktop">
+                                <input class="input is-medium is-primary is-rounded campos" name="codigo" id="codigo" type="text" autocomplete="off" maxlength="10">
+                            </div>
+                            <div class="column is-2-desktop">
+                                <button class="button is-primary is-rounded is-medium is-outlined" type="submit">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </section>
+    
+      
+@endsection
+
+@section('css')
     <link rel="stylesheet" href="{{ asset('css/ui-kit.css') }}">
     <style>
-    body, html, section{
-        margin: 0px;
-        height: 100%;
-    }
-    #codigo {
+    .campos{
         text-align: center;
-        background-color: transparent;
-        color: #78a42e;
     }
     </style>
-</head>
-<body>
- 
+@endsection
 
-<section class="section">
-    <div class="container">
-
-        <div class="columns is-mobile is-centered is-vcentered" style="height: 500px;">
-
-            <div class="column is-6-desktop is-10-mobile has-text-centered">
-                
-                <img src="{{ asset('img/logo/logo.png') }}" width="40%">
-                <p class="title is-size-1-desktop has-text-success">Bienvenido</p>
-  
-                <form method="post" id="codigo" class="columns is-centered">
-                    @csrf
-                    <div class="column is-12-mobile is-8-desktop">
-                        <input class="input is-large is-primary is-rounded" name="codigo" id="codigo" type="text" autocomplete="off" maxlength="10" required>
-                    </div>
-                    <div class="column is-4-desktop">
-                        <button class="button is-primary is-rounded is-large is-outlined" type="submit">
-                            <span class="icon is-small">
-                                <i class="fas fa-check"></i>
-                            </span>
-                            <span>Confirmar</span>
-                        </button>
-                    </div>
-                </form>
-                
-            </div>
-        </div>  
-    </div>
-</section>
-
-
-
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/ajax.js') }}"></script>
-<script src="{{ asset('js/slider-uikit/uikit.js') }}"></script>
-</body>
-</html>
+@section('scripts')
+    <script type="text/javascript" src="{{ asset('js/slider-uikit/uikit.js') }}"></script> 
+    <script src="{{ asset('js/modulos/registro-confirmacion.js') }}"></script>
+@endsection

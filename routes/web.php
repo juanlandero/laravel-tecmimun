@@ -13,15 +13,17 @@ Route::group([ 'prefix' => 'acerca-de' ], function () {
 Route::group([ 'prefix' => 'registro' ], function () {
 
     Route::get('/', 'RegistroController@registro')->name('modulo.registro');
-    Route::get('/completo', 'RegistroController@completo')->name('modulo.completo');
+    //Route::get('/completo', 'RegistroController@completo')->name('modulo.completo');
     Route::get('/getPaises', 'RegistroController@getPaises');
     
     
     Route::get('/codigo', 'RegistroController@registrarCodigo')->name('modulo.codigo');
     Route::post('/verificacion', 'RegistroController@verificarCodigo');
-    Route::get('/nuevo/{id}', 'RegistroController@confirmarRegistro');
+    Route::get('/finalizar/{id}', 'RegistroController@finalizarRegistro');
 
     Route::post('/confirmar', 'RegistroController@guardarAlumno')->name('Confirmacion');
+
+    Route::get('/email', 'RegistroController@sendMail')->name('modulo.email');
     
     Route::get('/costos', 'RegistroController@costos')->name('modulo.costos');
 });
@@ -32,6 +34,7 @@ Route::group([ 'prefix' => 'comites' ], function () {
     Route::get('/', 'ComiteController@index')->name('index.comites');
     Route::get('/criterios', 'ComiteController@premiacion')->name('modulo.premiacion');
     Route::get('/antecedentes', 'ComiteController@antecedentes')->name('modulo.antecedentes');
+    Route::get('/verificacion', 'ComiteController@verificacion');
     Route::get('/posiciones-oficiales', 'ComiteController@posiciones')->name('modulo.posiciones-oficiales');
     Route::get('/recursos', 'ComiteController@recursos')->name('modulo.recursos-apoyo');
 });
@@ -110,7 +113,7 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 //Ruta temporal
 Route::get('mail', function () {
-    return new App\Mail\Responsable();
+    return new App\Mail\Alumnos();
 });
 
 Route::get('/prueba', function(){

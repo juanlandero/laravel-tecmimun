@@ -7,7 +7,6 @@
     <div style="position:absolute; right: 5%; top:25px; z-index: 10; color: white" class="has-text-green">
         @include('modulos.plantilla.navbar')
     </div>
-
     <div uk-slider="center: true; finite:true" style="height: 100%;" class="is-gradient-blue">
         <div class="uk-slider-container" style="height: 100%">
 
@@ -73,7 +72,7 @@
                             <div class="columns is-vcentered is-centered">
                                 <div class="column is-5">
                                     <p class="subtitle is-5 is-size-4-desktop has-text-white">
-                                        Debes registrar todos tus datos, los cuales será requeridos por medio de un formulario.
+                                        Debes registrar todos tus datos, los cuales serán requeridos por medio de un formulario.
                                         Si eres delegado independiente esta es la opción correcta.
                                     </p>
                                 </div>
@@ -112,7 +111,7 @@
                                 <div class="column is-5">
                                     <p class="subtitle is-5 is-size-4-desktop has-text-white">
                                         Un pre-registro indica que ya se ha iniciado un registro por parte de tu coordinador, 
-                                        cual te proporcionará un código para que puedas finalizar y confirmar todos tus datos.
+                                        el cual te proporcionará un código para que puedas finalizar y confirmar todos tus datos.
                                     </p>
                                 </div>
                     
@@ -196,7 +195,7 @@
                                         </span>
                                         Otras</p>
                                     <p class="subtitle is-size-4-desktop has-text-white">
-                                        Debes tomar encuenta que todos tus datos será usados para mejorar tu experiencia en este MUN, por lo que debes procurar no comerter errores
+                                        Debes tomar en cuenta que todos tus datos serán usados para mejorar tu experiencia en este MUN, por lo que debes procurar no cometer errores
                                         al registrarte, de ser así, envianos un correo electrónico.
                                     </p>
                                 </div>
@@ -266,23 +265,23 @@
                 </li>
 
                 <li style="width: 100%">
-                        <div class="columns is-vcentered is-centered" style="height: 100%;">
-                            <div class="is-hidden-desktop"><br><br><br><br><br></div>
-                            <div class="column has-text-centered" >
-                                <p class="title is-size-1-desktop has-text-success">¿List@ para registrarte?</p>
-                                <br><br>
-                                <div class="columns has-text-centered is-centered">
-                                        <div class="column is-3">
-                                            <a href="{{ route('modulo.completo') }}" class="button is-white is-rounsded is-outlined is-large">Registro completo</a>
-                                        </div>
-                                        <div class="column is-3">
-                                            <a href="{{ route('modulo.codigo') }}" class="button is-white is-roundesd is-outlined is-large">Tengo un código</a>
-                                        </div>
+                    <div class="columns is-vcentered is-centered" style="height: 100%;">
+                        <div class="is-hidden-desktop"><br><br><br><br><br></div>
+                        <div class="column has-text-centered" >
+                            <p class="title is-size-1-desktop has-text-success">¿List@ para registrarte?</p>
+                            <br><br>
+                            <div class="columns has-text-centered is-centered">
+                                    <!--div class="column is-3">
+                                        <a href="{{-- route('modulo.completo') --}}" class="button is-white is-rounsded is-outlined is-large">Registro completo</a>
+                                    </div-->
+                                    <div class="column is-3">
+                                        <a href="{{ route('modulo.codigo') }}" class="button is-white is-roundesd is-outlined is-large">Registrarme</a>
                                     </div>
+                                </div>
 
-                            </div>
-                        </div>  
-                    </li>
+                        </div>
+                    </div>  
+                </li>
     
             </ul>
 

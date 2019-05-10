@@ -206,7 +206,7 @@ class AdminController extends Controller
                     break;
                 default:
                     $return = false;
-                    $query = [ array( 'texto' => 'El criterio de búsqueda: '.$clave.' no es valido. ' ) ];
+                    $query = [ array( 'texto' => 'El criterio de búsqueda: '.$clave.' no es válido. ' ) ];
                     $columna = [
                         array( 'field' => 'texto', 'title' => 'RESULTADO','align' => 'center' )
                     ];

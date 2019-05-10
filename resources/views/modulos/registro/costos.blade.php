@@ -24,7 +24,7 @@
                         <p class="has-text-success"><i class="fas fa-calendar-day fa-3x"></i></p>
                         <strong class="has-text-success">Fechas</strong>
                         <br><br><br><br>
-                        <p class="subtitle has-text-primary">
+                        <p class="subtitle has-text-justified has-text-primary">
                             El modelo de las Naciones Unidas de la Universidad Tecmilenio Campus 
                             Villahermosa, TECMIMUN2019, será llevado a cabo los días <span class="tag is-primary">viernes 24</span> y 
                             <span class="tag is-primary">sábado 25</span> de mayo del presente año.
@@ -47,7 +47,7 @@
                         <p class="has-text-success"><i class="fas fa-money-check-alt fa-3x"></i></p>
                         <strong class="has-text-success">Costos</strong>
                         <br><br><br><br>
-                        <p class="subtitle has-text-primary">
+                        <p class="subtitle has-text-justified has-text-primary">
                             TECMIMUN2019 contará con un costo de remuneración de <span class="tag is-primary">$350.00</span> (trescientos 
                             cincuenta pesos 00/100 M.N.) por delegado, que incluirá el paquete de delegado 
                             y los alimentos en el horario indicado.

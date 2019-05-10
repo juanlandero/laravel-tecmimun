@@ -25,7 +25,7 @@
                             <i class="fas fa-file-excel" style="margin-right: 10px;"></i>Descargar tabla
                         </a>
                     @endif
-                    <a href="http://chat.tecmimun.com" class="navbar-item"><i class="fas fa-comment" style="margin-right: 10px;"></i>Ver chat</a>
+                    <!--a href="http://chat.tecmimun.com" class="navbar-item"><i class="fas fa-comment" style="margin-right: 10px;"></i>Ver chat</a-->
                     <a class="navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">Cerrar sesión<i class="fas fa-sign-out-alt" style="margin-left: 10px;"></i></a>
             </div>
