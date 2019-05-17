@@ -20,7 +20,7 @@ class ResponsableController extends Controller
                     ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
                     ->select('alumnos.id',
                             'alumnos.nombre as alumno',
-                            'alumnos.codigo',
+                            'alumnos.mail',
                             'pais.nombre as pais',
                             'escuelas.nombre as escuela',
                             'comites.nombre as comite')

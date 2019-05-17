@@ -20,7 +20,6 @@
                     </p>
                 </div>
         
-        
                 <div class="column is-4">
                     @include('modulos.plantilla.menu-derecho')
                 </div>     

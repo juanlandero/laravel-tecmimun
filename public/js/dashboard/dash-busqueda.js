@@ -25,7 +25,6 @@ $('form#buscar').submit(function(e){
             columns: dato.columna,
             data: dato.dato
         });
-       
 
         console.log(dato);
         div_instru.remove();
@@ -38,3 +37,36 @@ $('form#buscar').submit(function(e){
     });
 });
     
+
+function sendMailAdmin(correo, codigo, id){
+
+    var btn_id = $(id)
+    btn_id.addClass('is-loading')
+
+    var busqueda = {
+        email: correo,
+        codigo: codigo,
+        isAdmin: 1
+    }
+
+    $.ajax({
+        url: 'registro/email/',
+        type: 'GET',
+        dataType: 'json',
+        data: busqueda
+    })
+    .done(function(dato){
+        UIkit.notification({
+            message: dato.texto,
+            status: dato.status,
+            pos: 'top-center',
+            timeout: 1500
+        });
+
+        btn_id.removeClass('is-loading');
+    })
+    .fail(function(dato){
+        btn_id.removeClass('is-loading');
+        alert('Error en el sistemas, comuniquese con el administrador.');
+    });
+}

@@ -4,7 +4,7 @@
 @section('titulo', 'Advisor')
 
 @section('body')
-<section style="height: 100%">
+<section style="height: calc(100% - 54px);">
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -34,39 +34,46 @@
             </form>
         </div>
     </nav>
-        
-        
-        <div class="section">
-            <div class="columns is-centered is-vcentered">
-                <div class="column is-10 has-text-centered">
-                    @if ($resultado)
-                        <table class="table is-fullwidth">
-                            <thead>
+          
+    <div class="section">
+        <div class="columns is-centered is-vcentered" >
+            <div class="column is-10 has-text-centered">
+                @if ($resultado)
+                    <table class="table is-fullwidth" data-toggle="table" data-search="true" style="font-size: 15px;">
+                        <thead>
+                            <tr>
+                                <th>ALUMNO</th>
+                                <th>E-MAIL</th>
+                                <th>PAÍS</th>
+                                <th>COMITÉ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($texto as $alumno)
                                 <tr>
-                                    <th>Alumno</th>
-                                    <th>Código</th>
-                                    <th>País</th>
-                                    <th>Comité</th>
+                                    <td>{{ $alumno->alumno }}</td>
+                                    <td>{{ $alumno->mail }}</td>
+                                    <td>{{ $alumno->pais }}</td>
+                                    <td>{{ $alumno->comite }}</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($texto as $alumno)
-                                    <tr>
-                                        <td>{{ $alumno->alumno }}</td>
-                                        <td>{{ $alumno->codigo }}</td>
-                                        <td>{{ $alumno->pais }}</td>
-                                        <td>{{ $alumno->comite }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    @else
-                        <p class="title is-size-3-desktop has-text-success">{{ $texto }}</p>
-                    @endif
-                </div>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <p class="title is-size-3-desktop has-text-success">{{ $texto }}</p>
+                @endif
             </div>
         </div>
-    
-        @include('modulos.plantilla.footer')
-    </section>
+        
+    </div>
+</section>
+
+
+@endsection
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('js/table/bootstrap-table.css') }}">
+@endsection
+@section('scripts')
+    <script src="{{ asset('js/table/bootstrap-table.js') }}"></script>    
 @endsection

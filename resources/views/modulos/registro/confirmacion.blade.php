@@ -4,7 +4,7 @@
 
 @section('body')
 
-<section class="" style="height: 100%">
+<section class="section" style="height: 100%">
 
     <div class="columns is-vcentered" style="height: 100%">
 
@@ -17,37 +17,37 @@
 
             <br>
 
-            <div class="columns">
-                <div class="column">
+            <div class="columns is-mobile is-centered">
+                <div class="column is-11">
                     <div class="container">
                         <div class="columns is-centered">
                             <div class="column is-2"><span class="has-text-primary is-size-4-desktop">NOMBRE</span></div>
-                            <div class="column is-5"><span class="has-text-success is-size-5-desktop">{{ $alumno->nombre }}</span></div>
+                            <div class="column is-5 has-text-centered-mobile"><span class="has-text-success is-size-5-desktop">{{ $alumno->nombre }}</span></div>
                         </div>
 
                         <div class="columns is-centered">
                             <div class="column is-2"><span class="has-text-primary is-size-4-desktop">E-MAIL</span></div>
-                            <div class="column is-5"><span class="has-text-success is-size-5-desktop">{{ $alumno->email }}</span></div>
+                            <div class="column is-5 has-text-centered-mobile"><span class="has-text-success is-size-5-desktop">{{ $alumno->email }}</span></div>
                         </div>
 
                         <div class="columns is-centered">
                             <div class="column is-2"><span class="has-text-primary is-size-4-desktop">COMITÉ</span></div>
-                            <div class="column is-5"><span class="has-text-success is-size-5-desktop">{{ $alumno->comite }}</span></div>
+                            <div class="column is-5 has-text-centered-mobile"><span class="has-text-success is-size-5-desktop">{{ $alumno->comite }}</span></div>
                         </div>
 
                         <div class="columns is-centered">
                             <div class="column is-2"><span class="has-text-primary is-size-4-desktop">DELEGACIÓN</span></div>
-                            <div class="column is-5"><span class="has-text-success is-size-5-desktop">{{ $alumno->pais }}</span></div>
+                            <div class="column is-5 has-text-centered-mobile"><span class="has-text-success is-size-5-desktop">{{ $alumno->pais }}</span></div>
                         </div>
                     </div>
                 </div>
             </div>
             <br>
-            <div class="columns is-centered">
-                <div class="column is-8">
+            <div class="columns is-mobile is-centered">
+                <div class="column is-8-desktop is-11-mobile is-10-tablet">
                     <p class="has-text-justify">En unos minutos enviaremos un e-mail a la dirección de 
-                        correo que has registrado. Busca el e-mail en la carpeta de spam o correos no deseado.</p>
-                    <p>Es muy importante que conserves la información contenida en el e-mail que recibirás, ya que te será útil el día del evento.</p>
+                        correo que has registrado. Busca el e-mail en la carpeta de spam o correos no deseado.</p><br>
+                    <p class="has-text-justify">Es muy importante que conserves la información contenida en el e-mail que recibirás, ya que te será útil el día del evento.</p>
                 </div>
             </div>
 

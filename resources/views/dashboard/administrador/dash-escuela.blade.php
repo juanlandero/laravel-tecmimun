@@ -20,28 +20,28 @@
                         <br>
                         <div class="columns has-text-centered is-mobile">
                             <div class="column">
-                                <a onclick="modalRegistros({{ $escuela->id }})" class="button is-primary is-outlined is-medium">
+                                <a onclick="modalRegistros({{ $escuela->id }})" title="DETALLES" class="button is-primary is-outlined is-medium">
                                     <span class="icon is-small">
                                         <i class="fas fa-th-list"></i>
                                     </span>
                                 </a>
                             </div>
                             <div class="column">
-                                <a onclick="launchModal('#modalCodigo', {{ $escuela->id }})" class="button is-primary is-outlined is-medium">
+                                <a onclick="launchModal('#modalCodigo', {{ $escuela->id }})" title="GENERAR CÓDIGOS" class="button is-primary is-outlined is-medium">
                                     <span class="icon is-small">
                                         <i class="fas fa-qrcode"></i>
                                     </span>
                                 </a>
                             </div>
                             <div class="column">
-                                <a href="{{ route('excelAlumnos', ['escuela' => $escuela->id]) }}" class="button is-primary is-outlined is-medium">
+                                <a href="{{ route('excelAlumnos', ['escuela' => $escuela->id]) }}" title="DESCARGAR EXCEL" class="button is-primary is-outlined is-medium">
                                     <span class="icon is-small">
                                         <i class="fas fa-file-excel"></i>
                                     </span>
                                 </a>
                             </div>
                             <div class="column">
-                                <a onclick="sendEmail('{{ $escuela->email }}', '{{ $escuela->password}}')" id="{{ $escuela->password}}" class="button is-primary is-outlined is-medium">
+                                <a onclick="sendEmail('{{ $escuela->email }}', '{{ $escuela->password}}')" id="{{ $escuela->password}}" title="ENVIAR MAIL" class="button is-primary is-outlined is-medium">
                                     <span class="icon is-small">
                                         <i class="fas fa-envelope"></i>
                                     </span>

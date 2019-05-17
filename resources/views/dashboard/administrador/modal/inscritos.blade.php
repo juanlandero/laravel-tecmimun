@@ -2,7 +2,15 @@
     <div class="modal-background" onclick="dismissModal('#alumnos')"></div>
     <div class="modal-content">
         <div class="box">
-            <table class="table is-fullwidth" id="comite-detail">
+            <div class="columns is-hidden-desktop is-hidden-tablet">
+                <div class="column has-text-centered">
+                    <strong><span class="comite_nombre" ></span></strong>
+                </div>
+            </div>
+            <div style="position: absolute; left: 32%; top: 33px; width: 65%;" class="has-text-centered is-hidden-mobile">
+                <strong><span class="comite_nombre" ></span></strong>
+            </div>
+            <table class="table is-fullwidth" id="comite-detail" style="font-size: 15px;">
                 
             </table>
         </div>

@@ -28,8 +28,7 @@
 <ul class="ch-grid">
     @foreach ($comites as $comite)
     <li>
-        <div class="ch-item" style="background-color: {{ $comite->color }}">
-            <h1 class="title no_selection has-text-white is-size-4-desktop is-size-4-tablet is-size-4-mobile" style="position: absolute;margin-top:70px;width: 85%; margin-left:7.5%; text-align: center">{{ $comite->nombre }}</h1>
+        <div class="ch-item" style="background-image: url({{ asset('img/comites/'.$comite->color.'.png') }})">
             <div class="ch-info">
                 <div class="is-hidden-mobile"><br></div><br>
                 <div style="width: 80%; margin: auto">

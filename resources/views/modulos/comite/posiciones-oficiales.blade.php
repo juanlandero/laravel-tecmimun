@@ -5,7 +5,7 @@
 @section('body')
     
     @section('contenido-navbar')
-        <img src="{{ asset('img/portadas/posiciones_oficiales.jpg') }}" alt="" class="" >
+        <img src="{{ asset('img/portadas/posiciones_oficiales.jpg') }}" >
     @endsection
 
 <section class="section">

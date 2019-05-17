@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="{{ asset('img/logo/icono.png') }}" type="image/x-icon">
-    <title>@yield('titulo')</title>
+    <title>Tecmimun | @yield('titulo')</title>
 
     <link rel="stylesheet" href="{{ asset('css/bulma.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icon/all.css') }}">
@@ -16,7 +16,7 @@
 </head>
 <body>
     <section class="hero ">
-        <div style="position:absolute; right: 5%; top:25px; color: brown" class="has-text-green">
+        <div style="position:absolute; right: 5%; top:25px; z-index: 100;">
             @include('modulos.plantilla.navbar')
         </div>
         @section('contenido-navbar')

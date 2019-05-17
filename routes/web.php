@@ -28,7 +28,6 @@ Route::group([ 'prefix' => 'registro' ], function () {
     Route::get('/costos', 'RegistroController@costos')->name('modulo.costos');
 });
 
-
 Route::group([ 'prefix' => 'comites' ], function () {
     
     Route::get('/', 'ComiteController@index')->name('index.comites');
@@ -57,7 +56,6 @@ Route::group([  'middleware' => ['admin'],
     Route::post('/comite/new', 'AdminController@savecomite')->name('save.comite');
     Route::get('/comite/delete', 'AdminController@deletecomite')->name('delete.comite');
 
-
     Route::get('/escuela', 'AdminController@escuela')->name('admin.escuela');
     Route::post('/escuela/new', 'AdminController@saveescuela')->name('save.escuela');
     Route::get('/escuela/delete', 'AdminController@deleteescuela');
@@ -67,10 +65,14 @@ Route::group([  'middleware' => ['admin'],
     Route::get('/escuela/download', 'AdminController@getExcelEscuelas')->name('excelAlumnos');
     Route::get('/escuela/sendMail', 'AdminController@sendEmail');
 
-
     Route::get('/paisComite', 'AdminController@paiscomite');
     Route::post('/paisComite/new', 'AdminController@savepaiscomite')->name('save.paiscomite');
     Route::get('/paisComite/delete', 'AdminController@deletepaiscomite');
+
+    Route::get('/acciones', 'AdminController@detalleComite')->name('admin.acciones');
+    Route::post('/acciones/tablaAcciones', 'AdminController@tablaAcciones');
+    Route::get('/acciones/selectOne', 'AdminController@selectOne');
+    Route::get('/acciones/nuevo-codigo', 'AdminController@nuevoCodigo');
 
     Route::get('/setComite', 'AdminController@setSession');
 });

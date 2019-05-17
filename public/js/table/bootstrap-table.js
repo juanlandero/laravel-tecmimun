@@ -693,22 +693,22 @@
     var LOCALES = {};
     LOCALES['en-US'] = LOCALES.en = {
       formatLoadingMessage: function formatLoadingMessage() {
-        return 'Loading, please wait';
+        return 'Cargando...';
       },
       formatRecordsPerPage: function formatRecordsPerPage(pageNumber) {
-        return pageNumber + ' rows per page';
+        return pageNumber + ' filas por página';
       },
       formatShowingRows: function formatShowingRows(pageFrom, pageTo, totalRows) {
-        return 'Showing ' + pageFrom + ' to ' + pageTo + ' of ' + totalRows + ' rows';
+        return 'Mostrando ' + pageFrom + ' a ' + pageTo + ' de ' + totalRows + ' filas';
       },
       formatDetailPagination: function formatDetailPagination(totalRows) {
-        return 'Showing ' + totalRows + ' rows';
+        return 'Mostrando ' + totalRows + ' filas';
       },
       formatSearch: function formatSearch() {
-        return 'Search';
+        return 'Buscar';
       },
       formatNoMatches: function formatNoMatches() {
-        return 'No matching records found';
+        return 'No se encontraron registros';
       },
       formatPaginationSwitch: function formatPaginationSwitch() {
         return 'Hide/Show pagination';

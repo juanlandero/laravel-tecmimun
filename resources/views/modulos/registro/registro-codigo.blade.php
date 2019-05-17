@@ -6,7 +6,7 @@
 
 <section class="section" style="height: 100%">
         <div class="container" style="height: 100%" >
-    
+
             <div class="columns is-mobile is-multiline is-centered is-vcentered" style="height: 100%">
     
                 <div class="column is-12-mobile has-text-centered is-marginless">

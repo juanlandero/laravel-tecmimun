@@ -38,7 +38,6 @@ class RegistroController extends Controller
     }
 
 
-
     public function registrarCodigo(){
         return view('modulos.registro.registro-codigo');
     }
@@ -101,8 +100,6 @@ class RegistroController extends Controller
         
     }
 
-
-
     public function guardarAlumno(Request $request){
         $codigo = $request->input('codigo');
 
@@ -138,18 +135,16 @@ class RegistroController extends Controller
             
             $id = $request->input('id');
 
-            DB::table('alumnos')
-                ->where([
+            $query_update = Alumno::where([
                     ['codigo', $codigo],
                     ['id', $id]
                 ])
-                ->update(
-                    [
-                        'nombre'        =>  $request->input('nombre'),
-                        'edad'          =>  $request->input('edad'),
-                        'mail'          =>  $request->input('email')
-                    ]
-                );
+                ->first();
+
+            $query_update->nombre   =   $request->input('nombre');
+            $query_update->edad     =   $request->input('edad');
+            $query_update->mail     =   $request->input('email');
+            $query_update->save();
         }
 
         $alumno = DB::table('alumnos')
@@ -170,12 +165,12 @@ class RegistroController extends Controller
             ->where('alumnos.codigo', $codigo)
             ->first();
 
-
         return view('modulos.registro.confirmacion', ['alumno'=>$alumno]);
     }
 
     public function sendMail(Request $r){
         $codigo = $r->input('codigo');
+
         $alumno = DB::table('alumnos')
             ->join('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
             ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
@@ -193,11 +188,22 @@ class RegistroController extends Controller
                 )
             ->where('alumnos.codigo', $codigo)
             ->first();
+        
+        try {
+            Mail::to($r->input('email'))->send(new Alumnos($alumno));
+            $status = "success";
+            $texto = "Se ha enviado el e-mail";
+        } catch (\Throwable $th) {
+            $status = "danger";
+            $texto = "Error al enviar el e-mail";
+        }
 
-
-       Mail::to($r->input('email'))->send(new Alumnos($alumno));
-                
-        return redirect()->route('index');
+        
+        if ($r->isAdmin) {
+            return [ 'status' => $status, 'texto' => $texto ];
+        }else{
+            return redirect()->route('index');
+        }
     }
 
     public function costos(){

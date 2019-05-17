@@ -38,6 +38,12 @@
 
 @endsection
 
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/ui-kit.css') }}">
+@endsection
+
 @section('scripts')
+    <script src="{{ asset('js/slider-uikit/uikit.js') }}"></script>
     <script src="{{ asset('js/dashboard/dash-busqueda.js') }}"></script>
 @endsection

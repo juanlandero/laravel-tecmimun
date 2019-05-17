@@ -9,8 +9,7 @@
     </div>
     <div uk-slider="center: true; finite:true" style="height: 100%;" class="is-gradient-blue">
         <div class="uk-slider-container" style="height: 100%">
-
-                
+     
             <ul class="uk-slider-items" style="height: 100%">
                 
                 <li style="width: 100%">

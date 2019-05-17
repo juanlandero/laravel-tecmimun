@@ -22,8 +22,9 @@ function modalRegistros(comite){
             $('#bodyt').html('<td colspan="6" class="has-text-centered subtitle is-5">'+dato.texto+'</td>');
             $('#alumnos').addClass('is-active'); 
         }else{
+            $('.comite_nombre').html(dato.comite)
             $('#comite-detail').bootstrapTable({
-                data: dato,
+                data: dato.paises,
                 pagination: true,
                 search: true,
                 columns: [{
@@ -42,9 +43,6 @@ function modalRegistros(comite){
                   }, {
                     field: 'escuela',
                     title: 'ESCUELA'
-                  }, {
-                    field: 'comite',
-                    title: 'COMITÉ'
                   }, ]
             });
         

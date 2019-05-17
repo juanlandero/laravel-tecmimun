@@ -83,7 +83,7 @@
 
             <div class="column is-3 has-text-centered">
                 <img style="border-radius: 10px;" src="{{ asset('img/secretariado/3.jpg') }}" alt="">
-                <strong>Secretario Adjunto</strong>
+                <strong>Secretario General Adjunto</strong>
                 <p>Alfredo Adriel Ocampo Hernández</p>
             </div>
 
@@ -115,7 +115,7 @@
 
             <div class="column is-3 has-text-centered">
                 <img style="border-radius: 10px;" src="{{ asset('img/secretariado/8.jpg') }}" alt="">
-                <strong>Equipo de Diseño</strong>
+                <strong>Diseño de Interiores</strong>
                 <p>María Fernanda Domínguez Feria</p>
                 <p>Irving del Carmen Arias González</p>
             </div>

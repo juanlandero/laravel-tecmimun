@@ -87,11 +87,11 @@ class AdminController extends Controller
             switch ($clave) {
                 case 'a.':
                     $query = DB::select('SELECT 
-                                    alumnos.id,
-                                    alumnos.nombre AS alumno,
-                                    alumnos.mail,
-                                    alumnos.codigo,
-                                    escuelas.nombre AS escuela
+                        alumnos.id,
+                        alumnos.nombre AS alumno,
+                        alumnos.mail,
+                        alumnos.codigo,
+                        escuelas.nombre AS escuela
                     FROM alumnos
                     LEFT JOIN paiscomites ON alumnos.pk_inscripcion = paiscomites.id
                     LEFT JOIN pais ON paiscomites.pk_pais = pais.id
@@ -99,31 +99,53 @@ class AdminController extends Controller
                     LEFT JOIN escuelas ON alumnos.pk_escuelas = escuelas.id
                     WHERE alumnos.nombre LIKE ?', [$dato_string]);
 
+                    $array_query = [];
+
+                    foreach ($query as $value) {
+
+                        $funcion = "sendMailAdmin('".$value->mail."', '".$value->codigo."', '#".$value->id."')";
+
+                        $boton ="";
+                        if ($value->mail != "") {
+                            $boton = '<a onclick="'.$funcion.'" id="'.$value->id.'" class="button is-success is-outlined"><i class="fas fa-envelope"></i></a>';
+                        }
+
+                       $array_query [] = [
+                            'id' => $value->id,
+                            'alumno' => $value->alumno,
+                            'mail' =>$value->mail,
+                            'codigo' => $value->codigo,
+                            'escuela' => $value->escuela,
+                            'boton' => $boton
+                       ];
+                    }
+
+                    $query = $array_query;
+
                     if ($query == []) {
                         $return = false;
                         $query = [ array( 'texto' => 'No existen alumnos registrados con el nombre: '.$dato ) ];
-                        $columna = [
-                            array( 'field' => 'texto', 'title' => 'RESULTADO','align' => 'center' )
-                        ];
+                        $columna = [ array( 'field' => 'texto', 'title' => 'RESULTADO','align' => 'center' ) ];
                     }else{
                         $columna = [
                             array( 'field' => 'id', 'title' => 'ID','align' => 'center' ),
                             array( 'field' => 'alumno','title' => 'ALUMNO' ),
                             array( 'field' => 'mail','title' => 'E-MAIL' ),
                             array( 'field' => 'codigo','title' => 'CÓDIGO','align' => 'center' ),
-                            array( 'field' => 'escuela','title' => 'ESCUELA' )
+                            array( 'field' => 'escuela','title' => 'ESCUELA' ),
+                            array( 'field' => 'boton','title' => 'MAIL', 'align' => 'center' )
                         ];
                     }
                     break;
                 
                 case 'e.':
                     $query = DB::select('SELECT 
-                                        escuelas.id,
-                                        escuelas.nombre,
-                                        escuelas.responsable,
-                                        escuelas.email,
-                                        escuelas.password,
-                                        COUNT(alumnos.nombre) AS total
+                            escuelas.id,
+                            escuelas.nombre,
+                            escuelas.responsable,
+                            escuelas.email,
+                            escuelas.password,
+                            COUNT(alumnos.nombre) AS total
                         FROM escuelas
                         LEFT JOIN alumnos ON escuelas.id = alumnos.pk_escuelas
                         WHERE escuelas.nombre LIKE ? OR escuelas.responsable LIKE ?
@@ -139,7 +161,7 @@ class AdminController extends Controller
                         $columna = [
                             array( 'field' => 'id','title' => 'ID', 'align' => 'center' ),
                             array( 'field' => 'nombre','title' => 'ESCUELA' ),
-                            array( 'field' => 'responsable','title' => 'TUTOR' ),
+                            array( 'field' => 'responsable','title' => 'ADVISOR' ),
                             array( 'field' => 'email','title' => 'E-MAIL' ),
                             array( 'field' => 'password','title' => 'PWD' ),
                             array( 'field' => 'total','title' => '# ALUMNOS', 'align' => 'center' )
@@ -378,22 +400,23 @@ class AdminController extends Controller
         $id_comite = $request->input('comite');
         
         $paises = DB::table('paiscomites')
-                    ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
-                    ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-                    ->leftJoin('alumnos', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
-                    ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
-                    ->select('paiscomites.id',
-                            'alumnos.nombre AS alumno',
-                            'alumnos.codigo',
-                            'pais.nombre AS pais',
-                            'escuelas.nombre AS escuela',
-                            'comites.nombre AS comite')
-                    ->where('paiscomites.pk_comite', $id_comite)
-                    ->orderBy('pais.nombre', 'asc')
-                    ->get();
+            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+            ->leftJoin('alumnos', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+            ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+            ->select('paiscomites.id',
+                    'alumnos.nombre AS alumno',
+                    'alumnos.codigo',
+                    'pais.nombre AS pais',
+                    'escuelas.nombre AS escuela')
+            ->where('paiscomites.pk_comite', $id_comite)
+            ->orderBy('pais.nombre', 'asc')
+            ->get();
+
+    
+        $comite = Comite::where('id', $id_comite)->first();
 
         if ($paises->count() != 0) {
-            return json_encode($paises);
+            return ['paises' => $paises, 'comite' => $comite->nombre];
         }else{
             return [
                 'resultado'=>false,
@@ -525,22 +548,27 @@ class AdminController extends Controller
         $id = $request->input('comite');
 
         $paises = DB::table('alumnos')
-                    ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
-                    ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
-                    ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
-                    ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
-                    ->select('alumnos.id',
-                            'alumnos.nombre AS alumno',
-                            'alumnos.codigo',
-                            'pais.nombre AS pais',
-                            'escuelas.nombre AS escuela',
-                            'comites.nombre AS comite')
-                    ->where('alumnos.pk_escuelas', $id)
-                    ->orderBy('pais.nombre', 'asc')
-                    ->get();
+            ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+            ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+            ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+            ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+            ->select('alumnos.id',
+                    'alumnos.nombre AS alumno',
+                    'alumnos.codigo',
+                    'pais.nombre AS pais',
+                    'escuelas.nombre AS escuela',
+                    'comites.nombre AS comite')
+            ->where('alumnos.pk_escuelas', $id)
+            ->orderBy('pais.nombre', 'asc')
+            ->get();
+
+        $escuela_nombre = $paises[0]->escuela;
 
         if ($paises->count() != 0) {
-            return json_encode($paises);
+            return [
+                'paises' => $paises,
+                'escuela' => $escuela_nombre 
+            ];
         }else{
             return [
                 'resultado'=>false,
@@ -680,6 +708,231 @@ class AdminController extends Controller
             return ['return' => false, 'text' => 'No puede eliminar los paises porque ya existen '.$query.' alumnos registrados'];
         }
     }
+
+
+    /**
+     *  Acciones
+     */
+     public function detalleComite(){
+        return view('dashboard.administrador.dash-acciones');
+    }
+
+    public function selectOne(Request $r){
+        $accion = $r->input('accion');
+
+        switch ($accion) {
+            case 1:
+                $comites = Comite::all();
+                $a_comites = "<option>Selecciona un comité</option>";
+
+                foreach ($comites as $c) {
+                    $a_comites .= '<option value="'.$c->id.'">'.$c->nombre.'</option>';
+                }
+
+                return ['option' => $a_comites];
+            break;
+
+
+            case 2:
+                $escuelas = Escuela::all();
+                $a_escuelas = "<option>Selecciona una escuela</option>";
+
+                foreach ($escuelas as $e) {
+                    $a_escuelas .= '<option value="'.$e->id.'">'.$e->nombre.'</option>';
+                }
+                return ['option' => $a_escuelas];
+            break;
+
+            case 3:
+                $todos = "<option value='1'>Sólo registros completos</option>";
+                return ['option' => $todos];
+                break;
+        }
+    }
+
+    public function tablaAcciones(Request $r){
+        $modo   =   $r->input('modo');
+        $opcion =   $r->input('opcion');
+
+        $array_acciones = [];
+        $eliminar       = '';
+        $codigo         = '';
+        $div_codigo     = '';
+
+        switch ($modo) {
+            case 1:
+                $paises = DB::table('paiscomites')
+                    ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+                    ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+                    ->leftJoin('alumnos', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+                    ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+                    ->select('alumnos.id',
+                            'alumnos.nombre AS alumno',
+                            'alumnos.codigo',
+                            'pais.nombre AS pais',
+                            'comites.nombre AS comite',
+                            'escuelas.nombre AS escuela')
+                    ->where('paiscomites.pk_comite', $opcion)
+                    ->orderBy('pais.nombre', 'asc')
+                    ->get();
+
+                $nombre = $paises[0]->comite;
+
+                foreach ($paises as $pais) {
+                    $eliminar       =   '<a class="button is-white" title="ELIMINAR" ><i class="fas fa-eraser"></i></a>'; 
+                    $editar         =   '<a class="button is-white" title="EDITAR" ><i class="fas fa-edit"></i></a>';
+                    $div_codigo     =   '<div id="'.$pais->id.'">'.$pais->codigo.'</div>';
+
+
+                    if ($pais->codigo != null && $pais->escuela != null) {
+                        $codigo = '<a class="button is-white" title="NUEVO"  onclick="nuevoCodigo('.$pais->id.')"><i class="fas fa-key"></i></a>';
+                    }else{
+                        $codigo = '';
+                    }
+
+                    $array_acciones [] = [
+                        'alumno'        =>  $pais->alumno,
+                        'codigo'        =>  $div_codigo,
+                        'pais'          =>  $pais->pais,
+                        'escuela'       =>  $pais->escuela,
+                        'editar'        =>  $editar,
+                        'nuevo_codigo'  =>  $codigo,
+                        'eliminar'      =>  $eliminar
+                    ];
+                }
+                
+                $columna = [
+                    array( 'field' => 'alumno', 'title' => 'ALUMNO','align' => 'center' ),
+                    array( 'field' => 'codigo','title' => 'CODIGO' ),
+                    array( 'field' => 'pais','title' => 'PAÍS' ),
+                    array( 'field' => 'escuela','title' => 'ESCUELA','align' => 'center' ),
+                    array( 'field' => 'nuevo_codigo','title' => 'CODIGO', 'align' => 'center' ),
+                    array( 'field' => 'editar','title' => 'EDITAR', 'align' => 'center' ),
+                    array( 'field' => 'eliminar','title' => 'ELIMINAR', 'align' => 'center' )
+                ];
+
+                return ['paises' => $array_acciones, 'columnas' => $columna, 'nombre' => $nombre];
+
+            break;
+
+            case 2:
+                $paises         = DB::table('alumnos')
+                    ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+                    ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+                    ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+                    ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+                    ->select('alumnos.id',
+                            'alumnos.nombre AS alumno',
+                            'alumnos.codigo',
+                            'pais.nombre AS pais',
+                            'escuelas.nombre AS escuela',
+                            'comites.nombre AS comite')
+                    ->where('alumnos.pk_escuelas', $opcion)
+                    ->orderBy('pais.nombre', 'asc')
+                    ->get();
+                $nombre         = $paises[0]->escuela;
+
+                foreach ($paises as $pais) {
+                    $eliminar   =   '<a class="button is-white" title="ELIMINAR" ><i class="fas fa-eraser"></i></a>'; 
+                    $editar     =   '<a class="button is-white" title="EDITAR" ><i class="fas fa-edit"></i></a>';
+                    $div_codigo     = '<div id="'.$pais->id.'">'.$pais->codigo.'</div>';
+
+                    if ($pais->codigo != null && $pais->escuela != null) {
+                        $codigo = '<a class="button is-white" title="NUEVO" onclick="nuevoCodigo('.$pais->id.')"><i class="fas fa-key"></i></a>';
+                    }else{
+                        $codigo = '';
+                    }
+
+                    $array_acciones [] = [
+                        'alumno'        =>  $pais->alumno,
+                        'codigo'        =>  $div_codigo,
+                        'pais'          =>  $pais->pais,
+                        'comite'       =>  $pais->comite,
+                        'editar'        =>  $editar,
+                        'nuevo_codigo'  =>  $codigo,
+                        'eliminar'      =>  $eliminar
+                    ];
+                }
+                
+                $columna = [
+                    array( 'field' => 'alumno', 'title' => 'ALUMNO','align' => 'center' ),
+                    array( 'field' => 'codigo','title' => 'CODIGO' ),
+                    array( 'field' => 'pais','title' => 'PAÍS' ),
+                    array( 'field' => 'comite','title' => 'COMITÉ','align' => 'center' ),
+                    array( 'field' => 'nuevo_codigo','title' => 'CODIGO', 'align' => 'center' ),
+                    array( 'field' => 'editar','title' => 'EDITAR', 'align' => 'center' ),
+                    array( 'field' => 'eliminar','title' => 'ELIMINAR', 'align' => 'center' )
+                ];
+
+                return ['paises' => $array_acciones, 'columnas' => $columna, 'nombre' => $nombre];
+            break;
+
+            case 3:
+                $paises         = DB::table('alumnos')
+                    ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+                    ->join('comites', 'paiscomites.pk_comite', '=', 'comites.id')
+                    ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
+                    ->leftJoin('escuelas', 'escuelas.id', '=', 'alumnos.pk_escuelas')
+                    ->select('alumnos.id',
+                            'alumnos.nombre AS alumno',
+                            'alumnos.codigo',
+                            'pais.nombre AS pais',
+                            'escuelas.nombre AS escuela',
+                            'comites.nombre AS comite')
+                    ->orderBy('id', 'asc')
+                    ->get();
+                $nombre         = $paises[0]->escuela;
+                
+                foreach ($paises as $pais) {
+                    $eliminar   =   '<a class="button is-white" title="ELIMINAR" ><i class="fas fa-eraser"></i></a>'; 
+                    $editar     =   '<a class="button is-white" title="EDITAR" ><i class="fas fa-edit"></i></a>';
+                    $div_codigo     = '<div id="'.$pais->id.'">'.$pais->codigo.'</div>';
+
+
+                    if ($pais->codigo != null && $pais->escuela != null) {
+                        $codigo = '<a class="button is-white" title="NUEVO" onclick="nuevoCodigo('.$pais->id.')"><i class="fas fa-key"></i></a>';
+                    }else{
+                        $codigo = '';
+                    }
+
+                    $array_acciones [] = [
+                        'alumno'        =>  $pais->alumno,
+                        'codigo'        =>  $div_codigo,
+                        'pais'          =>  $pais->pais,
+                        'comite'       =>  $pais->comite,
+                        'editar'        =>  $editar,
+                        'nuevo_codigo'  =>  $codigo,
+                        'eliminar'      =>  $eliminar
+                    ];
+                }
+                
+                $columna = [
+                    array( 'field' => 'alumno', 'title' => 'ALUMNO','align' => 'center' ),
+                    array( 'field' => 'codigo','title' => 'CODIGO' ),
+                    array( 'field' => 'pais','title' => 'PAÍS' ),
+                    array( 'field' => 'comite','title' => 'COMITÉ','align' => 'center' ),
+                    array( 'field' => 'nuevo_codigo','title' => 'CÓDIGO', 'align' => 'center' ),
+                    array( 'field' => 'editar','title' => 'EDITAR', 'align' => 'center' ),
+                    array( 'field' => 'eliminar','title' => 'ELIMINAR', 'align' => 'center' )
+                ];
+
+                return ['paises' => $array_acciones, 'columnas' => $columna, 'nombre' => $nombre];
+            break;
+        }
+    }
+
+    public function nuevoCodigo(Request $r){
+        $id = $r->input('id_alumno');
+        $nuevo_codigo = str_random(5);
+
+        while (Alumno::where('codigo', $nuevo_codigo)->first()) {
+            $nuevo_codigo = str_random(5);
+        }
+               
+        Alumno::where('id', $id)->update(['codigo' => $nuevo_codigo]);
+        
+        return ['codigo' => $nuevo_codigo, 'id_codigo' => $id];
+    }    
 
 
     /**

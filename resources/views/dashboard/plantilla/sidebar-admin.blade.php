@@ -18,3 +18,8 @@
         <i class="fas fa-lg fa-graduation-cap"></i>
     </span>                
 </a>
+<a class="aside-item" title="Acciones" href="{{ route('admin.acciones') }}">
+    <span class="icon is-large">
+        <i class="fas fa-lg fa-cog"></i>
+    </span>                
+</a>

@@ -40,10 +40,8 @@ $(document).ready(function(){
 
     var tiempo;
     
-    var n = 0;
-    var l = document.getElementById("numero");
+    var n = 1;
     tiempo= window.setInterval(function(){
-        l.innerHTML = n;
         n++;
         document.onclick = function(){
             n =0;
@@ -75,11 +73,23 @@ function toggleModal(id_modal){
 
 
 var quotes = [
-    "México",
-    "España",
-    "Venezuela",
-    "Estados Unidos",
-    "Republica de Korea"
+    "Estados Unidos Mexicanos",
+    "Republic of Korea",
+    "Rumania",
+    "Arab Republic of Egypt",
+    "República Popular de China",
+    "República Argentina",
+    "Estados Unidos de América",
+    "Belice",
+    "Estado de Japón",
+    "República de Panamá",
+    "Russian Federation",
+    "Republic of Turkey",
+    "República Italiana",
+    "Jamaica",
+    "Nueva Zelanda",
+    "Antigua y Barbuda",
+    "Canada"
 ];
 
 var index = 0;
