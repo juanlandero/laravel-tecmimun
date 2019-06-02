@@ -15,7 +15,7 @@
         </div>
         <br><br>
         <div class="container">
-            <div uk-countdown="date: 2019-05-24T08:00:00" class="columns is-centered is-mobile">
+            <div uk-countdown="date: 2019-05-24T13:30:00" class="columns is-centered is-mobile">
                 <div class="column is-2-desktop is-4-mobile has-text-centered">
                     <span class="box box-clock title is-size-1-desktop uk-countdown-number uk-countdown-days"></span>
                     <p class="heading has-text-success">Días</p>

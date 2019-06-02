@@ -24,6 +24,9 @@ $(document).ready(function(){
 
                 $('#codigo').val('');
 
+                var div = document.getElementById("bandera");
+                div.style.backgroundImage = "url('../img/banderas/"+dato.bandera+".png')";
+
             }else{
                 UIkit.notification({
                     message: '<i class="fas fa-sad-cry"></i> El código no existe.',

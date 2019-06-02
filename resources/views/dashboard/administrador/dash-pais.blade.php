@@ -50,22 +50,22 @@
                 <p>IMPORTAR PAÍSES</p>
             </div>
             <div class="message-body has-text-centered">
-                    <form action="{{ route('ImportarXlsx') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        
-                        <div class="file has-name is-boxed is-fullwidth">
-                            <label class="file-label">
-                                <input class="file-input" type="file" name="archivo_xlsx" id="file" required>
-                                <span class="file-cta">
-                                    <span class="file-icon"><i class="fas fa-file-excel"></i></span>
-                                    <span class="file-label">Examinar</span>
-                                </span>
-                                <span class="file-name" id="filename"></span>
-                            </label>
-                        </div>
-                        <br>
-                        <button class="button is-success is-rounded is-outlined" type="submit">Cargar</button>
-                    </form>
+                <form action="{{ route('ImportarXlsx') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    
+                    <div class="file has-name is-boxed is-fullwidth">
+                        <label class="file-label">
+                            <input class="file-input" type="file" name="archivo_xlsx" id="file" required>
+                            <span class="file-cta">
+                                <span class="file-icon"><i class="fas fa-file-excel"></i></span>
+                                <span class="file-label">Examinar</span>
+                            </span>
+                            <span class="file-name" id="filename"></span>
+                        </label>
+                    </div>
+                    <br>
+                    <button class="button is-success is-rounded is-outlined" type="submit">Cargar</button>
+                </form>
             </div>
         </article>
     </div>

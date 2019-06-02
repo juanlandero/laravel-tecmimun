@@ -1,6 +1,6 @@
 @extends('dashboard.plantilla.main-admin')
 
-@section('titulo', 'Pais')
+@section('titulo', 'Búsqueda')
 
 @section('contenido')
 

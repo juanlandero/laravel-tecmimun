@@ -28,36 +28,81 @@
                     <div class="columns">
                         <div class="column is-6">
                             <div class="columns is-centered">
-                                <div class="column is-10">
-                                    <img src="{{ asset('img/patrocinadores/1.jpeg') }}">
+                                <div class="column is-8">
+                                    <img src="{{ asset('img/patrocinadores/1.png') }}">
                                 </div>
                             </div>
                             <div class="columns is-centered">
-                                <div class="column is-10">
-                                    <img src="{{ asset('img/patrocinadores/2.jpeg') }}">
+                                <div class="column is-7">
+                                    <img src="{{ asset('img/patrocinadores/2.jpg') }}">
                                 </div>
                             </div>
+                            <br>
                             <div class="columns is-centered">
                                 <div class="column is-10">
-                                    <img src="{{ asset('img/patrocinadores/3.jpeg') }}">
+                                    <img src="{{ asset('img/patrocinadores/3.png') }}">
                                 </div>
                             </div>
+                            <br>
+
+                            <div class="columns is-centered">
+                                <div class="column is-10">
+                                    <img src="{{ asset('img/patrocinadores/8.jpeg') }}">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="columns is-centered">
+                                
+                                <div class="column is-10 box">
+
+                                    <div class="columns" style="background-color: ">
+                                        <div class="column is-8">
+                                            <p class="title" style="color: #09bcd1">Juan Carlos Landero Isidro</p>
+                                            <p class="subtitle is-size-6-desktop">Desarrollador web</p>
+                                        </div>
+                                        <div class="column has-text-centered is-4" style="background-color: #09bcd1">
+                                            <br><a href="mailto:jc_l23@hotmail.com" class="has-text-white"><i class="fas fa-envelope fa-3x"></i></a>
+                                            <p class="subtitle is-size-7-desktop has-text-white"></p>
+
+                                        </div>
+                                    </div>
+                                    <div class="columns" style="background-color: ">
+                                        <div class="column has-text-centered is-12" style="background-color: #636767">
+                                            <p class="subtitle is-size-7-desktop has-text-white">
+                                                jc_l23@hotmail.com   <i class="fas fa-code is-hidden-mobile" style="margin: 0 10px;"></i>   jcarlos210193@gmail.com
+                                            </p>
+                                        </div>                                            
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br>
                         </div>
 
                         <div class="column is-6">
                             <div class="columns is-centered">
-                                <div class="column is-10">
+                                <div class="column is-8">
                                     <img src="{{ asset('img/patrocinadores/4.jpeg') }}">
                                 </div>
                             </div>
                             <div class="columns is-centered">
-                                <div class="column is-10">
+                                <div class="column is-7">
                                     <img src="{{ asset('img/patrocinadores/5.jpeg') }}">
                                 </div>
                             </div>
                             <div class="columns is-centered">
-                                <div class="column is-10">
+                                <div class="column is-8">
                                     <img src="{{ asset('img/patrocinadores/6.jpeg') }}">
+                                </div>
+                            </div>
+                            <div class="columns is-centered">
+                                <div class="column is-7">
+                                    <img src="{{ asset('img/patrocinadores/7.jpeg') }}">
+                                </div>
+                            </div>
+                            <div class="columns is-centered">
+                                <div class="column is-12">
+                                    <img src="{{ asset('img/patrocinadores/10.png') }}">
                                 </div>
                             </div>
                         </div>

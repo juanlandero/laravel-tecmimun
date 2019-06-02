@@ -41,6 +41,9 @@ function modalRegistros(comite){
                     field: 'pais',
                     title: 'PAÍS'
                   }, {
+                    field: 'bandera',
+                    title: 'BANDERA'
+                  }, {
                     field: 'escuela',
                     title: 'ESCUELA'
                   }, ]

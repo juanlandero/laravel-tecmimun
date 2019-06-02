@@ -33,8 +33,9 @@ class DashboardController extends Controller
         $comite = session('key_comite');
 
         $verificacion = DB::table('alumnos')
-                        ->select('alumnos.id as alumno')
+                        ->select('alumnos.id as alumno', 'paiscomites.bandera')
                         ->join('paiscomites', 'alumnos.pk_inscripcion', '=', 'paiscomites.id')
+                        ->join('pais', 'paiscomites.pk_pais', '=', 'pais.id')
                         ->where([
                             ['alumnos.codigo', $codigo],
                             ['alumnos.recepcionado', 0],
@@ -44,15 +45,12 @@ class DashboardController extends Controller
 
         if ($verificacion != null) {
 
-            $d= date("Y-m-d H:i:s");
-            $d = str_replace('("Y-m-d H:i:s")', " ", $d);
-
             $a = Alumno::where('id', $verificacion->alumno)->first();
 
             $a->recepcionado = 1;
             $a->save();
             
-            return ['estado' => true, 'Text' => 'Si se encontro a la persona'];
+            return ['estado' => true, 'Text' => 'Si se encontro a la persona', 'bandera' => $verificacion->bandera];
         }else{
             return ['estado' => false, 'Text' => 'No existe el codigo'];
         }

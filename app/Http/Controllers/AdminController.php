@@ -407,16 +407,31 @@ class AdminController extends Controller
                     'alumnos.nombre AS alumno',
                     'alumnos.codigo',
                     'pais.nombre AS pais',
+                    'paiscomites.bandera',
                     'escuelas.nombre AS escuela')
             ->where('paiscomites.pk_comite', $id_comite)
             ->orderBy('pais.nombre', 'asc')
             ->get();
 
+        $arrayPaises = [];
+
+        foreach ($paises as $value) {
+            $arrayPaises [] = [
+                'id' => $value->id,
+                'alumno' => $value->alumno,
+                'codigo' => $value->codigo,
+                'pais' => $value->pais,
+                'bandera' => '<img src="../img/banderas/'.$value->bandera.'.png" style="height: 40px !important">',
+                'escuela' => $value->escuela
+            ];
+        }
+
+        
     
         $comite = Comite::where('id', $id_comite)->first();
 
         if ($paises->count() != 0) {
-            return ['paises' => $paises, 'comite' => $comite->nombre];
+            return ['paises' => $arrayPaises, 'comite' => $comite->nombre];
         }else{
             return [
                 'resultado'=>false,
