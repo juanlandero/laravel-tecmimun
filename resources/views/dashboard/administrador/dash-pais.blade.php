@@ -55,7 +55,7 @@
                     
                     <div class="file has-name is-boxed is-fullwidth">
                         <label class="file-label">
-                            <input class="file-input" type="file" name="archivo_xlsx" id="file" required>
+                            <input class="file-input" type="file" name="archivo" id="file" required>
                             <span class="file-cta">
                                 <span class="file-icon"><i class="fas fa-file-excel"></i></span>
                                 <span class="file-label">Examinar</span>
